@@ -15,10 +15,26 @@ angular.module('RedhatAccess.escalation').controller('EscalationRequest', [
         $scope.HeaderService = HeaderService;
         $scope.securityService = securityService;
         $scope.disableSendRequest = true;
+        $scope.isSubjectTextAreaHidden = true;
         $scope.ESCALATION_TYPE = ESCALATION_TYPE;
         $scope.partnerGeoList = ['NA','EMEA','LATAM','APAC'];
         $scope.iceGeoList = ['NA','EMEA','LATAM','APAC','Combo'];
+        $scope.subjectList = ['Product Issue',
+        'Integration Issue',
+        'Critical Customer Issue',
+        'Too Long to Resolve',
+        'Solution not Satisfactory',
+        'Support Staff not Helpful',
+        'Response Time Slow',
+        'Closed not Resolved',
+        'Customer needs to Speak to a Human',
+        'Other'];
 
+        $scope.checkForToggleSubjectTextArea = function(){
+            if(EscalationRequestService.subject === 'Other'){
+                $scope.isSubjectTextAreaHidden = false;
+            }
+        }
         $scope.submitEscalationRequest = function(escalationType) {
             var recordType = '';
             var emailCheck = true;
@@ -37,7 +53,7 @@ angular.module('RedhatAccess.escalation').controller('EscalationRequest', [
         };
         $scope.partnerMandatoryFieldCheck = function() {
             if (RHAUtils.isNotEmpty(EscalationRequestService.accountNumber) && RHAUtils.isNotEmpty(EscalationRequestService.caseNumber)
-                && RHAUtils.isNotEmpty(EscalationRequestService.geo) && RHAUtils.isNotEmpty(EscalationRequestService.issueDescription)) {
+                && RHAUtils.isNotEmpty(EscalationRequestService.geo) && RHAUtils.isNotEmpty(EscalationRequestService.issueDescription) && RHAUtils.isNotEmpty(EscalationRequestService.subject)) {
                 $scope.disableSendRequest = false;
             } else {
                 $scope.disableSendRequest = true;

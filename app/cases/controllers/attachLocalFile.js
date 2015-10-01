@@ -30,7 +30,8 @@ angular.module('RedhatAccess.cases').controller('AttachLocalFile', [
                 description: $scope.fileDescription,
                 fileObj: $scope.fileObj,
                 length: $scope.fileSize,
-                created_by: securityService.loginStatus.authedUser.loggedInUser,
+                created_by: securityService.loginStatus.authedUser.last_name+', '+securityService.loginStatus.authedUser.first_name,
+                last_modified_by: securityService.loginStatus.authedUser.last_name+', '+securityService.loginStatus.authedUser.first_name,
                 created_date:  RHAUtils.formatDate(createdDate, 'MMM DD YYYY'),
                 created_time:  RHAUtils.formatDate(createdDate, 'hh:mm A Z')
             });

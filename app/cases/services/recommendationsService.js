@@ -59,7 +59,7 @@ angular.module('RedhatAccess.cases').service('RecommendationsService', [
             }
         };
 
-        this.getRecommendations = function (refreshRecommendations, max) {
+        this.getRecommendations = function (refreshRecommendations, max, objectToDiagnose) {
             var self = this;
             if (NEW_CASE_CONFIG.showRecommendations) {
                 if(max === undefined){
@@ -67,17 +67,21 @@ angular.module('RedhatAccess.cases').service('RecommendationsService', [
                 }
                 var masterDeferred = $q.defer();
 
-                var newData = {
-                    product: CaseService.kase.product,
-                    version: CaseService.kase.version,
-                    summary: CaseService.kase.summary,
-                    description: CaseService.kase.description
-                };
+                var newData = objectToDiagnose;
+
+                if(!RHAUtils.isNotEmpty(objectToDiagnose)){
+                    newData = {
+                        product: CaseService.kase.product,
+                        version: CaseService.kase.version,
+                        summary: CaseService.kase.summary,
+                        description: CaseService.kase.description
+                    };
+                }
 
                 if ((newData.product !== undefined || newData.version !== undefined || newData.summary !== undefined || newData.description !== undefined || (!angular.equals(currentData, newData) && !this.loadingRecommendations))) {
                     this.loadingRecommendations = true;
-                    setCurrentData();
-                    strataService.recommendationsXmlHack(currentData, max, true, '%3Cstrong%3E%2C%3C%2Fstrong%3E').then(angular.bind(this, function (solutions) {
+                    currentData = newData
+                    strataService.recommendationsXmlHack(currentData, max, true, '%3Cspan%20class%3D%22recommendationsKeywords%22%3E%2C%3C%2Fspan%3E').then(angular.bind(this, function (solutions) {
                         //retrieve details for each solution
                         if(refreshRecommendations){
                             this.recommendations = [];

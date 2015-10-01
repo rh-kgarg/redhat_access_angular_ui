@@ -9,17 +9,99 @@
 		text-transform: none;
 	}
 
+	.discussion-element{
+		margin-top: 10px;
+	}
 	.comment {
 		textarea { min-height: 250px; }
-		& + .comment { @include rem('margin-top', $global-margin); }
-		.meta { @include rem('margin-bottom', $global-padding); }
+		& + .comment { @include rem('margin-top', 5px); }
+//		.meta { @include rem('margin-bottom', $global-padding); }
 		.comment { @include rem('padding-left', 28px); }
 		.private { color: red; }
 		blockquote { margin-bottom: 0; }
 	}
 
-	.tab-pane {
-		padding: 0;
+	.tab-pane { padding: 0; }
+
+	article {
+		position: relative;
+		@include rem('padding', $global-padding $global-margin);
+		border-top: 1px solid #D3D3D3;
+		border-bottom: 1px solid #D3D3D3;
+		border-left: 4px solid #ddd;
+		font-family: monospace;
+
+		i {
+			position: absolute;
+			left: -18px;
+			top: 14px;
+			width: 34px;
+			height: 34px;
+			background: #ddd;
+			@include font-size(18px);
+			line-height: 1.7;
+			color: #fff;
+			text-align: center;
+			@include border-radius(50%);
+		}
+
+		& + article { @include rem('margin-top', $global-margin); }
+	}
+
+	.article-comment {
+		background: #fff;
+		border-left-color: #0a89cf;
+
+		i { background-color: #0889cf; }
+		.meta { color: #0889cf; }
+	}
+
+	.article-private-comment {
+		background: #dae0e3;
+		border-left-color: #37424a;
+
+		i { background-color: #37424a; }
+		.meta { color: #37424a; }
+	}
+
+	.article-attachment {
+		background: #fff;
+		border-left-color: #0889cf;
+
+		i { background-color: #06bae2; }
+		.meta { color: #06bae2; }
+	}
+
+	.article-chat {
+		border-left-color: #1b6c36;
+
+		i { background-color: #24A552; }
+		.meta { color: #24A552; }
+	}
+
+	article {
+
+		h4 {
+			@include rem('margin-bottom', 4px);
+			text-transform: uppercase;
+			@include font-size(13px);
+			font-size: 13px;
+			line-height: 1;
+			font-weight: 700;
+		}
+	}
+
+	.byline {
+		font-family: 'Overpass';
+		font-weight: 700;
+		@include font-size(13px);
+		font-size: 13px;
+		line-height: 1;
+		@include rem('margin-bottom', 5px);
+	}
+
+	.article-private-comment, .article-comment, .article-attachment {
+//		display: none;
 	}
 
     .label {
@@ -30,4 +112,10 @@
         @include font-size(13px);
         color: $base_font_color;
     }
+
+    a.disabled {
+		pointer-events: none;
+		cursor: default;
+		color: #8d8d8d;
+	}
 }

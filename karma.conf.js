@@ -47,12 +47,10 @@ module.exports = function(config) {
             'bower_components/moment/moment.js',
             'bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js',
             '.tmp/templates/RedhatAccess.template.js',
+            'bower_components/redhat-access-angular-ui-common/dist/redhat_access_angular_ui_common.js',
             'app/**/*.module.js', //define all modules first!
-            'app/common/**/*.js',
-            'app/security/**/*.js',
             'app/search/**/*.js',
             'app/cases/**/*.js',
-            'app/ascension/**/*.js',
             'app/log_viewer/*.js',
             'test/mocks/**/*.js',
             'test/spec/**/*.js'
@@ -71,7 +69,7 @@ module.exports = function(config) {
         // generate js files from html templates
         preprocessors: {
             'app/cases/**/*.js': ['coverage'],
-            'app/ascension/**/*.js': ['coverage']
+            // 'app/ascension/**/*.js': ['coverage']
         },
 
         reporters: ['progress', 'coverage'],

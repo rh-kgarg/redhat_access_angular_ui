@@ -1,5 +1,0 @@
-div(ng-hide='HeaderService.pageLoadFailure || !securityService.loginStatus.userAllowedToManageCases')
-  a(style="float: right", ng-show="AlertService.alerts.length > 1", ng-href="", ng-click="dismissAlerts()") {{'Close messages'|translate}}
-  div(alert, ng-repeat='alert in AlertService.alerts', type='alert.type', close='closeAlert($index)')
-    span.icon-innov-prev.alert-icon(ng-show="alert.type==='info'",ng-bind-html='alert.message')
-    span(ng-hide="alert.type==='info'") {{alert.message}}

@@ -31,12 +31,12 @@ div(rha-header='', page='newCase')
                                     div(rha-versionselect='')
                             .row.row-short
                                 .col-sm-3
-                                    label(translate,translate-comment="Noun") Case Name
+                                    label(translate,translate-comment="Noun") Problem Statement
                                 .col-sm-7.col-md-6
                                     input#rha-case-summary.form-control(
                                     maxlength='255',
                                     ng-disabled='!securityService.loginStatus.isLoggedIn || CaseService.submittingCase',
-                                    ng-change='CaseService.validateNewCase();;CaseService.updateLocalStorageForNewCase()',
+                                    ng-change='updateDescriptionString();CaseService.validateNewCase();CaseService.updateLocalStorageForNewCase()',
                                     ng-model='CaseService.kase.summary'
                                     ng-focus="CaseService.updatingNewCaseSummary=true",
                                     ng-blur="CaseService.updatingNewCaseSummary=false")
@@ -47,15 +47,71 @@ div(rha-header='', page='newCase')
                                         .circle &nbsp;
                             .row.row-short
                                 .col-sm-3
-                                    .label(translate,translate-comment="Noun") Case Description
+                                    label(style='margin: 0px;').pre-wrap {{CaseService.problemString}}
                                 .col-sm-7.col-md-8
-                                    textarea(name='', id='rha-description', cols='30', rows='10',
-                                    style='width: 100%; height: 200px; max-width: 100%;',
-                                    ng-model='CaseService.kase.description',
-                                    ng-change='CaseService.validateNewCase();CaseService.updateLocalStorageForNewCase()',
+                                    textarea(name='', id='rha-problem',
+                                    style='width: 100%; height: 75px; max-width: 100%;',
+                                    ng-model='CaseService.kase.problem',
+                                    ng-change='updateDescriptionString();CaseService.validateNewCase();CaseService.updateLocalStorageForNewCase()',
                                     ng-disabled='!securityService.loginStatus.isLoggedIn || CaseService.submittingCase'
-                                    ng-focus="CaseService.updatingNewCaseDescription=true",
-                                    ng-blur="CaseService.updatingNewCaseDescription=false")
+                                    ng-focus="CaseService.updatingProblemString=true",
+                                    ng-blur="CaseService.updatingProblemString=false")
+                                .col-sm-1(ng-show='CaseService.updatingProblemString && RecommendationsService.loadingRecommendations')
+                                    .loader
+                                        .circle &nbsp;
+                                        .circle &nbsp;
+                                        .circle &nbsp;
+                            .row.row-short
+                                .col-sm-3
+                                    label(style='margin: 0px;').pre-wrap {{CaseService.environmentString}}
+                                .col-sm-7.col-md-8
+                                    textarea(name='', id='rha-environment',
+                                    style='width: 100%; height: 75px; max-width: 100%;',
+                                    ng-model='CaseService.kase.environment',
+                                    ng-change='updateDescriptionString();CaseService.validateNewCase();CaseService.updateLocalStorageForNewCase()',
+                                    ng-disabled='!securityService.loginStatus.isLoggedIn || CaseService.submittingCase'
+                                    ng-focus="CaseService.updatingEnvironmentString=true",
+                                    ng-blur="CaseService.updatingEnvironmentString=false")
+                                .col-sm-1(ng-show='CaseService.updatingEnvironmentString && RecommendationsService.loadingRecommendations')
+                                    .loader
+                                        .circle &nbsp;
+                                        .circle &nbsp;
+                                        .circle &nbsp;
+                            .row.row-short
+                                .col-sm-3
+                                    label(style='margin: 0px;').pre-wrap {{CaseService.occuranceString}}
+                                .col-sm-7.col-md-8
+                                    textarea(name='', id='rha-occurance',
+                                    style='width: 100%; height: 75px; max-width: 100%;',
+                                    ng-model='CaseService.kase.occurance',
+                                    ng-change='updateDescriptionString();CaseService.validateNewCase();CaseService.updateLocalStorageForNewCase()',
+                                    ng-disabled='!securityService.loginStatus.isLoggedIn || CaseService.submittingCase'
+                                    ng-focus="CaseService.updatingOccuranceString=true",
+                                    ng-blur="CaseService.updatingOccuranceString=false")
+                                .col-sm-1(ng-show='CaseService.updatingOccuranceString && RecommendationsService.loadingRecommendations')
+                                    .loader
+                                        .circle &nbsp;
+                                        .circle &nbsp;
+                                        .circle &nbsp;
+                            .row.row-short
+                                .col-sm-3
+                                    label(style='margin: 0px;').pre-wrap {{CaseService.urgencyString}}
+                                .col-sm-7.col-md-8
+                                    textarea(name='', id='rha-urgency',
+                                    style='width: 100%; height: 75px; max-width: 100%;',
+                                    ng-model='CaseService.kase.urgency',
+                                    ng-change='updateDescriptionString();CaseService.validateNewCase();CaseService.updateLocalStorageForNewCase()',
+                                    ng-disabled='!securityService.loginStatus.isLoggedIn || CaseService.submittingCase'
+                                    ng-focus="CaseService.updatingUrgencyString=true",
+                                    ng-blur="CaseService.updatingUrgencyString=false")
+                                .col-sm-1(ng-show='CaseService.updatingUrgencyString && RecommendationsService.loadingRecommendations')
+                                    .loader
+                                        .circle &nbsp;
+                                        .circle &nbsp;
+                                        .circle &nbsp;
+                            .row.row-very-short
+                                .col-sm-3
+                                .col-sm-7.col-md-8
                                     div(style="margin-top: 15px", ng-show='NEW_CASE_CONFIG.showAttachments && securityService.loginStatus.authedUser.can_add_attachments')
                                         b {{'Get faster results.'|translate}}
                                         | &nbsp; {{'Attaching logs or other diagnostics files typically results in faster resolution.'|translate}}
@@ -94,11 +150,6 @@ div(rha-header='', page='newCase')
                                                             ng-model='ieFileDescription',
                                                             placeholder="{{'File description'|translate}}")
                                             iframe#upload_target(name='upload_target', style='width: 0; height: 0; border: 0px solid #fff;')
-                                .col-sm-1(ng-show='CaseService.updatingNewCaseDescription && RecommendationsService.loadingRecommendations')
-                                    .loader
-                                        .circle &nbsp;
-                                        .circle &nbsp;
-                                        .circle &nbsp;
                         #rha-case-more-options
                             .row.row-short
                                 .col-sm-3
@@ -168,4 +219,4 @@ div(rha-header='', page='newCase')
                                 ng-click='doSubmit($event)', translate,translate-comment="Verb") Submit
                                 a.margin-left(href='#/case/list',ng-hide='CaseService.submittingCase',translate,translate-comment="Verb") Cancel
         .aside.col-sm-4(ng-hide="RecommendationsService.recommendations.length === 0")
-            div(rha-newcaserecommendations='')
+            div(rha-newcaserecommendations='', items-per-page='recommendationsPerPage')

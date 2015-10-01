@@ -8,7 +8,7 @@ div(rha-header='', page='caseList')
           .col-xs-12
             a.btn.btn-app.btn-sm.new-case-btn(href='#/case/new')
               span#rha-new-case-btn
-              | {{'Create a New Support Case'|translate}}
+              | {{'Open a Support Case'|translate}}
             a.btn.btn-app.btn-sm(translate='',translate-comment='Verb', ng-click='closeCases()', ng-disabled='!caseChosen()') Close Case(s)
   .row(ng-hide='!CaseService.sfdcIsHealthy || SearchCaseService.cases.length == 0')
     .col-sm-6

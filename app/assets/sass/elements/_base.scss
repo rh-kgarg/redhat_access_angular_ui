@@ -9,6 +9,7 @@ html { font-size: 100%; }
 .row + .row { @include rem('margin-top', $global-margin); }
 .row.row-short { @include rem('margin-top', $global-padding); }
 .row.row-very-short { @include rem('margin-top', $global-very-short-padding); }
+.row.row-no-mar { @include rem('margin-top', 0); }
 .tab-pane { padding: 0; }
 
 .nav-tabs { margin-top: 0; }

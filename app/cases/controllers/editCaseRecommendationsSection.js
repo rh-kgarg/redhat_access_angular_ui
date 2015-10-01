@@ -10,7 +10,6 @@ angular.module('RedhatAccess.cases').controller('EditCaseRecommendationsControll
         $scope.RecommendationsService = RecommendationsService;
         $scope.currentRecPin = {};
         $scope.itemsPerPage = 3;
-        //$scope.currentPage = 1;
 
         $scope.pinnedResults = {};
         $scope.handPickedResults = {};
@@ -32,7 +31,7 @@ angular.module('RedhatAccess.cases').controller('EditCaseRecommendationsControll
         $scope.findLastPage = function (recommendationsList) {
             return Math.ceil(recommendationsList.length / $scope.itemsPerPage);
         };
-        $scope.pinRecommendation = function (recommendation, $index, $event) {
+        $scope.pinRecommendation = function (recommendation) {
             $scope.currentRecPin = recommendation;
             $scope.currentRecPin.pinning = true;
             var doPut = function (linked) {
@@ -45,7 +44,7 @@ angular.module('RedhatAccess.cases').controller('EditCaseRecommendationsControll
                         }]
                     }
                 };
-                strataService.cases.put(CaseService.kase.case_number, recJSON).then(function (response) {
+                strataService.cases.put(CaseService.kase.case_number, recJSON).then(function () {
                     if (!$scope.currentRecPin.pinned) {
                         //not currently pinned, so add it to the pinned list
                         RecommendationsService.pinnedRecommendations.push($scope.currentRecPin);
@@ -74,7 +73,6 @@ angular.module('RedhatAccess.cases').controller('EditCaseRecommendationsControll
                             RecommendationsService.recommendations[index] = $scope.currentRecPin;
                         }
                     });
-                    //$scope.selectPage(1);
                 }, function (error) {
                     $scope.currentRecPin.pinning = false;
                     AlertService.addStrataErrorMessage(error);

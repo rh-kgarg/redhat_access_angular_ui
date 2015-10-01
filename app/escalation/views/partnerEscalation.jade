@@ -15,65 +15,67 @@ div#redhat-access-escalations.container-offset(ng-hide='HeaderService.showPartne
 
   form#rha-case-escalation.form-horizontal
     div#rha-escalation.row.ng-scope(ng-controller = 'EscalationRequest')
-      div.col-md-7.col-md-offset-1.push-bottom
-        fieldset
-          legend
-            span.number 1
-            {{'Requestor'|translate}}
-          div.form-group
-            label.col-sm-5.control-label(for='rha-requestor-email') {{'Your Email address'|translate}}
-            div.col-sm-7
-              input#rha-requestor-email.form-control.nonEmpty(ng-model='EscalationRequestService.requestorEmail')
-              span.help-block {{'This should be the email address associated with your Red Hat Customer Portal or Partner Center login'|translate}}
-          div.form-group
-            label.col-sm-5.control-label(for='rha-requestor-phone') {{'Your Phone Number'|translate}}
-            div.col-sm-7
-              input#rha-requestor-phone.form-control.nonEmpty(ng-model='EscalationRequestService.requestorPhone')
-      div.col-md-7.col-md-offset-1.push-bottom
-        fieldset
-          legend
-            span.number 2
-            {{'Customer'|translate}}
-          div.form-group
-            label.col-sm-5.control-label(for='rha-account-number') {{'Customer Account Number'|translate}} *
-            div.col-sm-7
-              input#rha-account-number.form-control.nonEmpty(ng-model='EscalationRequestService.accountNumber' ng-change="partnerMandatoryFieldCheck()")
-              span.help-block {{'Please request the account number from the customer if possible, otherwise use your Red Hat account number.The account number can be found by clicking on the username in the top right corner of this page.'|translate}}
-          div.form-group
-            label.col-sm-5.control-label(for='rha-customer-name') {{'Customer Contact Name'|translate}}
-            div.col-sm-7
-              input#rha-customer-name.form-control.nonEmpty(ng-model='EscalationRequestService.customerName')
-          div.form-group
-            label.col-sm-5.control-label(for='rha-customer-contact-email') {{'Customer Contact Email'|translate}}
-            div.col-sm-7
-              input#rha-customer-contact-email.form-control.nonEmpty(ng-model='EscalationRequestService.customerEmail')
-          div.form-group
-            label.col-sm-5.control-label(for='rha-customer-contact-phone-number') {{'Customer Contact Number'|translate}}
-            div.col-sm-7
-              input#rha-customer-contact-phone-number.form-control.nonEmpty(ng-model='EscalationRequestService.customerPhone')
-              span.help-block {{'For example: 1-888-467-3342'|translate}}
-          div.form-group
-            label.col-sm-5.control-label(for='rha-geo') {{'Customer GEO'|translate}} *
-            div.col-sm-7
-              select#rha-geo.form-control.productSelect.nonEmpty(
+      div.col-md-7.push-bottom
+        legend
+          {{'Requestor'|translate}}
+        div.form-group
+          label.col-sm-5.control-label(for='rha-requestor-name') {{'Your Name'|translate}}
+          div.col-sm-7
+            input#rha-requestor-email.form-control.nonEmpty(ng-model='EscalationRequestService.requestorName')
+        div.form-group
+          label.col-sm-5.control-label(for='rha-requestor-email') {{'Your Email Address'|translate}}
+          div.col-sm-7
+            input#rha-requestor-email.form-control.nonEmpty(ng-model='EscalationRequestService.requestorEmail')
+            span.help-block {{'This should be the email address associated with your Red Hat Customer Portal or Partner Center login'|translate}}
+        div.form-group
+          label.col-sm-5.control-label(for='rha-requestor-phone') {{'Your Phone Number'|translate}}
+          div.col-sm-7
+            input#rha-requestor-phone.form-control.nonEmpty(ng-model='EscalationRequestService.requestorPhone')
+      div.col-md-7.push-bottom
+        div.form-group
+          label.col-sm-5.control-label(for='rha-account-number') {{'Customer Account Number'|translate}} *
+          div.col-sm-7
+            input#rha-account-number.form-control.nonEmpty(ng-model='EscalationRequestService.accountNumber' ng-change="partnerMandatoryFieldCheck()")
+            span.help-block {{'Please request the account number from the customer if possible, otherwise use your Red Hat account number.The account number can be found by clicking on the username in the top right corner of this page.'|translate}}
+        div.form-group
+          label.col-sm-5.control-label(for='rha-customer-name') {{'Customer Contact Name'|translate}}
+          div.col-sm-7
+            input#rha-customer-name.form-control.nonEmpty(ng-model='EscalationRequestService.customerName')
+        div.form-group
+          label.col-sm-5.control-label(for='rha-customer-contact-email') {{'Customer Contact Email'|translate}}
+          div.col-sm-7
+            input#rha-customer-contact-email.form-control.nonEmpty(ng-model='EscalationRequestService.customerEmail')
+        div.form-group
+          label.col-sm-5.control-label(for='rha-customer-contact-phone-number') {{'Customer Contact Number'|translate}}
+          div.col-sm-7
+            input#rha-customer-contact-phone-number.form-control.nonEmpty(ng-model='EscalationRequestService.customerPhone')
+            span.help-block {{'For example: 1-888-467-3342'|translate}}
+        div.form-group
+          label.col-sm-5.control-label(for='rha-geo') {{'Customer GEO'|translate}} *
+          div.col-sm-7
+            select#rha-geo.form-control.productSelect.nonEmpty(
               ng-model='EscalationRequestService.geo' 
               ng-options='geo for geo in partnerGeoList'
               ng-change="partnerMandatoryFieldCheck()")              
-              span.help-block NA-North America, EMEA-Europe,the Middle East and Africa, LATAM-Latin America, APAC-Asia Pacific
-      div.col-md-7.col-md-offset-1.push-bottom
+            span.help-block NA-North America, EMEA-Europe,the Middle East and Africa, LATAM-Latin America, APAC-Asia Pacific
+      div.col-md-7.push-bottom
         fieldset
           legend
-            span.number 3
             {{'Case Information'|translate}}
           div.form-group
             label.col-sm-5.control-label(for='rha-case-number') {{'Red Hat Support Ticket Number'|translate}} *
             div.col-sm-7
               input#rha-case-number.form-control.nonEmpty(ng-model='EscalationRequestService.caseNumber' ng-change="partnerMandatoryFieldCheck()")
-              span.help-block {{'This is your 8 digit Red Hat Support ticket number'|translate}}
+              span.help-block {{'If unable to provide number, you may use 00000000 in order to submit form. Note: This may delay our ability to associate request with customer issue'|translate}}
           div.form-group
-            label.col-sm-5.control-label(for='rha-already-escalated') {{'Already Escalated?'|translate}}
+            label.col-sm-5.control-label(for='rha-issue-description') {{'Issue Subject'|translate}} *
             div.col-sm-7
-              input#rha-already-escalated.nonEmpty(type='checkbox' ng-model='EscalationRequestService.alreadyEscalated')
+              select#rha-geo.form-control(
+                ng-model='EscalationRequestService.subject' 
+                ng-options='subject for subject in subjectList'
+                ng-change="checkForToggleSubjectTextArea();partnerMandatoryFieldCheck()")
+              textarea#rha-issue-subject.form-control.nonEmpty(ng-model='EscalationRequestService.subjectText' ng-change="partnerMandatoryFieldCheck()", ng-hide="isSubjectTextAreaHidden")
+              span.help-block {{'Please select the issue subject.  If an item in the list does not match, please select \'other\' and enter a subject in the box that appears below.'|translate}}
           div.form-group
             label.col-sm-5.control-label(for='rha-issue-description') {{'Issue Description'|translate}} *
             div.col-sm-7

@@ -9,7 +9,6 @@ angular.module('RedhatAccess', [
     'RedhatAccess.search',
     'RedhatAccess.logViewer',
     'RedhatAccess.ui-utils',
-    'RedhatAccess.ascension',
     'RedhatAccess.escalation'
 ]).config([
     '$provide',

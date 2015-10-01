@@ -11,7 +11,7 @@ accordion
             ng-click='pinRecommendation(recommendation, $index, $event)',
             style='cursor: pointer;') &nbsp;
           a(ng-click='triggerAnalytics($event)', href='{{recommendation.resource_view_uri}}', target='_blank')
-            strong {{recommendation.title | substring:100 }}
+            strong {{recommendation.title | substring:75 }}
         div.pre-wrap(ng-bind-html='recommendation.abstract')
     .pagination(ng-show='RecommendationsService.handPickedRecommendations.length > itemsPerPage')
       .pull-right
@@ -29,7 +29,7 @@ accordion
             ng-click='pinRecommendation(recommendation, $index, $event)',
             style='cursor: pointer;') &nbsp;
           a(ng-click='triggerAnalytics($event)', href='{{recommendation.resource_view_uri}}', target='_blank')
-            strong {{recommendation.title}}
+            strong {{recommendation.title | substring:75}}
         div.pre-wrap(ng-bind-html='recommendation.abstract')
     .pagination(ng-show='RecommendationsService.recommendations.length > itemsPerPage')
       .pull-right
@@ -47,7 +47,7 @@ accordion
             ng-click='pinRecommendation(recommendation, $index, $event)',
             style='cursor: pointer;') &nbsp;
           a(ng-click='triggerAnalytics($event)', href='{{recommendation.resource_view_uri}}', target='_blank')
-            strong {{recommendation.title}}
+            strong {{recommendation.title | substring:75}}
         div.pre-wrap(ng-bind-html='recommendation.abstract')
     .pagination(ng-show='RecommendationsService.pinnedRecommendations.length > itemsPerPage')
       .pull-right

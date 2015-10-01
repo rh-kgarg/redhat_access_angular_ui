@@ -127,6 +127,8 @@ angular.module('RedhatAccess.cases').service('AttachmentsService', [
                                 attachment.sortModifiedDate=currentDate;
                                 attachment.last_modified_date = RHAUtils.formatDate(lastModifiedDate, 'MMM DD YYYY');
                                 attachment.last_modified_time = RHAUtils.formatDate(lastModifiedDate, 'hh:mm A Z');
+                                attachment.published_date = RHAUtils.formatDate(lastModifiedDate, 'MMM DD YYYY');
+                                attachment.published_time = RHAUtils.formatDate(lastModifiedDate, 'hh:mm A Z');
                                 AlertService.clearAlerts();
                                 AlertService.addSuccessMessage(gettextCatalog.getString('Successfully uploaded attachment {{attachmentFileName}} to case {{caseNumber}}',{attachmentFileName:attachment.file_name,caseNumber:caseId}));
                             }, function (error) {

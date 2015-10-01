@@ -141,7 +141,7 @@ angular.module('RedhatAccess.cases').controller('DetailsSection', [
             if (ProductsService.versionLoading) {
                 return true;
             } else {
-                if (RHAUtils.isEmpty(CaseService.kase.product) || RHAUtils.isEmpty(CaseService.kase.version)) {
+                if (RHAUtils.isEmpty(CaseService.kase.product) || RHAUtils.isEmpty(CaseService.kase.version) || RHAUtils.isEmpty(CaseService.kase.summary)) {
                     return true;
                 } else if (RHAUtils.isNotEmpty(CaseService.kase.version) && (ProductsService.versions.indexOf(CaseService.kase.version) === -1)) {
                     return true;

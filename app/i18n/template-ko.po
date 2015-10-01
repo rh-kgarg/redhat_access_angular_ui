@@ -4,554 +4,414 @@
 # eukim <eukim@redhat.com>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
 "MIME-Version: 1.0\n"
-"PO-Revision-Date: 2015-06-30 02:00+0000\n"
+"PO-Revision-Date: 2015-08-20 01:18+0000\n"
 "Last-Translator: eukim <eukim@redhat.com>\n"
 "Language-Team: Korean\n"
 "Language: ko\n"
 "X-Generator: Zanata 3.6.2\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
-#: app/cases/controllers/discussionSection.js:
-#: app/ascension/controllers/caseDiscussion.js:
+#: app/cases/controllers/discussionSection.js
 msgid "(In reply to {{personName}})"
 msgstr "({{personName}}에 회신)"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/cases/views/list.html:
-#: app/cases/views/new.html:
+#: app/cases/views/list.html
+#: app/cases/views/new.html
 msgid "(More info)"
 msgstr "(상세 정보) "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid "* All fields are mandatory."
 msgstr "* 모든 필드는 필수 입력 필드입니다."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/partnerEscalation.html
 msgid "* marked fields are mandatory fields."
 msgstr "* 표시된 필드는 필수 입력 필드입니다."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
 #. Noun
-#: app/cases/views/detailsSection.html:
-#: app/cases/views/new.html:
+#: app/cases/views/detailsSection.html
+#: app/cases/views/new.html
 msgid "24x7 Contact"
 msgstr "24x7 연락처"
 
-#: app/ascension/views/caseFlags.html:
-msgid "24x7 Coverage"
-msgstr "24x7 지원"
-
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
 #. Noun
-#: app/cases/views/detailsSection.html:
-#: app/cases/views/new.html:
+#: app/cases/views/detailsSection.html
+#: app/cases/views/new.html
 msgid "24x7 Support"
 msgstr "연중무휴 24시간 지원"
 
 # translation auto-copied from project Customer Portal Translations, version management_page, document Management_Prototype.html, author eukim
 #. Noun
-#: app/cases/views/new.html:
+#: app/cases/views/new.html
 msgid "Account"
 msgstr "계정"
 
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#. Noun
-#: app/ascension/views/accountInformation.html:
-msgid "Account Information"
-msgstr "계정 정보"
-
-# translation auto-copied from project evolution, version 3.8.5, document evolution-3.8
-#. Noun
-#: app/ascension/views/accountInformation.html:
-msgid "Account Name"
-msgstr "계정 이름"
-
-#. Noun
-#: app/ascension/views/accountInformation.html:
-msgid "Account Notes"
-msgstr "계정 메모"
+#: app/cases/views/edit.html
+msgid "Account name : {{securityService.loginStatus.account.name}}"
+msgstr "계정 이름 : {{securityService.loginStatus.account.name}}"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/cases/controllers/accountSelect.js:
+#: app/cases/controllers/accountSelect.js
 msgid "Account not found."
 msgstr "계정을 찾을 수 없습니다. "
 
-# translation auto-copied from project Satellite6 Foreman, version 6.1, document foreman
-#. Noun whether the entitlement is active
-#: app/ascension/views/breachStatus.html:
-msgid "Active"
-msgstr "활성"
+#: app/cases/views/edit.html
+msgid "Account number : {{securityService.loginStatus.account.number}}"
+msgstr "계정 번호 : {{securityService.loginStatus.account.number}}"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/attachProductLogs.html:
+#: app/cases/views/attachProductLogs.html
 msgid "Add"
 msgstr "추가 "
 
-#: app/cases/controllers/new.js:
+#: app/cases/controllers/new.js
 msgid "Adding user {{userName}} to case."
 msgstr "기술 문의에 사용자 {{userName}} 추가."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/discussionSection.html:
+#: app/cases/views/discussionSection.html
 msgid "All Attachments"
 msgstr "모든 첨부 파일"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/cases/services/caseService.js:
+#: app/cases/services/caseService.js
 msgid "All Groups"
 msgstr "전체 그룹 "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Already Escalated?"
 msgstr "이미 에스컬레이션되었습니까?"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/detailsSection.html:
+#: app/cases/views/detailsSection.html
 msgid "Alternate Case ID"
 msgstr "대체 기술 문의 ID"
 
-#: app/cases/controllers/descriptionSection.js:
+#: app/cases/controllers/descriptionSection.js
 msgid ""
 "Are you sure you want to change this case severity to {{severityName}}?"
 msgstr "이 기술 문의의 심각도를 {{severityName}}로 변경하시겠습니까?"
 
-#: app/cases/controllers/descriptionSection.js:
+#: app/cases/controllers/descriptionSection.js
 msgid "Are you sure you want to change this case status to {{statusName}}?"
 msgstr "이 기술 문의의 상태를 {{statusName}}로 변경하시겠습니까?"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/controllers/list.js:
+#: app/cases/controllers/list.js
 msgid "Are you sure you want to close the selected cases?"
 msgstr "선택한 기술 문의를 종료하시겠습니까?"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/edit.html:
+#: app/cases/views/edit.html
 msgid "Assigned to"
 msgstr "할당 대상"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/attachLocalFile.html:
+#: app/cases/views/attachLocalFile.html
 msgid "Attach Another File"
 msgstr "다른 파일 첨부"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/attachLocalFile.html:
+#: app/cases/views/attachLocalFile.html
 msgid "Attach File"
 msgstr "파일 첨부"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/attachProductLogs.html:
+#: app/cases/views/attachProductLogs.html
 msgid "Attach Foreman logs:"
 msgstr "Foreman 로그 첨부:"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
 #. Noun Attached here means Attached on a particular date
-#: app/cases/views/listAttachments.html:
+#: app/cases/views/listAttachments.html
 msgid "Attached"
 msgstr "첨부됨  "
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
 #. Noun
-#: app/cases/views/listAttachments.html:
+#: app/cases/views/listAttachments.html
 msgid "Attached By"
 msgstr "첨부자"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/listAttachments.html:
+#: app/cases/views/listAttachments.html
 msgid "Attached Files"
 msgstr "첨부된 파일 "
 
-#: app/cases/views/proceedWithoutAttachModal.html:
+#: app/cases/views/proceedWithoutAttachModal.html
 msgid ""
 "Attaching logs and diagnostics files greatly improves time to resolution. Do "
 "you want to continue without attaching any files?"
 msgstr "로그 및 진단 파일을 첨부하면 문제 해결 시간이 단축됩니다. 파일을 첨부하지 않고 계속 진행하시겠습니까?"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/new.html:
+#: app/cases/views/new.html
 msgid ""
 "Attaching logs or other diagnostics files typically results in faster "
 "resolution."
 msgstr "로그 또는 진단 파일을 첨부하면 일반적으로 해결 시간이 단축됩니다."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/log_viewer/views/navSideBar.html:
+#: app/log_viewer/views/navSideBar.html
 msgid "Available Log Files"
 msgstr "사용 가능한 로그 파일 "
 
-#: app/cases/views/editCaseRecommendationsSection.html:
-#: app/cases/views/newCaseRecommendationsSection.html:
+#: app/cases/views/editCaseRecommendationsSection.html
+#: app/cases/views/newCaseRecommendationsSection.html
 msgid "BACK"
 msgstr "뒤로"
 
-#: app/ascension/services/caseDetailsService.js:
-msgid "BREACH"
-msgstr "응답 시간 정보"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/cases/views/defaultGroup.html:
+#: app/cases/views/defaultGroup.html
 msgid "Back"
 msgstr "뒤로"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/newCaseRecommendationsSection.html:
+#: app/cases/views/newCaseRecommendationsSection.html
 msgid "Based on your description, here are some possible solutions"
 msgstr "제공해 주신 설명에 기반하여 가능한 해결 방법은 다음과 같습니다"
 
-#: app/ascension/controllers/breachStatus.js:
-msgid "Breached by {{breachTime}}"
-msgstr "{{breachTime}} 위반"
-
-#: app/ascension/controllers/breachStatus.js:
-msgid "Breaching in {{breachTime}}"
-msgstr "{{breachTime}} 위반"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/listBugzillas.html:
+#: app/cases/views/listBugzillas.html
 msgid "Bugzilla Number"
 msgstr "Bugzilla 번호 "
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/discussionSection.html:
+#: app/cases/views/discussionSection.html
 msgid "Bugzilla Tickets"
 msgstr "Bugzilla 티켓 "
 
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/ascension/views/caseView.html:
-msgid "Bugzillas"
-msgstr "Bugzilla"
-
-#. Noun
-#: app/ascension/views/accountInformation.html:
-msgid "Business Hours"
-msgstr "업무 시간"
-
-#: app/cases/views/edit.html:
+#: app/cases/views/edit.html
 msgid "CASE {{CaseService.kase.case_number}}"
 msgstr "기술 문의 {{CaseService.kase.case_number}}"
 
-#: app/common/controllers/titleView.js:
-msgid "CASE {{caseNumber}}"
-msgstr "기술 문의 {{caseNumber}}"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/common/controllers/titleView.js:
-msgid "CREATE A NEW SUPPORT CASE"
-msgstr "새 기술 문의 생성"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
 #. Verb
-#: app/security/views/login_form.html:
-#: app/cases/views/addCommentSection.html:
-#: app/cases/views/createGroupModal.html:
-#: app/cases/views/detailsSection.html:
-#: app/cases/views/editGroup.html:
-#: app/cases/views/new.html:
-#: app/cases/views/requestManagementEscalationModal.html:
-#: app/ascension/views/caseDetails.html:
+#: app/cases/views/addCommentSection.html
+#: app/cases/views/createGroupModal.html
+#: app/cases/views/detailsSection.html
+#: app/cases/views/editGroup.html
+#: app/cases/views/new.html
+#: app/cases/views/requestManagementEscalationModal.html
 msgid "Cancel"
 msgstr "취소 "
 
-#: app/cases/controllers/commonConfirmationModal.js:
+#: app/cases/controllers/commonConfirmationModal.js
 msgid "Case  {{caseNumber}} successfully closed."
 msgstr "기술 문의 {{caseNumber}}이/가 성공적으로 종료되었습니다."
 
-#. Noun
-#: app/ascension/views/caseBugzillas.html:
-msgid "Case Bugzillas"
-msgstr "기술 문의 Bugzilla"
-
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
 #. Noun
-#: app/cases/views/new.html:
-#: app/ascension/views/caseDescription.html:
+#: app/cases/views/new.html
 msgid "Case Description"
 msgstr "기술 문의 설명"
 
-#. Noun
-#: app/ascension/views/caseDetails.html:
-msgid "Case Detail"
-msgstr "기술 문의 상세 정보"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/discussionSection.html:
-#: app/ascension/views/caseDiscussion.html:
+#: app/cases/views/discussionSection.html
 msgid "Case Discussion"
 msgstr "기술 문의 토론 "
 
-#. Noun
-#: app/ascension/views/caseEscalations.html:
-msgid "Case Escalations"
-msgstr "기술 문의 에스컬레이션"
-
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/cases/views/detailsSection.html:
+#: app/cases/views/detailsSection.html
 msgid "Case Group"
 msgstr "기술문의 그룹"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
 #. Noun
-#: app/cases/views/new.html:
+#: app/cases/views/new.html
 msgid "Case Group (Optional)"
 msgstr "기술문의 그룹 (옵션)"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/defaultGroup.html:
+#: app/cases/views/defaultGroup.html
 msgid "Case Group Name:"
 msgstr "기술문의 그룹 이름:"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/createGroupModal.html:
+#: app/cases/views/createGroupModal.html
 msgid "Case Group:"
 msgstr "기술문의 그룹:"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#. Noun
-#: app/ascension/views/caseHistory.html:
-#: app/ascension/views/caseView.html:
-msgid "Case History"
-msgstr "기술 문의 내역"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Case Information"
 msgstr "기술 문의 정보"
 
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#. Noun
-#: app/cases/views/new.html:
-msgid "Case Name"
-msgstr "기술 문의 이름"
-
-#: app/ascension/views/caseView.html:
-msgid "Case Overview"
-msgstr "기술 문의 개요"
-
-#: app/common/services/constantsService.js:
-msgid "Case Owner (A-Z)"
-msgstr "기술 문의 소유자 (A-Z)"
-
-#: app/common/services/constantsService.js:
-msgid "Case Owner (Z-A)"
-msgstr "기술 문의 소유자 (Z-A)"
-
-#. Noun
-#: app/ascension/views/caseDetails.html:
-msgid "Case Resolution"
-msgstr "기술 문의 해결"
-
-#. Noun
-#: app/ascension/views/caseSummary.html:
-#: app/ascension/views/caseView.html:
-msgid "Case Summary"
-msgstr "기술 문의 요약"
-
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
 #. Noun
-#: app/cases/views/detailsSection.html:
-#: app/ascension/views/caseDetails.html:
+#: app/cases/views/detailsSection.html
 msgid "Case Type"
 msgstr "기술 문의 유형"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/cases/controllers/editGroup.js:
+#: app/cases/controllers/editGroup.js
 msgid "Case group successfully updated."
 msgstr "기술 문의 그룹이 성공적으로 업데이트되었습니다. "
 
-#: app/cases/controllers/descriptionSection.js:
+#: app/cases/controllers/descriptionSection.js
 msgid "Case severity was changed."
 msgstr "기술 문의 심각도가 변경되었습니다."
 
-#: app/cases/controllers/descriptionSection.js:
+#: app/cases/controllers/descriptionSection.js
 msgid "Case status was changed."
 msgstr "기술 문의 상태가 변경되었습니다."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/cases/controllers/editGroup.js:
+#: app/cases/controllers/editGroup.js
 msgid "Case users successfully updated."
 msgstr "기술 문의 사용자가 성공적으로 업데이트되었습니다. "
 
-#: app/ascension/views/yourCases.html:
-msgid ""
-"Case {{case.resource.caseNumber}} <br> {{case.resource.internalStatus}}"
-msgstr ""
-"기술 문의 {{case.resource.caseNumber}} <br> {{case.resource.internalStatus}}"
-
-#: app/ascension/services/caseDetailsService.js:
-msgid "Case {{caseNumber}} successfully closed."
-msgstr "기술 문의 {{caseNumber}}이/가 성공적으로 종료되었습니다."
-
-#: app/common/views/chatButton.html:
+#: app/common/views/chatButton.html
 msgid "Chat Offline"
 msgstr "오프라인 채팅 "
 
-#: app/common/views/chatButton.html:
+#: app/common/views/chatButton.html
 msgid "Chat with Support"
 msgstr "지원 담당자와 채팅"
 
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/common/views/treeview-selector.html:
-msgid "Choose File(s) To Attach:"
-msgstr "첨부할 파일 선택:"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#. Verb
-#: app/cases/views/list.html:
-msgid "Close"
-msgstr "종료 "
-
-#: app/ascension/views/caseView.html:
-msgid "Close Case"
+#: app/cases/views/list.html
+msgid "Close Case(s)"
 msgstr "기술 문의 종료"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/common/views/alert.html:
+#: app/common/views/alert.html
 msgid "Close messages"
 msgstr "메세지 종료 "
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/common/services/constantsService.js:
-#: app/cases/controllers/statusSelect.js:
+#: app/cases/controllers/statusSelect.js
 msgid "Closed"
 msgstr "종료됨 "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/controllers/list.js:
+#: app/cases/controllers/list.js
 msgid "Closed Support Cases"
 msgstr "개의 종료된 기술 문의"
 
-#: app/cases/controllers/list.js:
+#: app/cases/controllers/list.js
 msgid "Closing Cases."
 msgstr "기술 문의를 종료하고 있습니다."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/controllers/commonConfirmationModal.js:
+#: app/cases/controllers/commonConfirmationModal.js
 msgid "Closing cases."
 msgstr "기술 문의를 종료하고 있습니다."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/requestManagementEscalationModal.html:
+#: app/cases/views/requestManagementEscalationModal.html
 msgid "Comment:"
 msgstr "코멘트: "
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/createGroupModal.html:
+#: app/cases/views/createGroupModal.html
 msgid "Create Case Group"
 msgstr "기술 문의 그룹 생성"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/cases/views/createGroupButton.html:
+#: app/cases/views/createGroupButton.html
 msgid "Create New Case Group"
 msgstr "새 기술 문의 그룹 생성"
 
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/list.html:
-msgid "Create a New Support Case"
-msgstr "새 기술 문의 생성"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#. Noun
-#: app/ascension/views/caseDetails.html:
-msgid "Created By"
-msgstr "작성자:"
-
-#: app/cases/views/list.html:
+#: app/cases/views/list.html
 msgid "Created by {{case.created_by}} on {{case.created_date}}"
 msgstr "작성자: {{case.created_by}} 작성일: {{case.created_date}}"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/services/escalationRequestService.js:
+#: app/escalation/services/escalationRequestService.js
 msgid "Creating Ice Escalation request ....."
 msgstr "ICE 에스컬레이션 요청 생성 중 ....."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/services/escalationRequestService.js:
+#: app/escalation/services/escalationRequestService.js
 msgid "Creating Partner Escalation request ....."
 msgstr "파트너 에스컬레이션 요청 생성 중 ....."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/services/caseService.js:
+#: app/cases/services/caseService.js
 msgid "Creating case..."
 msgstr "기술 문의 생성 중..."
 
-#: app/cases/controllers/createGroupModal.js:
+#: app/cases/controllers/createGroupModal.js
 msgid "Creating group {{groupName}}..."
 msgstr "그룹 {{groupName}} 생성 중..."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Customer"
 msgstr "고객"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Customer Account Number"
 msgstr "고객 계정 번호 "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Customer Contact Email"
 msgstr "고객의 이메일 연락처 "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Customer Contact Name"
 msgstr "고객 연락처 이름 "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Customer Contact Number"
 msgstr "고객 연락처 "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Customer GEO"
 msgstr "고객 GEO"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
 #. Verb
-#: app/cases/views/listAttachments.html:
+#: app/cases/views/listAttachments.html
 msgid "Delete"
 msgstr "삭제 "
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/deleteGroupButton.html:
+#: app/cases/views/deleteGroupButton.html
 msgid "Delete Group"
 msgstr "그룹 삭제"
 
-#: app/cases/services/attachmentsService.js:
+#: app/cases/services/attachmentsService.js
 msgid "Deleting attachment: {{attachmentName}}"
 msgstr "첨부 파일 삭제: {{attachmentName}}"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
 #. Noun
-#: app/cases/views/listAttachments.html:
+#: app/cases/views/listAttachments.html
 msgid "Description"
 msgstr "설명 "
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/log_viewer/views/logsInstructionPane.html:
+#: app/log_viewer/views/logsInstructionPane.html
 msgid "Diagnose"
 msgstr "진단 "
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/cases/views/descriptionSection.html:
-#: app/cases/views/severitySelect.html:
+#: app/cases/views/descriptionSection.html
+#: app/cases/views/severitySelect.html
 msgid ""
 "Different support-level options might be available based on your account "
 "subscriptions. Your support level determines the type of response you can "
@@ -560,76 +420,57 @@ msgstr ""
 "계정 서브스크립션에 따라 각각 다른 지원 수준 옵션을 사용할 수 있습니다. 지원 수준은 기술 지원 사례에 따른 응답 유형을 결정합니다."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/discussionSection.html:
+#: app/cases/views/discussionSection.html
 msgid "Discard Changes"
 msgstr "변경 사항 취소"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/ascension/views/caseView.html:
-msgid "Discussion"
-msgstr "토론"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/ascension/views/caseDetails.html:
-msgid "Edit"
-msgstr "수정"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/controllers/escalationRequest.js:
+#: app/escalation/controllers/escalationRequest.js
 msgid "Email address is incorrect"
 msgstr "이메일 주소가 올바르지 않습니다"
 
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/ascension/views/entitlementInformation.html:
-msgid "Entitlement Information"
-msgstr "인타이틀먼트 정보"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/search/views/resultDetail.html:
+#: app/search/views/resultDetail.html
 msgid "Environment"
 msgstr "환경 "
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/cases/controllers/addCommentSection.js:
-#: app/cases/controllers/attachmentsSection.js:
+#: app/cases/controllers/addCommentSection.js
+#: app/cases/controllers/attachmentsSection.js
 msgid "Error: Failed to upload attachment."
 msgstr "오류: 첨부파일 업로드에 실패했습니다."
 
-#: app/cases/controllers/addCommentSection.js:
-#: app/cases/controllers/new.js:
+#: app/cases/controllers/addCommentSection.js
+#: app/cases/controllers/new.js
 msgid "Error: Failed to upload attachment. Message: {{errorMessage}}"
 msgstr "오류: 첨부 파일을 업로드할 수 없습니다. 메시지: {{errorMessage}}"
 
-#: app/cases/controllers/attachmentsSection.js:
+#: app/cases/controllers/attachmentsSection.js
 msgid "Error: Failed to upload attachment. Message:{{errorMessage}}"
 msgstr "오류: 첨부 파일을 업로드할 수 없습니다. 메시지: {{errorMessage}}"
 
-#: app/ascension/views/caseView.html:
-msgid "Escalations"
-msgstr "에스컬레이션"
-
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Expectation"
 msgstr "기대 "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/exportCSVButton.html:
+#: app/cases/views/exportCSVButton.html
 msgid "Export"
 msgstr "내보내기 "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/list.html:
+#: app/cases/views/list.html
 msgid "Export as CSV"
 msgstr "CSV로 내보내기"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/exportCSVButton.html:
+#: app/cases/views/exportCSVButton.html
 msgid "Exporting CSV..."
-msgstr "CSV 내보내기..."
+msgstr "CSV 내보내기 중..."
 
-#: app/cases/services/attachmentsService.js:
+#: app/cases/services/attachmentsService.js
 msgid ""
 "Failed to upload attachment {{attachmentName}} to case {{caseNumber}}: "
 "{{errorMessage}}"
@@ -638,14 +479,14 @@ msgstr ""
 "{{errorMessage}}"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/cases/views/addCommentSection.html:
-#: app/cases/views/attachmentsSection.html:
-#: app/cases/views/new.html:
+#: app/cases/views/addCommentSection.html
+#: app/cases/views/attachmentsSection.html
+#: app/cases/views/new.html
 msgid "File description"
 msgstr "파일 설명 "
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/cases/views/new.html:
+#: app/cases/views/new.html
 msgid ""
 "File names must be less than 80 characters. Maximum file size for web-"
 "uploaded attachments is 1 GB. Please FTP larger files to dropbox.redhat.com."
@@ -653,7 +494,7 @@ msgstr ""
 "파일명은 80자 미만이어야 합니다. 웹에 업로드될 최대 첨부 파일크기는 1 GB입니다. 용량이 큰 파일은  FTP로 dropbox."
 "redhat.com에 업로드하십시오."
 
-#: app/cases/views/edit.html:
+#: app/cases/views/edit.html
 msgid ""
 "Filed on {{CaseService.kase.created_date}} by {{CaseService.kase."
 "contact_name}}"
@@ -663,48 +504,42 @@ msgstr ""
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
 #. Noun
-#: app/cases/views/listAttachments.html:
+#: app/cases/views/listAttachments.html
 msgid "Filename"
 msgstr "파일명"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/accountSelect.html:
+#: app/cases/views/accountSelect.html
 msgid "Find My Account Number"
 msgstr "내 계정 번호 검색"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/editGroup.html:
+#: app/cases/views/editGroup.html
 msgid "First Name"
 msgstr "이름"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "For example: 1-888-467-3342"
 msgstr "예: 1-888-467-3342"
 
-#. Noun
-#: app/ascension/services/accountService.js:
-msgid "Friday End Time:"
-msgstr "금요일 종료 시간:"
-
-#. Noun
-#: app/ascension/services/accountService.js:
-msgid "Friday Start Time:"
-msgstr "금요일 시작 시간:"
+#: app/cases/controllers/edit.js
+msgid "Friday = {{businessHours}}"
+msgstr "금요일 = {{businessHours}}"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid "GSS ICE FAQ"
 msgstr "GSS ICE FAQ"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid "GSS ICE Form"
 msgstr "GSS ICE 양식"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid ""
 "GSS is currently working on enhancing the ICE process through the use of "
 "email. Watch this space for more details as they become available."
@@ -713,32 +548,27 @@ msgstr ""
 "참조하십시오."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/new.html:
+#: app/cases/views/new.html
 msgid "Get faster results."
 msgstr "보다 빠르게 결과를 구현할 수 있습니다."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/editGroup.html:
+#: app/cases/views/editGroup.html
 msgid "Group Name:"
 msgstr "그룹 이름:"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/defaultGroup.html:
+#: app/cases/views/defaultGroup.html
 msgid "Group Users:"
 msgstr "그룹 사용자:"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/editCaseRecommendationsSection.html:
+#: app/cases/views/editCaseRecommendationsSection.html
 msgid "Handpicked For You"
 msgstr "고객을 위해 엄선"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/common/services/constantsService.js:
-msgid "Highest Severity"
-msgstr "가장 높은 심각도 순"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid ""
 "If this form is not working for any reason please submit a ticket at "
 "helpdesk@redhat.com noting a problem with GSS Ticketing and the ICE form"
@@ -747,14 +577,23 @@ msgstr ""
 "보내주십시오."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid ""
 "If this is a request for information from you or the customer and if you "
 "need us to contact you to discuss the issues."
 msgstr "사용자 또는 고객에 대한 정보 요청인 경우 및 문제에 대해 문의하기 위해 연락을 받고자 하는 경우."
 
+#: app/cases/controllers/edit.js
+msgid ""
+"If we have not recorded your business hours correctly, please update your "
+"timezone in  <a href='/wapps/ugc/protected/locale.html' target='_blank'>Your "
+"preferences</a>"
+msgstr ""
+"고객의 업무 시간이 올바르게 기록되지 않은 경우 <a href='/wapps/ugc/protected/locale.html' target="
+"'_blank'>환경설정</a>에서 시간대를 업데이트하십시오."
+
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid ""
 "If you are requesting an account review, if this is related to aspecific "
 "problem/ticket or a series of problems/tickets or if this is a general or "
@@ -762,7 +601,7 @@ msgid ""
 msgstr "계정 검토를 요청하는 경우, 특정 문제/티켓 또는 일련의 문제/티켓에 관련되어 있거나 일반적인 문제인 경우 "
 
 # translation auto-copied from project Customer Portal Translations, version Portal-Case-Management, document Template, author eukim
-#: app/common/views/403.html:
+#: app/common/views/403.html
 msgid ""
 "If you believe you should have permission to view this resource, please <a "
 "href=\"/support/contact/customerService.html\">contact Customer Service</a> "
@@ -776,7 +615,7 @@ msgstr ""
 "문제가 있습니다. 어떤 경우이든, 고객 서비스가 문제 해결을 위한 도움을 드릴 수 있습니다."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/requestManagementEscalationModal.html:
+#: app/cases/views/requestManagementEscalationModal.html
 msgid ""
 "If you feel the issue has become more severe or the case should be a higher "
 "priority, please provide a detailed comment, and the case will be reviewed "
@@ -786,7 +625,7 @@ msgstr ""
 "것입니다."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/log_viewer/views/logsInstructionPane.html:
+#: app/log_viewer/views/logsInstructionPane.html
 msgid ""
 "In the event that you would still like to open a support case, select 'Open "
 "a New Support Case'. The case will be pre-populated with the portion of the "
@@ -795,284 +634,161 @@ msgstr ""
 "기술 문의 사항을 아직 열어 두어야 할 경우 '새 기술 문의 생성'을 선택합니다. 기술 문의는 이전에 선택한 로그의 일부로 사전 "
 "작성됩니다. "
 
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#. Noun
-#: app/ascension/views/caseDetails.html:
-msgid "Internal Priority"
-msgstr "내부 우선 순위"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#. Noun
-#: app/ascension/views/caseDetails.html:
-msgid "Internal Status"
-msgstr "내부 상태"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/addCommentSection.html:
+#: app/cases/views/addCommentSection.html
 msgid "Is Public:"
 msgstr "공개:"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Issue Description"
 msgstr "문제 설명 "
 
-#: app/ascension/controllers/accountInformation.js:
-msgid "Last Modified By"
-msgstr "마지막 수정"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/editGroup.html:
+#: app/cases/views/editGroup.html
 msgid "Last Name"
 msgstr "성"
 
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#. Noun
-#: app/ascension/views/caseDetails.html:
-msgid "Last Updated By"
-msgstr "최종 업데이트"
-
 # translation auto-copied from project Customer Portal Translations, version 012_June_RHEL, document downloads.html, author eukim
-#: app/cases/views/requestEscalation.html:
+#: app/cases/views/requestEscalation.html
 msgid "Learn More"
 msgstr "자세한 정보 "
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/requestManagementEscalationModal.html:
+#: app/cases/views/requestManagementEscalationModal.html
 msgid "Learn more"
 msgstr "자세한 정보"
 
-#. Noun
-#: app/ascension/views/breachStatus.html:
-msgid "Life of Case"
-msgstr "기술 문의 기간"
-
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/list.html:
+#: app/cases/views/list.html
 msgid "Loading cases..."
 msgstr "기술 문의 로딩 중..."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/controllers/new.js:
+#: app/cases/controllers/new.js
 msgid "Locating top solutions"
 msgstr "상위 솔루션 검색 중"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/log_viewer/views/logsInstructionPane.html:
+#: app/log_viewer/views/logsInstructionPane.html
 msgid "Log File Viewer"
 msgstr "로그 파일 뷰어 "
 
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/security/views/login_status.html:
-msgid "Log In"
-msgstr "로그인"
-
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/security/views/login_status.html:
-msgid "Log Out"
-msgstr "로그 아웃 "
-
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/security/views/login_status.html:
-msgid "Logged into the Red Hat Customer Portal as"
-msgstr "Red Hat 고객 포털로 로그인 "
-
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/common/controllers/titleView.js:
-#: app/i18n/placeholder.html:
+#: app/i18n/placeholder.html
 msgid "Logs"
 msgstr "로그 "
 
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/common/services/constantsService.js:
-msgid "Lowest Severity"
-msgstr "가장 낮은 심각도 순"
-
-#: app/ascension/services/caseDetailsService.js:
-msgid "MISSING SBT. Entitlement status: {{entitlementStatus}}"
-msgstr "SBT가 누락되어 있습니다. 인타이틀먼트 상태: {{entitlementStatus}}"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/common/controllers/titleView.js:
-#: app/cases/services/caseService.js:
+#: app/cases/services/caseService.js
 msgid "Manage Case Groups"
 msgstr "기술문의 그룹 관리"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/cases/views/group.html:
-#: app/common/controllers/titleView.js:
+#: app/cases/views/group.html
 msgid "Manage Default Case Groups"
 msgstr "기본 기술문의 그룹 관리"
 
-#: app/cases/views/list.html:
+#: app/cases/views/list.html
 msgid "Modified by {{case.last_modified_by}} on {{case.last_modified_date}}"
 msgstr "수정자: {{case.last_modified_by}} 수정일: {{case.last_modified_date}}"
 
-#. Noun
-#: app/ascension/services/accountService.js:
-msgid "Monday End Time:"
-msgstr "월요일 종료 시간:"
-
-#. Noun
-#: app/ascension/services/accountService.js:
-msgid "Monday Start Time:"
-msgstr "월요일 시작 시간:"
+#: app/cases/controllers/edit.js
+msgid "Monday = {{businessHours}}"
+msgstr "월요일 = {{businessHours}}"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/i18n/placeholder.html:
+#: app/i18n/placeholder.html
 msgid "My Cases"
 msgstr "내 기술문의"
 
-# translation auto-copied from project Customer Portal Translations, version 010_supportPolicies, document prod_sla.html, author eukim
-#: app/ascension/services/caseDetailsService.js:
-msgid "N/A"
-msgstr "해당 없음 "
-
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/editCaseRecommendationsSection.html:
-#: app/cases/views/newCaseRecommendationsSection.html:
+#: app/cases/views/editCaseRecommendationsSection.html
+#: app/cases/views/newCaseRecommendationsSection.html
 msgid "NEXT"
 msgstr "다음"
 
-# translation auto-copied from project popt, version 1.13, document popt
-#: app/ascension/services/caseDetailsService.js:
-msgid "NONE"
-msgstr "없음(NONE)"
-
-#: app/ascension/services/caseDetailsService.js:
-msgid "NOT BREACHED"
-msgstr "위반 없음"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/groupList.html:
+#: app/cases/views/groupList.html
 msgid "Name"
 msgstr "이름 "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/requestEscalation.html:
+#: app/cases/views/requestEscalation.html
 msgid "Need to raise a concern to Red Hat Support management?"
 msgstr "Red Hat 지원 관리에 문제를 알려야 합니까?"
 
-#: app/ascension/views/breachStatus.html:
-msgid "Negotiated Entitlement Process"
-msgstr "협의된 인타이틀먼트 프로세스"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/common/services/constantsService.js:
-msgid "Newest Date Created"
-msgstr "최신 날짜 생성 순"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/common/services/constantsService.js:
-msgid "Newest Date Modified"
-msgstr "최신 날짜 수정 순"
-
-#: app/cases/controllers/discussionSection.js:
-#: app/ascension/controllers/caseDiscussion.js:
+#: app/cases/controllers/discussionSection.js
 msgid "Newest to Oldest"
 msgstr "최신 항목 순"
 
 # translation auto-copied from project Customer Portal Translations, version RHJBossMiddlewareOperationsNetworkProduc, document RHJBossMiddlewareOperationsNetworkProductUpdate.html, author Michelle Kim
-#: app/cases/views/commonConfirmationModal.html:
+#: app/cases/views/commonConfirmationModal.html
 msgid "No"
 msgstr "아니요"
 
-#: app/cases/views/proceedWithoutAttachModal.html:
+#: app/cases/views/proceedWithoutAttachModal.html
 msgid "No Files were attached to your case."
 msgstr "기술 문의에 파일이 첨부되어 있지 않습니다."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/listAttachments.html:
+#: app/cases/views/listAttachments.html
 msgid "No attachments added"
 msgstr "추가된 첨부 파일이 없습니다 "
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/list.html:
+#: app/cases/views/list.html
 msgid "No cases found with given filters."
 msgstr "지정된 필터에 맞는 기술 문의 사항이 없습니다."
 
-#: app/ascension/services/caseDetailsService.js:
-msgid "No cases found."
-msgstr "기술 문의를 찾을 수 없습니다."
-
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/groupList.html:
+#: app/cases/views/groupList.html
 msgid "No groups found."
 msgstr "그룹을 찾을 수 없습니다."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/listBugzillas.html:
+#: app/cases/views/listBugzillas.html
 msgid "No linked bugzillas"
 msgstr "링크된 Bugzilla가 없습니다 "
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/cases/views/ownerSelect.html:
+#: app/cases/views/ownerSelect.html
 msgid "No match found"
 msgstr "해당 사항이 없습니다"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/search/services/searchResultsService.js:
+#: app/search/services/searchResultsService.js
 msgid "No solutions found."
 msgstr "해결 방법을 찾을 수 없습니다. "
 
-#: app/ascension/services/caseDetailsService.js:
-msgid "No url roles or user roles found."
-msgstr "URL 또는 사용자 역할을 찾을 수 없습니다."
-
-#: app/cases/views/proceedWithoutAttachModal.html:
+#: app/cases/views/proceedWithoutAttachModal.html
 msgid "No, Go Back"
 msgstr "아니요, 돌아가기"
 
 # translation auto-copied from project Customer Portal Translations, version Portal-Case-Management, document Template, author eukim
-#: app/common/views/404.html:
+#: app/common/views/404.html
 msgid "Not Found"
 msgstr "찾을 수 없음"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/security/views/login_status.html:
-msgid "Not Logged into the Red Hat Customer Portal"
-msgstr "Red Hat 고객 포털에 로그인되어 있지 않습니다 "
-
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/security/views/login_form.html:
-msgid "Note:"
-msgstr "알림: "
-
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/discussionSection.html:
+#: app/cases/views/discussionSection.html
 msgid "Notes:"
 msgstr "알림: "
 
-#. Noun
-#: app/ascension/views/accountInformation.html:
-msgid "Number of Open Cases"
-msgstr "진행중인 기술 문의 수"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/common/services/constantsService.js:
-msgid "Oldest Date Created"
-msgstr "가장 오래된 날짜 생성 순"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/common/services/constantsService.js:
-msgid "Oldest Date Modified"
-msgstr "가장 오래된 날짜 수정 순"
-
-#: app/cases/controllers/discussionSection.js:
-#: app/ascension/controllers/caseDiscussion.js:
+#: app/cases/controllers/discussionSection.js
 msgid "Oldest to Newest"
 msgstr "오래된 항목 순"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid ""
 "Once the request is submitted, and ICE ticket will be raised in the GSS case "
 "management system and brought to the attention of the GSS leadership team."
 msgstr "요청이 전송되면 ICE 티켓이 GSS 기술 문의 관리 시스템에 생성되고 GSS 리더십 팀에 통지됩니다."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/log_viewer/views/logsInstructionPane.html:
+#: app/log_viewer/views/logsInstructionPane.html
 msgid ""
 "Once you have selected your log file then you may diagnose any part of the "
 "log file and clicking the 'Red Hat Diagnose' button. This will then display "
@@ -1082,7 +798,7 @@ msgstr ""
 "기반에서 관련 기사 및 솔루션이 표시됩니다. "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/partnerEscalation.html
 msgid ""
 "Once your request is submitted, a partner escalation case will be opened "
 "with GSS and the GSS leadership team will be notified. You will then receive "
@@ -1093,95 +809,86 @@ msgstr ""
 "에스컬레이션 기술 문의 번호 및 진행 상황을 추적하는 방법에 대한 추가 정보가 들어 있는 이메일이 전송됩니다."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/common/services/constantsService.js:
-#: app/cases/controllers/statusSelect.js:
+#: app/cases/controllers/statusSelect.js
 msgid "Open"
 msgstr "진행중"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/i18n/placeholder.html:
+#: app/i18n/placeholder.html
 msgid "Open New Case"
 msgstr "새 기술 문의 생성"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/controllers/list.js:
+#: app/cases/controllers/list.js
 msgid "Open Support Cases"
 msgstr "개의 진행중인 기술 문의"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/search/views/accordion_search_results.html:
-#: app/log_viewer/views/logsInstructionPane.html:
+#: app/search/views/accordion_search_results.html
+#: app/log_viewer/views/logsInstructionPane.html
 msgid "Open a New Support Case"
 msgstr "새 기술 문의 생성"
 
+#: app/cases/views/list.html
+msgid "Open a Support Case"
+msgstr "기술 문의 생성"
+
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/common/services/constantsService.js:
-#: app/cases/controllers/statusSelect.js:
+#: app/cases/controllers/statusSelect.js
 msgid "Open and Closed"
 msgstr "진행중 및 종료됨 "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/controllers/list.js:
+#: app/cases/controllers/list.js
 msgid "Open and Closed Support Cases"
 msgstr "개의 진행중이거나 종료된 기술 문의"
 
-#: app/cases/views/list.html:
+#: app/cases/views/list.html
 msgid "Owned by {{case.contact_name}}"
 msgstr "소유자:  {{case.contact_name}}"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
 #. Noun
-#: app/cases/views/new.html:
+#: app/cases/views/new.html
 msgid "Owner"
 msgstr "소유자 "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#. Noun
-#: app/ascension/views/ownerInformation.html:
-msgid "Owner Information"
-msgstr "소유자 정보"
-
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/security/views/login_form.html:
-msgid "Password"
-msgstr "암호 "
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/partnerEscalation.html
 msgid "Please"
 msgstr " "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/listNewAttachments.html:
+#: app/cases/views/listNewAttachments.html
 msgid "Please Add File Description"
 msgstr "파일 설명을 추가하십시오"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/log_viewer/controllers/DropdownCtrl.js:
+#: app/log_viewer/controllers/DropdownCtrl.js
 msgid "Please Select the Machine"
 msgstr "시스템을 선택하십시오 "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/controllers/escalationRequest.js:
+#: app/escalation/controllers/escalationRequest.js
 msgid "Please check the requestor email address"
 msgstr "요청자의 이메일 주소를 확인하십시오"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/discussionSection.html:
+#: app/cases/views/discussionSection.html
 msgid ""
 "Please note, contents of this field are not visible to Red Hat Support "
 "professionals."
 msgstr "이 필드의 내용은 Red Hat 지원 담당자가 볼 수 없음에 유의하십시오."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid ""
 "Please provide as much detail as possible to help us understand the issue, "
 "for example:"
 msgstr "문제를 이해하는데 도움이 될 수 있는 가능한 많은 세부 사항을 알려주십시오. 예:"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/partnerEscalation.html
 msgid ""
 "Please provide as much detail as possible to help us understand the issue, "
 "for example:Reason for the escalation, the business context, the competitive "
@@ -1191,26 +898,26 @@ msgstr ""
 "세부 사항을 알려주십시오. "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/partnerEscalation.html
 msgid "Please provide as much information as possible in the form."
 msgstr "다음 양식에 가능한 많은 정보를 상세히 입력하십시오."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid "Please provide as much information/detail as possible in the form."
 msgstr "다음 양식에 가능한 많은 정보를 상세히 입력하십시오."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid ""
 "Please provide expectations and desired outcomes from yourself and from the "
 "customer"
 msgstr "파트너와 고객이 기대하는 대응 및 결과를 입력하십시오 "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid ""
 "Please request the account number from the customer if possible, otherwise "
 "use your Red Hat account number.The account number can be found by clicking "
@@ -1220,87 +927,72 @@ msgstr ""
 "오른쪽 상단 코너에 있는 사용자 이름을 클릭하면 알 수 있습니다."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/addCommentSection.html:
+#: app/cases/views/addCommentSection.html
 msgid "Post"
 msgstr "게재"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/partnerEscalation.html
 msgid "Priority Customer Support Routing"
-msgstr "Red Hat 파트너 에스컬레이션 요청 "
+msgstr "우선 순위에 있는 고객 지원 연결 경로"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/cases/views/discussionSection.html:
-#: app/ascension/views/caseDiscussion.html:
+#: app/cases/views/discussionSection.html
 msgid "Private"
 msgstr "비공개"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/discussionSection.html:
+#: app/cases/views/discussionSection.html
 msgid "Private Notes"
 msgstr "비공개 메모"
 
+#: app/cases/views/new.html
+msgid "Problem Statement"
+msgstr "문제 설명"
+
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
 #. Noun
-#: app/cases/views/detailsSection.html:
-#: app/cases/views/new.html:
-#: app/ascension/views/caseDetails.html:
+#: app/cases/views/detailsSection.html
+#: app/cases/views/new.html
 msgid "Product"
 msgstr "제품"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
 #. Noun
-#: app/cases/views/detailsSection.html:
-#: app/cases/views/new.html:
+#: app/cases/views/detailsSection.html
+#: app/cases/views/new.html
 msgid "Product Version"
 msgstr "제품 버전 "
 
-#: app/cases/views/new.html:
+#: app/cases/views/new.html
 msgid "Production Support Service Level Agreement"
 msgstr "제품 지원 서비스 수준 약관"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/editGroup.html:
+#: app/cases/views/editGroup.html
 msgid "Read Access"
 msgstr "읽기 액세스"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid ""
 "Reason for the escalation, the business context, the competitive situation, "
 "past support experience"
 msgstr "에스컬레이션 이유, 비즈니스 상황, 경쟁 상태, 과거 지원 경험등"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/search/views/accordion_search_results.html:
-#: app/search/views/list_search_results.html:
+#: app/search/views/accordion_search_results.html
+#: app/search/views/list_search_results.html
 msgid "Recommendations"
 msgstr "권장 사항 "
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/security/views/login_form.html:
-msgid ""
-"Red Hat Access makes it easy for you to self-solve issues, diagnose "
-"problems, and engage with us via the Red Hat Customer Portal. To access Red "
-"Hat Customer Portal resources, you must enter valid portal credentials."
-msgstr ""
-"Red Hat Access를 사용하여 문제를 직접 해결하고, 문제를 진단하거나 Red Hat  고객 포털을 통해 보다 쉽게 지원 문의할 "
-"수 있습니다. Red Hat 고객 포털 리소스에 액세스하려면 유효한 포털 인증을 입력해야 합니다. "
-
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/security/views/login_form.html:
-msgid ""
-"Red Hat Customer Portal credentials differ from the credentials used to log "
-"into this product."
-msgstr "Red Hat 고객 포털 인증은 제품에 로그인하는데 사용되는 인증과 다릅니다."
-
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/log_viewer/views/logTabs.html:
+#: app/log_viewer/views/logTabs.html
 msgid "Red Hat Diagnose"
 msgstr "Red Hat 진단"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/partnerEscalation.html
 msgid ""
 "Red Hat Global Support Services (GSS) and Red Hat Global Partner Enablement "
 "have  established Partner Escalation to enable our strategic partners to "
@@ -1314,176 +1006,122 @@ msgstr ""
 "파트너 에스컬레이션을 설립하였습니다. 이러한 프로세스를 통해 Red Hat은 고객의 문제를 보다 더 용이하게 관리하고 문제를 해결하기 "
 "위한 방법을 제공합니다."
 
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/security/views/login_form.html:
-msgid "Red Hat Login"
-msgstr "Red Hat 로그인"
-
-#: app/cases/views/new.html:
+#: app/cases/views/new.html
 msgid "Red Hat Support Severity Level Definitions"
 msgstr "Red Hat 지원 심각도 수준 정의"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Red Hat Support Ticket Number"
 msgstr "Red Hat 지원 티켓 번호 "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/controllers/new.js:
+#: app/cases/controllers/new.js
 msgid "Refining top solutions"
 msgstr "상위 솔루션 검색"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/cases/views/discussionSection.html:
-#: app/ascension/views/caseDiscussion.html:
+#: app/cases/views/discussionSection.html
 msgid "Reply"
 msgstr "회신"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/requestManagementEscalationModal.html:
+#: app/cases/views/requestManagementEscalationModal.html
 msgid "Request Management Escalation"
 msgstr "관리 에스컬레이션 요청"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/requestEscalation.html:
+#: app/cases/views/requestEscalation.html
 msgid "Request escalation"
 msgstr "에스컬레이션 요청"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Requestor"
 msgstr "요청자"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/search/views/resultDetail.html:
+#: app/search/views/resultDetail.html
 msgid "Resolution"
 msgstr "해결 방법 "
 
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#. Noun
-#: app/ascension/views/caseDetails.html:
-msgid "SBR Group"
-msgstr "SBR 그룹"
-
-#. SBT: Service Breach Time
-#: app/ascension/views/entitlementInformation.html:
-msgid "SBT"
-msgstr "SBT"
-
-#. SBT: Service Breach Time
-#: app/ascension/views/entitlementInformation.html:
-msgid "SBT State"
-msgstr "SBT 상태"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/common/controllers/titleView.js:
-msgid "SUPPORT CASES"
-msgstr "기술 문의"
+#: app/cases/controllers/edit.js
+msgid "Saturday = {{businessHours}}"
+msgstr "토요일 = {{businessHours}}"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/createGroupModal.html:
-#: app/cases/views/detailsSection.html:
+#: app/cases/views/createGroupModal.html
+#: app/cases/views/detailsSection.html
 msgid "Save"
 msgstr "저장"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/cases/views/detailsSection.html:
-#: app/ascension/views/caseDetails.html:
+#: app/cases/views/detailsSection.html
 msgid "Save Changes"
 msgstr "변경 사항 저장 "
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/defaultGroup.html:
-#: app/cases/views/editGroup.html:
+#: app/cases/views/defaultGroup.html
+#: app/cases/views/editGroup.html
 msgid "Save Group"
 msgstr "그룹 저장"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/search/views/search_form.html:
-#: app/common/controllers/titleView.js:
-#: app/i18n/placeholder.html:
+#: app/search/views/search_form.html
+#: app/i18n/placeholder.html
 msgid "Search"
 msgstr "검색 "
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/search/views/search_form.html:
+#: app/search/views/search_form.html
 msgid "Search Articles and Solutions"
 msgstr "문서 및 해결 방법 검색 "
 
-#: app/ascension/views/caseSearch.html:
-msgid "Search Cases By Number"
-msgstr "번호에 따라 기술 문의 검색"
-
-#: app/search/views/searchStackedSolutions.html:
-msgid "Search Knowledgebase Solutions"
-msgstr "지식 베이스 솔루션 검색"
-
-#: app/search/views/searchStackedSolutions.html:
-msgid "Search Solutions"
-msgstr "솔루션 검색"
-
-# translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/common/controllers/titleView.js:
-msgid "Search Support Case"
-msgstr "기술 문의 검색 "
-
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/log_viewer/views/navSideBar.html:
+#: app/log_viewer/views/navSideBar.html
 msgid "Select File"
 msgstr "파일 선택 "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/log_viewer/views/logsInstructionPane.html:
+#: app/log_viewer/views/logsInstructionPane.html
 msgid "Select Log"
 msgstr "로그 선택"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/emailNotifySelect.html:
-#: app/cases/views/new.html:
+#: app/cases/views/emailNotifySelect.html
+#: app/cases/views/new.html
 msgid "Select a User"
 msgstr "사용자 선택"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/emailNotifySelect.html:
-#: app/cases/views/new.html:
+#: app/cases/views/emailNotifySelect.html
+#: app/cases/views/new.html
 msgid "Send Email Notifications to"
 msgstr "이메일 통지 전송"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Send Request"
 msgstr "요청 전송"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/addCommentSection.html:
-#: app/cases/views/attachmentsSection.html:
-#: app/cases/views/new.html:
+#: app/cases/views/addCommentSection.html
+#: app/cases/views/attachmentsSection.html
+#: app/cases/views/new.html
 msgid "Server File(s) To Attach:"
 msgstr "첨부할 서버 파일: "
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
 #. Noun
-#: app/cases/views/new.html:
-#: app/ascension/views/caseDetails.html:
-#: app/ascension/views/caseFlags.html:
+#: app/cases/views/new.html
 msgid "Severity"
 msgstr "심각도"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/security/views/login_form.html:
-msgid "Sign in"
-msgstr "로그인 "
-
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/security/views/login_form.html:
-msgid "Sign into the Red Hat Customer Portal"
-msgstr "Red Hat 고객 포털로 로그인 "
-
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/log_viewer/views/logsInstructionPane.html:
+#: app/log_viewer/views/logsInstructionPane.html
 msgid ""
 "Simply navigate to and select a log file from the list on the left and click "
 "the 'Select File' button."
@@ -1491,139 +1129,113 @@ msgstr "왼쪽에 있는 목록으로 이동하여 로그 파일을 선택한 �
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
 #. Noun
-#: app/cases/views/listAttachments.html:
+#: app/cases/views/listAttachments.html
 msgid "Size"
 msgstr "크기 "
 
-#: app/cases/views/discussionSection.html:
-#: app/cases/views/filterSelect.html:
-#: app/ascension/views/caseDiscussion.html:
+#: app/cases/views/discussionSection.html
+#: app/cases/views/filterSelect.html
 msgid "Sort by"
 msgstr "정렬 기준"
 
-#: app/ascension/views/caseFlags.html:
-msgid "Special Handling"
-msgstr "특수 처리"
-
-# translation auto-copied from project Satellite6 Bastion Katello, version 6.1, document bastion_katello
-#. Noun
-#: app/ascension/views/breachStatus.html:
-msgid "Start Time"
-msgstr "시작 시간 "
-
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#. Noun
-#: app/ascension/views/caseDetails.html:
-msgid "Status"
-msgstr "상태"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/ascension/views/caseFlags.html:
-msgid "Strategic"
-msgstr "전략"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
 #. Verb
-#: app/cases/views/new.html:
+#: app/cases/views/new.html
 msgid "Submit"
 msgstr "보내기"
 
-#: app/cases/views/addCommentSection.html:
+#: app/cases/views/addCommentSection.html
 msgid "Submit Attachment"
 msgstr "첨부 파일 보내기"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/requestManagementEscalationModal.html:
+#: app/cases/views/requestManagementEscalationModal.html
 msgid "Submit Request"
 msgstr "요청 보내기"
 
-#: app/cases/services/caseService.js:
+#: app/cases/services/caseService.js
 msgid "Successfully created case number {{caseNumber}}"
 msgstr "기술 문의 번호 {{caseNumber}}이/가 성공적으로 생성되었습니다 "
 
-#: app/cases/controllers/createGroupModal.js:
+#: app/cases/controllers/createGroupModal.js
 msgid "Successfully created group {{groupName}}"
 msgstr "그룹 {{groupName}}을/를 성공적으로 생성했습니다"
 
-#: app/cases/services/attachmentsService.js:
+#: app/cases/services/attachmentsService.js
 msgid "Successfully deleted attachment:{{attachmentName}}"
 msgstr "첨부파일을 성공적으로 삭제했습니다:{{attachmentName}}"
 
-#: app/cases/controllers/deleteGroupButton.js:
+#: app/cases/controllers/deleteGroupButton.js
 msgid "Successfully deleted group {{groupName}}"
 msgstr "그룹 {{groupName}}을/를 성공적으로 삭제했습니다 "
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/cases/controllers/deleteGroupButton.js:
+#: app/cases/controllers/deleteGroupButton.js
 msgid "Successfully deleted groups."
 msgstr "그룹을 성공적으로 삭제했습니다 "
 
-#: app/cases/controllers/defaultGroup.js:
+#: app/cases/controllers/defaultGroup.js
 msgid "Successfully set {{groupName}} as {{userName}}'s default group."
 msgstr "{{groupName}}을/를 {{userName}}의 기본 그룹으로 올바르게 설정했습니다."
 
-#: app/cases/services/attachmentsService.js:
+#: app/cases/services/attachmentsService.js
 msgid ""
 "Successfully uploaded attachment {{attachmentFileName}} to case "
 "{{caseNumber}}"
 msgstr "첨부 파일 {{attachmentFileName}}을/를 기술 문의 {{caseNumber}}에 성공적으로 업로드했습니다"
 
-#: app/cases/services/attachmentsService.js:
+#: app/cases/services/attachmentsService.js
 msgid ""
 "Successfully uploaded attachment {{attachmentName}} to case {{caseNumber}}"
 msgstr "첨부 파일 {{attachmentName}}을/를 기술 문의 {{caseNumber}}에 성공적으로 업로드했습니다"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/cases/controllers/attachmentsSection.js:
+#: app/cases/controllers/attachmentsSection.js
 msgid "Successfully uploaded attachment."
 msgstr "첨부 파일을 성공적으로 업로드했습니다."
 
-#. Noun
-#: app/ascension/views/searchSolutions.html:
-msgid "Suggested Solutions"
-msgstr "권장 해결 방법"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/listBugzillas.html:
+#: app/cases/views/listBugzillas.html
 msgid "Summary of Request"
 msgstr "요청 요약 "
 
+#: app/cases/controllers/edit.js
+msgid "Sunday = {{businessHours}}"
+msgstr "일요일 = {{businessHours}}"
+
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/i18n/placeholder.html:
+#: app/i18n/placeholder.html
 msgid "Support"
 msgstr "지원 "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/cases/views/edit.html:
-#: app/cases/views/new.html:
+#: app/cases/views/edit.html
+#: app/cases/views/new.html
 msgid "Support Level"
 msgstr "지원 수준 "
 
 # translation auto-copied from project Customer Portal Translations, version Portal-Case-Management, document Template, author eukim
-#: app/common/views/403.html:
+#: app/common/views/403.html
 msgid "Support Subscription Required"
 msgstr "지원 서브스크립션 필요"
 
-#. Noun
-#: app/ascension/views/accountInformation.html:
-msgid "TAM"
-msgstr "TAM"
-
-#. Noun
-#: app/ascension/views/breachStatus.html:
-#: app/ascension/views/entitlementInformation.html:
-msgid "Target Date"
-msgstr "목표 날짜"
+#: app/cases/controllers/edit.js
+msgid ""
+"Thank you for contacting Red Hat support!  We'll be in contact soon.  Our "
+"records indicate your availability as follows:"
+msgstr ""
+"Red Hat 지원팀에 문의해 주셔서 감사합니다! 조만간 연락을 드릴 것입니다. 저희에게 기록된 고객의 연락 가능한 시간은 다음과 "
+"같습니다:"
 
 # translation auto-copied from project Customer Portal Translations, version Portal-Case-Management, document Template, author eukim
-#: app/common/views/403.html:
+#: app/common/views/403.html
 msgid ""
 "The credentials you provided are valid, but you do not have <b>direct "
 "support from Red Hat.</b>"
 msgstr "입력한 자격 증명은 유효하나, <b>Red Hat의 직접적인 지원</b>은 제공되지 않습니다."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/log_viewer/views/logsInstructionPane.html:
+#: app/log_viewer/views/logsInstructionPane.html
 msgid ""
 "The log file viewer gives the ability to diagnose application logs as well "
 "as file a support case with Red Hat Global Support Services."
@@ -1632,7 +1244,7 @@ msgstr ""
 "진단할 수 있는 기능을 제공합니다."
 
 # translation auto-copied from project Customer Portal Translations, version Portal-Case-Management, document Template, author eukim
-#: app/common/views/404.html:
+#: app/common/views/404.html
 msgid ""
 "The page you are looking for is not here. It might have been moved, removed, "
 "or had its name and address changed. It might otherwise be temporarily "
@@ -1642,7 +1254,7 @@ msgstr ""
 "못하는 것일 수 도 있습니다. "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid ""
 "The requestor will then receive an email (at the email address provided "
 "below) with the ICE ticket number and additional information on how to track "
@@ -1652,7 +1264,7 @@ msgstr ""
 "전송됩니다."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid ""
 "This Internal Customer Escalation submission form can be used by any Red Hat "
 "associate to obtain management support for issues that require attention "
@@ -1662,251 +1274,226 @@ msgstr ""
 "담당자에 의해 사용됩니다."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "This is your 8 digit Red Hat Support ticket number"
 msgstr "8 자리의 Red Hat 지원 티켓 번호입니다 "
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/versionSelect.html:
+#: app/cases/views/versionSelect.html
 msgid ""
 "This release is now retired, please refer to the recommended FAQ prior to "
 "filing a case"
 msgstr "이 릴리즈는 현재 만료되었습니다. 기술 문의를 작성하기 전 FAQ를 참조하십시오."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/partnerEscalation.html
 msgid ""
 "This should be the email address associated with your Red Hat Customer "
 "Portal or Partner Center login"
 msgstr "이는 귀하의 Red Hat 고객 포털 또는 파트너 센터 로그인에 연결된 이메일 주소여야 합니다."
 
-#. Noun
-#: app/ascension/services/accountService.js:
-msgid "Thursday End Time:"
-msgstr "목요일 종료 시간:"
+#: app/cases/controllers/edit.js
+msgid "Thursday = {{businessHours}}"
+msgstr "목요일 = {{businessHours}}"
 
-#. Noun
-#: app/ascension/services/accountService.js:
-msgid "Thursday Start Time:"
-msgstr "목요일 시작 시간:"
-
-#: app/cases/views/new.html:
+#: app/cases/views/new.html
 msgid "To Learn more view the"
 msgstr "자세한 내용은 다음에서 확인하십시오:"
 
-#: app/cases/views/new.html:
+#: app/cases/views/new.html
 msgid "To learn more, visit the"
 msgstr "자세한 내용은 다음에서 확인하십시오: "
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/search/views/list_search_results.html:
+#: app/search/views/list_search_results.html
 msgid "To view a recommendation, click on it."
 msgstr "권장 사항을 확인하려면 해당 항목을 클릭합니다."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/editCaseRecommendationsSection.html:
+#: app/cases/views/editCaseRecommendationsSection.html
 msgid "Top Solutions"
 msgstr "상위 솔루션"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/discussionSection.html:
+#: app/cases/views/discussionSection.html
 msgid "Transcript of chat between"
 msgstr "채팅 내용"
 
-#. Noun
-#: app/ascension/services/accountService.js:
-msgid "Tuesday End Time:"
-msgstr "화요일 종료 시간:"
-
-#. Noun
-#: app/ascension/services/accountService.js:
-msgid "Tuesday Start Time:"
-msgstr "화요일 시작 시간:"
-
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/common/services/strataService.js:
-msgid "Unauthorized."
-msgstr "인증되지 않았습니다."
+#: app/cases/controllers/edit.js
+msgid "Tuesday = {{businessHours}}"
+msgstr "화요일 = {{businessHours}}"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/cases/services/caseService.js:
+#: app/cases/services/caseService.js
 msgid "Ungrouped Case"
 msgstr "그룹화되지 않은 기술문의"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/cases/services/caseService.js:
+#: app/cases/services/caseService.js
 msgid "Ungrouped Cases"
 msgstr "그룹화되지 않은 기술문의"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/cases/views/discussionSection.html:
+#: app/cases/views/discussionSection.html
 msgid "Update"
 msgstr "업데이트 "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/newCaseRecommendationsSection.html:
+#: app/cases/views/newCaseRecommendationsSection.html
 msgid "Updating Recommendations"
 msgstr "권장 사항 업데이트 중"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/attachmentsSection.html:
+#: app/cases/views/attachmentsSection.html
 msgid "Upload Attachments"
 msgstr "첨부 파일 업로드 "
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/cases/controllers/attachmentsSection.js:
-#: app/cases/controllers/new.js:
+#: app/cases/controllers/attachmentsSection.js
+#: app/cases/controllers/new.js
 msgid "Uploading attachment..."
 msgstr "첨부 파일 업로드 중..."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/cases/services/attachmentsService.js:
+#: app/cases/services/attachmentsService.js
 msgid "Uploading attachments..."
 msgstr "첨부 파일 업로드 중..."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
-#: app/cases/views/editGroup.html:
+#: app/cases/views/editGroup.html
 msgid "User Name"
 msgstr "사용자 이름"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/cases/views/defaultGroup.html:
+#: app/cases/views/defaultGroup.html
 msgid "User does not have permissions to set default case group."
 msgstr "사용자에게는 기본 기술 문의 그룹 설정 권한이 없습니다. "
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/cases/controllers/editGroup.js:
+#: app/cases/controllers/editGroup.js
 msgid "User does not have proper credentials to manage case groups."
 msgstr "사용자에게는 기술 문의 그룹을 관리할 적절한 인증이 없습니다. "
 
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#. Noun
-#: app/ascension/views/caseDetails.html:
-msgid "Version"
-msgstr "버전 "
-
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/cases/views/descriptionSection.html:
-#: app/cases/views/severitySelect.html:
+#: app/cases/views/descriptionSection.html
+#: app/cases/views/severitySelect.html
 msgid "View Production Support Service Level Agreement"
 msgstr "제품 지원 서비스 수준 약관 보기 "
 
-#. Noun
-#: app/ascension/views/breachStatus.html:
-msgid "Violates SLA"
-msgstr "SLA 위반"
+#: app/cases/controllers/edit.js
+msgid "Wednesday = {{businessHours}}"
+msgstr "수요일 = {{businessHours}}"
 
-#: app/ascension/services/caseDetailsService.js:
-msgid "Was not able to fetch user given ssoUserName"
-msgstr "사용자에 지정된 ssoUserName을 가져올 수 없습니다"
+#: app/cases/services/caseService.js
+msgid "What information can you provide around timeframes and urgency?"
+msgstr "문제 해결 기간 및  긴급도와 관련된 정보를 제공해 주시겠습니까?"
 
-#. Noun
-#: app/ascension/services/accountService.js:
-msgid "Wednesday End Time:"
-msgstr "수요일 종료 시간:"
+#: app/cases/services/caseService.js
+msgid ""
+"What problem/issue/behavior are you having trouble with?  What do you expect "
+"to see?"
+msgstr "어떤 문제/오류/결함이 발생했습니까? 기대하시는 결과는 무엇입니까?"
 
-#. Noun
-#: app/ascension/services/accountService.js:
-msgid "Wednesday Start Time:"
-msgstr "수요일 시작 시간:"
+#: app/cases/services/caseService.js
+msgid ""
+"When does the behavior occur? Frequently?  Repeatedly?   At certain times?"
+msgstr "언제 문제가 발생했습니까? 이러한 문제가 자주 발생합니까? 반복적으로 발생합니까? 특정 시간에 발생합니까?"
+
+#: app/cases/services/caseService.js
+msgid "Where are you experiencing the behavior?  What environment?"
+msgstr "어디서 문제가 발생했습니까? 어떤 환경에서 발생했습니까?"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/editGroup.html:
+#: app/cases/views/editGroup.html
 msgid "Write Access"
 msgstr "쓰기 액세스"
 
 # translation auto-copied from project Customer Portal Translations, version RHJBossMiddlewareOperationsNetworkProduc, document RHJBossMiddlewareOperationsNetworkProductUpdate.html, author Michelle Kim
-#: app/cases/views/commonConfirmationModal.html:
+#: app/cases/views/commonConfirmationModal.html
 msgid "Yes"
 msgstr "예"
 
-#: app/cases/views/proceedWithoutAttachModal.html:
+#: app/cases/views/proceedWithoutAttachModal.html
 msgid "Yes, Submit"
 msgstr "예, 보내기"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/common/services/alertService.js:
-msgid "You have successfully logged out of the Red Hat Customer Portal."
-msgstr "Red Hat 고객 포털에서 성공적으로 로그아웃했습니다. "
-
-# translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
-#: app/search/services/searchResultsService.js:
+#: app/search/services/searchResultsService.js
 msgid "You must be logged in to use this functionality."
 msgstr "이 기능을 사용하려면 로그인해야 합니다. "
 
-#: app/ascension/views/caseSearch.html:
-msgid "Your Cases"
-msgstr "기술 문의"
-
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Your Email address"
 msgstr "사용자 이메일 주소"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/services/escalationRequestService.js:
+#: app/escalation/services/escalationRequestService.js
 msgid "Your Ice Escalation request has been sent successfully"
 msgstr "귀하의 ICE 에스컬레이션 요청이 성공적으로 전송되었습니다"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/services/escalationRequestService.js:
+#: app/escalation/services/escalationRequestService.js
 msgid "Your Partner Escalation request has been sent successfully"
 msgstr "파트너 에스컬레이션 요청이 성공적으로 전송되었습니다 "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Your Phone Number"
 msgstr "전화 번호 "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/editCaseRecommendationsSection.html:
+#: app/cases/views/editCaseRecommendationsSection.html
 msgid "Your Pins"
 msgstr "사용자 핀"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid "Your Red Hat Contact Phone Number"
 msgstr "Red Hat 전화 번호"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid "Your Red Hat Email Address"
 msgstr "Red Hat 이메일 주소"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/cases/views/discussionSection.html:
+#: app/cases/views/discussionSection.html
 msgid "and"
 msgstr "및 "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/cases/views/discussionSection.html:
-#: app/ascension/views/caseDiscussion.html:
+#: app/cases/views/discussionSection.html
 msgid "at"
-msgstr "에 "
+msgstr " "
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/partnerEscalation.html
 msgid "click here"
 msgstr "여기를 클릭"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid "for more information about the ICE process."
 msgstr "ICE 프로세스에 대한 자세한 정보"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/partnerEscalation.html
 msgid "for more information."
 msgstr "상세 정보"
 
-#: app/cases/views/addCommentSection.html:
+#: app/cases/controllers/edit.js
+msgid "no business hours"
+msgstr "업무 외 시간"
+
+#: app/cases/views/addCommentSection.html
 msgid "{{charactersLeft}} characters left."
 msgstr "{{charactersLeft}} 문자가 남아 있습니다."
 
-#: app/cases/controllers/attachLocalFile.js:
+#: app/cases/controllers/attachLocalFile.js
 msgid ""
 "{{errorFileName}} cannot be attached because it is larger than "
 "{{errorFileSize}} GB. Please FTP large files to dropbox.redhat.com."
@@ -1914,6 +1501,76 @@ msgstr ""
 "{{errorFileName}} 용량이 {{errorFileSize}} GB를 초과하기 때문에 첨부할 수 없습니다. 용량이 큰 파일은  "
 "FTP로 dropbox.redhat.com에 업로드하십시오."
 
-#: app/cases/views/discussionSection.html:
+#: app/cases/views/discussionSection.html
 msgid "{{noteCharactersLeft}} characters left."
 msgstr "{{noteCharactersLeft}} 문자가 남아 있습니다."
+
+#: app/common/controllers/titleView.js
+msgid "CASE {{caseNumber}}"
+msgstr "기술 문의 {{caseNumber}}"
+
+# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
+#: app/common/controllers/titleView.js
+msgid "SUPPORT CASES"
+msgstr "기술 문의"
+
+# translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
+#: app/common/controllers/titleView.js
+msgid "Search Support Case"
+msgstr "기술 문의 검색 "
+
+# translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author eukim
+#: app/common/services/alertService.js
+msgid "You have successfully logged out of the Red Hat Customer Portal."
+msgstr "Red Hat 고객 포털에서 성공적으로 로그아웃했습니다. "
+
+#: app/common/services/constantsService.js
+msgid "Case Owner (A-Z)"
+msgstr "기술 문의 소유자 (A-Z)"
+
+#: app/common/services/constantsService.js
+msgid "Case Owner (Z-A)"
+msgstr "기술 문의 소유자 (Z-A)"
+
+# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
+#: app/common/services/constantsService.js
+msgid "Highest Severity"
+msgstr "가장 높은 심각도 순"
+
+# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
+#: app/common/services/constantsService.js
+msgid "Lowest Severity"
+msgstr "가장 낮은 심각도 순"
+
+# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
+#: app/common/services/constantsService.js
+msgid "Newest Date Created"
+msgstr "최신 날짜 생성 순"
+
+# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
+#: app/common/services/constantsService.js
+msgid "Newest Date Modified"
+msgstr "최신 날짜 수정 순"
+
+# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
+#: app/common/services/constantsService.js
+msgid "Oldest Date Created"
+msgstr "가장 오래된 날짜 생성 순"
+
+# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author eukim
+#: app/common/services/constantsService.js
+msgid "Oldest Date Modified"
+msgstr "가장 오래된 날짜 수정 순"
+
+# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author eukim
+#: app/common/services/strataService.js
+msgid "Unauthorized."
+msgstr "인증되지 않았습니다."
+
+#: app/common/services/constantsService.js
+msgid "Case Status (A-Z)"
+msgstr "기술 문의 상태 (A-Z)"
+
+#: app/common/services/constantsService.js
+msgid "Case Status (Z-A)"
+msgstr "기술 문의 상태 (Z-A)"

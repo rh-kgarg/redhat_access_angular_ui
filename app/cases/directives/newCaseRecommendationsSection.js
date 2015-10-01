@@ -1,15 +1,11 @@
 'use strict';
 /*jshint unused:vars */
-angular.module('RedhatAccess.cases').directive('rhaNewcaserecommendations', function () {
+angular.module('RedhatAccess.cases').directive('rhaNewcaserecommendations', function ($parse) {
 
 	return {
         templateUrl: 'cases/views/newCaseRecommendationsSection.html',
         restrict: 'A',
         controller: 'NewCaseRecommendationsController',
-        link: function postLink(scope, element, attrs) {
-            scope.$on('$destroy', function () {
-                element.remove();
-            });
-        }
+        scope: { itemsPerPage: '=?itemsPerPage' }
     };
 });

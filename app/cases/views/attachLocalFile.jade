@@ -2,6 +2,6 @@
   .col-xs-12
     button.btn.btn-app(ng-click='getFile()', ng-disabled='disabled', translate='', ng-hide='AttachmentsService.updatedAttachments.length == 0') Attach Another File
     button.btn.btn-app(ng-click='getFile()', ng-disabled='disabled', translate='', ng-hide='AttachmentsService.updatedAttachments.length > 0') Attach File
-    div(style='height: 0px; width:0px; overflow:hidden;')
+    div#fileUploaderDiv(style='height: 0px; width:0px; overflow:hidden;')
       input(id='fileUploader', type='file', value='upload', rha-onchange='selectFile', ng-model='file', ng-disabled='disabled || CaseService.submittingCase')
 

@@ -22,9 +22,6 @@
     <!--<link rel="stylesheet" href="cases/styles/case.css">-->
     <link rel="stylesheet" href="assets/css/main.min.css">
     <link rel="stylesheet" href="log_viewer/styles/log_viewer.css">
-    <link rel="stylesheet" href="security/styles/security.css">
-    <link rel="stylesheet" href="common/styles/treeviewselector.css">
-    <link rel="stylesheet" href="common/styles/helpers.css">
     <link rel="stylesheet" href="search/styles/search.css">
     <link rel="stylesheet" href="escalation/styles/escalation.css">
     <link rel="stylesheet" href="bower_components/angular-treeview/css/angular.treeview.css" />
@@ -66,6 +63,8 @@
     <!-- bower:js -->
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-gettext/dist/angular-gettext.js"></script>
+    <script src="bower_components/redhat-access-angular-ui-common/dist/redhat_access_angular_ui_common.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
@@ -75,7 +74,6 @@
     <script src="bower_components/stratajs/strata.js"></script>
     <script src="bower_components/udsjs/uds.js"></script>
     <script src="bower_components/ng-table/ng-table.js"></script>
-    <script src="bower_components/angular-gettext/dist/angular-gettext.js"></script>
     <script src="bower_components/angular-cache/dist/angular-cache.min.js"></script>
     <script src="bower_components/angular-chosen-localytics/chosen.js"></script>
     <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
@@ -88,7 +86,6 @@
     <script src="bower_components/angular-treeview/angular.treeview.min.js"></script>
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="common/common.module.js"></script>
     <script src="cases/cases.module.js"></script>
 
     <script src="cases/controllers/accountSelect.js")></script>
@@ -154,7 +151,6 @@
     <script src="cases/directives/listFilter.js"></script>
 
     <script src="cases/directives/listNewAttachments.js"></script>
-    <script src="cases/directives/onChange.js"></script>
     <script src="cases/directives/ownerSelect.js"></script>
     <script src="cases/directives/productSelect.js"></script>
     <script src="cases/directives/newCaseRecommendationsSection.js"></script>
@@ -181,26 +177,6 @@
     <script src="cases/services/searchBoxService.js"></script>
     <script src="cases/services/searchCaseService.js"></script>
 
-    <script src="common/common.module.js"></script>
-    <script src="common/header.module.js"></script>
-    <script src="common/ui-utils.module.js"></script>
-    <script src="common/controllers/403.js"></script>
-    <script src="common/controllers/404.js"></script>
-    <script src="common/controllers/alert.js"></script>
-    <script src="common/controllers/chatButton.js"></script>
-    <script src="common/controllers/header.js"></script>
-    <script src="common/controllers/titleView.js"></script>
-    <script src="common/directives/403.js"></script>
-    <script src="common/directives/404.js"></script>
-    <script src="common/directives/alert.js"></script>
-    <script src="common/directives/chatButton.js"></script>
-    <script src="common/directives/header.js"></script>
-    <script src="common/directives/titleTemplate.js"></script>
-    <script src="common/services/alertService.js"></script>
-    <script src="common/services/headerService.js"></script>
-    <script src="common/services/strataService.js"></script>
-    <script src="common/services/udsService.js"></script>
-    <script src="common/services/constantsService.js"></script>
     <script src="i18n/translations.js"></script>
     <script src="log_viewer/log_viewer.module.js"></script>
     <script src="log_viewer/controllers/AccordionDemoCtrl.js"></script>
@@ -216,12 +192,6 @@
     <script src="log_viewer/services/accordianService.js"></script>
     <script src="log_viewer/services/fileService.js"></script>
 
-
-    <script src="security/security.module.js"></script>
-    <script src="security/directives/loginStatus.js"></script>
-    <script src="security/controllers/securityController.js"></script>
-    <script src="security/services/securityService.js"></script>
-
     <script src="search/search.module.js"></script>
     <script src="search/controllers/searchController.js"></script>
     <script src="search/directives/accordionSearchResults.js"></script>
@@ -229,48 +199,8 @@
     <script src="search/directives/resultDetailDisplay.js"></script>
     <script src="search/directives/searchForm.js"></script>
     <script src="search/directives/standardSearch.js"></script>
-    <script src="search/directives/searchStackedSolutions.js"></script>
     <script src="search/services/searchResultsService.js"></script>
 
-    <script src="ascension/ascension.module.js"></script>
-    <script src="ascension/controllers/caseView.js"></script>
-    <script src="ascension/controllers/yourCases.js"></script>
-    <script src="ascension/controllers/caseDetails.js"></script>
-    <script src="ascension/controllers/caseDiscussion.js"></script>
-    <script src="ascension/controllers/caseDescription.js"></script>
-    <script src="ascension/controllers/breachStatus.js"></script>
-    <script src="ascension/controllers/entitlementInformation.js"></script>
-    <script src="ascension/controllers/ownerInformation.js"></script>
-    <script src="ascension/controllers/accountInformation.js"></script>
-    <script src="ascension/controllers/caseSummary.js"></script>
-    <script src="ascension/controllers/caseHistory.js"></script>
-    <script src="ascension/controllers/caseBugzillas.js"></script>
-    <script src="ascension/controllers/caseFlags.js"></script>
-    <script src="ascension/controllers/caseEscalations.js"></script>
-    <script src="ascension/controllers/searchSolutions.js"></script>
-    <script src="ascension/controllers/caseAssociates.js"></script>
-    <script src="ascension/directives/caseView.js"></script>
-    <script src="ascension/directives/yourCases.js"></script>
-    <script src="ascension/directives/caseDetails.js"></script>
-    <script src="ascension/directives/caseDiscussion.js"></script>
-    <script src="ascension/directives/caseDescription.js"></script>
-    <script src="ascension/directives/breachStatus.js"></script>
-    <script src="ascension/directives/entitlementInformation.js"></script>
-    <script src="ascension/directives/ownerInformation.js"></script>
-    <script src="ascension/directives/accountInformation.js"></script>
-    <script src="ascension/directives/caseSummary.js"></script>
-    <script src="ascension/directives/caseHistory.js"></script>
-    <script src="ascension/directives/caseBugzillas.js"></script>
-    <script src="ascension/directives/caseFlags.js"></script>
-    <script src="ascension/directives/caseEscalations.js"></script>
-    <script src="ascension/directives/searchSolutions.js"></script>
-    <script src="ascension/directives/caseAssociates.js"></script>
-    <script src="ascension/services/caseDetailsService.js"></script>
-    <script src="ascension/services/accountService.js"></script>
-    <script src="ascension/services/escalationsService.js"></script>
-    <script src="ascension/services/userDetailsService.js"></script>
-    <script src="ascension/services/caseDiscussionService.js"></script>
-    <script src="ascension/services/RoutingService.js"></script>
     <script src="escalation/escalation.module.js"></script>
     <script src="escalation/controllers/escalationRequest.js"></script>
     <script src="escalation/services/escalationRequestService.js"></script>

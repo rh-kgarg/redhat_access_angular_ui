@@ -37,27 +37,14 @@ angular.module('RedhatAccess.cases').service('DiscussionService', [
                     this.loadingAttachments= false;
                 }));
             }
-            commentsPromise = CaseService.populateComments(caseId).then(function (comments) {
+            commentsPromise = CaseService.populateComments(caseId).then(function () {
             }, function (error) {
                 if(!HeaderService.pageLoadFailure) {
                     AlertService.addStrataErrorMessage(error);
                 }
             });
-            //}
-            //if (EDIT_CASE_CONFIG.showComments) {
             //TODO should this be done in case service???
             this.loadingComments = true;
-            // strataService.cases.comments.get(caseId).then(angular.bind(this, function (commentsJSON) {
-            //     this.comments = commentsJSON;
-            //     this.discussionElements = this.discussionElements.concat(this.comments);
-            //     this.loadingComments = false;
-            // }), function (error) {
-            //     AlertService.addStrataErrorMessage(error);
-            //     this.loadingComments = false;
-            // });
-            //}
-
-
             return $q.all([attachPromise, commentsPromise]);
         };
         this.updateElements = function(){

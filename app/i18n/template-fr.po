@@ -6,176 +6,156 @@
 # jcarbone <jcarbone@redhat.com>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
 "MIME-Version: 1.0\n"
-"PO-Revision-Date: 2015-06-30 01:42+0000\n"
-"Last-Translator: jcarbone <jcarbone@redhat.com>\n"
+"PO-Revision-Date: 2015-08-19 11:18+0000\n"
+"Last-Translator: Corina Roe <croe@redhat.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.6.2\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
-#: app/cases/controllers/discussionSection.js:
-#: app/ascension/controllers/caseDiscussion.js:
+#: app/cases/controllers/discussionSection.js
 msgid "(In reply to {{personName}})"
 msgstr "(en réponse à {{personName}})"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/cases/views/list.html:
-#: app/cases/views/new.html:
+#: app/cases/views/list.html
+#: app/cases/views/new.html
 msgid "(More info)"
 msgstr "(Plus d'informations)"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid "* All fields are mandatory."
 msgstr "* Tous les champs sont obligatoires."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/partnerEscalation.html
 msgid "* marked fields are mandatory fields."
 msgstr "* les champs marqués sont des champs obligatoires."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
 #. Noun
-#: app/cases/views/detailsSection.html:
-#: app/cases/views/new.html:
+#: app/cases/views/detailsSection.html
+#: app/cases/views/new.html
 msgid "24x7 Contact"
 msgstr "Contact 24h/24, 7j/7"
 
-#: app/ascension/views/caseFlags.html:
-msgid "24x7 Coverage"
-msgstr "Couverture 24h/24, 7j/7"
-
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
 #. Noun
-#: app/cases/views/detailsSection.html:
-#: app/cases/views/new.html:
+#: app/cases/views/detailsSection.html
+#: app/cases/views/new.html
 msgid "24x7 Support"
 msgstr "Assistance 24h/24, 7j/7"
 
 # translation auto-copied from project Customer Portal Translations, version management_page, document Management_Prototype.html, author Sam Friedmann
 #. Noun
-#: app/cases/views/new.html:
+#: app/cases/views/new.html
 msgid "Account"
 msgstr "Compte"
 
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#. Noun
-#: app/ascension/views/accountInformation.html:
-msgid "Account Information"
-msgstr "Informations du compte"
-
-# translation auto-copied from project evolution, version 3.8.5, document evolution-3.8
-#. Noun
-#: app/ascension/views/accountInformation.html:
-msgid "Account Name"
-msgstr "Nom du compte"
-
-#. Noun
-#: app/ascension/views/accountInformation.html:
-msgid "Account Notes"
-msgstr "Notes de compte"
+#: app/cases/views/edit.html
+msgid "Account name : {{securityService.loginStatus.account.name}}"
+msgstr "Nom du compte : {{securityService.loginStatus.account.name}}"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/cases/controllers/accountSelect.js:
+#: app/cases/controllers/accountSelect.js
 msgid "Account not found."
 msgstr "Compte introuvable."
 
-# translation auto-copied from project Satellite6 Foreman, version 6.1, document foreman
-#. Noun whether the entitlement is active
-#: app/ascension/views/breachStatus.html:
-msgid "Active"
-msgstr "Actif"
+#: app/cases/views/edit.html
+msgid "Account number : {{securityService.loginStatus.account.number}}"
+msgstr "Numéro du compte : {{securityService.loginStatus.account.number}}"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/attachProductLogs.html:
+#: app/cases/views/attachProductLogs.html
 msgid "Add"
 msgstr "Ajouter"
 
-#: app/cases/controllers/new.js:
+#: app/cases/controllers/new.js
 msgid "Adding user {{userName}} to case."
 msgstr "Ajout de l'utilisateur {{userName}} au dossier."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/discussionSection.html:
+#: app/cases/views/discussionSection.html
 msgid "All Attachments"
 msgstr "Toutes les pièces jointes"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/cases/services/caseService.js:
+#: app/cases/services/caseService.js
 msgid "All Groups"
 msgstr "Tous les groupes"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Already Escalated?"
 msgstr "Déjà escaladé ?"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/detailsSection.html:
+#: app/cases/views/detailsSection.html
 msgid "Alternate Case ID"
 msgstr "ID alternatif du dossier"
 
-#: app/cases/controllers/descriptionSection.js:
+#: app/cases/controllers/descriptionSection.js
 msgid ""
 "Are you sure you want to change this case severity to {{severityName}}?"
 msgstr ""
 "Êtes-vous certain de vouloir changer le niveau de sévérité de ce dossier en "
 "{{severityName}} ?"
 
-#: app/cases/controllers/descriptionSection.js:
+#: app/cases/controllers/descriptionSection.js
 msgid "Are you sure you want to change this case status to {{statusName}}?"
 msgstr ""
 "Êtes-vous certain de vouloir changer le statut de ce dossier en "
 "{{statusName}} ?"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/controllers/list.js:
+#: app/cases/controllers/list.js
 msgid "Are you sure you want to close the selected cases?"
 msgstr "Êtes-vous certain de vouloir fermer les dossiers sélectionnés ?"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/edit.html:
+#: app/cases/views/edit.html
 msgid "Assigned to"
 msgstr "Assigné à"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/attachLocalFile.html:
+#: app/cases/views/attachLocalFile.html
 msgid "Attach Another File"
 msgstr "Joindre un autre fichier"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/attachLocalFile.html:
+#: app/cases/views/attachLocalFile.html
 msgid "Attach File"
 msgstr "Joindre un fichier"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/attachProductLogs.html:
+#: app/cases/views/attachProductLogs.html
 msgid "Attach Foreman logs:"
 msgstr "Joindre des journaux Foreman :"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
 #. Noun Attached here means Attached on a particular date
-#: app/cases/views/listAttachments.html:
+#: app/cases/views/listAttachments.html
 msgid "Attached"
 msgstr "Joint"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
 #. Noun
-#: app/cases/views/listAttachments.html:
+#: app/cases/views/listAttachments.html
 msgid "Attached By"
 msgstr "Joint par :"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/listAttachments.html:
+#: app/cases/views/listAttachments.html
 msgid "Attached Files"
 msgstr "Fichiers joints"
 
-#: app/cases/views/proceedWithoutAttachModal.html:
+#: app/cases/views/proceedWithoutAttachModal.html
 msgid ""
 "Attaching logs and diagnostics files greatly improves time to resolution. Do "
 "you want to continue without attaching any files?"
@@ -185,7 +165,7 @@ msgstr ""
 "fichier ?"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/new.html:
+#: app/cases/views/new.html
 msgid ""
 "Attaching logs or other diagnostics files typically results in faster "
 "resolution."
@@ -194,377 +174,257 @@ msgstr ""
 "entraîne habituellement des résolutions plus rapides."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/log_viewer/views/navSideBar.html:
+#: app/log_viewer/views/navSideBar.html
 msgid "Available Log Files"
 msgstr "Fichiers journaux disponibles"
 
-#: app/cases/views/editCaseRecommendationsSection.html:
-#: app/cases/views/newCaseRecommendationsSection.html:
+#: app/cases/views/editCaseRecommendationsSection.html
+#: app/cases/views/newCaseRecommendationsSection.html
 msgid "BACK"
 msgstr "RETOUR"
 
-#: app/ascension/services/caseDetailsService.js:
-msgid "BREACH"
-msgstr "FAILLE"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/cases/views/defaultGroup.html:
+#: app/cases/views/defaultGroup.html
 msgid "Back"
 msgstr "Précédent"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/newCaseRecommendationsSection.html:
+#: app/cases/views/newCaseRecommendationsSection.html
 msgid "Based on your description, here are some possible solutions"
 msgstr ""
 "Ci-dessous figurent quelques solutions possibles basées sur votre "
 "description."
 
-#: app/ascension/controllers/breachStatus.js:
-msgid "Breached by {{breachTime}}"
-msgstr "Enfreint avant {{breachTime}}"
-
-#: app/ascension/controllers/breachStatus.js:
-msgid "Breaching in {{breachTime}}"
-msgstr "Enfreint en {{breachTime}}"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/listBugzillas.html:
+#: app/cases/views/listBugzillas.html
 msgid "Bugzilla Number"
 msgstr "Numéro sur Bugzilla"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/discussionSection.html:
+#: app/cases/views/discussionSection.html
 msgid "Bugzilla Tickets"
 msgstr "Tickets sur Bugzilla"
 
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/ascension/views/caseView.html:
-msgid "Bugzillas"
-msgstr "Bugzillas"
-
-#. Noun
-#: app/ascension/views/accountInformation.html:
-msgid "Business Hours"
-msgstr "Horaires"
-
-#: app/cases/views/edit.html:
+#: app/cases/views/edit.html
 msgid "CASE {{CaseService.kase.case_number}}"
 msgstr "DOSSIER {{CaseService.kase.case_number}}"
 
-#: app/common/controllers/titleView.js:
-msgid "CASE {{caseNumber}}"
-msgstr "DOSSIER {{caseNumber}}"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/common/controllers/titleView.js:
-msgid "CREATE A NEW SUPPORT CASE"
-msgstr "CRÉER UN NOUVEAU DOSSIER D'ASSISTANCE"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
 #. Verb
-#: app/security/views/login_form.html:
-#: app/cases/views/addCommentSection.html:
-#: app/cases/views/createGroupModal.html:
-#: app/cases/views/detailsSection.html:
-#: app/cases/views/editGroup.html:
-#: app/cases/views/new.html:
-#: app/cases/views/requestManagementEscalationModal.html:
-#: app/ascension/views/caseDetails.html:
+#: app/cases/views/addCommentSection.html
+#: app/cases/views/createGroupModal.html
+#: app/cases/views/detailsSection.html
+#: app/cases/views/editGroup.html
+#: app/cases/views/new.html
+#: app/cases/views/requestManagementEscalationModal.html
 msgid "Cancel"
 msgstr "Annuler"
 
-#: app/cases/controllers/commonConfirmationModal.js:
+#: app/cases/controllers/commonConfirmationModal.js
 msgid "Case  {{caseNumber}} successfully closed."
 msgstr "Dossier  {{caseNumber}} clôturé."
 
-#. Noun
-#: app/ascension/views/caseBugzillas.html:
-msgid "Case Bugzillas"
-msgstr "Dossier Bugzilla"
-
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
 #. Noun
-#: app/cases/views/new.html:
-#: app/ascension/views/caseDescription.html:
+#: app/cases/views/new.html
 msgid "Case Description"
 msgstr "Description du dossier"
 
-#. Noun
-#: app/ascension/views/caseDetails.html:
-msgid "Case Detail"
-msgstr "Informations sur le dossier"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/discussionSection.html:
-#: app/ascension/views/caseDiscussion.html:
+#: app/cases/views/discussionSection.html
 msgid "Case Discussion"
 msgstr "Discussion du dossier"
 
-#. Noun
-#: app/ascension/views/caseEscalations.html:
-msgid "Case Escalations"
-msgstr "Escalade de dossier"
-
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/cases/views/detailsSection.html:
+#: app/cases/views/detailsSection.html
 msgid "Case Group"
 msgstr "Groupe de dossiers"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
 #. Noun
-#: app/cases/views/new.html:
+#: app/cases/views/new.html
 msgid "Case Group (Optional)"
 msgstr "Groupe de dossiers (optionnel)"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/defaultGroup.html:
+#: app/cases/views/defaultGroup.html
 msgid "Case Group Name:"
 msgstr "Nom du groupe de dossiers :"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/createGroupModal.html:
+#: app/cases/views/createGroupModal.html
 msgid "Case Group:"
 msgstr "Groupe du dossier :"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#. Noun
-#: app/ascension/views/caseHistory.html:
-#: app/ascension/views/caseView.html:
-msgid "Case History"
-msgstr "Historique du dossier"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Case Information"
 msgstr "Informations sur le dossier"
 
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#. Noun
-#: app/cases/views/new.html:
-msgid "Case Name"
-msgstr "Nom du dossier"
-
-#: app/ascension/views/caseView.html:
-msgid "Case Overview"
-msgstr "Vue d'ensemble du dossier"
-
-#: app/common/services/constantsService.js:
-msgid "Case Owner (A-Z)"
-msgstr "Titulaire du dossier (A-Z)"
-
-#: app/common/services/constantsService.js:
-msgid "Case Owner (Z-A)"
-msgstr "Titulaire du dossier (Z-A)"
-
-#. Noun
-#: app/ascension/views/caseDetails.html:
-msgid "Case Resolution"
-msgstr "Résolution de dossier"
-
-#. Noun
-#: app/ascension/views/caseSummary.html:
-#: app/ascension/views/caseView.html:
-msgid "Case Summary"
-msgstr "Résumé du dossier"
-
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
 #. Noun
-#: app/cases/views/detailsSection.html:
-#: app/ascension/views/caseDetails.html:
+#: app/cases/views/detailsSection.html
 msgid "Case Type"
 msgstr "Type de dossier"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/cases/controllers/editGroup.js:
+#: app/cases/controllers/editGroup.js
 msgid "Case group successfully updated."
 msgstr "Groupe de dossiers mis à jour avec succès."
 
-#: app/cases/controllers/descriptionSection.js:
+#: app/cases/controllers/descriptionSection.js
 msgid "Case severity was changed."
 msgstr "Le niveau de sévérité du dossier a été modifié."
 
-#: app/cases/controllers/descriptionSection.js:
+#: app/cases/controllers/descriptionSection.js
 msgid "Case status was changed."
 msgstr "Le statut du dossier a été modifié."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/cases/controllers/editGroup.js:
+#: app/cases/controllers/editGroup.js
 msgid "Case users successfully updated."
 msgstr "Utilisateurs du dossier mis à jour avec succès."
 
-#: app/ascension/views/yourCases.html:
-msgid ""
-"Case {{case.resource.caseNumber}} <br> {{case.resource.internalStatus}}"
-msgstr ""
-"Dossier {{case.resource.caseNumber}} <br> {{case.resource.internalStatus}}"
-
-#: app/ascension/services/caseDetailsService.js:
-msgid "Case {{caseNumber}} successfully closed."
-msgstr "Dossier  {{caseNumber}} clôturé."
-
-#: app/common/views/chatButton.html:
+#: app/common/views/chatButton.html
 msgid "Chat Offline"
 msgstr "Discuter hors-ligne"
 
-#: app/common/views/chatButton.html:
+#: app/common/views/chatButton.html
 msgid "Chat with Support"
 msgstr "Discuter avec le service d'assistance"
 
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/common/views/treeview-selector.html:
-msgid "Choose File(s) To Attach:"
-msgstr "Choisir le(s) fichier(s) à joindre :"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#. Verb
-#: app/cases/views/list.html:
-msgid "Close"
-msgstr "Fermer"
-
-#: app/ascension/views/caseView.html:
-msgid "Close Case"
-msgstr "Clôturer le dossier"
+#: app/cases/views/list.html
+msgid "Close Case(s)"
+msgstr "Fermer le(s) dossier(s)"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/common/views/alert.html:
+#: app/common/views/alert.html
 msgid "Close messages"
 msgstr "Fermer les messages"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/common/services/constantsService.js:
-#: app/cases/controllers/statusSelect.js:
+#: app/cases/controllers/statusSelect.js
 msgid "Closed"
 msgstr "Fermés"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/controllers/list.js:
+#: app/cases/controllers/list.js
 msgid "Closed Support Cases"
 msgstr "Dossiers d'assistance fermés"
 
-#: app/cases/controllers/list.js:
+#: app/cases/controllers/list.js
 msgid "Closing Cases."
 msgstr "Clôture des dossiers."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/controllers/commonConfirmationModal.js:
+#: app/cases/controllers/commonConfirmationModal.js
 msgid "Closing cases."
 msgstr "Fermeture des dossiers."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/requestManagementEscalationModal.html:
+#: app/cases/views/requestManagementEscalationModal.html
 msgid "Comment:"
 msgstr "Commentaire :"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/createGroupModal.html:
+#: app/cases/views/createGroupModal.html
 msgid "Create Case Group"
 msgstr "Créer un groupe de dossiers"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/createGroupButton.html:
+#: app/cases/views/createGroupButton.html
 msgid "Create New Case Group"
 msgstr "Créer un nouveau groupe de dossiers"
 
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/list.html:
-msgid "Create a New Support Case"
-msgstr "Créer un nouveau dossier d'assistance"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#. Noun
-#: app/ascension/views/caseDetails.html:
-msgid "Created By"
-msgstr "Créé par"
-
-#: app/cases/views/list.html:
+#: app/cases/views/list.html
 msgid "Created by {{case.created_by}} on {{case.created_date}}"
 msgstr "Créé par {{case.created_by}} le {{case.created_date}}"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/services/escalationRequestService.js:
+#: app/escalation/services/escalationRequestService.js
 msgid "Creating Ice Escalation request ....."
 msgstr "Création d'une requête d'Escalade Ice..."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/services/escalationRequestService.js:
+#: app/escalation/services/escalationRequestService.js
 msgid "Creating Partner Escalation request ....."
 msgstr "Création d'une requête d'Escalade Partenaire..."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/services/caseService.js:
+#: app/cases/services/caseService.js
 msgid "Creating case..."
 msgstr "Création du dossier..."
 
-#: app/cases/controllers/createGroupModal.js:
+#: app/cases/controllers/createGroupModal.js
 msgid "Creating group {{groupName}}..."
 msgstr "Création de groupe {{groupName}}..."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Customer"
 msgstr "Client"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Customer Account Number"
 msgstr "Numéro de compte du client"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Customer Contact Email"
 msgstr "Courriel de contact du client"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Customer Contact Name"
 msgstr "Nom du contact du client"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Customer Contact Number"
 msgstr "Numéro de contact du client"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Customer GEO"
 msgstr "GEO client"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
 #. Verb
-#: app/cases/views/listAttachments.html:
+#: app/cases/views/listAttachments.html
 msgid "Delete"
 msgstr "Supprimer"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/deleteGroupButton.html:
+#: app/cases/views/deleteGroupButton.html
 msgid "Delete Group"
 msgstr "Supprimer le groupe"
 
-#: app/cases/services/attachmentsService.js:
+#: app/cases/services/attachmentsService.js
 msgid "Deleting attachment: {{attachmentName}}"
 msgstr "Suppression de la pièce jointe : {{attachmentName}}"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
 #. Noun
-#: app/cases/views/listAttachments.html:
+#: app/cases/views/listAttachments.html
 msgid "Description"
 msgstr "Description"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/log_viewer/views/logsInstructionPane.html:
+#: app/log_viewer/views/logsInstructionPane.html
 msgid "Diagnose"
 msgstr "Diagnostiquer"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/cases/views/descriptionSection.html:
-#: app/cases/views/severitySelect.html:
+#: app/cases/views/descriptionSection.html
+#: app/cases/views/severitySelect.html
 msgid ""
 "Different support-level options might be available based on your account "
 "subscriptions. Your support level determines the type of response you can "
@@ -575,80 +435,61 @@ msgstr ""
 "réponse auquel vous pouvez vous attendre pour votre dossier d'assistance."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/discussionSection.html:
+#: app/cases/views/discussionSection.html
 msgid "Discard Changes"
 msgstr "Abandonner les modifications"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/ascension/views/caseView.html:
-msgid "Discussion"
-msgstr "Discussion"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author jcarbone
-#: app/ascension/views/caseDetails.html:
-msgid "Edit"
-msgstr "Modifier"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/controllers/escalationRequest.js:
+#: app/escalation/controllers/escalationRequest.js
 msgid "Email address is incorrect"
 msgstr "L'adresse électronique est incorrecte"
 
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/ascension/views/entitlementInformation.html:
-msgid "Entitlement Information"
-msgstr "Informations sur les droits d'accès"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/search/views/resultDetail.html:
+#: app/search/views/resultDetail.html
 msgid "Environment"
 msgstr "Environnement"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/cases/controllers/addCommentSection.js:
-#: app/cases/controllers/attachmentsSection.js:
+#: app/cases/controllers/addCommentSection.js
+#: app/cases/controllers/attachmentsSection.js
 msgid "Error: Failed to upload attachment."
 msgstr "Erreur : Le téléversement de la pièce jointe a échoué."
 
-#: app/cases/controllers/addCommentSection.js:
-#: app/cases/controllers/new.js:
+#: app/cases/controllers/addCommentSection.js
+#: app/cases/controllers/new.js
 msgid "Error: Failed to upload attachment. Message: {{errorMessage}}"
 msgstr ""
 "Erreur : le téléversement de la pièce jointe a échoué. Message : "
 "{{errorMessage}}"
 
-#: app/cases/controllers/attachmentsSection.js:
+#: app/cases/controllers/attachmentsSection.js
 msgid "Error: Failed to upload attachment. Message:{{errorMessage}}"
 msgstr ""
 "Erreur : le téléversement de la pièce jointe a échoué. Message : "
 "{{errorMessage}}"
 
-#: app/ascension/views/caseView.html:
-msgid "Escalations"
-msgstr "Escalades"
-
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Expectation"
 msgstr "Attentes"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/exportCSVButton.html:
+#: app/cases/views/exportCSVButton.html
 msgid "Export"
 msgstr "Exporter"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/list.html:
+#: app/cases/views/list.html
 msgid "Export as CSV"
 msgstr "Exporter en tant que CSV"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/exportCSVButton.html:
+#: app/cases/views/exportCSVButton.html
 msgid "Exporting CSV..."
 msgstr "Export CRV en cours..."
 
-#: app/cases/services/attachmentsService.js:
+#: app/cases/services/attachmentsService.js
 msgid ""
 "Failed to upload attachment {{attachmentName}} to case {{caseNumber}}: "
 "{{errorMessage}}"
@@ -657,14 +498,14 @@ msgstr ""
 "{{caseNumber}} : {{errorMessage}}"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/cases/views/addCommentSection.html:
-#: app/cases/views/attachmentsSection.html:
-#: app/cases/views/new.html:
+#: app/cases/views/addCommentSection.html
+#: app/cases/views/attachmentsSection.html
+#: app/cases/views/new.html
 msgid "File description"
 msgstr "Description du fichier"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/cases/views/new.html:
+#: app/cases/views/new.html
 msgid ""
 "File names must be less than 80 characters. Maximum file size for web-"
 "uploaded attachments is 1 GB. Please FTP larger files to dropbox.redhat.com."
@@ -673,7 +514,7 @@ msgstr ""
 "maximale pour les pièces jointes téléversées par le web est de 1 Go. Pour "
 "les fichiers plus importants, veuillez utiliser FTP (dropbox.redhat.com)."
 
-#: app/cases/views/edit.html:
+#: app/cases/views/edit.html
 msgid ""
 "Filed on {{CaseService.kase.created_date}} by {{CaseService.kase."
 "contact_name}}"
@@ -683,48 +524,42 @@ msgstr ""
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
 #. Noun
-#: app/cases/views/listAttachments.html:
+#: app/cases/views/listAttachments.html
 msgid "Filename"
 msgstr "Nom du fichier"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/accountSelect.html:
+#: app/cases/views/accountSelect.html
 msgid "Find My Account Number"
 msgstr "Trouver mon numéro de compte"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/editGroup.html:
+#: app/cases/views/editGroup.html
 msgid "First Name"
 msgstr "Prénom"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "For example: 1-888-467-3342"
 msgstr "Par exemple : 1-888-467-3342"
 
-#. Noun
-#: app/ascension/services/accountService.js:
-msgid "Friday End Time:"
-msgstr "Heure de fermeture le vendredi :"
-
-#. Noun
-#: app/ascension/services/accountService.js:
-msgid "Friday Start Time:"
-msgstr "Heure d'ouverture le vendredi"
+#: app/cases/controllers/edit.js
+msgid "Friday = {{businessHours}}"
+msgstr "Vendredi = {{businessHours}}"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid "GSS ICE FAQ"
 msgstr "FAQ ICE de GSS"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid "GSS ICE Form"
 msgstr "Formulaire ICE de GSS"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid ""
 "GSS is currently working on enhancing the ICE process through the use of "
 "email. Watch this space for more details as they become available."
@@ -734,32 +569,27 @@ msgstr ""
 "publiés sur cet espace au fur et à mesure de leur mise à disponibilité."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/new.html:
+#: app/cases/views/new.html
 msgid "Get faster results."
 msgstr "Obtenez des résultats plus rapides."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/editGroup.html:
+#: app/cases/views/editGroup.html
 msgid "Group Name:"
 msgstr "Nom du groupe :"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/defaultGroup.html:
+#: app/cases/views/defaultGroup.html
 msgid "Group Users:"
 msgstr "Utilisateurs du groupe :"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/editCaseRecommendationsSection.html:
+#: app/cases/views/editCaseRecommendationsSection.html
 msgid "Handpicked For You"
 msgstr "Votre sélection personnalisée"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/common/services/constantsService.js:
-msgid "Highest Severity"
-msgstr "Sévérité la plus élevée"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid ""
 "If this form is not working for any reason please submit a ticket at "
 "helpdesk@redhat.com noting a problem with GSS Ticketing and the ICE form"
@@ -769,7 +599,7 @@ msgstr ""
 "problème avec les tickets GSS et le formulaire ICE"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid ""
 "If this is a request for information from you or the customer and if you "
 "need us to contact you to discuss the issues."
@@ -778,8 +608,18 @@ msgstr ""
 "client et si vous souhaitez que nous vous contactions pour discuter des "
 "problèmes."
 
+#: app/cases/controllers/edit.js
+msgid ""
+"If we have not recorded your business hours correctly, please update your "
+"timezone in  <a href='/wapps/ugc/protected/locale.html' target='_blank'>Your "
+"preferences</a>"
+msgstr ""
+"Si nous n'avons pas enregistré vos heures d'ouverture correctement, veuillez "
+"mettre à jour votre fuseau horaire dans  <a href='/wapps/ugc/protected/"
+"locale.html' target='_blank'>Vos préférences</a>"
+
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid ""
 "If you are requesting an account review, if this is related to aspecific "
 "problem/ticket or a series of problems/tickets or if this is a general or "
@@ -790,7 +630,7 @@ msgstr ""
 "particuliers, ou s'il s'agit d'une plainte générale ou générique"
 
 # translation auto-copied from project Customer Portal Translations, version Portal-Case-Management, document Template, author Sam Friedmann
-#: app/common/views/403.html:
+#: app/common/views/403.html
 msgid ""
 "If you believe you should have permission to view this resource, please <a "
 "href=\"/support/contact/customerService.html\">contact Customer Service</a> "
@@ -807,7 +647,7 @@ msgstr ""
 "rencontré, le service client devrait pouvoir vous aider à le résoudre."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/requestManagementEscalationModal.html:
+#: app/cases/views/requestManagementEscalationModal.html
 msgid ""
 "If you feel the issue has become more severe or the case should be a higher "
 "priority, please provide a detailed comment, and the case will be reviewed "
@@ -818,7 +658,7 @@ msgstr ""
 "qu'un responsable d'assistance se charge de votre dossier."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/log_viewer/views/logsInstructionPane.html:
+#: app/log_viewer/views/logsInstructionPane.html
 msgid ""
 "In the event that you would still like to open a support case, select 'Open "
 "a New Support Case'. The case will be pre-populated with the portion of the "
@@ -828,279 +668,156 @@ msgstr ""
 "veuillez sélectionner « Ouvrir un nouveau dossier d'assistance ». Le dossier "
 "sera pré-rempli avec la portion du journal précédemment sélectionnée."
 
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#. Noun
-#: app/ascension/views/caseDetails.html:
-msgid "Internal Priority"
-msgstr "Priorité interne"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#. Noun
-#: app/ascension/views/caseDetails.html:
-msgid "Internal Status"
-msgstr "Statut interne"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/addCommentSection.html:
+#: app/cases/views/addCommentSection.html
 msgid "Is Public:"
 msgstr "Publique :"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Issue Description"
 msgstr "Description du problème"
 
-#: app/ascension/controllers/accountInformation.js:
-msgid "Last Modified By"
-msgstr "Dernière modification le"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/editGroup.html:
+#: app/cases/views/editGroup.html
 msgid "Last Name"
 msgstr "Nom de famille"
 
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#. Noun
-#: app/ascension/views/caseDetails.html:
-msgid "Last Updated By"
-msgstr "Dernière mise à jour effectuée par"
-
 # translation auto-copied from project Customer Portal Translations, version 012_June_RHEL, document downloads.html, author Sam Friedmann
-#: app/cases/views/requestEscalation.html:
+#: app/cases/views/requestEscalation.html
 msgid "Learn More"
 msgstr "En savoir plus"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/requestManagementEscalationModal.html:
+#: app/cases/views/requestManagementEscalationModal.html
 msgid "Learn more"
 msgstr "En savoir plus"
 
-#. Noun
-#: app/ascension/views/breachStatus.html:
-msgid "Life of Case"
-msgstr "Historique du dossier"
-
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/list.html:
+#: app/cases/views/list.html
 msgid "Loading cases..."
 msgstr "Chargement des dossiers..."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/controllers/new.js:
+#: app/cases/controllers/new.js
 msgid "Locating top solutions"
 msgstr "Recherche des meilleures solutions"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/log_viewer/views/logsInstructionPane.html:
+#: app/log_viewer/views/logsInstructionPane.html
 msgid "Log File Viewer"
 msgstr "Visionneur de fichiers journaux"
 
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/security/views/login_status.html:
-msgid "Log In"
-msgstr "Connexion"
-
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/security/views/login_status.html:
-msgid "Log Out"
-msgstr "Déconnexion"
-
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/security/views/login_status.html:
-msgid "Logged into the Red Hat Customer Portal as"
-msgstr "Connecté sur le Portail Client Red Hat en tant que"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/common/controllers/titleView.js:
-#: app/i18n/placeholder.html:
+#: app/i18n/placeholder.html
 msgid "Logs"
 msgstr "Journaux"
 
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/common/services/constantsService.js:
-msgid "Lowest Severity"
-msgstr "Sévérité la plus basse"
-
-#: app/ascension/services/caseDetailsService.js:
-msgid "MISSING SBT. Entitlement status: {{entitlementStatus}}"
-msgstr "SBT MANQUANT. Statut des droits : {{entitlementStatus}}"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/common/controllers/titleView.js:
-#: app/cases/services/caseService.js:
+#: app/cases/services/caseService.js
 msgid "Manage Case Groups"
 msgstr "Gérer les groupes de dossiers"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/cases/views/group.html:
-#: app/common/controllers/titleView.js:
+#: app/cases/views/group.html
 msgid "Manage Default Case Groups"
 msgstr "Gérer les groupes de dossiers par défaut"
 
-#: app/cases/views/list.html:
+#: app/cases/views/list.html
 msgid "Modified by {{case.last_modified_by}} on {{case.last_modified_date}}"
 msgstr "Modifié par {{case.last_modified_by}} le {{case.last_modified_date}}"
 
-#. Noun
-#: app/ascension/services/accountService.js:
-msgid "Monday End Time:"
-msgstr "Heure de fermeture le lundi :"
-
-#. Noun
-#: app/ascension/services/accountService.js:
-msgid "Monday Start Time:"
-msgstr "Heure d'ouverture le lundi :"
+#: app/cases/controllers/edit.js
+msgid "Monday = {{businessHours}}"
+msgstr "Lundi = {{businessHours}}"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/i18n/placeholder.html:
+#: app/i18n/placeholder.html
 msgid "My Cases"
 msgstr "Mes dossiers"
 
-# translation auto-copied from project Customer Portal Translations, version 010_supportPolicies, document prod_sla.html, author Sam Friedmann
-#: app/ascension/services/caseDetailsService.js:
-msgid "N/A"
-msgstr "N/A"
-
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/editCaseRecommendationsSection.html:
-#: app/cases/views/newCaseRecommendationsSection.html:
+#: app/cases/views/editCaseRecommendationsSection.html
+#: app/cases/views/newCaseRecommendationsSection.html
 msgid "NEXT"
 msgstr "SUIVANT"
 
-# translation auto-copied from project popt, version 1.13, document popt
-#: app/ascension/services/caseDetailsService.js:
-msgid "NONE"
-msgstr "RIEN"
-
-#: app/ascension/services/caseDetailsService.js:
-msgid "NOT BREACHED"
-msgstr "NON ENFREINT"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/groupList.html:
+#: app/cases/views/groupList.html
 msgid "Name"
 msgstr "Nom"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/requestEscalation.html:
+#: app/cases/views/requestEscalation.html
 msgid "Need to raise a concern to Red Hat Support management?"
 msgstr ""
 "Vous souhaitez faire part de vos préoccupations à la direction du support "
 "Red Hat ?"
 
-#: app/ascension/views/breachStatus.html:
-msgid "Negotiated Entitlement Process"
-msgstr "Processus de droits négocié"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/common/services/constantsService.js:
-msgid "Newest Date Created"
-msgstr "Date de création la plus récente"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/common/services/constantsService.js:
-msgid "Newest Date Modified"
-msgstr "Date de modification la plus récente"
-
-#: app/cases/controllers/discussionSection.js:
-#: app/ascension/controllers/caseDiscussion.js:
+#: app/cases/controllers/discussionSection.js
 msgid "Newest to Oldest"
 msgstr "Du plus récent au plus ancien"
 
 # translation auto-copied from project Customer Portal Translations, version RHJBossMiddlewareOperationsNetworkProduc, document RHJBossMiddlewareOperationsNetworkProductUpdate.html, author Corina Roe
-#: app/cases/views/commonConfirmationModal.html:
+#: app/cases/views/commonConfirmationModal.html
 msgid "No"
 msgstr "Non"
 
-#: app/cases/views/proceedWithoutAttachModal.html:
+#: app/cases/views/proceedWithoutAttachModal.html
 msgid "No Files were attached to your case."
 msgstr "Aucun fichier n'a été joint à votre dossier."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/listAttachments.html:
+#: app/cases/views/listAttachments.html
 msgid "No attachments added"
 msgstr "Aucune pièce jointe nécessaire"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/list.html:
+#: app/cases/views/list.html
 msgid "No cases found with given filters."
 msgstr "Aucun dossier trouvé avec les filtres donnés."
 
-#: app/ascension/services/caseDetailsService.js:
-msgid "No cases found."
-msgstr "Aucun dossier trouvé."
-
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/groupList.html:
+#: app/cases/views/groupList.html
 msgid "No groups found."
 msgstr "Aucun groupe trouvé."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/listBugzillas.html:
+#: app/cases/views/listBugzillas.html
 msgid "No linked bugzillas"
 msgstr "Aucun bugzilla lié"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/cases/views/ownerSelect.html:
+#: app/cases/views/ownerSelect.html
 msgid "No match found"
 msgstr "Aucun résultat trouvé"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/search/services/searchResultsService.js:
+#: app/search/services/searchResultsService.js
 msgid "No solutions found."
 msgstr "Aucune solution trouvée."
 
-#: app/ascension/services/caseDetailsService.js:
-msgid "No url roles or user roles found."
-msgstr "Aucun rôle URL ou utilisateur trouvé."
-
-#: app/cases/views/proceedWithoutAttachModal.html:
+#: app/cases/views/proceedWithoutAttachModal.html
 msgid "No, Go Back"
 msgstr "Non, revenir en arrière"
 
 # translation auto-copied from project Customer Portal Translations, version Portal-Case-Management, document Template, author Sam Friedmann
-#: app/common/views/404.html:
+#: app/common/views/404.html
 msgid "Not Found"
 msgstr "Introuvable"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/security/views/login_status.html:
-msgid "Not Logged into the Red Hat Customer Portal"
-msgstr "Non connecté sur le Portail Client Red Hat"
-
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/security/views/login_form.html:
-msgid "Note:"
-msgstr "Remarque :"
-
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/discussionSection.html:
+#: app/cases/views/discussionSection.html
 msgid "Notes:"
 msgstr "Remarques :"
 
-#. Noun
-#: app/ascension/views/accountInformation.html:
-msgid "Number of Open Cases"
-msgstr "Nombre de dossiers ouverts"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/common/services/constantsService.js:
-msgid "Oldest Date Created"
-msgstr "Date de création la plus ancienne"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/common/services/constantsService.js:
-msgid "Oldest Date Modified"
-msgstr "Date de modification la plus ancienne"
-
-#: app/cases/controllers/discussionSection.js:
-#: app/ascension/controllers/caseDiscussion.js:
+#: app/cases/controllers/discussionSection.js
 msgid "Oldest to Newest"
 msgstr "Du plus ancien au plus récent"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid ""
 "Once the request is submitted, and ICE ticket will be raised in the GSS case "
 "management system and brought to the attention of the GSS leadership team."
@@ -1110,7 +827,7 @@ msgstr ""
 "GSS."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/log_viewer/views/logsInstructionPane.html:
+#: app/log_viewer/views/logsInstructionPane.html
 msgid ""
 "Once you have selected your log file then you may diagnose any part of the "
 "log file and clicking the 'Red Hat Diagnose' button. This will then display "
@@ -1122,7 +839,7 @@ msgstr ""
 "base de connaissances Red Hat."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/partnerEscalation.html
 msgid ""
 "Once your request is submitted, a partner escalation case will be opened "
 "with GSS and the GSS leadership team will be notified. You will then receive "
@@ -1136,81 +853,72 @@ msgstr ""
 "informations supplémentaires sur la manière de suivre sa progression."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/common/services/constantsService.js:
-#: app/cases/controllers/statusSelect.js:
+#: app/cases/controllers/statusSelect.js
 msgid "Open"
 msgstr "Ouverts"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/i18n/placeholder.html:
+#: app/i18n/placeholder.html
 msgid "Open New Case"
 msgstr "Ouvrir un nouveau dossier"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/controllers/list.js:
+#: app/cases/controllers/list.js
 msgid "Open Support Cases"
-msgstr "dossiers d'assistance ouverts"
+msgstr "Dossiers d'assistance ouverts"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/search/views/accordion_search_results.html:
-#: app/log_viewer/views/logsInstructionPane.html:
+#: app/search/views/accordion_search_results.html
+#: app/log_viewer/views/logsInstructionPane.html
 msgid "Open a New Support Case"
 msgstr "Ouvrir un nouveau dossier d'assistance"
 
+#: app/cases/views/list.html
+msgid "Open a Support Case"
+msgstr "Ouvrir un dossier d'assistance"
+
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/common/services/constantsService.js:
-#: app/cases/controllers/statusSelect.js:
+#: app/cases/controllers/statusSelect.js
 msgid "Open and Closed"
 msgstr "Ouverts et fermés"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/controllers/list.js:
+#: app/cases/controllers/list.js
 msgid "Open and Closed Support Cases"
 msgstr "Dossiers d'assistance ouverts et clos"
 
-#: app/cases/views/list.html:
+#: app/cases/views/list.html
 msgid "Owned by {{case.contact_name}}"
 msgstr "Appartient à {{case.contact_name}}"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
 #. Noun
-#: app/cases/views/new.html:
+#: app/cases/views/new.html
 msgid "Owner"
 msgstr "Titulaire"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#. Noun
-#: app/ascension/views/ownerInformation.html:
-msgid "Owner Information"
-msgstr "Informations sur le titulaire"
-
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/security/views/login_form.html:
-msgid "Password"
-msgstr "Mot de passe"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/partnerEscalation.html
 msgid "Please"
 msgstr "S'il vous plaît"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/listNewAttachments.html:
+#: app/cases/views/listNewAttachments.html
 msgid "Please Add File Description"
 msgstr "Veuillez ajouter la description du fichier"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/log_viewer/controllers/DropdownCtrl.js:
+#: app/log_viewer/controllers/DropdownCtrl.js
 msgid "Please Select the Machine"
 msgstr "Veuillez sélectionner la machine"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/controllers/escalationRequest.js:
+#: app/escalation/controllers/escalationRequest.js
 msgid "Please check the requestor email address"
 msgstr "Veuillez vérifier l'adresse électronique du demandeur"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/discussionSection.html:
+#: app/cases/views/discussionSection.html
 msgid ""
 "Please note, contents of this field are not visible to Red Hat Support "
 "professionals."
@@ -1219,7 +927,7 @@ msgstr ""
 "professionnels du support Red Hat."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid ""
 "Please provide as much detail as possible to help us understand the issue, "
 "for example:"
@@ -1228,7 +936,7 @@ msgstr ""
 "comprendre le problème. Par exemple :"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/partnerEscalation.html
 msgid ""
 "Please provide as much detail as possible to help us understand the issue, "
 "for example:Reason for the escalation, the business context, the competitive "
@@ -1240,20 +948,20 @@ msgstr ""
 "avec le support technique"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/partnerEscalation.html
 msgid "Please provide as much information as possible in the form."
 msgstr ""
 "Veuillez fournir autant d'informations que possible dans le formulaire."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid "Please provide as much information/detail as possible in the form."
 msgstr ""
 "Veuillez fournir autant d'informations ou de détails dans le formulaire."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid ""
 "Please provide expectations and desired outcomes from yourself and from the "
 "customer"
@@ -1262,8 +970,8 @@ msgstr ""
 "part du client"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid ""
 "Please request the account number from the customer if possible, otherwise "
 "use your Red Hat account number.The account number can be found by clicking "
@@ -1275,53 +983,55 @@ msgstr ""
 "droit de cette page."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/addCommentSection.html:
+#: app/cases/views/addCommentSection.html
 msgid "Post"
 msgstr "Post"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/partnerEscalation.html
 msgid "Priority Customer Support Routing"
 msgstr "Routage de prise en charge de client prioritaire"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/cases/views/discussionSection.html:
-#: app/ascension/views/caseDiscussion.html:
+#: app/cases/views/discussionSection.html
 msgid "Private"
 msgstr "Privé"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/discussionSection.html:
+#: app/cases/views/discussionSection.html
 msgid "Private Notes"
 msgstr "Remarques privées"
 
+#: app/cases/views/new.html
+msgid "Problem Statement"
+msgstr "Énoncé de problème"
+
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
 #. Noun
-#: app/cases/views/detailsSection.html:
-#: app/cases/views/new.html:
-#: app/ascension/views/caseDetails.html:
+#: app/cases/views/detailsSection.html
+#: app/cases/views/new.html
 msgid "Product"
 msgstr "Produit"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
 #. Noun
-#: app/cases/views/detailsSection.html:
-#: app/cases/views/new.html:
+#: app/cases/views/detailsSection.html
+#: app/cases/views/new.html
 msgid "Product Version"
 msgstr "Version du produit"
 
 # translation auto-copied from project PressGang CCMS topics, version 1, document 30482-691403, author Corina Roe
-#: app/cases/views/new.html:
+#: app/cases/views/new.html
 msgid "Production Support Service Level Agreement"
 msgstr "Contrat SLA (niveau de service) du Support production"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/editGroup.html:
+#: app/cases/views/editGroup.html
 msgid "Read Access"
 msgstr "Accès en lecture"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid ""
 "Reason for the escalation, the business context, the competitive situation, "
 "past support experience"
@@ -1330,39 +1040,18 @@ msgstr ""
 "compétitivité, les expériences précédentes avec le support technique"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/search/views/accordion_search_results.html:
-#: app/search/views/list_search_results.html:
+#: app/search/views/accordion_search_results.html
+#: app/search/views/list_search_results.html
 msgid "Recommendations"
 msgstr "Recommandations"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/security/views/login_form.html:
-msgid ""
-"Red Hat Access makes it easy for you to self-solve issues, diagnose "
-"problems, and engage with us via the Red Hat Customer Portal. To access Red "
-"Hat Customer Portal resources, you must enter valid portal credentials."
-msgstr ""
-"Red Hat Access vous permet de  résoudre vos problèmes vous-même, de "
-"diagnostiquer les problèmes, et de nous contacter plus facilement, le tout "
-"via le Portail Client. Pour accéder aux ressources du Portail Client, vous "
-"devrez saisir des informations d'identification valides sur le portail."
-
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/security/views/login_form.html:
-msgid ""
-"Red Hat Customer Portal credentials differ from the credentials used to log "
-"into this product."
-msgstr ""
-"Les informations d'identification du Portail Client Red Hat diffèrent des "
-"informations d'identifications utilisées pour se connecter à ce produit."
-
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/log_viewer/views/logTabs.html:
+#: app/log_viewer/views/logTabs.html
 msgid "Red Hat Diagnose"
 msgstr "Diagnostique Red Hat"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/partnerEscalation.html
 msgid ""
 "Red Hat Global Support Services (GSS) and Red Hat Global Partner Enablement "
 "have  established Partner Escalation to enable our strategic partners to "
@@ -1379,176 +1068,122 @@ msgstr ""
 "aidera Red Hat à mieux gérer les problèmes de vos clients et fournit un "
 "procédé permettant de résoudre ces problèmes."
 
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/security/views/login_form.html:
-msgid "Red Hat Login"
-msgstr "Connexion Red Hat"
-
-#: app/cases/views/new.html:
+#: app/cases/views/new.html
 msgid "Red Hat Support Severity Level Definitions"
 msgstr "Définition du niveau de sévérité du support Red Hat"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Red Hat Support Ticket Number"
 msgstr "Numéro de ticket du support Red Hat"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/controllers/new.js:
+#: app/cases/controllers/new.js
 msgid "Refining top solutions"
 msgstr "Affinage des meilleures solutions"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/cases/views/discussionSection.html:
-#: app/ascension/views/caseDiscussion.html:
+#: app/cases/views/discussionSection.html
 msgid "Reply"
 msgstr "Répondre"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/requestManagementEscalationModal.html:
+#: app/cases/views/requestManagementEscalationModal.html
 msgid "Request Management Escalation"
 msgstr "Demander la remontée d'un problème"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/requestEscalation.html:
+#: app/cases/views/requestEscalation.html
 msgid "Request escalation"
 msgstr "Demander la remontée d'un problème"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Requestor"
 msgstr "Demandeur"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/search/views/resultDetail.html:
+#: app/search/views/resultDetail.html
 msgid "Resolution"
 msgstr "Résolution"
 
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#. Noun
-#: app/ascension/views/caseDetails.html:
-msgid "SBR Group"
-msgstr "Groupe SBR"
-
-#. SBT: Service Breach Time
-#: app/ascension/views/entitlementInformation.html:
-msgid "SBT"
-msgstr "SBT"
-
-#. SBT: Service Breach Time
-#: app/ascension/views/entitlementInformation.html:
-msgid "SBT State"
-msgstr "État SBT"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/common/controllers/titleView.js:
-msgid "SUPPORT CASES"
-msgstr "DOSSIERS D'ASSISTANCE"
+#: app/cases/controllers/edit.js
+msgid "Saturday = {{businessHours}}"
+msgstr "Samedi = {{businessHours}}"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/createGroupModal.html:
-#: app/cases/views/detailsSection.html:
+#: app/cases/views/createGroupModal.html
+#: app/cases/views/detailsSection.html
 msgid "Save"
 msgstr "Enregistrer"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/cases/views/detailsSection.html:
-#: app/ascension/views/caseDetails.html:
+#: app/cases/views/detailsSection.html
 msgid "Save Changes"
 msgstr "Enregistrer les modifications"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/defaultGroup.html:
-#: app/cases/views/editGroup.html:
+#: app/cases/views/defaultGroup.html
+#: app/cases/views/editGroup.html
 msgid "Save Group"
 msgstr "Enregistrer le groupe"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/search/views/search_form.html:
-#: app/common/controllers/titleView.js:
-#: app/i18n/placeholder.html:
+#: app/search/views/search_form.html
+#: app/i18n/placeholder.html
 msgid "Search"
 msgstr "Rechercher"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/search/views/search_form.html:
+#: app/search/views/search_form.html
 msgid "Search Articles and Solutions"
 msgstr "Rechercher des articles et des solutions"
 
-#: app/ascension/views/caseSearch.html:
-msgid "Search Cases By Number"
-msgstr "Rechercher les dossiers par numéro"
-
-#: app/search/views/searchStackedSolutions.html:
-msgid "Search Knowledgebase Solutions"
-msgstr "Rechercher des solutions de base de connaissance"
-
-#: app/search/views/searchStackedSolutions.html:
-msgid "Search Solutions"
-msgstr "Rechercher des solutions"
-
-# translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/common/controllers/titleView.js:
-msgid "Search Support Case"
-msgstr "Rechercher un dossier d'assistance"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/log_viewer/views/navSideBar.html:
+#: app/log_viewer/views/navSideBar.html
 msgid "Select File"
 msgstr "Sélectionner le fichier"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/log_viewer/views/logsInstructionPane.html:
+#: app/log_viewer/views/logsInstructionPane.html
 msgid "Select Log"
 msgstr "Sélectionner un journal"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/emailNotifySelect.html:
-#: app/cases/views/new.html:
+#: app/cases/views/emailNotifySelect.html
+#: app/cases/views/new.html
 msgid "Select a User"
 msgstr "Sélectionner un utilisateur"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/emailNotifySelect.html:
-#: app/cases/views/new.html:
+#: app/cases/views/emailNotifySelect.html
+#: app/cases/views/new.html
 msgid "Send Email Notifications to"
 msgstr "Envoyer des notifications par courrier électronique à"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Send Request"
 msgstr "Envoyer la requête"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/addCommentSection.html:
-#: app/cases/views/attachmentsSection.html:
-#: app/cases/views/new.html:
+#: app/cases/views/addCommentSection.html
+#: app/cases/views/attachmentsSection.html
+#: app/cases/views/new.html
 msgid "Server File(s) To Attach:"
 msgstr "Fichier(s) du serveur à joindre :"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
 #. Noun
-#: app/cases/views/new.html:
-#: app/ascension/views/caseDetails.html:
-#: app/ascension/views/caseFlags.html:
+#: app/cases/views/new.html
 msgid "Severity"
 msgstr "Sévérité"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/security/views/login_form.html:
-msgid "Sign in"
-msgstr "Connexion"
-
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/security/views/login_form.html:
-msgid "Sign into the Red Hat Customer Portal"
-msgstr "Connexion au Portail Client Red Hat"
-
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/log_viewer/views/logsInstructionPane.html:
+#: app/log_viewer/views/logsInstructionPane.html
 msgid ""
 "Simply navigate to and select a log file from the list on the left and click "
 "the 'Select File' button."
@@ -1558,80 +1193,58 @@ msgstr ""
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
 #. Noun
-#: app/cases/views/listAttachments.html:
+#: app/cases/views/listAttachments.html
 msgid "Size"
 msgstr "Taille"
 
-#: app/cases/views/discussionSection.html:
-#: app/cases/views/filterSelect.html:
-#: app/ascension/views/caseDiscussion.html:
+#: app/cases/views/discussionSection.html
+#: app/cases/views/filterSelect.html
 msgid "Sort by"
 msgstr "Trier par"
 
-#: app/ascension/views/caseFlags.html:
-msgid "Special Handling"
-msgstr "Gestion spéciale"
-
-# translation auto-copied from project Satellite6 Bastion Katello, version 6.1, document bastion_katello
-#. Noun
-#: app/ascension/views/breachStatus.html:
-msgid "Start Time"
-msgstr "Date de lancement"
-
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#. Noun
-#: app/ascension/views/caseDetails.html:
-msgid "Status"
-msgstr "Statut"
-
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/ascension/views/caseFlags.html:
-msgid "Strategic"
-msgstr "Stratégique"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
 #. Verb
-#: app/cases/views/new.html:
+#: app/cases/views/new.html
 msgid "Submit"
 msgstr "Valider"
 
-#: app/cases/views/addCommentSection.html:
+#: app/cases/views/addCommentSection.html
 msgid "Submit Attachment"
 msgstr "Envoyer la pièce jointe"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/requestManagementEscalationModal.html:
+#: app/cases/views/requestManagementEscalationModal.html
 msgid "Submit Request"
 msgstr "Valider la requête"
 
-#: app/cases/services/caseService.js:
+#: app/cases/services/caseService.js
 msgid "Successfully created case number {{caseNumber}}"
 msgstr "Le numéro de dossier {{caseNumber}} a été créé"
 
-#: app/cases/controllers/createGroupModal.js:
+#: app/cases/controllers/createGroupModal.js
 msgid "Successfully created group {{groupName}}"
 msgstr "Le groupe {{groupName}} a été créé"
 
-#: app/cases/services/attachmentsService.js:
+#: app/cases/services/attachmentsService.js
 msgid "Successfully deleted attachment:{{attachmentName}}"
 msgstr "La pièce jointe {{attachmentName}} a été supprimée"
 
-#: app/cases/controllers/deleteGroupButton.js:
+#: app/cases/controllers/deleteGroupButton.js
 msgid "Successfully deleted group {{groupName}}"
 msgstr "Le groupe {{groupName}} a été supprimé"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/cases/controllers/deleteGroupButton.js:
+#: app/cases/controllers/deleteGroupButton.js
 msgid "Successfully deleted groups."
 msgstr "Groupes supprimés avec succès."
 
-#: app/cases/controllers/defaultGroup.js:
+#: app/cases/controllers/defaultGroup.js
 msgid "Successfully set {{groupName}} as {{userName}}'s default group."
 msgstr ""
 "Le groupe {{groupName}} a été défini  comme le groupe par défaut de "
 "{{userName}}."
 
-#: app/cases/services/attachmentsService.js:
+#: app/cases/services/attachmentsService.js
 msgid ""
 "Successfully uploaded attachment {{attachmentFileName}} to case "
 "{{caseNumber}}"
@@ -1639,56 +1252,53 @@ msgstr ""
 "La pièce jointe {{attachmentFileName}} a été ajoutée au dossier "
 "{{caseNumber}}"
 
-#: app/cases/services/attachmentsService.js:
+#: app/cases/services/attachmentsService.js
 msgid ""
 "Successfully uploaded attachment {{attachmentName}} to case {{caseNumber}}"
 msgstr ""
 "La pièce jointe {{attachmentName}} a été ajoutée au dossier {{caseNumber}}"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/cases/controllers/attachmentsSection.js:
+#: app/cases/controllers/attachmentsSection.js
 msgid "Successfully uploaded attachment."
 msgstr "Pièce jointe téléversée avec succès."
 
-#. Noun
-#: app/ascension/views/searchSolutions.html:
-msgid "Suggested Solutions"
-msgstr "Solutions suggérées"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/listBugzillas.html:
+#: app/cases/views/listBugzillas.html
 msgid "Summary of Request"
 msgstr "Résumé de la requête"
 
+#: app/cases/controllers/edit.js
+msgid "Sunday = {{businessHours}}"
+msgstr "Dimanche = {{businessHours}}"
+
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/i18n/placeholder.html:
+#: app/i18n/placeholder.html
 msgid "Support"
 msgstr "Assistance"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/cases/views/edit.html:
-#: app/cases/views/new.html:
+#: app/cases/views/edit.html
+#: app/cases/views/new.html
 msgid "Support Level"
 msgstr "Niveau de service"
 
 # translation auto-copied from project Customer Portal Translations, version Portal-Case-Management, document Template, author Sam Friedmann
-#: app/common/views/403.html:
+#: app/common/views/403.html
 msgid "Support Subscription Required"
 msgstr "Abonnement à l'assistance technique requis"
 
-#. Noun
-#: app/ascension/views/accountInformation.html:
-msgid "TAM"
-msgstr "TAM"
-
-#. Noun
-#: app/ascension/views/breachStatus.html:
-#: app/ascension/views/entitlementInformation.html:
-msgid "Target Date"
-msgstr "Date cible"
+#: app/cases/controllers/edit.js
+msgid ""
+"Thank you for contacting Red Hat support!  We'll be in contact soon.  Our "
+"records indicate your availability as follows:"
+msgstr ""
+"Nous vous remercions d'avoir contacté le support technique Red Hat. Nous "
+"allons vous contacter prochainement. Nos informations indiquent que vous "
+"êtes joignables comme suit :"
 
 # translation auto-copied from project Customer Portal Translations, version Portal-Case-Management, document Template, author Sam Friedmann
-#: app/common/views/403.html:
+#: app/common/views/403.html
 msgid ""
 "The credentials you provided are valid, but you do not have <b>direct "
 "support from Red Hat.</b>"
@@ -1697,7 +1307,7 @@ msgstr ""
 "bénéficiez pas de l'<b>assistance technique directe de Red Hat</b>."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/log_viewer/views/logsInstructionPane.html:
+#: app/log_viewer/views/logsInstructionPane.html
 msgid ""
 "The log file viewer gives the ability to diagnose application logs as well "
 "as file a support case with Red Hat Global Support Services."
@@ -1708,7 +1318,7 @@ msgstr ""
 "Services » (Red Hat GSS)."
 
 # translation auto-copied from project Customer Portal Translations, version Portal-Case-Management, document Template, author Sam Friedmann
-#: app/common/views/404.html:
+#: app/common/views/404.html
 msgid ""
 "The page you are looking for is not here. It might have been moved, removed, "
 "or had its name and address changed. It might otherwise be temporarily "
@@ -1720,7 +1330,7 @@ msgstr ""
 "problèmes techniques."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid ""
 "The requestor will then receive an email (at the email address provided "
 "below) with the ICE ticket number and additional information on how to track "
@@ -1731,7 +1341,7 @@ msgstr ""
 "supplémentaires sur la manière de suivre sa progression."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid ""
 "This Internal Customer Escalation submission form can be used by any Red Hat "
 "associate to obtain management support for issues that require attention "
@@ -1743,13 +1353,13 @@ msgstr ""
 "processus de support technique standard. Veuillez vous rendre sur"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "This is your 8 digit Red Hat Support ticket number"
 msgstr "Ce numéro à 8 chiffres est votre ticket de support technique Red Hat"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/versionSelect.html:
+#: app/cases/views/versionSelect.html
 msgid ""
 "This release is now retired, please refer to the recommended FAQ prior to "
 "filing a case"
@@ -1758,7 +1368,7 @@ msgstr ""
 "avant d'ouvrir un dossier."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/partnerEscalation.html
 msgid ""
 "This should be the email address associated with your Red Hat Customer "
 "Portal or Partner Center login"
@@ -1766,236 +1376,218 @@ msgstr ""
 "Ceci doit être l'adresse e-mail associée à votre identifiant de connexion au "
 "Portail Client Red Hat ou au Centre des Partenaires Red Hat (Partner Center)"
 
-#. Noun
-#: app/ascension/services/accountService.js:
-msgid "Thursday End Time:"
-msgstr "Heure de fermeture le jeudi :"
+#: app/cases/controllers/edit.js
+msgid "Thursday = {{businessHours}}"
+msgstr "Jeudi = {{businessHours}}"
 
-#. Noun
-#: app/ascension/services/accountService.js:
-msgid "Thursday Start Time:"
-msgstr "Heure d'ouverture le jeudi :"
-
-#: app/cases/views/new.html:
+#: app/cases/views/new.html
 msgid "To Learn more view the"
 msgstr "Pour en savoir davantage, veuillez consulter"
 
-#: app/cases/views/new.html:
+#: app/cases/views/new.html
 msgid "To learn more, visit the"
 msgstr "Pour en savoir davantage, veuillez consulter"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/search/views/list_search_results.html:
+#: app/search/views/list_search_results.html
 msgid "To view a recommendation, click on it."
 msgstr "Pour afficher une recommandation, veuillez cliquer dessus."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/editCaseRecommendationsSection.html:
+#: app/cases/views/editCaseRecommendationsSection.html
 msgid "Top Solutions"
 msgstr "Meilleures solutions"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/discussionSection.html:
+#: app/cases/views/discussionSection.html
 msgid "Transcript of chat between"
 msgstr "Transcription de la discussion entre"
 
-#. Noun
-#: app/ascension/services/accountService.js:
-msgid "Tuesday End Time:"
-msgstr "Heure de fermeture le mardi :"
-
-#. Noun
-#: app/ascension/services/accountService.js:
-msgid "Tuesday Start Time:"
-msgstr "Heure d'ouverture le mardi :"
-
-# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/common/services/strataService.js:
-msgid "Unauthorized."
-msgstr "Non autorisé."
+#: app/cases/controllers/edit.js
+msgid "Tuesday = {{businessHours}}"
+msgstr "Mardi = {{businessHours}}"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/cases/services/caseService.js:
+#: app/cases/services/caseService.js
 msgid "Ungrouped Case"
 msgstr "Dossier non groupé"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/cases/services/caseService.js:
+#: app/cases/services/caseService.js
 msgid "Ungrouped Cases"
 msgstr "Dossiers non groupés"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/cases/views/discussionSection.html:
+#: app/cases/views/discussionSection.html
 msgid "Update"
 msgstr "Mettre à jour"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/newCaseRecommendationsSection.html:
+#: app/cases/views/newCaseRecommendationsSection.html
 msgid "Updating Recommendations"
 msgstr "Mise à jour des recommandations"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/attachmentsSection.html:
+#: app/cases/views/attachmentsSection.html
 msgid "Upload Attachments"
 msgstr "Téléverser les pièces jointes"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/cases/controllers/attachmentsSection.js:
-#: app/cases/controllers/new.js:
+#: app/cases/controllers/attachmentsSection.js
+#: app/cases/controllers/new.js
 msgid "Uploading attachment..."
 msgstr "Téléversement de la pièce jointe en cours..."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/cases/services/attachmentsService.js:
+#: app/cases/services/attachmentsService.js
 msgid "Uploading attachments..."
 msgstr "Téléversement des pièces jointes en cours..."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
-#: app/cases/views/editGroup.html:
+#: app/cases/views/editGroup.html
 msgid "User Name"
 msgstr "Nom d'utilisateur"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/cases/views/defaultGroup.html:
+#: app/cases/views/defaultGroup.html
 msgid "User does not have permissions to set default case group."
 msgstr ""
 "L'utilisateur n'a pas les permissions pour définir le groupe de dossiers par "
 "défaut."
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/cases/controllers/editGroup.js:
+#: app/cases/controllers/editGroup.js
 msgid "User does not have proper credentials to manage case groups."
 msgstr ""
 "L'utilisateur n'a pas les informations d'identifications appropriées pour "
 "gérer des groupes de dossiers."
 
-# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#. Noun
-#: app/ascension/views/caseDetails.html:
-msgid "Version"
-msgstr "Version"
-
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/cases/views/descriptionSection.html:
-#: app/cases/views/severitySelect.html:
+#: app/cases/views/descriptionSection.html
+#: app/cases/views/severitySelect.html
 msgid "View Production Support Service Level Agreement"
 msgstr "Afficher le contrat de niveau de service (SLA) de production"
 
-#. Noun
-#: app/ascension/views/breachStatus.html:
-msgid "Violates SLA"
-msgstr "Enfreint SLA"
+#: app/cases/controllers/edit.js
+msgid "Wednesday = {{businessHours}}"
+msgstr "Mercredi = {{businessHours}}"
 
-#: app/ascension/services/caseDetailsService.js:
-msgid "Was not able to fetch user given ssoUserName"
-msgstr "Impossible de récupérer l'utilisateur avec ssoUserName donné"
+#: app/cases/services/caseService.js
+msgid "What information can you provide around timeframes and urgency?"
+msgstr ""
+"Pouvez-vous nous donner des informations en matière de plage de temps et "
+"d'urgence ?"
 
-#. Noun
-#: app/ascension/services/accountService.js:
-msgid "Wednesday End Time:"
-msgstr "Heure de fermeture le mercredi :"
+#: app/cases/services/caseService.js
+msgid ""
+"What problem/issue/behavior are you having trouble with?  What do you expect "
+"to see?"
+msgstr ""
+"Quelle sorte de problème/comportement inatendu rencontrez-vous ? A quoi vous "
+"attendez-vous normalement ?"
 
-#. Noun
-#: app/ascension/services/accountService.js:
-msgid "Wednesday Start Time:"
-msgstr "Heure d'ouverture le mercredi :"
+#: app/cases/services/caseService.js
+msgid ""
+"When does the behavior occur? Frequently?  Repeatedly?   At certain times?"
+msgstr ""
+"Quand rencontrez-vous ce comportement ? Fréquemment ? Régulièrement ? À "
+"certains moments ?"
+
+#: app/cases/services/caseService.js
+msgid "Where are you experiencing the behavior?  What environment?"
+msgstr ""
+"Où rencontrez-vous ce comportement inatendu ? Dans quel environnement ?"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/editGroup.html:
+#: app/cases/views/editGroup.html
 msgid "Write Access"
 msgstr "Accès en écriture"
 
 # translation auto-copied from project Customer Portal Translations, version RHJBossMiddlewareOperationsNetworkProduc, document RHJBossMiddlewareOperationsNetworkProductUpdate.html, author Corina Roe
-#: app/cases/views/commonConfirmationModal.html:
+#: app/cases/views/commonConfirmationModal.html
 msgid "Yes"
 msgstr "Oui"
 
-#: app/cases/views/proceedWithoutAttachModal.html:
+#: app/cases/views/proceedWithoutAttachModal.html
 msgid "Yes, Submit"
 msgstr "Oui, confirmer"
 
 # translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/common/services/alertService.js:
-msgid "You have successfully logged out of the Red Hat Customer Portal."
-msgstr "Vous vous êtes déconnecté du Portail Client Red Hat avec succès."
-
-# translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
-#: app/search/services/searchResultsService.js:
+#: app/search/services/searchResultsService.js
 msgid "You must be logged in to use this functionality."
 msgstr "Vous devez être connecté pour utiliser cette fonctionnalité."
 
-#: app/ascension/views/caseSearch.html:
-msgid "Your Cases"
-msgstr "Vos dossiers"
-
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Your Email address"
 msgstr "Votre adresse électronique"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/services/escalationRequestService.js:
+#: app/escalation/services/escalationRequestService.js
 msgid "Your Ice Escalation request has been sent successfully"
 msgstr "Votre requête d'Escalade ICE a été envoyée avec succès"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/services/escalationRequestService.js:
+#: app/escalation/services/escalationRequestService.js
 msgid "Your Partner Escalation request has been sent successfully"
 msgstr "Votre requête d'Escalade Partenaire a été envoyée avec succès"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/escalation/views/iceEscalation.html:
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/iceEscalation.html
+#: app/escalation/views/partnerEscalation.html
 msgid "Your Phone Number"
 msgstr "Votre numéro de téléphone"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/cases/views/editCaseRecommendationsSection.html:
+#: app/cases/views/editCaseRecommendationsSection.html
 msgid "Your Pins"
 msgstr "Vos pins"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid "Your Red Hat Contact Phone Number"
 msgstr "Numéro de téléphone de votre contact Red Hat"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid "Your Red Hat Email Address"
 msgstr "Votre adresse électronique Red Hat"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/cases/views/discussionSection.html:
+#: app/cases/views/discussionSection.html
 msgid "and"
 msgstr "et"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings
-#: app/cases/views/discussionSection.html:
-#: app/ascension/views/caseDiscussion.html:
+#: app/cases/views/discussionSection.html
 msgid "at"
 msgstr "à"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/partnerEscalation.html
 msgid "click here"
 msgstr "cliquez ici"
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/iceEscalation.html:
+#: app/escalation/views/iceEscalation.html
 msgid "for more information about the ICE process."
 msgstr "pour obtenir des informations supplémentaires sur le processus ICE."
 
 # translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
-#: app/escalation/views/partnerEscalation.html:
+#: app/escalation/views/partnerEscalation.html
 msgid "for more information."
 msgstr "pour davantage d'informations."
 
-#: app/cases/views/addCommentSection.html:
+#: app/cases/controllers/edit.js
+msgid "no business hours"
+msgstr "aucune heure d'aouverture"
+
+#: app/cases/views/addCommentSection.html
 msgid "{{charactersLeft}} characters left."
 msgstr "{{charactersLeft}} caractères restants."
 
-#: app/cases/controllers/attachLocalFile.js:
+#: app/cases/controllers/attachLocalFile.js
 msgid ""
 "{{errorFileName}} cannot be attached because it is larger than "
 "{{errorFileSize}} GB. Please FTP large files to dropbox.redhat.com."
@@ -2004,6 +1596,76 @@ msgstr ""
 "{{errorFileSize}} Go. Veuillez utilisez FTP pour dropbox.redhat.com pour les "
 "fichiers plus volumineux."
 
-#: app/cases/views/discussionSection.html:
+#: app/cases/views/discussionSection.html
 msgid "{{noteCharactersLeft}} characters left."
 msgstr "{{noteCharactersLeft}} caractères restants."
+
+#: app/common/controllers/titleView.js
+msgid "CASE {{caseNumber}}"
+msgstr "DOSSIER {{caseNumber}}"
+
+# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
+#: app/common/controllers/titleView.js
+msgid "SUPPORT CASES"
+msgstr "DOSSIERS D'ASSISTANCE"
+
+# translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
+#: app/common/controllers/titleView.js
+msgid "Search Support Case"
+msgstr "Rechercher un dossier d'assistance"
+
+# translation auto-copied from project Customer Portal Translations, version PCM_strings, document template, author Sam Friedmann
+#: app/common/services/alertService.js
+msgid "You have successfully logged out of the Red Hat Customer Portal."
+msgstr "Vous vous êtes déconnecté du Portail Client Red Hat avec succès."
+
+#: app/common/services/constantsService.js
+msgid "Case Owner (A-Z)"
+msgstr "Titulaire du dossier (A-Z)"
+
+#: app/common/services/constantsService.js
+msgid "Case Owner (Z-A)"
+msgstr "Titulaire du dossier (Z-A)"
+
+# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
+#: app/common/services/constantsService.js
+msgid "Highest Severity"
+msgstr "Sévérité la plus élevée"
+
+# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
+#: app/common/services/constantsService.js
+msgid "Lowest Severity"
+msgstr "Sévérité la plus basse"
+
+# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
+#: app/common/services/constantsService.js
+msgid "Newest Date Created"
+msgstr "Date de création la plus récente"
+
+# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
+#: app/common/services/constantsService.js
+msgid "Newest Date Modified"
+msgstr "Date de modification la plus récente"
+
+# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
+#: app/common/services/constantsService.js
+msgid "Oldest Date Created"
+msgstr "Date de création la plus ancienne"
+
+# translation auto-copied from project Customer Portal Translations, version PortalCaseManagementStrings, document PortalCaseManagementStrings, author Sam Friedmann
+#: app/common/services/constantsService.js
+msgid "Oldest Date Modified"
+msgstr "Date de modification la plus ancienne"
+
+# translation auto-copied from project Customer Portal Translations, version PCM_template, document template, author Sam Friedmann
+#: app/common/services/strataService.js
+msgid "Unauthorized."
+msgstr "Non autorisé."
+
+#: app/common/services/constantsService.js
+msgid "Case Status (A-Z)"
+msgstr "Statut de dossier (A-Z)"
+
+#: app/common/services/constantsService.js
+msgid "Case Status (Z-A)"
+msgstr "Statut de dossier (Z-A)"

@@ -1,9 +1,0 @@
-ul.attachment-list.block-list.block-list-gray
-  li(
-    ng-repeat='attachment in CaseAttachmentsService.updatedAttachments',
-    ng-hide='CaseAttachmentsService.updatedAttachments.length <= 0') {{attachment.file_name}} ({{attachment.length | bytes}})
-    .fa.fa-close(type='button', style='float: right', ng-click='removeLocalAttachment($index)')
-    input#rha-case-attachement-fileDescription.form-control.description(
-      placeholder="{{'Please Add File Description'|translate}}",
-      ng-model='attachment.description',
-      ng-disabled='disabled')

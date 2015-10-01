@@ -87,7 +87,9 @@ module.exports = function (grunt) {
                     '<%= yeoman.bowerDir %>/angular-chosen-localytics/chosen.js',
                     '<%= yeoman.bowerDir %>/angular-cache/dist/angular-cache.js',
                     '<%= yeoman.bowerDir %>/chosen/chosen.jquery.js',
-                    '<%= yeoman.bowerDir %>/ngInfiniteScroll/build/ng-infinite-scroll.min.js'
+                    '<%= yeoman.bowerDir %>/ngInfiniteScroll/build/ng-infinite-scroll.min.js',
+                    '<%= yeoman.bowerDir %>/redhat-access-angular-ui-common/dist/redhat_access_angular_ui_common.js'
+
                 ],
                 css: [
                     '<%= yeoman.bowerDir %>/angular-treeview/css/angular.treeview.css',
@@ -197,7 +199,8 @@ module.exports = function (grunt) {
                     '<%= yeoman.app %>/i18n/template.pot': [
                         '<%= src.tpl.app %>',
                         '<%= src.js %>',
-                        '<%= yeoman.app %>/i18n/placeholder.html'
+                        '<%= yeoman.app %>/i18n/placeholder.html',
+                        'bower_components/redhat-access-angular-ui-common/dist/redhat_access_angular_ui_common.js'
                     ]
                 }
             }

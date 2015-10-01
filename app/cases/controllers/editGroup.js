@@ -69,7 +69,6 @@ angular.module('RedhatAccess.cases').controller('EditGroup', [
                         buildTable();
                         $scope.usersLoading = false;
                         if(reloadTable){
-                            //GroupUserService.reloadTable();
                             reloadTable = false;
                         }
                     }, function (error) {
@@ -88,7 +87,7 @@ angular.module('RedhatAccess.cases').controller('EditGroup', [
         $scope.saveGroup = function () {
             var userName = securityService.loginStatus.authedUser.sso_username;
             if(!$scope.isGroupPrestine){
-                strataService.groups.update($scope.selectedGroup, userName).then(function (response) {
+                strataService.groups.update($scope.selectedGroup, userName).then(function () {
                     AlertService.clearAlerts();
                     AlertService.addSuccessMessage(gettextCatalog.getString('Case group successfully updated.'));
                     $scope.isGroupPrestine = true;
@@ -97,7 +96,7 @@ angular.module('RedhatAccess.cases').controller('EditGroup', [
                 });
             }
             if(!$scope.isUsersPrestine){
-                strataService.groupUsers.update($scope.usersOnAccount, $scope.accountNumber, $scope.selectedGroup.number).then(function(response) {
+                strataService.groupUsers.update($scope.usersOnAccount, $scope.accountNumber, $scope.selectedGroup.number).then(function() {
                     $scope.isUsersPrestine = true;
                     AlertService.clearAlerts();
                     AlertService.addSuccessMessage(gettextCatalog.getString('Case users successfully updated.'));

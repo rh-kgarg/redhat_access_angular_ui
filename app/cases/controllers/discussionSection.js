@@ -43,7 +43,7 @@ angular.module('RedhatAccess.cases').controller('DiscussionSection', [
             {
                 name: gettextCatalog.getString('Oldest to Newest'),
                 sortOrder: 'ASC'
-            },
+            }
         ];
 
         $scope.DiscussionService = DiscussionService;
@@ -60,7 +60,7 @@ angular.module('RedhatAccess.cases').controller('DiscussionSection', [
         };
 
         $scope.init = function() {
-            DiscussionService.getDiscussionElements($stateParams.id).then(angular.bind(this, function (attachmentsJSON) {
+            DiscussionService.getDiscussionElements($stateParams.id).then(angular.bind(this, function () {
                 if($location.search().commentId !== undefined){
                     scroll($location.search().commentId);
                 }
@@ -75,7 +75,7 @@ angular.module('RedhatAccess.cases').controller('DiscussionSection', [
             $scope.init();
         });
 
-        $scope.commentReply = function(comment,browserIE) {
+        $scope.commentReply = function(comment) {
             var truncatedText=comment.text.substring(0,1000);
             var person = comment.created_by;
             var lines = truncatedText.split(/\n/);
@@ -111,22 +111,29 @@ angular.module('RedhatAccess.cases').controller('DiscussionSection', [
             }
         };
 
-        $scope.$watch('AttachmentsService.originalAttachments', function (val) {
+        $scope.$watch('AttachmentsService.originalAttachments', function () {
             DiscussionService.updateElements();
             if(AttachmentsService.originalAttachments.length ===0 ){ //if we are deleting last attachment, we should default to case discussion tab
                 $scope.toggleDiscussion();
             }
         }, true);
-        $scope.$watch('CaseService.comments', function (val) {
+        $scope.$watch('CaseService.comments', function () {
             DiscussionService.updateElements();
         }, true);
-        $scope.$watch('CaseService.kase.notes', function(val) {
+        $scope.$watch('CaseService.kase.notes', function() {
             $scope.maxNotesCharacterCheck();
         }, true);
 
         $scope.updateNotes = function(){
-            CaseService.updateCase().then(angular.bind(this, function (attachmentsJSON) {
+            CaseService.updateCase().then(angular.bind(this, function () {
                 this.notesForm.$setPristine();
+            }) ,angular.bind(this, function (error) {
+                AlertService.addStrataErrorMessage(error);
+            }));
+        };
+        $scope.updateActionPlan = function(){
+            CaseService.updateCase().then(angular.bind(this, function () {
+                this.actionPlanForm.$setPristine();
             }) ,angular.bind(this, function (error) {
                 AlertService.addStrataErrorMessage(error);
             }));
@@ -135,32 +142,47 @@ angular.module('RedhatAccess.cases').controller('DiscussionSection', [
             CaseService.kase.notes = CaseService.prestineKase.notes;
             this.notesForm.$setPristine();
         };
+        $scope.discardActionPlan = function(){
+            CaseService.kase.action_plan = CaseService.prestineKase.action_plan;
+            this.actionPlanForm.$setPristine();
+        };
         $scope.toggleDiscussion = function(){
             $scope.discussion = true;
             $scope.attachments = false;
             $scope.notes = false;
             $scope.bugzillas = false;
+            $scope.actionPlan = false;
         };
         $scope.toggleAttachments= function(){
             $scope.discussion = false;
             $scope.attachments = true;
             $scope.notes = false;
             $scope.bugzillas = false;
+            $scope.actionPlan = false;
         };
         $scope.toggleNotes = function(){
             $scope.discussion = false;
             $scope.attachments = false;
             $scope.notes = true;
             $scope.bugzillas = false;
+            $scope.actionPlan = false;
         };
         $scope.toggleBugzillas = function(){
             $scope.discussion = false;
             $scope.attachments = false;
             $scope.notes = false;
             $scope.bugzillas = true;
+            $scope.actionPlan = false;
+        };
+        $scope.toggleActionPlan = function(){
+            $scope.discussion = false;
+            $scope.attachments = false;
+            $scope.notes = false;
+            $scope.bugzillas = false;
+            $scope.actionPlan = true;
         };
 
-        $scope.$on('$locationChangeSuccess', function(event){
+        $scope.$on('$locationChangeSuccess', function(){
             var splitUrl = $location.path().split('/');
             if(splitUrl[2] !== undefined && $location.path().search(/case\/[0-9]{1,8}/i) !== -1){
                 var newCaseId = splitUrl[2];

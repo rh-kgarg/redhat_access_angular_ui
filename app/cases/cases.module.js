@@ -63,9 +63,10 @@ angular.module('RedhatAccess.cases', [
             reloadOnSearch: false
         });
         $stateProvider.state('new', {
-            url: '/case/new',
+            url: '/case/new?abtest',
             templateUrl: 'cases/views/new.html',
-            controller: 'New'
+            controller: 'New',
+            reloadOnSearch: true
         });
         $stateProvider.state('list', {
             url: '/case/list',

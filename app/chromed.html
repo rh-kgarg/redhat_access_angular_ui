@@ -19,9 +19,9 @@
     <!-- build:css({.tmp,app}) styles/case.css -->
     <link rel="stylesheet" href="assets/css/main.min.css">
     <link rel="stylesheet" href="log_viewer/styles/log_viewer.css">
-    <link rel="stylesheet" href="security/styles/security.css">
-    <link rel="stylesheet" href="common/styles/treeviewselector.css">
-    <link rel="stylesheet" href="common/styles/helpers.css">
+<!--     <link rel="stylesheet" href="security/styles/security.css"> -->
+<!--     <link rel="stylesheet" href="common/styles/treeviewselector.css">
+    <link rel="stylesheet" href="common/styles/helpers.css"> -->
     <link rel="stylesheet" href="search/styles/search.css">
     <link rel="stylesheet" href="escalation/styles/escalation.css">
     <link rel="stylesheet" href="bower_components/angular-treeview/css/angular.treeview.css" />
@@ -63,6 +63,8 @@
 
     window.deps.push("/bower_components/chosen/chosen.jquery.js");
     window.deps.push("/bower_components/angular-treeview/angular.treeview.min.js");
+    window.deps.push("/bower_components/redhat-access-angular-ui-common/dist/redhat_access_angular_ui_common.js");
+
 
     window.deps.push("/cases/cases.module.js");
     window.deps.push("/cases/controllers/accountSelect.js");
@@ -125,7 +127,6 @@
     window.deps.push("/cases/directives/listAttachments.js");
     window.deps.push("/cases/directives/listFilter.js");
     window.deps.push("/cases/directives/listNewAttachments.js");
-    window.deps.push("/cases/directives/onChange.js");
     window.deps.push("/cases/directives/ownerSelect.js");
     window.deps.push("/cases/directives/productSelect.js");
     window.deps.push("/cases/directives/newCaseRecommendationsSection.js");
@@ -152,27 +153,27 @@
     window.deps.push("/cases/services/searchBoxService.js");
     window.deps.push("/cases/services/searchCaseService.js");
 
-    window.deps.push("/common/common.module.js");
-    window.deps.push("/common/header.module.js");
-    window.deps.push("/common/ui-utils.module.js");
-    window.deps.push("/common/controllers/403.js");
-    window.deps.push("/common/controllers/404.js");
-    window.deps.push("/common/controllers/alert.js");
-    window.deps.push("/common/controllers/chatButton.js");
-    window.deps.push("/common/controllers/header.js");
-    window.deps.push("/common/controllers/titleView.js");
-    window.deps.push("/common/directives/403.js");
-    window.deps.push("/common/directives/404.js");
-    window.deps.push("/common/directives/alert.js");
-    window.deps.push("/common/directives/autoFocus.js");
-    window.deps.push("/common/directives/chatButton.js");
-    window.deps.push("/common/directives/header.js");
-    window.deps.push("/common/directives/titleTemplate.js");
-    window.deps.push("/common/services/alertService.js");
-    window.deps.push("/common/services/headerService.js");
-    window.deps.push("/common/services/strataService.js");
-    window.deps.push("/common/services/udsService.js");
-    window.deps.push("/common/services/constantsService.js");
+    // window.deps.push("/common/common.module.js");
+    // window.deps.push("/common/header.module.js");
+    // window.deps.push("/common/ui-utils.module.js");
+    // window.deps.push("/common/controllers/403.js");
+    // window.deps.push("/common/controllers/404.js");
+    // window.deps.push("/common/controllers/alert.js");
+    // window.deps.push("/common/controllers/chatButton.js");
+    // window.deps.push("/common/controllers/header.js");
+    // window.deps.push("/common/controllers/titleView.js");
+    // window.deps.push("/common/directives/403.js");
+    // window.deps.push("/common/directives/404.js");
+    // window.deps.push("/common/directives/alert.js");
+    // window.deps.push("/common/directives/autoFocus.js");
+    // window.deps.push("/common/directives/chatButton.js");
+    // window.deps.push("/common/directives/header.js");
+    // window.deps.push("/common/directives/titleTemplate.js");
+    // window.deps.push("/common/services/alertService.js");
+    // window.deps.push("/common/services/headerService.js");
+    // window.deps.push("/common/services/strataService.js");
+    // window.deps.push("/common/services/udsService.js");
+    // window.deps.push("/common/services/constantsService.js");
     window.deps.push("/i18n/translations.js");
     window.deps.push("/log_viewer/log_viewer.module.js");
     window.deps.push("/log_viewer/controllers/AccordionDemoCtrl.js");
@@ -189,10 +190,10 @@
     window.deps.push("/log_viewer/services/fileService.js");
 
 
-    window.deps.push("/security/security.module.js");
-    window.deps.push("/security/directives/loginStatus.js");
-    window.deps.push("/security/controllers/securityController.js");
-    window.deps.push("/security/services/securityService.js");
+    // window.deps.push("/security/security.module.js");
+    // window.deps.push("/security/directives/loginStatus.js");
+    // window.deps.push("/security/controllers/securityController.js");
+    // window.deps.push("/security/services/securityService.js");
 
     window.deps.push("/search/search.module.js");
     window.deps.push("/search/controllers/searchController.js");
@@ -201,48 +202,47 @@
     window.deps.push("/search/directives/resultDetailDisplay.js");
     window.deps.push("/search/directives/searchForm.js");
     window.deps.push("/search/directives/standardSearch.js");
-    window.deps.push("/search/directives/searchStackedSolutions.js");
     window.deps.push("/search/services/searchResultsService.js");
 
-    window.deps.push("/ascension/ascension.module.js");
-    window.deps.push("/ascension/controllers/caseView.js");
-    window.deps.push("/ascension/controllers/yourCases.js");
-    window.deps.push("/ascension/controllers/caseDetails.js");
-    window.deps.push("/ascension/controllers/caseDiscussion.js");
-    window.deps.push("/ascension/controllers/caseDescription.js");
-    window.deps.push("/ascension/controllers/breachStatus.js");
-    window.deps.push("/ascension/controllers/entitlementInformation.js");
-    window.deps.push("/ascension/controllers/ownerInformation.js");
-    window.deps.push("/ascension/controllers/accountInformation.js");
-    window.deps.push("/ascension/controllers/caseSummary.js");
-    window.deps.push("/ascension/controllers/caseHistory.js");
-    window.deps.push("/ascension/controllers/caseFlags.js");
-    window.deps.push("/ascension/controllers/caseEscalations.js");
-    window.deps.push("/ascension/controllers/caseSearch.js");
-    window.deps.push("/ascension/controllers/searchSolutions.js");
-    window.deps.push("/ascension/controllers/caseAssociates.js");
-    window.deps.push("/ascension/directives/caseView.js");
-    window.deps.push("/ascension/directives/yourCases.js");
-    window.deps.push("/ascension/directives/caseDetails.js");
-    window.deps.push("/ascension/directives/caseDiscussion.js");
-    window.deps.push("/ascension/directives/caseDescription.js");
-    window.deps.push("/ascension/directives/caseSearch.js");
-    window.deps.push("/ascension/directives/breachStatus.js");
-    window.deps.push("/ascension/directives/entitlementInformation.js");
-    window.deps.push("/ascension/directives/ownerInformation.js");
-    window.deps.push("/ascension/directives/accountInformation.js");
-    window.deps.push("/ascension/directives/caseSummary.js");
-    window.deps.push("/ascension/directives/caseHistory.js");
-    window.deps.push("/ascension/directives/caseFlags.js");
-    window.deps.push("/ascension/directives/caseEscalations.js");
-    window.deps.push("/ascension/directives/searchSolutions.js");
-    window.deps.push("/ascension/directives/caseAssociates.js");
-    window.deps.push("/ascension/services/caseDetailsService.js");
-    window.deps.push("/ascension/services/accountService.js");
-    window.deps.push("/ascension/services/escalationsService.js");
-    window.deps.push("/ascension/services/userDetailsService.js");
-    window.deps.push("/ascension/services/caseDiscussionService.js");
-    window.deps.push("/ascension/services/RoutingService.js");
+    // window.deps.push("/ascension/ascension.module.js");
+    // window.deps.push("/ascension/controllers/caseView.js");
+    // window.deps.push("/ascension/controllers/yourCases.js");
+    // window.deps.push("/ascension/controllers/caseDetails.js");
+    // window.deps.push("/ascension/controllers/caseDiscussion.js");
+    // window.deps.push("/ascension/controllers/caseDescription.js");
+    // window.deps.push("/ascension/controllers/breachStatus.js");
+    // window.deps.push("/ascension/controllers/entitlementInformation.js");
+    // window.deps.push("/ascension/controllers/ownerInformation.js");
+    // window.deps.push("/ascension/controllers/accountInformation.js");
+    // window.deps.push("/ascension/controllers/caseSummary.js");
+    // window.deps.push("/ascension/controllers/caseHistory.js");
+    // window.deps.push("/ascension/controllers/caseFlags.js");
+    // window.deps.push("/ascension/controllers/caseEscalations.js");
+    // window.deps.push("/ascension/controllers/caseSearch.js");
+    // window.deps.push("/ascension/controllers/searchSolutions.js");
+    // window.deps.push("/ascension/controllers/caseAssociates.js");
+    // window.deps.push("/ascension/directives/caseView.js");
+    // window.deps.push("/ascension/directives/yourCases.js");
+    // window.deps.push("/ascension/directives/caseDetails.js");
+    // window.deps.push("/ascension/directives/caseDiscussion.js");
+    // window.deps.push("/ascension/directives/caseDescription.js");
+    // window.deps.push("/ascension/directives/caseSearch.js");
+    // window.deps.push("/ascension/directives/breachStatus.js");
+    // window.deps.push("/ascension/directives/entitlementInformation.js");
+    // window.deps.push("/ascension/directives/ownerInformation.js");
+    // window.deps.push("/ascension/directives/accountInformation.js");
+    // window.deps.push("/ascension/directives/caseSummary.js");
+    // window.deps.push("/ascension/directives/caseHistory.js");
+    // window.deps.push("/ascension/directives/caseFlags.js");
+    // window.deps.push("/ascension/directives/caseEscalations.js");
+    // window.deps.push("/ascension/directives/searchSolutions.js");
+    // window.deps.push("/ascension/directives/caseAssociates.js");
+    // window.deps.push("/ascension/services/caseDetailsService.js");
+    // window.deps.push("/ascension/services/accountService.js");
+    // window.deps.push("/ascension/services/escalationsService.js");
+    // window.deps.push("/ascension/services/userDetailsService.js");
+    // window.deps.push("/ascension/services/caseDiscussionService.js");
+    // window.deps.push("/ascension/services/RoutingService.js");
 
     window.deps.push("escalation/escalation.module.js");
     window.deps.push("escalation/controllers/escalationRequest.js");

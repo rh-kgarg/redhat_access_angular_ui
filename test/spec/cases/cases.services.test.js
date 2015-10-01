@@ -214,7 +214,7 @@ describe('Case Services', function () {
             expect(caseService.clearCase).toBeDefined();
             caseService.clearCase();
             expect(caseService.caseDataReady).toBeFalsy();
-            expect(caseService.isCommentPublic).toBeFalsy();
+            expect(caseService.isCommentPublic).toBeTruthy();
             expect(caseService.updatingCase).toBeFalsy();
             expect(caseService.updatingNewCaseSummary).toBeFalsy();
             expect(caseService.updatingNewCaseDescription).toBeFalsy();

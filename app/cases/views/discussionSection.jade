@@ -7,13 +7,11 @@ ul#tab_list.nav.nav-tabs(role="tablist")
     a(ng-click='toggleNotes()', data-toggle="tab") {{'Private Notes'|translate}}
   li(ng-class='{"active": bugzillas}', ng-show="securityService.loginStatus.authedUser.is_internal || CaseService.kase.bugzillas.bugzilla.length > 0")
     a(ng-click='toggleBugzillas()', data-toggle="tab") {{'Bugzilla Tickets'|translate}}
+  li(ng-class='{"active": actionPlan}')
+    a(ng-click='toggleActionPlan()', data-toggle="tab") {{'Action Plan'|translate}}
 .tab-content
   #pane1.tab-pane(ng-class='{"active": discussion}')
-    .row
-      .col-xs-12
-        // Add Comment Section
-        div(rha-addcommentsection='', loading='loading.comments')
-    .row(ng-hide="DiscussionService.discussionElements.length===0")
+    .row.row-very-short(ng-hide="DiscussionService.discussionElements.length===0")
       .col-sm-7
         label {{'Sort by'|translate}}&nbsp;&nbsp;
         select#rha-comment-sort(chosen,
@@ -22,53 +20,86 @@ ul#tab_list.nav.nav-tabs(role="tablist")
           ng-model='DiscussionService.commentSortOrder',
           ng-change='onSortOrderChange()',
           ng-options='commentOrder as commentOrder.name for commentOrder in commentSortOrderList')
-    .row
+    .row.row-very-short
       .col-xs-12
-        article.comment(id="{{element.id}}", ng-repeat="element in DiscussionService.discussionElements | orderBy:'sortModifiedDate':commentSortOrder", ng-if='!element.draft')
-          .row
-            .col-sm-4
-              h4.meta(ng-if="element.comment_type === 'chat'")
-                span {{'Transcript of chat between'|translate}}
-                .author.blue {{element.agent_name}}
-                span {{'and'|translate}}
-                .author.blue {{element.visitor_name}}
-                date.light {{element.last_modified_date}} &nbsp;
-                span.light {{'at'|translate}} &nbsp;
-                time.light {{element.last_modified_time}}
-              h4.meta(ng-if="element.comment_type !== 'chat'")
-                .author.blue {{element.created_by}}
-                date.light {{element.created_date}} &nbsp;
-                span.light {{'at'|translate}} &nbsp;
-                time.light {{element.created_time}}
-                .private(ng-if="element.public !== undefined && element.public === false") {{'Private'|translate}}
-            .col-sm-8
-              blockquote.dialog-box.pre-wrap(ng-if="element.comment_type === 'chat'", ng-bind-html="parseCommentHtml(element)")
-              blockquote.dialog-box.pre-wrap(ng-hide="element.file_name || element.comment_type === 'chat'")
-                span(ng-if="ie8 || ie9", style='word-wrap: normal; word-break: normal;') {{element.text}}
-                span(ng-if="!ie8 && !ie9", ng-bind-html="parseCommentHtml(element)")
-                a.glyphicon.glyphicon-link.pull-right(ng-hide="element.file_name", ng-click='CaseService.scrollToComment(element.id)' ng-href='#/case/{{CaseService.kase.case_number}}?commentId={{element.id}}')
-                a.pull-right.commentReply(ng-click='commentReply(element,(ie8 || ie9))', href='') {{'Reply'|translate}} &nbsp;
-              .dialog-box(ng-show="element.file_name")
-                a(href="{{element.uri}}")
-                  .fa.fa-file-image-o.file-upload
-                  span {{element.file_name}} ({{element.length | bytes}})
-                .fa.fa-close.pull-right(type='button', style='cursor: pointer;', ng-click='deleteAttachment(element)')
-                .description.margin-top-short(ng-show="element.description") {{element.description}}
+        // Add Comment Section
+        div(rha-addcommentsection='', loading='loading.comments')
+    .row.row-very-short.case-discussion
+      .col-xs-12
+        .discussion-element(id="{{element.id}}", ng-repeat="element in DiscussionService.discussionElements | orderBy:'sortModifiedDate':commentSortOrder", ng-if='!element.draft')
+          article.comment.article-comment(ng-if="!element.file_name && element.comment_type !== 'chat' && (element.public === undefined || element.public === true)")
+            i.fa.fa-comments-o
+            h4.meta Message
+            .byline
+                author {{element.last_modified_by}} {{'on'|translate}}&nbsp;
+                date {{element.published_date}} {{'at'|translate}}&nbsp;
+                date {{element.published_time}}
+            .pre-wrap
+              span(ng-if="ie8 || ie9", style='word-wrap: normal; word-break: normal;') {{element.text}}
+              .content(ng-if="!ie8 && !ie9", ng-bind-html="parseCommentHtml(element)")
+              .reply.text-right
+                a.commentReply(ng-click='commentReply(element,(ie8 || ie9))', href='') {{'Reply'|translate}}&nbsp;
+                a.glyphicon.glyphicon-link(ng-click='CaseService.scrollToComment(element.id)' ng-href='#/case/{{CaseService.kase.case_number}}?commentId={{element.id}}')
+
+          article.comment.article-private-comment(ng-if="!element.file_name && element.comment_type !== 'chat' && element.public !== undefined && !element.public")
+            i.fa.fa-comments-o
+            h4.meta Private Message
+            .byline
+              author {{element.last_modified_by}} {{'on'|translate}}&nbsp;
+              date {{element.published_date}} {{'at'|translate}}&nbsp;
+              date {{element.published_time}}
+            .pre-wrap
+              span(ng-if="ie8 || ie9", style='word-wrap: normal; word-break: normal;') {{element.text}}
+              .content(ng-if="!ie8 && !ie9", ng-bind-html="parseCommentHtml(element)")
+              .reply.text-right
+                a.commentReply(ng-click='commentReply(element,(ie8 || ie9))', href='') {{'Reply'|translate}}&nbsp;
+                a.glyphicon.glyphicon-link(ng-click='CaseService.scrollToComment(element.id)' ng-href='#/case/{{CaseService.kase.case_number}}?commentId={{element.id}}')
+
+          article.comment.article-attachment(ng-if="element.file_name")
+            i.fa.fa-paperclip
+            h4.meta {{'Attachment'|translate}}
+            .byline
+              author {{element.last_modified_by}} {{'on'|translate}}&nbsp;
+              date {{element.published_date}}&nbsp;
+              span {{'at'|translate}}&nbsp;
+              time {{element.published_time}}
+            .pre-wrap
+              a(href="{{element.uri}}")
+                .fa.fa-file-image-o.file-upload
+                span {{element.file_name}} ({{element.length | bytes}})&nbsp;
+              span.fa.fa-close(type='button', style='cursor: pointer;', ng-click='deleteAttachment(element)')
+              .description.margin-top-short(ng-show="element.description") {{element.description}}
+
+          article.comment.article-chat(ng-if="element.comment_type === 'chat'")
+            i.fa.fa-file-text-o
+            h4.meta(ng-if="element.comment_type === 'chat'") {{'Transcript of chat'|translate}}
+            .byline
+              span {{'between'|translate}}&nbsp;
+              author {{element.agent_name}}&nbsp;
+              span {{'and'|translate}}&nbsp;
+              author {{element.visitor_name}}&nbsp;
+              date {{element.last_modified_date}}&nbsp;
+              span {{'at'|translate}}&nbsp;
+              time {{element.last_modified_time}}
+            .pre-wrap(ng-if="element.comment_type === 'chat'", ng-bind-html="parseCommentHtml(element)")
   #pane2.tab-pane(ng-class='{"active": attachments}')
-    article.row(id="{{attachment.id}}", ng-repeat="attachment in DiscussionService.attachments | orderBy:'sortModifiedDate':'reverse'")
-      .col-sm-4
-        h4.meta
-          .author.blue {{attachment.created_by}}
-          date.light {{attachment.created_date}}
-          span.light at &nbsp;
-          time.light {{attachment.created_time}}
-      .col-sm-8
-        .dialog-box
-            a(href="{{attachment.uri}}")
-              .fa.fa-file-image-o.file-upload
-              span {{attachment.file_name}} ({{attachment.length | bytes}})
-            .fa.fa-close.pull-right(type='button', style='float: right; cursor: pointer;', ng-click='deleteAttachment(attachment)')
-            .description.margin-top-short(ng-show="attachment.description") {{attachment.description}}
+      .row.row-very-short.case-discussion
+       .col-xs-12
+        .discussion-element(id="{{attachment.id}}", ng-repeat="attachment in DiscussionService.attachments | orderBy:'sortModifiedDate':'reverse'")
+           article.comment.article-attachment(ng-if="attachment.file_name")
+              i.fa.fa-paperclip
+              h4.meta {{'Attachment'|translate}}
+              .byline
+                  author {{attachment.last_modified_by}} {{'on'|translate}} &nbsp;
+                  date {{attachment.published_date}} &nbsp;
+                  span {{'at'|translate}} &nbsp;
+                  time {{attachment.published_time}}
+              .pre-wrap
+                  a(href="{{attachment.uri}}")
+                      .fa.fa-file-image-o.file-upload
+                      span {{attachment.file_name}} ({{attachment.length | bytes}})&nbsp;
+                  span.fa.fa-close(type='button', style='cursor: pointer;', ng-click='deleteAttachment(attachment)')
+                  .description.margin-top-short(ng-show="attachment.description") {{attachment.description}}
   #pane3.tab-pane(ng-hide="securityService.loginStatus.authedUser.is_internal", ng-class='{"active": notes}')
     form(name='notesForm')
       div
@@ -90,6 +121,27 @@ ul#tab_list.nav.nav-tabs(role="tablist")
         .col-sm-5
           .pull-right
             button.btn.btn-app(ng-click="updateNotes()", ng-disabled='CaseService.updatingCase || !notesForm.$dirty',translate='') Update
-            a.margin-left(ng-click="discardNotes()", ng-disabled='CaseService.updatingCase || !notesForm.$dirty') {{'Discard Changes'|translate}}
+            a.margin-left(ng-click="discardNotes()", ng-class='{"disabled" : CaseService.updatingCase || !notesForm.$dirty}') {{'Discard Changes'|translate}}
   #pane4.tab-pane(ng-if="securityService.loginStatus.authedUser.is_internal || CaseService.kase.bugzillas.bugzilla.length > 0", ng-class='{"active": bugzillas}')
     div(rha-listbugzillas)
+  #pane5.tab-pane(ng-class='{"active": actionPlan}')
+    form(name='actionPlanForm')
+      div
+        label(for='rha-action-plan') {{'Action Plan:'|translate}}
+      .row(ng-if="!securityService.loginStatus.authedUser.is_internal")
+        .col-xs-12
+          span.pre-wrap {{CaseService.kase.action_plan}}
+        .col-xs-12(ng-if='!CaseService.kase.action_plan')
+          span {{"No action plan to display."|translate}}
+      .row(ng-if="securityService.loginStatus.authedUser.is_internal")
+        .col-xs-12
+          textarea#rha-action-plan(
+            style='width: 100%; height: 70px; max-width: 100%;',
+            ng-model='CaseService.kase.action_plan',
+            maxlength='255',
+            name='caseSummary')
+      .row.row-short(ng-if="securityService.loginStatus.authedUser.is_internal")
+        .col-sm-6
+          .pull-left
+            button.btn.btn-app(ng-click="updateActionPlan()", ng-disabled='CaseService.updatingCase || !actionPlanForm.$dirty',translate='') Update
+            a.margin-left(ng-click="discardActionPlan()", ng-class='{"disabled" : CaseService.updatingCase || !actionPlanForm.$dirty}') {{'Discard Changes'|translate}}

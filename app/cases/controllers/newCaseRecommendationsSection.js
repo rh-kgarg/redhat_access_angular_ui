@@ -12,7 +12,7 @@ angular.module('RedhatAccess.cases').controller('NewCaseRecommendationsControlle
         $scope.SearchResultsService = SearchResultsService;
         $scope.selectedSolution = SearchResultsService.currentSelection;
         $scope.currentSearchData = SearchResultsService.currentSearchData;
-        $scope.itemsPerPage = 3;
+        $scope.itemsPerPage = angular.isDefined($scope.itemsPerPage) ? $scope.itemsPerPage : 3;
         $scope.currentPage = 1;
         $scope.lastPage = 1;
         $scope.RecommendationsService = RecommendationsService;

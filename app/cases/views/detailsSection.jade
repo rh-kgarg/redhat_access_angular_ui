@@ -1,5 +1,4 @@
 section.case-description
-  i#case-description-toggle.fa.fa-caret-chevron.case-description-toggle(ng-click='toggleExtraInfo()', ng-class="showExtraInfo ? 'fa fa-chevron-down case-description-toggle active' : 'fa fa-chevron-down case-description-toggle'")
   h3.case-name.pre-wrap
     a(ng-click='editCaseSummary(true)' , ng-show='!caseSummaryEditable' , href='') {{CaseService.kase.summary}}
   form(name='summaryForm')
@@ -12,13 +11,14 @@ section.case-description
     .col-xs-4.col-sm-3.col-md-4
       button.btn.btn-primary(
         name='saveButton',
-        ng-disabled='updatingDetails || !summaryForm.$dirty',
+        ng-disabled='updatingDetails || !summaryForm.$dirty || !CaseService.kase.summary.length',
         ng-click='updateCase()', translate='') Save
       a.margin-left(
         ng-hide='updatingDetails',
         ng-click='editCaseSummary(false)') {{'Cancel'|translate}}
-  h4.product-name {{CaseService.kase.product}}&nbsp;{{CaseService.kase.version}}
-  span.description.toggled-content.pre-wrap(ng-hide='showExtraInfo') {{CaseService.kase.description | substring:150 }}
+  span.description.toggled-content.pre-wrap(ng-hide='showExtraInfo') {{CaseService.kase.description | substring:450 }}
+  div
+    a(ng-click='toggleExtraInfo()', ng-hide='showExtraInfo', translate='') View More
   span.description.pre-wrap(ng-show='showExtraInfo') {{CaseService.kase.description}}
   div#case-description-extra-info(ng-class="showExtraInfo ? 'case-description-extra-info active' : 'case-description-extra-info'")
     form(name='detailsForm')
@@ -74,6 +74,9 @@ section.case-description
               name='updateButton',
               ng-disabled='validatePage() || updatingDetails || !detailsForm.$dirty',
               ng-click='updateCase()', translate='') Save Changes
-            a.margin-left(
+            a#cancelCaseDetailChanges.margin-left(
               ng-hide='updatingDetails || !detailsForm.$dirty',
               ng-click='resetData()',translate='') Cancel
+        .row
+          .col-sm-12
+            a(ng-click='toggleExtraInfo()', ng-show='showExtraInfo', translate='') View Less

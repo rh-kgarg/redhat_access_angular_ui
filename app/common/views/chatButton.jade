@@ -1,6 +1,0 @@
-div.chat(ng-show='showChat')
-	iframe(style='display: none;' ng-src='{{chatHackUrl}}')
-	a.link(ng-show='chatAvailable', ng-click='openChatWindow()',style='cursor: pointer') {{'Chat with Support'|translate}}&nbsp;
-		//i.fa.fa-comments
-	span(ng-show='!chatAvailable', disabled) {{'Chat Offline'|translate}}&nbsp;
-		//i.fa.fa-comments

@@ -507,6 +507,7 @@ describe('Case Controllers', function () {
                 name: 'testAccount',
                 number: '12345'
             };
+            securityService.loginStatus.authedUser.can_add_attachments=true;
             expect(mockScope.doSubmit).toBeDefined();
             mockScope.doSubmit();
             spyOn(mockStrataService.cases, 'post').andCallThrough();

@@ -1,7 +1,0 @@
-section.case-description-ascension
-    .spinner.spinner-inline(ng-show='CaseDetailsService.caseDetailsLoading')
-    .div(ng-show='!CaseDetailsService.caseDetailsLoading && CaseDetailsService.kase.summary !== undefined')
-        .div(ng-show='CaseDetailsService.kase.summary.lastModifiedBy !== undefined && CaseDetailsService.kase.summary.lastModified !== undefined')
-            span(translate) Last Modified by {{CaseDetailsService.kase.summary.lastModifiedBy}} on {{CaseDetailsService.kase.summary.lastModified}}
-        .div.light
-            span {{CaseDetailsService.kase.summary.summaryText}}

@@ -1,8 +1,0 @@
-.container-pad {
-	@include rem('padding-left', 40px);
-	@include rem('padding-right', 40px);
-}
-
-.watermark-special-handling {
-	background: url("../img/bg-special-handling.png") repeat-y;
-}

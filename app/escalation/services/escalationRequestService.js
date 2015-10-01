@@ -13,6 +13,7 @@ angular.module('RedhatAccess.escalation').service('EscalationRequestService', [
 	    this.accountNumber = '';
 	    this.caseNumber = '';
 	    this.alreadyEscalated = false;
+        this.requestorName = '';
 	    this.requestorEmail = '';
 	    this.requestorPhone = '';
 	    this.customerName = '';
@@ -21,12 +22,15 @@ angular.module('RedhatAccess.escalation').service('EscalationRequestService', [
 	    this.geo = '';
 	    this.expectations = '';
 	    this.issueDescription = '';
+        this.subject = '';
+        this.subjectText = '';
         this.notPartnerLogin = false;
 
 	    this.clearEscalationFields = function() {
             this.accountNumber = '';
             this.caseNumber = '';
             this.alreadyEscalated = false;
+            this.requestorName = '';
             this.requestorEmail = '';
             this.requestorPhone = '';
             this.customerName = '';
@@ -35,6 +39,8 @@ angular.module('RedhatAccess.escalation').service('EscalationRequestService', [
             this.geo = '';
             this.expectations = '';
             this.issueDescription = '';
+            this.subject = '';
+            this.subjectText = '';
         };
 
 	    this.sendEscalationRequest = function(recordType) {
@@ -71,14 +77,24 @@ angular.module('RedhatAccess.escalation').service('EscalationRequestService', [
             if (!isObjectNothing(this.customerPhone)) {
                 escalationJSON.customer_phone = this.customerPhone;
             }
+            if (!isObjectNothing(this.requestorName)) {
+                escalationJSON.requestor = this.requestorName;
+            }
             if (!isObjectNothing(this.requestorEmail)) {
                 escalationJSON.requestor_email = this.requestorEmail;
             }
             if (!isObjectNothing(this.requestorPhone)) {
                 escalationJSON.requestor_phone = this.requestorPhone;
             }
+            if (!isObjectNothing(this.subject)) {
+                if(this.subject !== 'Other'){
+                    escalationJSON.issue_description = this.subject + '\n\n'; 
+                } else{
+                    escalationJSON.issue_description = this.subject + ' - ' + this.subjectText + '\n\n';
+                }
+            }
             if (!isObjectNothing(this.issueDescription)) {
-                escalationJSON.issue_description = this.issueDescription;
+                escalationJSON.issue_description = escalationJSON.issue_description.concat(this.issueDescription);
             }
             if (!isObjectNothing(this.alreadyEscalated)) {
                 escalationJSON.already_escalated = this.alreadyEscalated;
