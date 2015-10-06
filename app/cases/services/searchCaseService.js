@@ -31,7 +31,8 @@ angular.module('RedhatAccess.cases').service('SearchCaseService', [
         };
         this.gs4Accounts = [
             "639769",
-            "660699"
+            "5548062",
+            "1053274"
         ];
         this.gs4Account = this.gs4Accounts[0];
         this.previousGroupFilter = CASE_GROUPS.none;
