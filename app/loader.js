@@ -85,6 +85,7 @@
                   NEW_CASE_CONFIG.isPCM = true;
                   NEW_CASE_CONFIG.productSortListFile = 'productSortList.txt';
                   EDIT_CASE_CONFIG.isPCM = true;
+                  COMMON_CONFIG.isGS4 = true;
                   if (host !== 'access.redhat.com' ) {
                     CHAT_SUPPORT.chatButtonToken = '573A0000000GmiP';
                     CHAT_SUPPORT.chatLiveAgentUrlPrefix = 'https://d.la6cs.salesforceliveagent.com/chat';

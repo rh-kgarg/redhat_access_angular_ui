@@ -16,12 +16,14 @@ angular.module('RedhatAccess.cases').controller('Edit', [
     'AlertService',
     'securityService',
     'EDIT_CASE_CONFIG',
+    'COMMON_CONFIG',
     'RHAUtils',
     'CASE_EVENTS',
     '$sce',
     'gettextCatalog',
-    function ($scope, $stateParams, $filter, $q, $location, AttachmentsService, CaseService, strataService, HeaderService, RecommendationsService, $rootScope, AUTH_EVENTS, AlertService, securityService, EDIT_CASE_CONFIG, RHAUtils, CASE_EVENTS,$sce,gettextCatalog) {
+    function ($scope, $stateParams, $filter, $q, $location, AttachmentsService, CaseService, strataService, HeaderService, RecommendationsService, $rootScope, AUTH_EVENTS, AlertService, securityService, EDIT_CASE_CONFIG, COMMON_CONFIG, RHAUtils, CASE_EVENTS,$sce,gettextCatalog) {
         $scope.EDIT_CASE_CONFIG = EDIT_CASE_CONFIG;
+        $scope.COMMON_CONFIG = COMMON_CONFIG;
         $scope.securityService = securityService;
         $scope.AttachmentsService = AttachmentsService;
         $scope.CaseService = CaseService;

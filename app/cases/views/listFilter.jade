@@ -34,8 +34,7 @@
 				ng-model='SearchCaseService.gs4Account',
 				ng-change='CaseService.onGroupSelectChanged()',
 				placeholder='Select an account',
-				ng-options='option for option in SearchCaseService.gs4Accounts',
-				options-disabled="option.isDisabled for option in CaseService.groupOptions", 
+				ng-options='option for option in SearchCaseService.gs4Accounts'
 				ng-init="setSearchOptions(true)")
 		div.col-sm-12.col-md-3()
 			select#rha-status-select(chosen,

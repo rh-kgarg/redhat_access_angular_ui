@@ -1,7 +1,7 @@
 .page-header(rha-header='', page='')
 div.edit(ng-show='securityService.loginStatus.isLoggedIn && !HeaderService.pageLoadFailure && CaseService.sfdcIsHealthy && securityService.loginStatus.userAllowedToManageCases')
   .row
-    div.section.main.col-md-8
+    div.section.main(ng-class="COMMON_CONFIG.isGS4 ? 'col-md-12' : 'col-md-8'")
       h1.page-title(translate, style="margin-bottom:0px;") CASE {{CaseService.kase.case_number}}
       h5(style="margin-bottom:0px;") {{CaseService.kase.summary}}
       div(style="margin-bottom:15px;")
@@ -24,7 +24,7 @@ div.edit(ng-show='securityService.loginStatus.isLoggedIn && !HeaderService.pageL
         .row
           .col-xs-12(rha-emailnotifyselect='')
 
-    .aside.col-md-4
+    .aside.col-md-4(ng-hide='COMMON_CONFIG.isGS4')
       .spinner.spinner-inline(ng-show='RecommendationsService.loadingRecommendations')
       #rha-recommendation-section.recommendations.aside-section(rha-editcaserecommendations='', ng-hide='(RecommendationsService.recommendations.length === 0 && RecommendationsService.handPickedRecommendations.length === 0 && RecommendationsService.pinnedRecommendations.length === 0) || RecommendationsService.loadingRecommendations')
       div#case-escalation.case-escalation(rha-requestescalation='')
