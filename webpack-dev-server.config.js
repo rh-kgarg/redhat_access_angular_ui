@@ -1,7 +1,7 @@
 module.exports = require("./webpack.config")({
     env: "dev",
     devServer: true,
-    publicPath: "/",
+    publicPath: "/support/cases/",
     devtool: "cheap-module-eval-source-map",
     debug: true
 });

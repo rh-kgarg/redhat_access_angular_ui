@@ -70,7 +70,7 @@ module.exports = function (options) {
         // publicPath: isProd ? '/' : 'http://0.0.0.0:9000/',
         // Since FF doesn't handle scripts loaded from different domains, let the access proxy handle any hits to
         // resources, the above using 0.0.0.0:9000 is the standard way to do this without something like accessproxy
-        publicPath: isProd ? '/support/cases/' : '/',
+        publicPath: '/support/cases/',
 
         // Filename for entry points
         // Only adds hash in build mode
