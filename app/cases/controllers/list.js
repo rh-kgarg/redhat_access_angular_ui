@@ -3,7 +3,7 @@
 import * as FileSaver from 'filesaver.js'
 
 export default class List {
-    constructor($scope, $filter, $location, $state, $uibModal, securityService, AlertService, SearchCaseService, CaseService, strataService, AUTH_EVENTS, NEW_CASE_CONFIG, CASE_EVENTS, CASE_GROUPS, STATUS, gettextCatalog, RHAUtils, HeaderService) {
+    constructor($scope, $rootScope, $filter, $location, $state, $uibModal, securityService, AlertService, SearchCaseService, CaseService, strataService, AUTH_EVENTS, NEW_CASE_CONFIG, CASE_EVENTS, CASE_GROUPS, STATUS, gettextCatalog, RHAUtils, HeaderService) {
         'ngInject';
 
         $scope.busy = false;
@@ -18,6 +18,12 @@ export default class List {
         $scope.fetching = false;
         $scope.displayedCaseText = gettextCatalog.getString('Open Support Cases');
         $scope.RHAUtils = RHAUtils;
+
+        $rootScope.$on('$locationChangeSuccess', function() {
+            if($location.path() === '/case/list') {
+                CaseService.populateGroups(securityService.loginStatus.authedUser.sso_username, true);
+            }
+        });
 
         $scope.showCaseList = () => securityService.loginStatus.isLoggedIn && !HeaderService.pageLoadFailure && CaseService.sfdcIsHealthy && securityService.loginStatus.userAllowedToManageCases;
 

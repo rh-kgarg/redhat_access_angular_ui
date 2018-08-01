@@ -331,26 +331,28 @@ export default class CaseService {
         this.groupsLoading = false;
         this.populateGroups = function (ssoUsername, flushCache) {
             var deferred = $q.defer();
-            this.groupsLoading = true;
-            var username = ssoUsername;
-            if (username === undefined) {
-                this.groups=[];
-                this.buildGroupOptions();
-                deferred.resolve(this.groups)
-            } else {
-                strataService.groups.list(username, flushCache).then(angular.bind(this, function (groups) {
-                    this.groups = groups;
-                    if (this.groups.length > 0) {
-                        this.group = '';
-                    }
-                    this.buildGroupOptions(this);
-                    this.groupsLoading = false;
-                    deferred.resolve(groups);
-                }), angular.bind(this, function (error) {
-                    this.groupsLoading = false;
-                    AlertService.addStrataErrorMessage(error);
-                    deferred.reject();
-                }));
+            if(!this.groupsLoading) {
+                this.groupsLoading = true;
+                var username = ssoUsername;
+                if (username === undefined) {
+                    this.groups=[];
+                    this.buildGroupOptions();
+                    deferred.resolve(this.groups)
+                } else {
+                    strataService.groups.list(username, flushCache).then(angular.bind(this, function (groups) {
+                        this.groups = groups;
+                        if (this.groups.length > 0) {
+                            this.group = '';
+                        }
+                        this.buildGroupOptions(this);
+                        this.groupsLoading = false;
+                        deferred.resolve(groups);
+                    }), angular.bind(this, function (error) {
+                        this.groupsLoading = false;
+                        AlertService.addStrataErrorMessage(error);
+                        deferred.reject();
+                    }));
+                }
             }
             return deferred.promise;
         };
