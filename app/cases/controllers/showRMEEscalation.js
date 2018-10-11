@@ -88,10 +88,9 @@ export default class ShowRmeEscalation {
                 if (escalationNum !== undefined) {
                     AlertService.clearAlerts();
                     AlertService.addSuccessMessage(gettextCatalog.getString(alertMessage));
-                    $scope.submittingRequest = false;
                 }
                 CaseService.populateComments($stateParams.id).then(function (comments) {
-                    $scope.showErrorMessage(error);
+                    $scope.submittingRequest = false;
                 }, function (error) {
                     $scope.showErrorMessage(error);
                 });
