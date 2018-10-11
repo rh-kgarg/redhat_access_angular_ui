@@ -25,13 +25,7 @@ export default class RequestManagementEscalationModal {
             $scope.submittingRequest = true;
             var fullComment = 'Request Management Escalation: ' + commentText;
             var onSuccess = function (response) {
-                var caseJSON = {'escalated': true};
-                var updateCase = strataService.cases.put(CaseService.kase.case_number, caseJSON);
-                updateCase.then(function (response) {
-                    CaseService.checkForCaseStatusToggleOnAttachOrComment();
-                }, function (error) {
-                    AlertService.addStrataErrorMessage(error);
-                });
+                CaseService.checkForCaseStatusToggleOnAttachOrComment();
 
                 CaseService.populateComments($stateParams.id).then(function (comments) {
                     $scope.closeModal();
@@ -129,17 +123,10 @@ export default class RequestManagementEscalationModal {
                 CaseService.getCaseEscalation(CaseService.kase.account_number, CaseService.kase.case_number);
             }
             strataService.cases.comments.post(CaseService.kase.case_number, fullComment, true, false).then(function(){
-                var caseJSON = {'escalated': true};
-                var updateCase = strataService.cases.put(CaseService.kase.case_number, caseJSON);
-                updateCase.then(function (response) {
-                    CaseService.checkForCaseStatusToggleOnAttachOrComment();
-                    if (escalationNum !== undefined) {
-                        AlertService.addSuccessMessage(gettextCatalog.getString('Your Escalation request has been sent successfully'));
-                    }
-                },
-                function (error) {
-                    $scope.showErrorMessage(error);
-                });
+                CaseService.checkForCaseStatusToggleOnAttachOrComment();
+                if (escalationNum !== undefined) {
+                    AlertService.addSuccessMessage(gettextCatalog.getString('Your Escalation request has been sent successfully'));
+                }
                 CaseService.populateComments($stateParams.id).then(function (comments) {
                     AlertService.clearAlerts();
                     $scope.closeModal();
