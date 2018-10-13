@@ -87,21 +87,13 @@ export default class ShowRmeEscalation {
                 CaseService.getCaseEscalation(CaseService.kase.account_number, CaseService.kase.case_number);
             }
             strataService.cases.comments.post(CaseService.kase.case_number, comment, true, false).then(function(){
-                var caseJSON = {'escalated': true};
-                var updateCase = strataService.cases.put(CaseService.kase.case_number, caseJSON);
-                updateCase.then(function (response) {
-                    CaseService.checkForCaseStatusToggleOnAttachOrComment();
-                    if (escalationNum !== undefined) {
-                        AlertService.clearAlerts();
-                        AlertService.addSuccessMessage(gettextCatalog.getString(alertMessage));
-                        $scope.submittingRequest = false;
-                    }
-                },
-                function (error) {
-                    $scope.showErrorMessage(error);
-                });
+                CaseService.checkForCaseStatusToggleOnAttachOrComment();
+                if (escalationNum !== undefined) {
+                    AlertService.clearAlerts();
+                    AlertService.addSuccessMessage(gettextCatalog.getString(alertMessage));
+                }
                 CaseService.populateComments($stateParams.id).then(function (comments) {
-                    $scope.showErrorMessage(error);
+                    $scope.submittingRequest = false;
                 }, function (error) {
                     $scope.showErrorMessage(error);
                 });
