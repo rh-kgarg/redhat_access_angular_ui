@@ -12,7 +12,7 @@ before_install:
 before_script:
   - 'bundle install'
   - 'bower install -V'
-  - 'npm cache clean'
+  - 'npm cache clean --force'
   - 'rimraf node_modules'
   - 'npm install'
   - 'npm run build'
