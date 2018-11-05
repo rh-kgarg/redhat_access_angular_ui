@@ -1,6 +1,6 @@
 {
   "name": "redhat_access_angular_ui",
-  "version": "hotfix-1.4.1",
+  "version": "1.4.1-hotfix",
   "devDependencies": {
     "angular": "~1.5.7",
     "angular-animate": "~1.5.7",
