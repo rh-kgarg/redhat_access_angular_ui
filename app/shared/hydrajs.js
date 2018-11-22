@@ -11969,7 +11969,7 @@ function downloadAttachmentS3(caseNumber, attachmentId, fileName) {
                     return [4 /*yield*/, new Promise(function (resolve, reject) { return s3_2.getSignedUrl('getObject', {
                             Key: Key_1,
                             Bucket: Bucket_1,
-                            ResponseContentDisposition: "attachment; filename=\"" + fileName + "\"",
+                            ResponseContentDisposition: "attachment; filename=\"" + encodeURI(fileName) + "\"",
                             Expires: 5
                         }, function (error, url) { return error ? reject(error) : resolve(url); }); })];
                 case 3:
