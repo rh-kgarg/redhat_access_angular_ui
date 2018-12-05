@@ -9,6 +9,10 @@ export default class CommonConfirmationModal {
             $uibModalInstance.close();
             if (CaseService.confirmationModal === CASE_EVENTS.caseClose) {
                 $scope.closeCases();
+            } else if (CaseService.confirmationModal === CASE_EVENTS.editPageCEP) {
+                $scope.submitCEP();
+            } else if (CaseService.confirmationModal === CASE_EVENTS.newPageCEP) {
+                CaseService.isNewPageCEP = false;
             } else {
                 CaseService.updateCase().then(function () {
                     SearchCaseService.clear();
@@ -17,11 +21,16 @@ export default class CommonConfirmationModal {
                 });
             }
         };
+
         $scope.closeModal = function () {
             if (CaseService.confirmationModal === CASE_EVENTS.caseStatusChanged) {
                 CaseService.kase.status = CaseService.prestineKase.status;
             } else if (CaseService.confirmationModal === CASE_EVENTS.caseSeverityChanged) {
                 CaseService.kase.severity = CaseService.prestineKase.severity;
+            } else if (CaseService.confirmationModal === CASE_EVENTS.editPageCEP) {
+                CaseService.kase.cep = CaseService.prestineKase.cep;
+            } else if (CaseService.confirmationModal === CASE_EVENTS.newPageCEP) {
+                CaseService.isNewPageCEP = true;
             }
             $uibModalInstance.close();
         };
@@ -48,6 +57,23 @@ export default class CommonConfirmationModal {
             }, function (error) {
                 AlertService.addStrataErrorMessage(error);
             });
+        };
+
+        $scope.submitCEP = async function () {
+            CaseService.submittingCep = true;
+            const caseJSON = {'cep': false};
+            try {
+                await strataService.cases.put(CaseService.kase.case_number, caseJSON);
+                CaseService.checkForCaseStatusToggleOnAttachOrComment();
+                AlertService.clearAlerts();
+                AlertService.addSuccessMessage(gettextCatalog.getString('Consultant Engagement in Progress flag has been updated successfully'));
+                CaseService.kase.cep = false;
+                angular.copy(CaseService.kase, CaseService.prestineKase);
+                CaseService.submittingCep = false;
+            } catch(error) {
+                CaseService.kase.cep = CaseService.prestineKase.cep;
+                CaseService.submittingCep = false;
+            }
         };
     }
 }

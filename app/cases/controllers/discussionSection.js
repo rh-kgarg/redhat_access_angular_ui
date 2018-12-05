@@ -36,6 +36,11 @@ export default class DiscussionSection {
 
         $scope.DiscussionService = DiscussionService;
 
+        $scope.getPaginationData = (pageSize, currentPage) => {
+            $scope.pageSize = pageSize;
+            $scope.currentPage = currentPage;
+        };
+
         var scroll = function (commentId) {
             $timeout(function () {
                 if (!$scope.hasScrolled && angular.element(commentId)) {
@@ -283,5 +288,7 @@ export default class DiscussionSection {
                 }));
             });
         };
+
+        $scope.isCertification = () => CaseService.kase.type.name === 'Certification';
     }
 }

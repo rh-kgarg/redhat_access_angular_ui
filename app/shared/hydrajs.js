@@ -240,6 +240,8 @@ var pcmHostName = new Uri('');
 var hydraFSHostName = new Uri('');
 var pathPrefix = '/hydra/rest';
 var fsPathPrefix = '/hydrafs/rest';
+var securePathPrefix = '/hydra/secure/rest';
+var secureExtPathPrefix = '/hydra/secure/rest/external';
 var auth = null;
 // Add any new services consuming hydrajs to below arrays
 var prodHostNames = ['access.redhat.com', 'prod.foo.redhat.com', 'fooprod.redhat.com', 'skedge.redhat.com'];
@@ -297,6 +299,8 @@ var Env = /** @class */ (function () {
     Env.hydraFSHostName = hydraFSHostName;
     Env.pathPrefix = pathPrefix;
     Env.fsPathPrefix = fsPathPrefix;
+    Env.securePathPrefix = securePathPrefix;
+    Env.secureExtPathPrefix = secureExtPathPrefix;
     Env.auth = auth;
     return Env;
 }());
@@ -8925,7 +8929,8 @@ exports.default = {
         getAccountNotes: account_2.getAccountNotes,
         getAccountTeamMembers: account_2.getAccountTeamMembers,
         patchAccounts: account_2.patchAccounts,
-        getContactDetailBySso: account_2.getContactDetailBySso
+        getContactDetailBySso: account_2.getContactDetailBySso,
+        bookmarkAccount: account_2.bookmarkAccount
     },
     businessHours: {
         getBusinessHours: businessHours_1.getBusinessHours
@@ -9068,7 +9073,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var env_1 = __webpack_require__(2);
 var fetch_1 = __webpack_require__(3);
 function runInsights(caseNumber, attachmentId) {
-    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/" + caseNumber + "/attachments/" + attachmentId + "/insights");
+    var uri = env_1.default.hydraHostName.clone()
+        .setPath(env_1.default.pathPrefix + "/insights/cases/" + caseNumber + "/attachments/" + attachmentId);
     return fetch_1.getUri(uri);
 }
 exports.runInsights = runInsights;
@@ -10361,6 +10367,8 @@ function getCaseFields(options) {
         'publicTSEComments',
         'reliefAt',
         'remoteSessionCount',
+        'remoteSessionTermsAcked',
+        'remoteSessionTermsAckedDate',
         'requestManagementEscalation',
         'resolution',
         'resolutionDescription',
@@ -10535,6 +10543,9 @@ function getCaseFields(options) {
     }
     if (options && options.includeProduct) {
         Array.prototype.push.apply(finalFields, product_1.getProductFields(options).map(function (f) { return "rhProduct." + f; }));
+    }
+    if (options && options.includeRemoteSessionTermsAckedByContact) {
+        Array.prototype.push.apply(finalFields, contact_1.getContactFields({ minimal: true }).map(function (f) { return "remoteSessionTermsAckedBy." + f; }));
     }
     return finalFields;
 }
@@ -11006,11 +11017,19 @@ function paramValid(param) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var fetch_1 = __webpack_require__(3);
 var env_1 = __webpack_require__(2);
-function getAccounts() {
+function getAccounts(params) {
     var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/dashboard/v2/accounts");
+    params && Object.keys(params).forEach(function (key) {
+        if (params[key] && paramValid(params[key])) {
+            uri.addQueryParam(key, params[key]);
+        }
+    });
     return fetch_1.getUri(uri);
 }
 exports.getAccounts = getAccounts;
+function paramValid(param) {
+    return !(param.length === 0 && param === '');
+}
 
 
 /***/ }),
@@ -11022,8 +11041,9 @@ exports.getAccounts = getAccounts;
 Object.defineProperty(exports, "__esModule", { value: true });
 var env_1 = __webpack_require__(2);
 var fetch_1 = __webpack_require__(3);
-function getComments(caseNumber, options) {
-    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/" + caseNumber + "/comments");
+function getComments(caseNumber, options, isSecureSupport) {
+    if (isSecureSupport === void 0) { isSecureSupport = false; }
+    var uri = env_1.default.hydraHostName.clone().setPath((isSecureSupport ? env_1.default.securePathPrefix : env_1.default.pathPrefix) + "/cases/" + caseNumber + "/comments");
     if (options && options.limit && options.limit > 0) {
         uri.addQueryParam('limit', options.limit);
     }
@@ -11047,8 +11067,9 @@ function getComments(caseNumber, options) {
     }
 }
 exports.getComments = getComments;
-function upsertComment(comment, doNotSendEmail) {
-    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/comments");
+function upsertComment(comment, doNotSendEmail, isSecureSupport) {
+    if (isSecureSupport === void 0) { isSecureSupport = false; }
+    var uri = env_1.default.hydraHostName.clone().setPath((isSecureSupport ? env_1.default.securePathPrefix : env_1.default.pathPrefix) + "/cases/comments");
     if (doNotSendEmail === true) {
         uri.addQueryParam('doNotSendEmail', true);
     }
@@ -11243,8 +11264,9 @@ exports.CaseMilestoneTypes = {
 };
 // caseId can be id or case number
 // Note that fields can't currently be Fields<ICase> since we don't actively type each field and sub relationship field
-function getCase(caseId, fields) {
-    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/" + caseId);
+function getCase(caseId, fields, isSecureSupport) {
+    if (isSecureSupport === void 0) { isSecureSupport = false; }
+    var uri = env_1.default.hydraHostName.clone().setPath((isSecureSupport ? env_1.default.securePathPrefix : env_1.default.pathPrefix) + "/cases/" + caseId);
     if (fields && fields.length > 0) {
         return fetch_1.postUri(uri, { fields: fields.join(',') });
     }
@@ -11253,8 +11275,9 @@ function getCase(caseId, fields) {
     }
 }
 exports.getCase = getCase;
-function getCases(filters, fields) {
-    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases");
+function getCases(filters, fields, isSecureSupport) {
+    if (isSecureSupport === void 0) { isSecureSupport = false; }
+    var uri = env_1.default.hydraHostName.clone().setPath((isSecureSupport ? env_1.default.securePathPrefix : env_1.default.pathPrefix) + "/cases");
     if (filters && Object.keys(filters).length > 0) {
         for (var _i = 0, _a = Object.keys(filters); _i < _a.length; _i++) {
             var key = _a[_i];
@@ -11267,14 +11290,16 @@ function getCases(filters, fields) {
     return fetch_1.getUri(uri);
 }
 exports.getCases = getCases;
-function updateCase(caseId, kase) {
-    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/" + caseId);
+function updateCase(caseId, kase, isSecureSupport) {
+    if (isSecureSupport === void 0) { isSecureSupport = false; }
+    var uri = env_1.default.hydraHostName.clone().setPath((isSecureSupport ? env_1.default.secureExtPathPrefix : env_1.default.pathPrefix) + "/cases/" + caseId);
     return fetch_1.putUri(uri, kase);
 }
 exports.updateCase = updateCase;
 // PCM-3403 - it will honor all email settings the same way like SFDC does
-function updateCaseByInternal(caseId, kase) {
-    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/internal/cases/" + caseId);
+function updateCaseByInternal(caseId, kase, isSecureSupport) {
+    if (isSecureSupport === void 0) { isSecureSupport = false; }
+    var uri = env_1.default.hydraHostName.clone().setPath((isSecureSupport ? env_1.default.securePathPrefix : env_1.default.pathPrefix) + "/internal/cases/" + caseId);
     return fetch_1.putUri(uri, kase);
 }
 exports.updateCaseByInternal = updateCaseByInternal;
@@ -11314,13 +11339,15 @@ function getCaseTags(limit) {
     return fetch_1.getUri(uri);
 }
 exports.getCaseTags = getCaseTags;
-function updateCaseTags(caseNumber, tagsUpdate) {
-    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/" + caseNumber + "/tags");
+function updateCaseTags(caseNumber, tagsUpdate, isSecureSupport) {
+    if (isSecureSupport === void 0) { isSecureSupport = false; }
+    var uri = env_1.default.hydraHostName.clone().setPath((isSecureSupport ? env_1.default.securePathPrefix : env_1.default.pathPrefix) + "/cases/" + caseNumber + "/tags");
     return fetch_1.putUri(uri, tagsUpdate);
 }
 exports.updateCaseTags = updateCaseTags;
-function deleteCaseTags(caseNumber, tagsUpdate) {
-    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/" + caseNumber + "/tags");
+function deleteCaseTags(caseNumber, tagsUpdate, isSecureSupport) {
+    if (isSecureSupport === void 0) { isSecureSupport = false; }
+    var uri = env_1.default.hydraHostName.clone().setPath((isSecureSupport ? env_1.default.securePathPrefix : env_1.default.pathPrefix) + "/cases/" + caseNumber + "/tags");
     return fetch_1.deleteUriWithBody(uri, tagsUpdate);
 }
 exports.deleteCaseTags = deleteCaseTags;
@@ -11355,8 +11382,9 @@ function getCaseExternalTrackerUpdates(caseId) {
     return fetch_1.getUri(uri);
 }
 exports.getCaseExternalTrackerUpdates = getCaseExternalTrackerUpdates;
-function getCaseContacts(caseNumber, fields, limit) {
-    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/" + caseNumber + "/contacts");
+function getCaseContacts(caseNumber, fields, limit, isSecureSupport) {
+    if (isSecureSupport === void 0) { isSecureSupport = false; }
+    var uri = env_1.default.hydraHostName.clone().setPath((isSecureSupport ? env_1.default.securePathPrefix : env_1.default.pathPrefix) + "/cases/" + caseNumber + "/contacts");
     if (fields && fields.length > 0) {
         uri.addQueryParam('fields', fields.join(','));
     }
@@ -11366,8 +11394,9 @@ function getCaseContacts(caseNumber, fields, limit) {
     return fetch_1.getUri(uri);
 }
 exports.getCaseContacts = getCaseContacts;
-function addCaseContacts(caseNumber, contacts) {
-    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/" + caseNumber + "/contacts");
+function addCaseContacts(caseNumber, contacts, isSecureSupport) {
+    if (isSecureSupport === void 0) { isSecureSupport = false; }
+    var uri = env_1.default.hydraHostName.clone().setPath((isSecureSupport ? env_1.default.securePathPrefix : env_1.default.pathPrefix) + "/cases/" + caseNumber + "/contacts");
     var apiContacts = (contacts || []).filter(function (c) { return c.ssoUsername; }).map(function (c) { return ({
         ssoName: c.ssoUsername
     }); });
@@ -11377,8 +11406,9 @@ function addCaseContacts(caseNumber, contacts) {
     return fetch_1.putUri(uri, modifyContacts);
 }
 exports.addCaseContacts = addCaseContacts;
-function deleteCaseContacts(caseNumber, contacts) {
-    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/" + caseNumber + "/contacts");
+function deleteCaseContacts(caseNumber, contacts, isSecureSupport) {
+    if (isSecureSupport === void 0) { isSecureSupport = false; }
+    var uri = env_1.default.hydraHostName.clone().setPath((isSecureSupport ? env_1.default.securePathPrefix : env_1.default.pathPrefix) + "/cases/" + caseNumber + "/contacts");
     var apiContacts = (contacts || []).filter(function (c) { return c.ssoUsername; }).map(function (c) { return ({
         ssoName: c.ssoUsername
     }); });
@@ -11410,8 +11440,9 @@ function getCaseHistory(caseId, fields, limit) {
     return fetch_1.getUri(uri);
 }
 exports.getCaseHistory = getCaseHistory;
-function getAssociates(caseId, fields, limit) {
-    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/" + caseId + "/associates");
+function getAssociates(caseId, fields, limit, isSecureSupport) {
+    if (isSecureSupport === void 0) { isSecureSupport = false; }
+    var uri = env_1.default.hydraHostName.clone().setPath((isSecureSupport ? env_1.default.securePathPrefix : env_1.default.pathPrefix) + "/cases/" + caseId + "/associates");
     if (fields && fields.length > 0) {
         uri.addQueryParam('fields', fields.join(','));
     }
@@ -11421,33 +11452,39 @@ function getAssociates(caseId, fields, limit) {
     return fetch_1.getUri(uri);
 }
 exports.getAssociates = getAssociates;
-function addAssociate(caseId, associateUpdate) {
-    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/" + caseId + "/associate");
+function addAssociate(caseId, associateUpdate, isSecureSupport) {
+    if (isSecureSupport === void 0) { isSecureSupport = false; }
+    var uri = env_1.default.hydraHostName.clone().setPath((isSecureSupport ? env_1.default.securePathPrefix : env_1.default.pathPrefix) + "/cases/" + caseId + "/associate");
     return fetch_1.putUri(uri, associateUpdate);
 }
 exports.addAssociate = addAssociate;
-function deleteAssociate(caseId, associateUpdate) {
-    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/" + caseId + "/associate");
+function deleteAssociate(caseId, associateUpdate, isSecureSupport) {
+    if (isSecureSupport === void 0) { isSecureSupport = false; }
+    var uri = env_1.default.hydraHostName.clone().setPath((isSecureSupport ? env_1.default.securePathPrefix : env_1.default.pathPrefix) + "/cases/" + caseId + "/associate");
     return fetch_1.deleteUriWithBody(uri, associateUpdate);
 }
 exports.deleteAssociate = deleteAssociate;
-function updateOwner(caseId, ssoUsername) {
-    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/" + caseId + "/owner");
+function updateOwner(caseId, ssoUsername, isSecureSupport) {
+    if (isSecureSupport === void 0) { isSecureSupport = false; }
+    var uri = env_1.default.hydraHostName.clone().setPath((isSecureSupport ? env_1.default.securePathPrefix : env_1.default.pathPrefix) + "/cases/" + caseId + "/owner");
     return fetch_1.putUri(uri, ssoUsername);
 }
 exports.updateOwner = updateOwner;
-function lockCase(caseId, kase) {
-    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/" + caseId + "/externalLock");
+function lockCase(caseId, kase, isSecureSupport) {
+    if (isSecureSupport === void 0) { isSecureSupport = false; }
+    var uri = env_1.default.hydraHostName.clone().setPath((isSecureSupport ? env_1.default.securePathPrefix : env_1.default.pathPrefix) + "/cases/" + caseId + "/externalLock");
     return fetch_1.putUri(uri, kase);
 }
 exports.lockCase = lockCase;
-function unlockCase(caseId) {
-    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/" + caseId + "/externalLock");
+function unlockCase(caseId, isSecureSupport) {
+    if (isSecureSupport === void 0) { isSecureSupport = false; }
+    var uri = env_1.default.hydraHostName.clone().setPath((isSecureSupport ? env_1.default.securePathPrefix : env_1.default.pathPrefix) + "/cases/" + caseId + "/externalLock");
     return fetch_1.deleteUri(uri);
 }
 exports.unlockCase = unlockCase;
-function getLockedCases(userId, fields, limit) {
-    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/locked/" + userId);
+function getLockedCases(userId, fields, limit, isSecureSupport) {
+    if (isSecureSupport === void 0) { isSecureSupport = false; }
+    var uri = env_1.default.hydraHostName.clone().setPath((isSecureSupport ? env_1.default.securePathPrefix : env_1.default.pathPrefix) + "/cases/locked/" + userId);
     if (limit !== undefined) {
         uri.addQueryParam('limit', limit);
     }
@@ -11543,13 +11580,15 @@ function getChatTranscripts(caseNumber, fields, limit) {
     return fetch_1.getUri(uri);
 }
 exports.getChatTranscripts = getChatTranscripts;
-function getBugs(caseNumber) {
-    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/" + caseNumber + "/bugs");
+function getBugs(caseNumber, isSecureSupport) {
+    if (isSecureSupport === void 0) { isSecureSupport = false; }
+    var uri = env_1.default.hydraHostName.clone().setPath((isSecureSupport ? env_1.default.securePathPrefix : env_1.default.pathPrefix) + "/cases/" + caseNumber + "/bugs");
     return fetch_1.getUri(uri);
 }
 exports.getBugs = getBugs;
-function getCasesFromSoql(query) {
-    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/soql");
+function getCasesFromSoql(query, isSecureSupport) {
+    if (isSecureSupport === void 0) { isSecureSupport = false; }
+    var uri = env_1.default.hydraHostName.clone().setPath((isSecureSupport ? env_1.default.securePathPrefix : env_1.default.pathPrefix) + "/soql");
     return fetch_1.postUri(uri, query);
 }
 exports.getCasesFromSoql = getCasesFromSoql;
@@ -11629,7 +11668,14 @@ function getAmazonS3(credential) {
     }
     var credentials = new AWS.Credentials(credential.accessKey, credential.secretKey, credential.sessionToken);
     credentials.expireTime = new Date(credential.expiration);
-    AWS.config.update({ credentials: credentials, useAccelerateEndpoint: true });
+    var options = {
+        credentials: credentials,
+        useAccelerateEndpoint: true,
+    };
+    if (credential.region) {
+        options.region = credential.region;
+    }
+    AWS.config.update(options);
     return new AWS.S3();
 }
 /**
@@ -11638,8 +11684,8 @@ function getAmazonS3(credential) {
  * @param {string} caseNumber
  */
 function getAttachmentsS3(caseNumber) {
-    var path = "/cases/" + caseNumber + "/attachments";
-    var uri = env_1.default.hydraHostName.clone().setPath("" + env_1.default.fsPathPrefix + path);
+    var path = env_1.default.pathPrefix + "/cases/" + caseNumber + "/attachments";
+    var uri = env_1.default.hydraHostName.clone().setPath("" + path);
     return fetch_1.getUri(uri);
 }
 exports.getAttachmentsS3 = getAttachmentsS3;
@@ -11656,8 +11702,8 @@ function checkUploadStatusS3(caseNumber, attachmentId) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    path = "/cases/" + caseNumber + "/attachments/" + attachmentId + "/status";
-                    uri = env_1.default.hydraHostName.clone().setPath("" + env_1.default.fsPathPrefix + path);
+                    path = env_1.default.pathPrefix + "/cases/" + caseNumber + "/attachments/" + attachmentId + "/status";
+                    uri = env_1.default.hydraHostName.clone().setPath("" + path);
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 3, , 4]);
@@ -11684,8 +11730,8 @@ function refreshUploadCredentials(caseNumber, attachmentId) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    path = "/cases/" + caseNumber + "/attachments/" + attachmentId + "/upload/credentials/refresh";
-                    uri = env_1.default.hydraHostName.clone().setPath("" + env_1.default.fsPathPrefix + path);
+                    path = env_1.default.pathPrefix + "/cases/" + caseNumber + "/attachments/" + attachmentId + "/upload/credentials/refresh";
+                    uri = env_1.default.hydraHostName.clone().setPath("" + path);
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 3, , 4]);
@@ -11763,8 +11809,8 @@ function uploadAttachmentS3(caseNumber, data, params, listener) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    path = "/cases/" + caseNumber + "/attachments/upload/credentials";
-                    uri = env_1.default.hydraHostName.clone().setPath("" + env_1.default.fsPathPrefix + path);
+                    path = env_1.default.pathPrefix + "/cases/" + caseNumber + "/attachments/upload/credentials";
+                    uri = env_1.default.hydraHostName.clone().setPath("" + path);
                     getCredentials = function () { return __awaiter(_this, void 0, void 0, function () {
                         var error_4;
                         return __generator(this, function (_a) {
@@ -11871,8 +11917,8 @@ function downloadAttachmentS3(caseNumber, attachmentId, fileName) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    path = "/cases/" + caseNumber + "/attachments/" + attachmentId + "/download/credentials";
-                    uri = env_1.default.hydraHostName.clone().setPath("" + env_1.default.fsPathPrefix + path);
+                    path = env_1.default.pathPrefix + "/cases/" + caseNumber + "/attachments/" + attachmentId + "/download/credentials";
+                    uri = env_1.default.hydraHostName.clone().setPath("" + path);
                     getCredentials = function () { return __awaiter(_this, void 0, void 0, function () {
                         var error_8;
                         return __generator(this, function (_a) {
@@ -17923,7 +17969,7 @@ function fromByteArray (uint8) {
 
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
-  var eLen = (nBytes * 8) - mLen - 1
+  var eLen = nBytes * 8 - mLen - 1
   var eMax = (1 << eLen) - 1
   var eBias = eMax >> 1
   var nBits = -7
@@ -17936,12 +17982,12 @@ exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   e = s & ((1 << (-nBits)) - 1)
   s >>= (-nBits)
   nBits += eLen
-  for (; nBits > 0; e = (e * 256) + buffer[offset + i], i += d, nBits -= 8) {}
+  for (; nBits > 0; e = e * 256 + buffer[offset + i], i += d, nBits -= 8) {}
 
   m = e & ((1 << (-nBits)) - 1)
   e >>= (-nBits)
   nBits += mLen
-  for (; nBits > 0; m = (m * 256) + buffer[offset + i], i += d, nBits -= 8) {}
+  for (; nBits > 0; m = m * 256 + buffer[offset + i], i += d, nBits -= 8) {}
 
   if (e === 0) {
     e = 1 - eBias
@@ -17956,7 +18002,7 @@ exports.read = function (buffer, offset, isLE, mLen, nBytes) {
 
 exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   var e, m, c
-  var eLen = (nBytes * 8) - mLen - 1
+  var eLen = nBytes * 8 - mLen - 1
   var eMax = (1 << eLen) - 1
   var eBias = eMax >> 1
   var rt = (mLen === 23 ? Math.pow(2, -24) - Math.pow(2, -77) : 0)
@@ -17989,7 +18035,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
       m = 0
       e = eMax
     } else if (e + eBias >= 1) {
-      m = ((value * c) - 1) * Math.pow(2, mLen)
+      m = (value * c - 1) * Math.pow(2, mLen)
       e = e + eBias
     } else {
       m = value * Math.pow(2, eBias - 1) * Math.pow(2, mLen)
@@ -19366,7 +19412,7 @@ Url.prototype.parseHost = function() {
 /* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_RESULT__;/*! https://mths.be/punycode v1.4.1 by @mathias */
+/* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_RESULT__;/*! https://mths.be/punycode v1.3.2 by @mathias */
 ;(function(root) {
 
 	/** Detect free variables */
@@ -19432,7 +19478,7 @@ Url.prototype.parseHost = function() {
 	 * @returns {Error} Throws a `RangeError` with the applicable error message.
 	 */
 	function error(type) {
-		throw new RangeError(errors[type]);
+		throw RangeError(errors[type]);
 	}
 
 	/**
@@ -19579,7 +19625,7 @@ Url.prototype.parseHost = function() {
 
 	/**
 	 * Bias adaptation function as per section 3.4 of RFC 3492.
-	 * https://tools.ietf.org/html/rfc3492#section-3.4
+	 * http://tools.ietf.org/html/rfc3492#section-3.4
 	 * @private
 	 */
 	function adapt(delta, numPoints, firstTime) {
@@ -19854,7 +19900,7 @@ Url.prototype.parseHost = function() {
 		 * @memberOf punycode
 		 * @type String
 		 */
-		'version': '1.4.1',
+		'version': '1.3.2',
 		/**
 		 * An object of methods to convert from JavaScript's internal character
 		 * representation (UCS-2) to Unicode code points, and back.
@@ -19883,17 +19929,14 @@ Url.prototype.parseHost = function() {
 		}).call(exports, __webpack_require__, exports, module),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	} else if (freeExports && freeModule) {
-		if (module.exports == freeExports) {
-			// in Node.js, io.js, or RingoJS v0.8.0+
+		if (module.exports == freeExports) { // in Node.js or RingoJS v0.8.0+
 			freeModule.exports = punycode;
-		} else {
-			// in Narwhal or RingoJS v0.7.0-
+		} else { // in Narwhal or RingoJS v0.7.0-
 			for (key in punycode) {
 				punycode.hasOwnProperty(key) && (freeExports[key] = punycode[key]);
 			}
 		}
-	} else {
-		// in Rhino or a web browser
+	} else { // in Rhino or a web browser
 		root.punycode = punycode;
 	}
 
@@ -29435,19 +29478,17 @@ exports.createReview = createReview;
 Object.defineProperty(exports, "__esModule", { value: true });
 var fetch_1 = __webpack_require__(3);
 var env_1 = __webpack_require__(2);
-function getProducts(sso) {
-    if (sso) {
-        var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/products/contact/" + sso);
-        return fetch_1.getUri(uri);
-    }
-    else {
-        var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/products");
-        return fetch_1.getUri(uri);
-    }
+function getProducts(sso, eolProducts) {
+    if (eolProducts === void 0) { eolProducts = false; }
+    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/products" + (sso ? '/contact/' + sso : ''));
+    uri.addQueryParam('includeEolProducts', eolProducts);
+    return fetch_1.getUri(uri);
 }
 exports.getProducts = getProducts;
-function getProductVersions(productName) {
+function getProductVersions(productName, eolProducts) {
+    if (eolProducts === void 0) { eolProducts = false; }
     var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/products/" + productName + "/versions");
+    uri.addQueryParam('includeEolProducts', eolProducts);
     return fetch_1.getUri(uri);
 }
 exports.getProductVersions = getProductVersions;
@@ -29629,6 +29670,11 @@ function getContactDetailBySso(sso) {
     return fetch_1.getUri(uri);
 }
 exports.getContactDetailBySso = getContactDetailBySso;
+function bookmarkAccount(sso, accountNumber) {
+    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/accounts/bookmarks/" + sso + "/" + accountNumber);
+    return fetch_1.postUri(uri, { accountNumber: accountNumber, contactSsoName: sso });
+}
+exports.bookmarkAccount = bookmarkAccount;
 
 
 /***/ }),

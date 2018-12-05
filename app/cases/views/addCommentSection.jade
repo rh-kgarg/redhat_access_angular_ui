@@ -33,14 +33,14 @@ div(ng-show='EDIT_CASE_CONFIG.showAttachments && securityService.loginStatus.aut
                //  ng-controller='BackEndAttachmentsCtrl')
   .col-xs-5
     .pull-right
-      .spinner.spinner-inline(ng-show='addingComment || addingattachment')
+      .spinner.spinner-inline(ng-show='addingComment || addingattachment || AttachmentsService.uploadingAttachments')
       button#rha-case-addcommentbutton.btn.btn-app(
-        ng-hide='addingComment || addingattachment',
+        ng-hide='addingComment || addingattachment || AttachmentsService.uploadingAttachments',
         ng-disabled='CaseService.disableAddComment && AttachmentsService.updatedAttachments.length === 0 && !AttachmentsService.hasBackEndSelections()',
         ng-class="{'btn-primary': !(CaseService.disableAddComment && AttachmentsService.updatedAttachments.length === 0 && !AttachmentsService.hasBackEndSelections())}",
         ng-click='addComment()',
         translate='') Post
-      a.margin-left(ng-click='clearComment()',translate='',ng-hide='addingComment || addingattachment') Cancel
+      a.margin-left(ng-click='clearComment()',translate='',ng-hide='addingComment || addingattachment || AttachmentsService.uploadingAttachments') Cancel
 .row(ng-show='ie8 && EDIT_CASE_CONFIG.isPCM || ie9 && EDIT_CASE_CONFIG.isPCM')
   .col-xs-12
         form#fileUploaderForm(enctype="multipart/form-data", method="post",target="upload_target")

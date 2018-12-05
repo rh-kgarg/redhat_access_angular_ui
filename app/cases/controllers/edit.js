@@ -20,6 +20,8 @@ export default class Edit {
         $scope.loading.kase = true;
         $scope.isShowRmeEscalationBox = false;
         $scope.isCreateRmeEscalationBox = true;
+        $scope.ownerTooltip = '';
+        $scope.cepMessage = gettextCatalog.getString("Used by consultants to indicate that a consulting engagement is in progress and the issue requires increased attention from support resources.");
         $scope.showCasePage = () => securityService.loginStatus.isLoggedIn && !HeaderService.pageLoadFailure && CaseService.sfdcIsHealthy && securityService.loginStatus.userAllowedToManageCases && !$scope.loading.kase;
         $scope.init = function () {
             AttachmentsService.clear();
@@ -108,6 +110,42 @@ export default class Edit {
             }
         };
 
+        $scope.updateCEP = function (isCep) {
+            if (isCep) {
+                CaseService.cepModalEvent = CASE_EVENTS.editPageCEP;
+                CaseService.kase.cep = false;
+                $uibModal.open({
+                    template: require('../views/cepModal.jade'),
+                    controller: 'CepModal'
+                });
+            } else {
+                CaseService.confirmationModal = CASE_EVENTS.editPageCEP;
+                CaseService.kase.cep = true;
+                CaseService.confirmationModalHeader = gettextCatalog.getString('Update Consultant Engagement in Progress');
+                CaseService.confirmationModalMessage = gettextCatalog.getString('Are you sure you want to remove the Consultant Engagement in Progress flag?');
+                $uibModal.open({
+                    template: require('../views/commonConfirmationModal.jade'),
+                    controller: 'CommonConfirmationModal'
+                });
+            } 
+        };
+
+        var updateOwnerTooltip = function() {
+            if (RHAUtils.isNotEmpty(CaseService.hydraCaseDetail) && RHAUtils.isNotEmpty(CaseService.hydraCaseDetail.caseOwner)) {
+                const owner = CaseService.hydraCaseDetail.caseOwner;
+                $scope.ownerTooltip = $sce.trustAsHtml(
+                    `<div style="text-align: left;">
+                    <b>Name</b>: ${owner.name ? owner.name : ''}<br>
+                    <b>Title</b>: ${owner.title ? owner.title : ''}<br>
+                    <b>Email</b>: ${owner.email ? owner.email : ''}<br> 
+                    <b>Phone</b>: ${owner.mobilePhone ? owner.mobilePhone : ''}<br>
+                    <b>IRC</b>: ${owner.ircNick ? owner.ircNick : ''}
+                    </div>`
+                );
+            } else {
+                $scope.ownerTooltip = '';
+            }
+        }
 
         $scope.changeOwner = function () {
             $uibModal.open({
@@ -177,6 +215,10 @@ export default class Edit {
 
         $scope.$watch('CaseService.caseRMEEscalation', function () {
             showRmeBox();
+        });
+
+        $scope.$watch('CaseService.hydraCaseDetail', function () {
+            updateOwnerTooltip();
         });
 
         var showRmeBox = function () {

@@ -1,0 +1,53 @@
+.modal-header
+  h3.modal-title(translate='') Consultant Engagement in Progress
+.modal-body
+  .row
+    .col-sm-12
+      span {{'Please provide the contact information of Consulting personnel troubleshooting the customer issue. If requested, Support Delivery will use this information to initiate direct contact (i.e. phone, chat) with listed contact(s) in order to provide faster assistance. Primary method of communication will continue to be this Customer Case ticket.'|translate}}
+  .row
+    .col-sm-12
+      form
+          .form-group
+            label.control-label {{::'Contact Name: *'|translate}} &nbsp;
+            span.glyphicon.glyphicon-info-sign.text-info(uib-tooltip="{{'Provide main contact(s) troubleshooting the issue' |translate }}")
+            input.form-control(
+                maxlength='254',
+                ng-model='cepContactName',
+                ng-disabled='submittingRequest',
+                ng-change='onChangeCepInformation()'
+                name='contact_name')
+          .form-group
+            label.control-label {{::'Availability/Working Hours: *'|translate}} &nbsp;
+            span.glyphicon.glyphicon-info-sign.text-info(uib-tooltip="{{'Indicate working hours, time zone; specify if not available on certain dates (i.e. weekends, holidays)' |translate }}")
+            input.form-control(
+                        ng-model='cepWorkingHours',
+                        ng-disabled='submittingRequest',
+                        ng-change='onChangeCepInformation()'
+                        placeholder="{{'M-F 9:00am - 5:00pm EDT'|translate}}"
+                        name='working_hours')
+          .form-group
+            label.control-label {{::'Contact Information: *'|translate}} &nbsp;
+            span.glyphicon.glyphicon-info-sign.text-info(uib-tooltip="{{'Please provide phone number, chat ID or email' |translate }}")
+            textarea.form-control(
+                maxlength='2000',
+                ng-model='cepContactInformation',
+                ng-disabled='submittingRequest',
+                ng-change='onChangeCepInformation()'
+                name='contact_information')
+          .form-group
+            label.control-label {{::'Notes:'|translate}} &nbsp;
+            span.glyphicon.glyphicon-info-sign.text-info(uib-tooltip='{{"Provide any pertinent information that Support Delivery should be aware of that\'s not already captured in the case summary or comments."|translate }}')
+            textarea.form-control(
+                maxlength='2000',
+                ng-model='cepNotes',
+                ng-disabled='submittingRequest',
+                ng-change='onChangeCepInformation()'
+                name='notes')
+.modal-footer
+    span.spinner.spinner-inline(ng-show='submittingRequest')
+    button#rha-case-escalation-submitbutton.btn-accent.btn(
+        style='margin-left: 10px;',
+        ng-click='submit()',
+        ng-disabled='submittingRequest || disableSubmitRequest')
+        span {{'Submit'|translate}}
+    button.btn-accent.btn(style='margin-left: 10px;', ng-click='closeModal()', ng-disabled='submittingRequest') {{'Cancel'|translate}}

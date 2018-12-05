@@ -74,11 +74,18 @@ export default class RequestManagementEscalationModal {
                 CaseService.getCaseEscalation(CaseService.kase.account_number, CaseService.kase.case_number);
             }
             strataService.cases.comments.post(CaseService.kase.case_number, fullComment, true, false).then(function(){
-                CaseService.checkForCaseStatusToggleOnAttachOrComment();
-                if (escalationNum !== undefined) {
-                    AlertService.clearAlerts();
-                    AlertService.addSuccessMessage(gettextCatalog.getString('Your Escalation request has been sent successfully'));
-                }
+                var caseJSON = {'escalated': true};
+                var updateCase = strataService.cases.put(CaseService.kase.case_number, caseJSON);
+                updateCase.then(function (response) {
+                    CaseService.checkForCaseStatusToggleOnAttachOrComment();
+                    if (escalationNum !== undefined) {
+                        AlertService.clearAlerts();
+                        AlertService.addSuccessMessage(gettextCatalog.getString('Your Escalation request has been sent successfully'));
+                    }
+                },
+                function (error) {
+                    $scope.showErrorMessage(error);
+                });
                 CaseService.populateComments($stateParams.id).then(function (comments) {
                     $scope.closeModal();
                     $scope.submittingRequest = false;

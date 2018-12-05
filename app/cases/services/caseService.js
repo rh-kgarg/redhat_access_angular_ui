@@ -58,6 +58,9 @@ export default class CaseService {
         this.updatingNewCaseSummary = false;
         this.updatingNewCaseDescription = false;
         // Added common modal variables for Status/Severity/CaseClose confirmation
+        this.cepModalEvent = '';
+        this.isNewPageCEP = false;
+        this.newPageCEPComment = '';
         this.confirmationModal = '';
         this.confirmationModalHeader = '';
         this.confirmationModalMessage = '';
@@ -67,6 +70,8 @@ export default class CaseService {
         this.showKTFields = true;
         this.redhatUsersLoading = false;
         this.redhatSecureSupportUsersLoading = false;
+        this.submittingCep = false;
+        this.solutionEngineProduct = '';
         this.redhatUsers = [];
         this.redhatSecureSupportUsers = [];
         this.managedAccount = null;
@@ -74,6 +79,7 @@ export default class CaseService {
         this.loggedInAccountUsers = [];
         this.managedAccountUsers = [];
         this.caseRMEEscalation = [];
+        this.hydraCaseDetail = {};
         this.internalStatuses= [
             "Unassigned",
             "Waiting on Customer",
@@ -198,13 +204,16 @@ export default class CaseService {
         this.onSelectChanged = function () {
             $rootScope.$broadcast(CASE_EVENTS.searchSubmit);
         };
-        this.onOwnerSelectChanged = function () {
+        this.onOwnerSelectChanged = function (ownerSelect = false) {
             if(RHAUtils.isNotEmpty(this.account.number) && RHAUtils.isNotEmpty(this.managedAccountUsers) && !_.includes(_.map(this.managedAccountUsers,'sso_username'),this.owner)) {
                 if(RHAUtils.isNotEmpty(_.first(_.filter(this.managedAccountUsers, (user) => user.org_admin)))) {
                     this.virtualOwner = _.first(_.filter(this.managedAccountUsers, (user) => user.org_admin)).sso_username;
                 } else {
                     this.virtualOwner = this.managedAccountUsers[0].sso_username;
                 }
+            }
+            if (ownerSelect) {
+                this.solutionEngineProduct = '';
             }
             $rootScope.$broadcast(CASE_EVENTS.ownerChange);
         };
@@ -245,6 +254,7 @@ export default class CaseService {
             this.kase = rawCase;
             this.ungroupedCaseModifier();
             angular.copy(this.kase, this.prestineKase);
+            this.fetchHydraCaseDetails();
             this.bugzillaList = rawCase.bugzillas;
             this.caseDataReady = true;
             this.onProductSelectChange();
@@ -261,9 +271,20 @@ export default class CaseService {
             this.ungroupedCaseModifier();
             angular.copy(this.kase, this.prestineKase);
             this.bugzillaList = jsonCase.bugzillas;
+            this.fetchHydraCaseDetails();
             this.caseDataReady = true;
             this.onProductSelectChange();
         };
+
+        this.fetchHydraCaseDetails = async function() {
+            if (securityService.loginStatus.authedUser.is_internal && RHAUtils.isNotEmpty(this.kase) && this.kase.case_number) {
+                try {
+                    this.hydraCaseDetail = await hydrajs.kase.getCase(this.kase.case_number, hydrajs.fields.getCaseFields({ includeCaseOwner: true }));
+                  } catch (error) {
+                    this.hydraCaseDetail = {};
+                  }
+            }
+        }
 
         //Explicitly assigning group_number = '-1' for ungrouped case when case payload has no group information
         this.ungroupedCaseModifier = function () {
@@ -329,6 +350,11 @@ export default class CaseService {
             this.virtualOwner = undefined;
             this.isOpenShiftOnlineProduct = false;
             this.caseRMEEscalation = [];
+            this.hydraCaseDetail = {};
+            this.cepModalEvent = '';
+            this.isNewPageCEP = false;
+            this.newPageCEPComment = '';
+            this.solutionEngineProduct = '';
         };
         this.groupsLoading = false;
         this.populateGroups = function (ssoUsername, flushCache) {

@@ -1,6 +1,8 @@
 'use strict';
 
 import _ from 'lodash';
+import hydrajs from '../../shared/hydrajs';
+
 
 export default class AccountBookmarkService {
     constructor(securityService, $rootScope, AUTH_EVENTS, AccountService, RHAUtils, ACCOUNT_EVENTS, strataService, $q) {
@@ -48,7 +50,7 @@ export default class AccountBookmarkService {
 
         this.addBookmark = function (account) {
             var user = securityService.loginStatus.authedUser;
-            return strataService.accounts.addBookmark(account.number, user.sso_username).then(angular.bind(this, function () {
+            return hydrajs.accounts.bookmarkAccount(user.sso_username, account.number).then(angular.bind(this, function () {
                 if (RHAUtils.isNotEmpty(account.name)) {
                     this.bookmarkedAccounts = this.bookmarkedAccounts.concat([_.cloneDeep(account)]);
                 } else { //there is no name, we must fetch the account before adding to bookmarked accounts

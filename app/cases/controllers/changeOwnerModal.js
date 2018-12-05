@@ -16,6 +16,7 @@ export default class ChangeOwnerModal {
                     AlertService.addSuccessMessage(gettextCatalog.getString('Case  {{caseNumber}} owner successfully changed.', {caseNumber: CaseService.kase.case_number}));
                     CaseService.kase.owner = $scope.caseOwner.first_name+' '+$scope.caseOwner.last_name;
                     angular.copy(CaseService.kase, CaseService.prestineKase);
+                    CaseService.fetchHydraCaseDetails();
                     $scope.updatingOwner = false;
                     $uibModalInstance.close();
                 }, (error) => {

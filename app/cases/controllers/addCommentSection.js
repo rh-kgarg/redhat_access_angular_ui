@@ -21,11 +21,16 @@ export default class AddCommentSection {
                 strataService.cache.clr('attachments' + CaseService.kase.case_number);
                 await AttachmentsService.updateAttachments(CaseService.kase.case_number);
                 $scope.addingattachment = false;
-                await DiscussionService.getDiscussionElements(CaseService.kase.case_number);
             } catch(error) {
                 $scope.addingattachment = false;
             }
         };
+
+        $scope.$watch('AttachmentsService.uploadingAttachments', async (newVal, oldVal) => {
+            if (oldVal && !newVal) {
+                await DiscussionService.getDiscussionElements(CaseService.kase.case_number);
+            }
+        });
 
         $scope.clearComment = function () {
             CaseService.commentText = '';

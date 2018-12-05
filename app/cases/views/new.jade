@@ -158,6 +158,14 @@ div(rha-header='', page='newCase')
                                 input(
                                 type="checkbox",
                                 ng-model="$parent.CaseService.fts")
+                            div(ng-show='$parent.securityService.loginStatus.authedUser.is_internal && $parent.securityService.isCep')
+                                label#rha-cep_flag(translate,translate-comment="Noun") Consultant Engaged
+                                input(
+                                type="checkbox",
+                                ng-model="CaseService.isNewPageCEP"
+                                ng-change="updateCEP(CaseService.isNewPageCEP)")
+                                span &nbsp;
+                                span.glyphicon.glyphicon-info-sign.text-info(uib-tooltip="{{cepMessage}}")
                             div(ng-show="$parent.CaseService.showFtsOnCreatePage()")
                                 label#rha-24X7_Contact(translate,translate-comment="Noun") 24x7 Contact
                                 input#rha-24X7_Contact_input(ng-model="$parent.CaseService.fts_contact")

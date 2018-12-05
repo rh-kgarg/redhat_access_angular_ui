@@ -88,6 +88,7 @@ import ProductSelect from './controllers/productSelect'
 import RequestEscalation from './controllers/requestEscalation'
 import ShowRmeEscalation from './controllers/showRMEEscalation'
 import RequestManagementEscalationModal from './controllers/requestManagementEscalationModal'
+import CepModal from './controllers/cepModal'
 import SearchBox from './controllers/searchBox'
 import SeveritySelect from './controllers/severitySelect'
 import SolrQueryInputController from './controllers/solrQueryInput'
@@ -146,6 +147,7 @@ app.controller('ProductSelect', ProductSelect);
 app.controller('RequestEscalation', RequestEscalation);
 app.controller('ShowRmeEscalation', ShowRmeEscalation);
 app.controller('RequestManagementEscalationModal', RequestManagementEscalationModal);
+app.controller('CepModal', CepModal);
 app.controller('SearchBox', SearchBox);
 app.controller('SeveritySelect', SeveritySelect);
 app.controller('SolrQueryInputController', SolrQueryInputController);
@@ -199,6 +201,7 @@ import rhaSolrQueryInput from './directives/solrQueryInput'
 import rhaStatusselect from './directives/statusSelect'
 import rhaTypeselect from './directives/typeSelect'
 import rhaVersionselect from './directives/versionSelect'
+import pagination from './directives/pagination'
 
 app.directive('rhaAccountSearch', rhaAccountSearch);
 app.directive('rhaAccountselect', rhaAccountselect);
@@ -242,6 +245,7 @@ app.directive('rhaSolrQueryInput', rhaSolrQueryInput);
 app.directive('rhaStatusselect', rhaStatusselect);
 app.directive('rhaTypeselect', rhaTypeselect);
 app.directive('rhaVersionselect', rhaVersionselect);
+app.directive('pagination', pagination);
 
 //Components
 import rhaAdvancedSearchCaseList from './components/advancedSearchCaseList'
@@ -255,9 +259,11 @@ app.component('rhaSecureSupportHeader', rhaSecureSupportHeader);
 // Filters
 import bytes from './filters/bytes'
 import substring from './filters/substring'
+import startFrom from './filters/startFrom';
 
 app.filter('bytes', bytes);
 app.filter('substring', substring);
+app.filter('startFrom', startFrom);
 
 // Services
 import AccountBookmarkService from './services/accountBookmarkService'

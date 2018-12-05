@@ -13,6 +13,7 @@ div.edit(ng-if='showCasePage()')
         span.label.label-mar-right.label-info(ng-show='$parent.CaseService.kase.hotfix_requested') {{'Hot Fix Requested'|translate}}
         span.label.label-mar-right.label-success(ng-show='$parent.CaseService.kase.hotfix_delivered') {{'Hot Fix Delivered'|translate}}
         span.label.label-mar-right.label-danger(ng-show='$parent.CaseService.account.is_special_handling_required') {{'Special Handling'|translate}}
+        span.label.label-mar-right.label-info(ng-show='$parent.securityService.loginStatus.authedUser.is_internal && $parent.securityService.isCep && $parent.CaseService.kase.cep') {{'Consultant Engaged'|translate}}
       .row.row-very-short
         b {{$parent.CaseService.kase.summary}}
       .row.row-very-short
@@ -21,6 +22,8 @@ div.edit(ng-if='showCasePage()')
         span(id="rha-case-filedOn" translate)  Filed on {{$parent.CaseService.kase.created_date}} by {{$parent.CaseService.kase.created_by}}
       .row.row-very-short
         span {{'Assigned to'|translate}} {{$parent.CaseService.kase.owner}}
+        span &nbsp;
+        span(ng-if="$parent.securityService.loginStatus.authedUser.is_internal && ownerTooltip !== ''").glyphicon.glyphicon-info-sign(uib-popover-html="ownerTooltip", popover-placement="right", popover-trigger="mouseenter")
         a#cancelCaseDetailChanges.margin-left(ng-click="changeOwner()",translate='',
         ng-if='$parent.securityService.loginStatus.authedUser.is_internal && $parent.COMMON_CONFIG.isGS4') {{'Edit'|translate}}
       .row.row-very-short(ng-if='$parent.securityService.loginStatus.authedUser.is_internal || $parent.userHasManagedAccounts()')
@@ -36,6 +39,19 @@ div.edit(ng-if='showCasePage()')
       .row.row-very-short(ng-show='$parent.EDIT_CASE_CONFIG.showDetails')
         div(rha-casedetails='', compact='false', loading='$parent.loading.kase')
           rha-casedetails
+      section.case-discussion(ng-if='$parent.securityService.loginStatus.authedUser.is_internal && $parent.securityService.isCep')
+        .row
+          .col-xs-4.col-sm-3.col-md-4
+                .label {{::'Consultant Engaged'|translate}}
+          .col-xs-4.col-sm-5.col-md-6(ng-show='$parent.CaseService.submittingCep')
+                span.spinner.spinner-inline
+          .col-xs-4.col-sm-5.col-md-6(ng-show='!$parent.CaseService.submittingCep')
+                input(ng-model="CaseService.kase.cep",
+                type="checkbox",
+                ng-change="updateCEP(CaseService.kase.cep)"
+                name="cepCheckbox")
+                span &nbsp;
+                span.glyphicon.glyphicon-info-sign.text-info(uib-tooltip="{{cepMessage}}")
       section.case-discussion(ng-if="!$parent.COMMON_CONFIG.isGS4")
         .row
           .col-xs-12(rha-emailnotifyselect='')

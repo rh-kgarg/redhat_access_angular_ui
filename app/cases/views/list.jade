@@ -48,13 +48,15 @@ div(ng-hide='showCaseList() || securityService.loginFailure || !securityService.
                             .case-id
                                 .subheading {{case.case_number}}
                                 .description {{case.status}}
-                    .col-sm-8.col-md-6.item-group
+                    .col-sm-8.col-md-4.item-group
                         .subheading
                             | {{case.summary}}
                         .description
                             | {{case.product}}
                             span
                             | &nbsp;{{case.version}}
+                    .col-md-2.item-group.change-log
+                            span(ng-show='securityService.loginStatus.authedUser.org_admin') {{case.folder_name}}
                     .col-sm-12.col-md-2(ng-show='CaseService.filterSelect.sortField === "lastModifiedDate"')
                         .item-group.change-log
                             .filed-on

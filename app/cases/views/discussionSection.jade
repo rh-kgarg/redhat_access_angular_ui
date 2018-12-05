@@ -29,14 +29,14 @@ ul#tab_list.nav.nav-tabs(role="tablist")
         .spinner(ng-show="AttachmentsService.loading")
         .row.row-very-short.case-discussion(ng-show="!AttachmentsService.loading")
             .col-xs-12
-                .discussion-element(id="{{element.id}}", ng-repeat="element in DiscussionService.discussionElements | orderBy:'sortModifiedDate':commentSortOrder", ng-if='!element.draft')
+                .discussion-element(id="{{element.id}}", ng-repeat="element in DiscussionService.discussionElements | orderBy:'sortModifiedDate':commentSortOrder | startFrom:currentPage*pageSize | limitTo:pageSize", ng-if='!element.draft')
                     article.comment.article-comment(ng-if="!element.file_name && element.comment_type !== 'chat' && !element.originating_system && (element.public === undefined || element.public === true)")
                         i.fa.fa-comments-o
                         h4.meta {{'Message'|translate}}&nbsp; ({{element.created_by_type}})
                         .byline
                             author {{element.last_modified_by}} {{'on'|translate}}&nbsp;
-                            date {{element.published_date}} {{'at'|translate}}&nbsp;
-                            date {{element.published_time}}
+                            date {{element.last_modified_date}} {{'at'|translate}}&nbsp;
+                            date {{element.last_modified_time}}
                         .pre-wrap
                             span(ng-if="ie8 || ie9", style='word-wrap: normal; word-break: normal;') {{element.text}}
                             .content(ng-if="!ie8 && !ie9", ng-bind-html="parseCommentHtml(element)")
@@ -69,10 +69,10 @@ ul#tab_list.nav.nav-tabs(role="tablist")
                             span {{'at'|translate}}&nbsp;
                             time {{element.published_time}}
                         .pre-wrap
-                            a(ng-show="AttachmentsService.isAwsAttachment(element)" ng-click="downloadS3Attachment(element)")
+                            a(ng-show="!isCertification() && AttachmentsService.isAwsAttachment(element)" ng-click="downloadS3Attachment(element)")
                                 .fa.fa-file-image-o.file-upload
                                 span {{element.file_name}} ({{element.length ? element.length : element.size | bytes}})&nbsp;
-                            a(ng-show="!AttachmentsService.isAwsAttachment(element)" href="{{element.link}}")
+                            a(ng-show="isCertification() || !AttachmentsService.isAwsAttachment(element)" href="{{element.link}}" download="download")
                                 .fa.fa-file-image-o.file-upload
                                 span {{element.file_name}} ({{element.length ? element.length : element.size | bytes}})&nbsp;
                             span.fa.fa-close(type='button', style='cursor: pointer;', ng-click='deleteAttachment(element)')
@@ -103,10 +103,11 @@ ul#tab_list.nav.nav-tabs(role="tablist")
                         .pre-wrap
                             span(ng-if="ie8 || ie9", style='word-wrap: normal; word-break: normal;') {{element.body}}
                             .content(ng-if="!ie8 && !ie9", ng-bind-html="parseCommentHtml(element)")
+                pagination(ng-if="discussion", datalength="DiscussionService.discussionElements.length", setdata="getPaginationData(pageSize, currentPage)")
     #pane2.tab-pane(ng-class='{"active": attachments}')
         .row.row-very-short.case-discussion
             .col-xs-12
-                .discussion-element(id="{{attachment.id}}", ng-repeat="attachment in DiscussionService.attachments | orderBy:'sortModifiedDate':'reverse'")
+                .discussion-element(id="{{attachment.id}}", ng-repeat="attachment in DiscussionService.attachments | orderBy:'sortModifiedDate':'reverse' | startFrom:currentPage*pageSize | limitTo:pageSize")
                     article.comment.article-attachment(ng-if="attachment.file_name")
                         i.fa.fa-paperclip
                         h4.meta {{'Attachment'|translate}}
@@ -116,15 +117,16 @@ ul#tab_list.nav.nav-tabs(role="tablist")
                             span {{'at'|translate}} &nbsp;
                             time {{attachment.published_time}}
                         .pre-wrap
-                            a(ng-show="AttachmentsService.isAwsAttachment(attachment)" ng-click="downloadS3Attachment(attachment)")
+                            a(ng-show="!isCertification() && AttachmentsService.isAwsAttachment(attachment)" ng-click="downloadS3Attachment(attachment)")
                                 .fa.fa-file-image-o.file-upload
                                 span {{attachment.file_name}} ({{attachment.length ? attachment.length : attachment.size | bytes}})&nbsp;
-                            a(ng-show="!AttachmentsService.isAwsAttachment(attachment)" href="{{attachment.link}}")
+                            a(ng-show="isCertification() || !AttachmentsService.isAwsAttachment(attachment)" href="{{attachment.link}}" download="download")
                                 .fa.fa-file-image-o.file-upload
                                 span {{attachment.file_name}} ({{attachment.length ? attachment.length : attachment.size | bytes}})&nbsp;
                             span.fa.fa-close(type='button', style='cursor: pointer;', ng-click='deleteAttachment(attachment)')
                             div(ng-if='attachment.checksum') {{'SHA-256:'|translate}}&nbsp;{{attachment.checksum}}
                             .description.margin-top-short(ng-show="attachment.description") {{attachment.description}}
+                pagination(ng-if="attachments", datalength="DiscussionService.attachments.length", setdata="getPaginationData(pageSize, currentPage)")
     #pane3.tab-pane(ng-hide="securityService.loginStatus.authedUser.is_internal", ng-class='{"active": notes}')
         form(name='notesForm')
             div

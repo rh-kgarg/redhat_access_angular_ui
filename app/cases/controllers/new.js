@@ -25,6 +25,7 @@ export default class New {
         $scope.HeaderService = HeaderService;
         $scope.ie8 = window.ie8;
         $scope.ie9 = window.ie9;
+        $scope.cepMessage = gettextCatalog.getString("Used by consultants to indicate that a consulting engagement is in progress and the issue requires increased attention from support resources.");
         $scope.ie8Message = 'We’re unable to accept file attachments from Internet Explorer 8 (IE8) at this time. Please see our instructions for providing files <a href=\"https://access.redhat.com/solutions/2112\" target="_blank\">via FTP </a> in the interim.';
 
         $scope.showRecommendationPanel = false;
@@ -185,7 +186,9 @@ export default class New {
                 ProductsService.getProducts(true);
 
                 //as owner change, we might get different product and version list, so better to clear previous selection
-                CaseService.clearProdVersionFromLS();
+                if (!RHAUtils.isNotEmpty(CaseService.solutionEngineProduct)) {
+                    CaseService.clearProdVersionFromLS();
+                }
             }
         });
 
@@ -318,6 +321,7 @@ export default class New {
                 CaseService.kase.urgency = draftNewCase.businessImpact;
                 CaseService.kase.summary = draftNewCase.issue;
                 if (RHAUtils.isNotEmpty(draftNewCase.product)) {
+                    CaseService.solutionEngineProduct = draftNewCase.product;
                     $scope.setProductAndVersion(draftNewCase.product, draftNewCase.version);
                 }
             }
@@ -414,8 +418,8 @@ export default class New {
                 CaseService.externalCaseCreateKey = urlParameter.caseCreateKey;
                 //dummy stringified case object, need to delete this once get original object from solution engine or container catalog
                 //delete the below 2 lines when original integration is complete.
-                // let newStrigifiedCaseObject = '{"product":"Red Hat Enterprise Linux","version":"6.0","problemStatement":"test problem","issue":"test issue","environment":"test env","frequency":"test frequency","businessImpact":"test business","guid":"test"}';
-                // CaseService.localStorageCache.put(CaseService.externalCaseCreateKey, newStrigifiedCaseObject);
+                 // let newStrigifiedCaseObject = '{"product":"Red Hat Satellite or Proxy","version":"6.4","problemStatement":"test problem","issue":"test issue","environment":"test env","frequency":"test frequency","businessImpact":"test business","guid":"test"}';
+                 // window.localStorage.setItem(CaseService.externalCaseCreateKey, newStrigifiedCaseObject);
 
                 $scope.getCaseDetailsFromLocalStorage();
 
@@ -475,6 +479,12 @@ export default class New {
 
                 //add notified users
                 try{
+                    if (CaseService.isNewPageCEP && caseNumber && RHAUtils.isNotEmpty(CaseService.newPageCEPComment)) {
+                        const caseJSON = {'cep': true};
+                        await strataService.cases.put(caseNumber, caseJSON);
+                        await strataService.cases.comments.post(caseNumber, CaseService.newPageCEPComment, false, false);
+                        CaseService.submittingCep = false;
+                    }
                     const addNotifiedUsers = _.map($scope.kase.notifiedUsers, (user) => strataService.cases.notified_users.add(caseNumber, user));
                     await Promise.all(addNotifiedUsers);
                 } catch (error) {
@@ -690,6 +700,26 @@ export default class New {
             CaseService.validateNewCase();
             CaseService.updateLocalStorageForNewCase();
             CaseService.sendCreationStartedEvent($event);
+        };
+
+        $scope.updateCEP = function (isCep) {
+            if (isCep) {
+                CaseService.isNewPageCEP = false;
+                CaseService.cepModalEvent = CASE_EVENTS.newPageCEP;
+                $uibModal.open({
+                    template: require('../views/cepModal.jade'),
+                    controller: 'CepModal'
+                });
+            } else {
+                CaseService.isNewPageCEP = true;
+                CaseService.confirmationModal = CASE_EVENTS.newPageCEP;
+                CaseService.confirmationModalHeader = gettextCatalog.getString('Update Consultant Engagement in Progress');
+                CaseService.confirmationModalMessage = gettextCatalog.getString('Are you sure you want to remove the Consultant Engagement in Progress flag?');
+                $uibModal.open({
+                    template: require('../views/commonConfirmationModal.jade'),
+                    controller: 'CommonConfirmationModal'
+                });
+            } 
         };
 
         if (ENVIRONMENT !== 'test') {

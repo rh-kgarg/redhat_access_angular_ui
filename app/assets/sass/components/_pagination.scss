@@ -1,0 +1,32 @@
+@import '../includes/variables';
+
+$numOfColsFirstOrLast: 5;
+$numOfColsFirstAndLast: 7;
+
+.pagination-padding {
+    padding-top: 15px;
+}
+
+.pagination-grid {
+    display: flex;
+    align-items: inherit;
+    justify-content: flex-end;
+}
+
+.page-tracker {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+
+    .max-pages {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: $global-padding;
+    }
+
+    .page-input {
+        width: 50%;
+        text-align: center;
+    }
+}
