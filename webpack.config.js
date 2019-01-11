@@ -111,20 +111,7 @@ module.exports = function (options) {
 
     // Initialize module
     config.module = {
-        preLoaders: [
-
-            // This works bug produces a ton of content, I don't think we've been strict with jshint so far, commenting
-            // this out until we decide what we'd want to do.
-            // {
-            //     test: /\.js$/,
-            //     loader: "jshint-loader",
-            //     exclude: [
-            //         /node_modules/,
-            //         /bower_components/
-            //     ]
-            // }
-        ],
-        loaders: [
+        rules: [
             // Shim Angular modules
             {
                 test: /[\/]angular\.js$/, loader: "exports?angular"
@@ -136,7 +123,7 @@ module.exports = function (options) {
                 // Compiles ES6 and ES7 into ES5 code
                 test: /\.js$/,
                 // loader: 'babel-loader',
-                loader: 'ng-annotate?add=true!babel',
+                use: 'ng-annotate-loader?add=true!babel',
                 // exclude: [/node_modules/, /bower_components/]
                 exclude: [
                     path.resolve(__dirname, 'node_modules'),
@@ -145,7 +132,7 @@ module.exports = function (options) {
             },
             {
                 test: /redhat_access_pcm_ascension_common/,
-                loader: 'ng-annotate?add=true!babel'
+                use: 'ng-annotate-loader?add=true!babel'
             },
             // {
             //     // CSS LOADER
@@ -167,7 +154,20 @@ module.exports = function (options) {
                 test: /\.scss$/,
                 // loaders: ["style", "css", "sass"] // This works
                 // 'css?sourceMap!sass?sourceMap' // Example on how to use sourceMaps, not sure we need them though
-                loader: ExtractTextPlugin.extract('css?minimize!sass'),
+                use: [
+                    {loader: "css-loader"},
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            includePaths: [
+                                // This does resolve to the correct path
+                                path.resolve(__dirname, "./app/assets/sass"),
+                                path.resolve(__dirname, "./node_modules/compass-mixins/lib"),
+                                path.resolve(__dirname, "./node_modules/breakpoint-sass/stylesheets")
+                            ]
+                        }
+                    }
+                ],
                 exclude: [
                     path.resolve(__dirname, 'node_modules'),
                     path.resolve(__dirname, 'bower_components')
@@ -176,64 +176,64 @@ module.exports = function (options) {
             // https://github.com/tcoopman/image-webpack-loader
             {
                 test: /\.(jpe?g|png|gif|svg)/i,
-                loaders: [
+                use: [
                     'file?hash=sha512&digest=hex&name=[hash].[ext]',
                     'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
                 ]
             },
             {
                 test: /\.(woff|woff2)/,
-                loader: 'url-loader?limit=10000'
+                use: 'url-loader?limit=10000'
             },
             {
                 test: /\.(ttf|eot)/,
-                loader: 'file-loader'
+                use: 'file-loader'
             },
             {
                 // HTML LOADER
                 // Reference: https://github.com/webpack/raw-loader
                 // Allow loading html through js
                 test: /\.html$/,
-                loader: 'raw'
+                use: 'raw'
             },
             {
                 test: /\.txt$/,
-                loader: 'raw'
+                use: 'raw'
             },
             {
                 test: /\.jade$/,
-                loader: 'jade-loader'
+                use: 'jade-loader'
             },
             {
                 test: /\.po$/,
-                loader: 'angular-gettext?module=RedhatAccess'
+                use: 'angular-gettext?module=RedhatAccess'
             },
             {
                 test: /\.json$/,
-                loader: 'json-loader'
+                use: 'json-loader'
             }
         ]
     };
 
-    config.sassLoader = {
-        includePaths: [
-            // This does resolve to the correct path
-            path.resolve(__dirname, "./app/assets/sass"),
-            path.resolve(__dirname, "./node_modules/compass-mixins/lib"),
-            path.resolve(__dirname, "./node_modules/breakpoint-sass/stylesheets")
-        ]
-    };
+    // config.sassLoader = {
+    //     includePaths: [
+    //         // This does resolve to the correct path
+    //         path.resolve(__dirname, "./app/assets/sass"),
+    //         path.resolve(__dirname, "./node_modules/compass-mixins/lib"),
+    //         path.resolve(__dirname, "./node_modules/breakpoint-sass/stylesheets")
+    //     ]
+    // };
 
     /**
      * PostCSS
      * Reference: https://github.com/postcss/autoprefixer-core
      * Add vendor prefixes to your css
      */
-    config.postcss = [
-        autoprefixer({
-            browsers: ['last 2 version']
-        })
-    ];
+    // config.postcss = [
+    //     autoprefixer({
+    //         browsers: ['last 2 version']
+    //     })
+    // ];
 
     /**
      * Plugins
@@ -297,7 +297,7 @@ module.exports = function (options) {
 
     // Resolvers
     config.resolve = {
-        modulesDirectories: ["node_modules", "bower_components"],
+        modules: ["bower_components", "node_modules"],
         alias: {
             // 'jquery': resolveBowerPath('/jquery/jquery.js')
             'moment-timezone': 'moment-timezone/builds/moment-timezone-with-data-2010-2020.js'
@@ -305,11 +305,11 @@ module.exports = function (options) {
     };
 
     // Add resolvers for bower.
-    config.plugins.push(
-        new webpack.ResolverPlugin(
-            new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(".bower.json", ["main"])
-        )
-    );
+    // config.plugins.push(
+    //     new webpack.ResolverPlugin(
+    //         new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(".bower.json", ["main"])
+    //     )
+    // );
 
     config.plugins.push(
         new webpack.ProvidePlugin({
@@ -337,7 +337,7 @@ module.exports = function (options) {
 
             // Reference: http://webpack.github.io/docs/list-of-plugins.html#dedupeplugin
             // Dedupe modules in the output
-            new webpack.optimize.DedupePlugin(),
+            // new webpack.optimize.DedupePlugin(),
 
             // Reference: http://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
             // Minify all javascript, switch loaders to minimizing mode

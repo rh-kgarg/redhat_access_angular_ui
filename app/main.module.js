@@ -48,7 +48,7 @@ if (ENVIRONMENT === 'test') {
 
 
 
-import mainRouting from './main.routing'
+const mainRouting = require('./main.routing');
 
 // Import the common modules
 require('redhat_access_pcm_ascension_common/app/common/main.module');
@@ -257,4 +257,4 @@ if (ENVIRONMENT !== 'gs4') {
     $('#pcm').fadeIn();
 }
 
-export default app.name;
+module.exports =  app.name;
