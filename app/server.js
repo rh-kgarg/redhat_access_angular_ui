@@ -60,8 +60,8 @@ try {
     const key = fs.readFileSync('/etc/ssl/server.key');
 
     const options = {
-        cert: cert,
-        key: key
+        cert,
+        key
     };
 
     https.createServer(options, app).listen(port, function() {

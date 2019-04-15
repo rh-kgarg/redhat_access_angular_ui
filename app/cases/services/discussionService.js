@@ -33,9 +33,7 @@ export default class DiscussionService {
                 attachPromise = AttachmentsService.getAttachments(caseId)
                     .then(() => this.updateElements());
             }
-            console.log("Updating Token Forcefully")
             await window.sessionjs.updateToken(true);
-            console.log("Updating Token Finish")
             commentsPromise = CaseService.populateComments(caseId).then(function () {
             }, function (error) {
                 if (!HeaderService.pageLoadFailure) {
