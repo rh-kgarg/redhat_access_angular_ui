@@ -75,7 +75,7 @@
     "null-loader": "~0.1.1",
     "pegjs": "~0.9.0",
     "raw-loader": "~0.5.1",
-    "redhat_access_pcm_ascension_common": "1.2.75",
+    "redhat_access_pcm_ascension_common": "1.2.76",
     "requirejs": "~2.1.11",
     "rimraf": "~2.5.3",
     "sass-loader": "~4.0.0",

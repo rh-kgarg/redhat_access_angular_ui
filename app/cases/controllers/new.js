@@ -225,6 +225,10 @@ export default class New {
             }
         };
 
+        $scope.removeUser = (userSSO) => {
+            _.pullAllBy($scope.kase.redhatWatchers, [{ssoUsername: userSSO}], 'ssoUsername');
+        };
+
         /**
          * Populate the selects
          */
@@ -709,7 +713,6 @@ export default class New {
 
         $scope.$watch('userToAdd', (user) => {
             if (_.isObject(user)) { // user is object if it was selected from the options, otherwise it's string
-                console.log(user, "Usssssssser");
                 $scope.kase.redhatWatchers = _.unionWith($scope.kase.redhatWatchers, [user], (a, b) => (a.ssoUsername === b.ssoUsername))
                 $scope.userToAdd = '';
             }

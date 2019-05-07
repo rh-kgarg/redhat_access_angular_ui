@@ -192,7 +192,7 @@ div(rha-header='', page='newCase')
                                     .spinner.spinner-inline.spinner-xs.margin-left-sm(ng-show="CaseService.isLoadingRHUsers")
                                 div.label-contact(ng-repeat="user in $parent.kase.redhatWatchers")
                                     span {{user.firstName}} {{user.lastName}} <{{user.ssoUsername}}>
-                                    a(ng-click="removeUser(user.ssoUsername)", ng-disabled="saving")
+                                    a(ng-click="$parent.removeUser(user.ssoUsername)", ng-disabled="saving")
                                         i.fa.fa-close
                                 input.form-control(type="text", ng-model="$parent.userToAdd", placeholder="{{'Search here to add watchers' | translate}}", ng-model-options="{'debounce': 600}"
                                 typeahead-loading="CaseService.isLoadingRHUsers" typeahead-no-results="CaseService.noResultsForRHUsersSearch" typeahead-min-length="0" uib-typeahead="user as (user.name + ' ('+user.ssoUsername+')') for user in CaseService.searchRHUsers($viewValue)")
