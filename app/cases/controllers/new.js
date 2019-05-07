@@ -225,6 +225,10 @@ export default class New {
             }
         };
 
+        $scope.removeUser = (userSSO) => {
+            _.pullAllBy($scope.kase.redhatWatchers, [{ssoUsername: userSSO}], 'ssoUsername');
+        };
+
         /**
          * Populate the selects
          */

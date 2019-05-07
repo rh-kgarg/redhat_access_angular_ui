@@ -29038,11 +29038,7 @@ var fetch_1 = __webpack_require__(/*! ../../utils/fetch */ "./src/utils/fetch.ts
 var env_1 = __webpack_require__(/*! ../../utils/env */ "./src/utils/env.ts");
 function getSFDCContacts(params) {
     var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/contacts/");
-    params && Object.keys(params).forEach(function (k) {
-        if (params[k]) {
-            uri.addQueryParam(k, params[k]);
-        }
-    });
+    fetch_1.addQueryParamsToUri(uri, params);
     return fetch_1.getUri(uri);
 }
 exports.getSFDCContacts = getSFDCContacts;
@@ -29173,11 +29169,7 @@ var env_1 = __webpack_require__(/*! ../../utils/env */ "./src/utils/env.ts");
 // TODO: Need to create Params interface.
 function getCSAccounts(params, abortSignal) {
     var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cs/accounts/");
-    params && Object.keys(params).forEach(function (k) {
-        if (params[k]) {
-            uri.addQueryParam(k, params[k]);
-        }
-    });
+    fetch_1.addQueryParamsToUri(uri, params);
     var options = {
         signal: abortSignal
     };
@@ -29217,11 +29209,7 @@ var fetch_1 = __webpack_require__(/*! ../../utils/fetch */ "./src/utils/fetch.ts
 var env_1 = __webpack_require__(/*! ../../utils/env */ "./src/utils/env.ts");
 function getContacts(params, abortSignal) {
     var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cs/contacts/");
-    params && Object.keys(params).forEach(function (k) {
-        if (params[k]) {
-            uri.addQueryParam(k, params[k]);
-        }
-    });
+    fetch_1.addQueryParamsToUri(uri, params);
     var options = {
         signal: abortSignal
     };
@@ -29246,11 +29234,7 @@ var fetch_1 = __webpack_require__(/*! ../../utils/fetch */ "./src/utils/fetch.ts
 var env_1 = __webpack_require__(/*! ../../utils/env */ "./src/utils/env.ts");
 function listCtas(params, abortSignal) {
     var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cs/ctas");
-    params && Object.keys(params).forEach(function (k) {
-        if (params[k]) {
-            uri.addQueryParam(k, params[k]);
-        }
-    });
+    fetch_1.addQueryParamsToUri(uri, params);
     var options = {
         signal: abortSignal
     };
@@ -29259,11 +29243,7 @@ function listCtas(params, abortSignal) {
 exports.listCtas = listCtas;
 function getCtaGroupedCount(params) {
     var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cs/ctas/count");
-    params && Object.keys(params).forEach(function (k) {
-        if (params[k]) {
-            uri.addQueryParam(k, params[k]);
-        }
-    });
+    fetch_1.addQueryParamsToUri(uri, params);
     return fetch_1.getUri(uri);
 }
 exports.getCtaGroupedCount = getCtaGroupedCount;
@@ -29284,21 +29264,13 @@ function addCta(ctaDetails) {
 exports.addCta = addCta;
 function deleteCta(ctaId, params) {
     var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cs/ctas/" + ctaId);
-    params && Object.keys(params).forEach(function (k) {
-        if (params[k]) {
-            uri.addQueryParam(k, params[k]);
-        }
-    });
+    fetch_1.addQueryParamsToUri(uri, params);
     return fetch_1.deleteUri(uri);
 }
 exports.deleteCta = deleteCta;
 function getCtaTasks(ctaId, params) {
     var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cs/ctas/" + ctaId + "/tasks");
-    params && Object.keys(params).forEach(function (k) {
-        if (params[k]) {
-            uri.addQueryParam(k, params[k]);
-        }
-    });
+    fetch_1.addQueryParamsToUri(uri, params);
     return fetch_1.getUri(uri);
 }
 exports.getCtaTasks = getCtaTasks;
@@ -29319,11 +29291,7 @@ function deleteTask(taskId, ctaId) {
 exports.deleteTask = deleteTask;
 function getCtaComments(ctaId, params) {
     var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cs/ctas/" + ctaId + "/comments");
-    params && Object.keys(params).forEach(function (k) {
-        if (params[k]) {
-            uri.addQueryParam(k, params[k]);
-        }
-    });
+    fetch_1.addQueryParamsToUri(uri, params);
     return fetch_1.getUri(uri);
 }
 exports.getCtaComments = getCtaComments;
@@ -29347,6 +29315,22 @@ function deleteCtaComment(commentId, ctaId) {
     return fetch_1.deleteUri(uri);
 }
 exports.deleteCtaComment = deleteCtaComment;
+// CTA Stakeholders
+function addCtaStakeholder(ctaId, stakeholder) {
+    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cs/ctas/" + ctaId + "/stakeholders");
+    return fetch_1.postUri(uri, stakeholder);
+}
+exports.addCtaStakeholder = addCtaStakeholder;
+function updateCtaStakeholder(ctaId, stakeholder) {
+    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cs/ctas/" + ctaId + "/stakeholders/" + stakeholder.id);
+    return fetch_1.putUri(uri, stakeholder);
+}
+exports.updateCtaStakeholder = updateCtaStakeholder;
+function removeCtaStakeholder(ctaId, stakeholderId) {
+    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cs/ctas/" + ctaId + "/stakeholders/" + stakeholderId);
+    return fetch_1.deleteUri(uri);
+}
+exports.removeCtaStakeholder = removeCtaStakeholder;
 
 
 /***/ }),
@@ -29365,11 +29349,7 @@ var fetch_1 = __webpack_require__(/*! ../../utils/fetch */ "./src/utils/fetch.ts
 var env_1 = __webpack_require__(/*! ../../utils/env */ "./src/utils/env.ts");
 function getLabels(params, abortSignal) {
     var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cs/labels/");
-    params && Object.keys(params).forEach(function (k) {
-        if (params[k]) {
-            uri.addQueryParam(k, params[k]);
-        }
-    });
+    fetch_1.addQueryParamsToUri(uri, params);
     var options = {
         signal: abortSignal
     };
@@ -29447,11 +29427,7 @@ var env_1 = __webpack_require__(/*! ../../utils/env */ "./src/utils/env.ts");
 // success Plan
 function getSuccessPlans(params, abortSignal) {
     var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cs/successplans");
-    params && Object.keys(params).forEach(function (k) {
-        if (params[k]) {
-            uri.addQueryParam(k, params[k]);
-        }
-    });
+    fetch_1.addQueryParamsToUri(uri, params);
     var options = {
         signal: abortSignal
     };
@@ -29604,11 +29580,7 @@ var env_1 = __webpack_require__(/*! ../../utils/env */ "./src/utils/env.ts");
 var fetch_1 = __webpack_require__(/*! ../../utils/fetch */ "./src/utils/fetch.ts");
 function getTimeline(params) {
     var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cs/timeline");
-    params && Object.keys(params).forEach(function (k) {
-        if (params[k]) {
-            uri.addQueryParam(k, params[k]);
-        }
-    });
+    fetch_1.addQueryParamsToUri(uri, params);
     return fetch_1.getUri(uri);
 }
 exports.getTimeline = getTimeline;
@@ -32970,7 +32942,10 @@ exports.default = {
             getCtaComment: cta_1.getCtaComment,
             updateCtaComment: cta_1.updateCtaComment,
             deleteCtaComment: cta_1.deleteCtaComment,
-            addCtaComment: cta_1.addCtaComment
+            addCtaComment: cta_1.addCtaComment,
+            addCtaStakeholder: cta_1.addCtaStakeholder,
+            updateCtaStakeholder: cta_1.updateCtaStakeholder,
+            removeCtaStakeholder: cta_1.removeCtaStakeholder
         },
         successPlan: {
             getSuccessPlans: successPlan_1.getSuccessPlans,
@@ -33282,6 +33257,16 @@ __webpack_require__(/*! es6-object-assign/auto */ "./node_modules/es6-object-ass
 __webpack_require__(/*! whatwg-fetch */ "./node_modules/whatwg-fetch/fetch.js");
 var env_1 = __webpack_require__(/*! ../utils/env */ "./src/utils/env.ts");
 __webpack_require__(/*! abortcontroller-polyfill/dist/abortcontroller-polyfill-only */ "./node_modules/abortcontroller-polyfill/dist/abortcontroller-polyfill-only.js");
+function addQueryParamsToUri(uri, params, includeEmptyString) {
+    if (includeEmptyString === void 0) { includeEmptyString = false; }
+    params && Object.keys(params).forEach(function (k) {
+        // add false and 0 to query params
+        if (params[k] || params[k] === false || params[k] === 0 || (includeEmptyString && params[k] === '')) {
+            uri.addQueryParam(k, params[k]);
+        }
+    });
+}
+exports.addQueryParamsToUri = addQueryParamsToUri;
 function errorHandler(response) {
     return response.text().then(function (body) {
         if (body == null || body === '') {
