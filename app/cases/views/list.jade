@@ -41,13 +41,15 @@ div(ng-hide='showCaseList() || securityService.loginFailure || !securityService.
                         .block-icon
                             .severity
                                 //a(href='https://access.redhat.com/knowledge/solutions/'{{DYNAMIC_VARIABLE}}, target='_blank') {{'(More info)'|translate}}
-                                i.icon-severity.level1(ng-show='case.severity === "1 (Urgent)"') {{::case.escalated ? '1*' : '1'}}
-                                i.icon-severity.level2(ng-show='case.severity === "2 (High)"') {{::case.escalated ? '2*' : '2'}}
-                                i.icon-severity.level3(ng-show='case.severity === "3 (Normal)"') {{::case.escalated ? '3*' : '3'}}
-                                i.icon-severity.level4(ng-show='case.severity === "4 (Low)"') {{::case.escalated ? '4*' : '4'}}
+                                i.icon-severity.level1(ng-show='case.severity === "1 (Urgent)"') 1
+                                i.icon-severity.level2(ng-show='case.severity === "2 (High)"') 2
+                                i.icon-severity.level3(ng-show='case.severity === "3 (Normal)"') 3
+                                i.icon-severity.level4(ng-show='case.severity === "4 (Low)"') 4
                             .case-id
                                 .subheading {{case.case_number}}
                                 .description {{case.status}}
+                    .col-sm-4.col-md-2.item-group.escalated
+                        i.fa(ng-class='{"fa-check": case.escalated, "fa-close": !case.escalated}', uib-tooltip="{{case.escalated ? 'Case has one or more escalations' : 'Case does not have any escalations'}}")
                     .col-sm-8.col-md-4.item-group
                         .subheading
                             | {{case.summary}}

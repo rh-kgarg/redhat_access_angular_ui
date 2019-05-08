@@ -58,6 +58,15 @@ $subheading-margin-bottom: 4px;
 			background: #f0f0f0;
 		}
 	}
+
+    .escalated {
+        text-align: center;
+
+        & :first-child {
+            color: initial;
+        }
+    }
+
 }
 
 .bulk-closure.case-list {
