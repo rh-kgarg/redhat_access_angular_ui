@@ -38,7 +38,7 @@ export default class DiscussionSection {
         ];
         $scope.DiscussionService = DiscussionService;
         $scope.PaginationService = PaginationService;
-
+        $scope.searchDiscussionString = gettextCatalog.getString('Search Discussion');
         $scope.$on(CASE_EVENTS.searchSubmit, function () {
             $location.search('commentId', null);
             $scope.doSearch();
@@ -90,6 +90,14 @@ export default class DiscussionSection {
                 }
             }, delay || 150);
         };
+
+        $scope.showingResultsString =  function() {
+            return gettextCatalog.getString('Showing {{showing}} - {{x}} of {{y}} results', {
+                showing: PaginationService.firstItemNumberShownOnThePage('discussionSection', DiscussionService.discussionElements.length),
+                x: PaginationService.lastItemNumberShownOnThePage('discussionSection', DiscussionService.discussionElements.length),
+                y: DiscussionService.discussionElements.length
+            });
+        }
 
         $scope.getOrderedDiscussionElements = () => {
             var sorted = orderBy(DiscussionService.discussionElements, "sortModifiedDate");

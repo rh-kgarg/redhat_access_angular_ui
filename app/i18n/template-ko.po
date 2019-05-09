@@ -2271,3 +2271,9 @@ msgstr "선택한 제품 및 버전에 대해 위에 나열된 심각도 수준�
 
 msgid "Please select valid severity"
 msgstr "유효한 심각도 수준을 선택하십시오."
+
+msgid "Search Discussion"
+msgstr "토론 검색"
+
+msgid "Showing {{showing}} - {{x}} of {{y}} results"
+msgstr "{{showing}} - {{x}} / {{y}} 결과 표시"
