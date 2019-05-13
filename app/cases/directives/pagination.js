@@ -7,11 +7,13 @@ class Pagination {
         $scope.skipSize = 5;
         $scope.onlyNumbers = /^\d+$/;
         $scope.state = { inputCurrentPageNumber: $scope.currentPageNumber, inputPageSize: $scope.pageSize };
-        $scope.pageSizeOptions = [
-            { pageSize: "15" },
-            { pageSize: "30" }
-        ]
         $scope.minPageSize = 15;
+        $scope.pageSizeOptions = [
+            { pageSize: '15' },
+            { pageSize: '30' },
+            { pageSize: '100' }
+        ];
+
         $scope.sanatizeInput = (_input) => {
             const numOfPages = $scope.numberOfPages();
 
@@ -25,33 +27,33 @@ class Pagination {
                     case isValid:
                         return input;
                     case gtMax:
-                        return numOfPages
+                        return numOfPages;
                     case ltMin:
                         return 1;
                 }
             } else {
                 return $scope.currentPageNumber;
             }
-        }
+        };
 
         $scope.onInputBoxChange = (value) => {
             let pageNumber = $scope.sanatizeInput(value);
             $scope.setCurrentPageNumber({ pageNumber });
             // setting inputcurrentPageNumber here as well as in watcher of currentPageNumber, because we cann't rely on watcher to be called everytime because when value is same as previous value watchers doesn't get called.
             $scope.state.inputCurrentPageNumber = pageNumber;
-        }
+        };
 
         $scope.$watch('currentPageNumber', (newv) => {
             $scope.state.inputCurrentPageNumber = newv;
-        }, true)
+        }, true);
 
         $scope.$watch('pageSize', (newv) => {
             $scope.state.inputPageSize = newv;
-        }, true)
+        }, true);
 
         $scope.$watch('state.inputPageSize', (newv) => {
             $scope.setPageSize({ pageSize: newv })
-        }, true)
+        }, true);
 
         // ng-model-options makes input only throw even when  user clicks outside of input (blur) or presses "enter" (change)
         // http://embed.plnkr.co/2hCAxnClv68Dl5c06Brm/ https://docs.angularjs.org/api/ng/directive/ngModelOptions
