@@ -72,8 +72,9 @@ ul#tab_list.nav.nav-tabs(role="tablist")
 
                     article.comment.article-attachment(ng-if="DiscussionService.isAttachment(element)")
                         i.fa.fa-paperclip
-                        h4.meta {{::'Attachment'|translate}}
-
+                        h4.meta
+                            {{'Attachment'|translate}}
+                            a.pull-right(ng-if="showJumpToCommentId == element.id" ng-click="jumpToComment(element.id)", ng-href='#/case/{{CaseService.kase.case_number}}?commentId={{element.id}}') Jump to attachment
                         .byline
                             author {{::element.last_modified_by ? element.last_modified_by : element.modifiedBy}} {{::'on'|translate}}&nbsp;
                             date {{::element.published_date}}&nbsp;
