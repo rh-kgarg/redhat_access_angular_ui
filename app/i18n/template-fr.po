@@ -2405,3 +2405,9 @@ msgstr "Seuls les niveaux de gravité mentionnés ci-dessus sont pris en charge 
 
 msgid "Please select valid severity"
 msgstr "Veuillez sélectionner un niveau de sévérité approprié."
+
+msgid "Search Discussion"
+msgstr "Rechercher la discussion"
+
+msgid "Showing {{showing}} - {{x}} of {{y}} results"
+msgstr "Affiche {{showing}} - {{x}} parmi {{y}} résultats" 

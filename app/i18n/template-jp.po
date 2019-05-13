@@ -2270,3 +2270,9 @@ msgstr "選択した製品とバージョンでは、上記の重大度のみが
 
 msgid "Please select valid severity"
 msgstr "有効な重大度を選択してください。"
+
+msgid "Search Discussion"
+msgstr "ディスカッションを検索"
+
+msgid "Showing {{showing}} - {{x}} of {{y}} results"
+msgstr "{{showing}} を表示  {{y}} 件中 {{x}} 件の結果"
