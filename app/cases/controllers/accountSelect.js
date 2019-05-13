@@ -9,11 +9,14 @@ export default class AccountSelect {
         $scope.securityService = securityService;
         $scope.bookmarkAccountUrl = $state.href('accountBookmark');
         $scope.selectUserAccount = function () {
+            CaseService.loadingAccountNumber = true;
             $scope.loadingAccountNumber = true;
             strataService.accounts.list().then(function (response) {
+                CaseService.loadingAccountNumber = false;
                 $scope.loadingAccountNumber = false;
                 $scope.populateAccountSpecificFields(response);
             }, function (error) {
+                CaseService.loadingAccountNumber = false;
                 $scope.loadingAccountNumber = false;
                 AlertService.addStrataErrorMessage(error);
             });

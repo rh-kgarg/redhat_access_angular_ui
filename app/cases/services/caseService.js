@@ -28,6 +28,7 @@ export default class CaseService {
         this.prestineKase = {};
         this.caseDataReady = false;
         this.isCommentPublic = true;
+        this.loadingAccountNumber = false;
         this.requiredCaseGroup = false;
         this.versions = [];
         this.products = [];
@@ -318,7 +319,7 @@ export default class CaseService {
         this.setInternalNotificationContacts = async (originalNotifiedUsers) => {
             if (originalNotifiedUsers.length > 0) {
                 let queryParams = {
-                    internal: false, // to get non-ldap contacts 
+                    internal: false, // to get non-ldap contacts
                     isInternalContact: true,
                     ssoUsernameIn: originalNotifiedUsers.join(',')
                 }
@@ -1243,7 +1244,7 @@ export default class CaseService {
             // if (_.isNil(searchQuery) || searchQuery.length < 2) return [];
             let queryParams = {
                 limit: 10,
-                internal: false, // to get non-ldap contacts 
+                internal: false, // to get non-ldap contacts
                 isInternalContact: true,
                 nameLookup: searchQuery || ''
             }
