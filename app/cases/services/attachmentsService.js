@@ -30,7 +30,7 @@ export default class AttachmentsService {
                 this.s3AccountConfigurations = await hydrajs.kase.attachments.getS3UploadAccounts();
             } catch (error) {
                 this.s3AccountConfigurations = {
-                    s3UploadFunctionality: 'specified_accounts',
+                    s3UploadFunctionality: 'enable_all',
                     result: [],
                     partSize: 5 * 1024 * 1024,
                     queueSize: 5
@@ -306,13 +306,13 @@ export default class AttachmentsService {
                                 attachment.description &&
                                     (putObjectRequest.Metadata["x-amz-meta-description"] = attachment.description)
 
-                                attachment.fileObj.name && 
+                                attachment.fileObj.name &&
                                     (putObjectRequest.Metadata["x-amz-meta-fileName"] = attachment.fileObj.name)
 
                                 attachment.fileObj.size &&
                                     (putObjectRequest.Metadata["x-amz-meta-byteLength"] = attachment.fileObj.size.toString())
 
-                                attachment.fileObj.type && 
+                                attachment.fileObj.type &&
                                     (putObjectRequest.Metadata["x-amz-meta-content-type"] = attachment.fileObj.type)
 
                                 const s3UploadCredentialsData = {
