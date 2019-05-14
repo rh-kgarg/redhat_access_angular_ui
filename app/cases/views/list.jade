@@ -49,7 +49,7 @@ div(ng-hide='showCaseList() || securityService.loginFailure || !securityService.
                                 .subheading {{case.case_number}}
                                 .description {{case.status}}
                     .col-sm-4.col-md-2.item-group.escalated
-                        i.fa(ng-class='{"fa-check": case.escalated, "fa-close": !case.escalated}', uib-tooltip="{{case.escalated ? 'Case has one or more escalations' : 'Case does not have any escalations'}}")
+                        i.fa(ng-class='{"fa-check": case.escalated, "fa-close": !case.escalated}', uib-tooltip="{{case.escalated ? 'Escalated' : 'Not Escalated'}}")
                     .col-sm-8.col-md-4.item-group
                         .subheading
                             | {{case.summary}}
