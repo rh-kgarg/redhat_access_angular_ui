@@ -34,18 +34,16 @@ export default class SeveritySelect {
             $scope.severityChange();
         });
 
-        $scope.$watch('createdCase.product', function () {
-            if (!CaseService.isValidSeverity($scope.createdCase.severity)) {
-                Object.keys($scope.openedDetails).forEach((key) => $scope.openedDetails[key] = key === defaultSeverityName);
-                $scope.severities.forEach((severity) => {
-                    if (severity.name === defaultSeverityName) {
-                        $scope.severity = severity;
-                        $scope.createdCase.severity = severity;
-                    }
-                });
+        $scope.$watch('createdCase.version', function () {
+            const validSeverity = CaseService.getValidSeverity($scope.createdCase.severity);
+            const severity = $scope.severities.find((severity) => severity.name === validSeverity);
+            $scope.severity = $scope.createdCase.severity = severity;
 
-                $scope.severityChange();
+            if (!$scope.openedDetails[validSeverity]) {
+                $scope.openedDetails[validSeverity] = true;
             }
+
+            Object.keys($scope.openedDetails).forEach((key) => $scope.openedDetails[key] = key === validSeverity);
         });
     }
 }

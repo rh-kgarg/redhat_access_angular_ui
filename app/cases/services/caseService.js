@@ -318,7 +318,7 @@ export default class CaseService {
         this.setInternalNotificationContacts = async (originalNotifiedUsers) => {
             if (originalNotifiedUsers.length > 0) {
                 let queryParams = {
-                    internal: false, // to get non-ldap contacts 
+                    internal: false, // to get non-ldap contacts
                     isInternalContact: true,
                     ssoUsernameIn: originalNotifiedUsers.join(',')
                 }
@@ -780,12 +780,18 @@ export default class CaseService {
             if (!productConfig) return allSeverities;
             const versionConfig = _.find(productConfig.versionSeverities, (v) => (v.version === this.kase.version));
             return _.get(versionConfig, 'severities') || productConfig.severities || allSeverities;
-        }
+        };
 
         this.isValidSeverity = (severity) => {
             const allowedSeverities = this.allowedSeveritiesForProductAndVersion();
             return Boolean(_.find(allowedSeverities, (v) => (v === severity)));
-        }
+        };
+
+        this.getValidSeverity = (severity) => {
+            const allowedSeverities = this.allowedSeveritiesForProductAndVersion();
+            const isValid = Boolean(_.find(allowedSeverities, (v) => (v === severity)));
+            return isValid ? severity : allowedSeverities[0];
+        };
 
         this.validateNewCase = function () {
             if (!this.isValidSeverity(_.get(this.kase.severity, 'name')) || RHAUtils.isEmpty(this.kase.product) || RHAUtils.isEmpty(this.kase.version) || RHAUtils.isEmpty(this.kase.summary)
@@ -1243,7 +1249,7 @@ export default class CaseService {
             // if (_.isNil(searchQuery) || searchQuery.length < 2) return [];
             let queryParams = {
                 limit: 10,
-                internal: false, // to get non-ldap contacts 
+                internal: false, // to get non-ldap contacts
                 isInternalContact: true,
                 nameLookup: searchQuery || ''
             }
