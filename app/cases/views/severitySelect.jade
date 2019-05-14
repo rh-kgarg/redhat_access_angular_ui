@@ -22,10 +22,10 @@
                     div.severity-time-description {{severity.responseTimes.premium}}
             tr(ng-repeat-end, ng-show="openedDetails[severity.name]", ng-animate=).severity-description
                 td(colspan=3)
-                    div.warning(ng-show="!$parent.CaseService.isValidSeverity(severity.name)") *{{"Please select valid severity" | translate}} 
+                    div.warning(ng-show="!$parent.CaseService.isValidSeverity(severity.name)") *{{"Please select valid severity" | translate}}
                     span {{severity.details}}
 
-    div.warning(ng-show="$parent.CaseService.severities.length > $parent.CaseService.allowedSeveritiesForProductAndVersion().length") *{{"Only the above-listed severity levels are supported for selected product and version." | translate}}
+    div.warning(ng-show="$parent.CaseService.severities.length > $parent.CaseService.allowedSeveritiesForProductAndVersion().length") *{{"Only the enabled severity levels are supported for selected product and version." | translate}}
     span(translate) For more details about initial and ongoing response times, visit the
     = " "
     a(ng-show='!$parent.CaseService.kase.isOpenShiftOnlineProduct' href="/support/offerings/production/sla", target="_blank") {{"Production Support Service Level Agreement" | translate}}
