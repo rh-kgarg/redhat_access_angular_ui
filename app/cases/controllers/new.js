@@ -41,6 +41,16 @@ export default class New {
 
         let isManagedAccount = false;
 
+        $scope.$watch('CaseService.loadingAccountNumber', function (newv, oldv) {
+            if(oldv !== newv && !newv && CaseService.account && !RHAUtils.isEmpty(CaseService.account.number) &&
+                CaseService.account.has_confirmed_stateside_support) {
+                $uibModal.open({
+                    template: require('../views/confirmedStatesideAccountModal.jade'),
+                    controller: 'ConfirmedStatesideAccountModal'
+                });
+            }
+        });
+
         $scope.$watch('CaseService.account.name', function () {
             //checking whether the account is a managed account or not
             if (RHAUtils.isNotEmpty(securityService.loginStatus.authedUser.managedAccounts)) {
