@@ -8,13 +8,11 @@ import filter from 'lodash/filter';
 
 export default class DiscussionSection {
     constructor($scope, $timeout, AttachmentsService, CaseService, DiscussionService, securityService, $stateParams, AlertService, $uibModal,
-        $location, RHAUtils, EDIT_CASE_CONFIG, AUTH_EVENTS, CASE_EVENTS, $sce, gettextCatalog, LinkifyService, SearchCaseService, COMMON_CONFIG, SearchBoxService, PaginationService, $filter) {
+                $location, RHAUtils, EDIT_CASE_CONFIG, AUTH_EVENTS, CASE_EVENTS, $sce, gettextCatalog, LinkifyService, SearchCaseService, COMMON_CONFIG, SearchBoxService, PaginationService, $filter) {
         'ngInject';
         $scope.AttachmentsService = AttachmentsService;
         $scope.CaseService = CaseService;
         $scope.securityService = securityService;
-        $scope.ie8 = window.ie8;
-        $scope.ie9 = window.ie9;
         $scope.noteCharactersMax = 255;
         $scope.noteCharactersLeft = $scope.noteCharactersMax;
         $scope.EDIT_CASE_CONFIG = EDIT_CASE_CONFIG;
@@ -26,6 +24,7 @@ export default class DiscussionSection {
         $scope.bugzillas = false;
         $scope.hasScrolled = false;
         $scope.commentSortOrder = true;
+        $scope.DiscussionService = DiscussionService;
         $scope.commentSortOrderList = [
             {
                 name: gettextCatalog.getString('Newest to Oldest'),
@@ -36,9 +35,14 @@ export default class DiscussionSection {
                 sortOrder: 'ASC'
             }
         ];
-        $scope.DiscussionService = DiscussionService;
+
+        // set pagination defaults
         $scope.PaginationService = PaginationService;
-        $scope.searchDiscussionString = gettextCatalog.getString('Search Discussion');
+
+        // check if user is/is not using internet explorer.
+        $scope.isIE = () => window.ie8 || window.ie9;
+        $scope.isNotIE = () => !$scope.isIE();
+
         $scope.$on(CASE_EVENTS.searchSubmit, function () {
             $location.search('commentId', null);
             $scope.doSearch();
@@ -54,7 +58,7 @@ export default class DiscussionSection {
         $scope.scrollToElementById = (id) => {
             let element = document.getElementById(id);
             element && element.scrollIntoView(true);
-        }
+        };
 
         $scope.scrollForPagination = (prevPage, newPage) => {
             let shouldScroll = prevPage !== undefined && prevPage !== newPage;
@@ -62,11 +66,11 @@ export default class DiscussionSection {
             if (shouldScroll) {
                 shouldScrollToTop ? ($scope.attachments ? $scope.scrollToElementById('top-attachments-section') : $scope.scrollToElementById('top-discussion-section')) : ($scope.attachments ? $scope.scrollToElementById('bottom-attachments-section') : $scope.scrollToElementById('bottom-discussion-section'));
             }
-        }
+        };
 
         $scope.onListChange = () => {
             DiscussionService.highlightSearchResults(SearchBoxService.searchTerm);
-        }
+        };
 
         $scope.setCurrentPageNumberForDS = (currentPageNumber) => {
             $scope.scrollForPagination($scope.PaginationService.discussionSection.currentPageNumber, currentPageNumber);
@@ -78,7 +82,7 @@ export default class DiscussionSection {
             $scope.scrollForPagination($scope.PaginationService.attachmentsSection.currentPageNumber, currentPageNumber);
             $scope.PaginationService.attachmentsSection.currentPageNumber = currentPageNumber;
             $scope.onListChange();
-        }
+        };
 
         var scroll = function (commentId, delay) {
             $timeout(function () {
@@ -98,7 +102,6 @@ export default class DiscussionSection {
                 y: DiscussionService.discussionElements.length
             });
         }
-
         $scope.getOrderedDiscussionElements = () => {
             var sorted = orderBy(DiscussionService.discussionElements, "sortModifiedDate");
             var ordered = $scope.commentSortOrder ? reverse(sorted) : sorted;
@@ -121,6 +124,7 @@ export default class DiscussionSection {
         }
 
         $scope.init = function () {
+            $scope.PaginationService.setPageSize('discussionSection', 100);
             DiscussionService.getDiscussionElements($stateParams.id).then(angular.bind(this, function () {
                 $scope.scrollToComment($location.search().commentId);
             }, function (error) {
