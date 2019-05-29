@@ -781,12 +781,18 @@ export default class CaseService {
             if (!productConfig) return allSeverities;
             const versionConfig = _.find(productConfig.versionSeverities, (v) => (v.version === this.kase.version));
             return _.get(versionConfig, 'severities') || productConfig.severities || allSeverities;
-        }
+        };
 
         this.isValidSeverity = (severity) => {
             const allowedSeverities = this.allowedSeveritiesForProductAndVersion();
             return Boolean(_.find(allowedSeverities, (v) => (v === severity)));
-        }
+        };
+
+        this.getValidSeverity = (severity) => {
+            const allowedSeverities = this.allowedSeveritiesForProductAndVersion();
+            const isValid = Boolean(_.find(allowedSeverities, (v) => (v === severity)));
+            return isValid ? severity : allowedSeverities[0];
+        };
 
         this.validateNewCase = function () {
             if (!this.isValidSeverity(_.get(this.kase.severity, 'name')) || RHAUtils.isEmpty(this.kase.product) || RHAUtils.isEmpty(this.kase.version) || RHAUtils.isEmpty(this.kase.summary)
