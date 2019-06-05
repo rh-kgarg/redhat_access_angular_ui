@@ -32,7 +32,8 @@ export default class List {
             $scope.exporting = true;
 
             try {
-                const query = `case_accountNumber:${this.securityService.loginStatus.authedUser.account.number}`;
+                const accountNumber = SearchCaseService.searchParameters.accountNumber || this.securityService.loginStatus.authedUser.account.number;
+                const query = `case_accountNumber:${accountNumber}`;
                 const response = await strataService.cases.advancedSearch(query, null, 0, 10000, 'csv', solrCaseFields);
                 const csvBlob = new Blob([response], {
                     type: 'text/csv'
