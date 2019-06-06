@@ -25,6 +25,7 @@ export default class CaseService {
         this.updatingCase = false;
         this.submittingCase = false;
         this.kase = {};
+        this.loadingCase = false;
         this.prestineKase = {};
         this.caseDataReady = false;
         this.isCommentPublic = true;

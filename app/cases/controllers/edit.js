@@ -19,6 +19,7 @@ export default class Edit {
         CaseService.clearCase();
         $scope.loading = {};
         $scope.loading.kase = true;
+        CaseService.loadingCase = true;
         $scope.isShowRmeEscalationBox = false;
         $scope.isCreateRmeEscalationBox = true;
         $scope.ownerTooltip = '';
@@ -31,6 +32,7 @@ export default class Edit {
             RecommendationsService.clear();
             HeaderService.pageLoadFailure = false;
             $scope.loading.kase = true;
+            CaseService.loadingCase = true;
             $scope.recommendationsLoading = true;
             strataService.cases.get($stateParams.id).then(function (resp) {
                 HeaderService.pageLoadFailure = false;
@@ -44,6 +46,7 @@ export default class Edit {
                 setOpenShiftProductFlag();
                 $rootScope.$broadcast(CASE_EVENTS.received);
                 $scope.loading.kase = false;
+                CaseService.loadingCase = false;
                 if (caseJSON.account_number !== undefined) {
                     strataService.accounts.get(caseJSON.account_number).then(function (account) {
                         CaseService.defineAccount(account);
@@ -101,6 +104,7 @@ export default class Edit {
                 }
 
             }, function (error) {
+                CaseService.loadingCase = false;
                 $scope.loading.kase = false;
                 HeaderService.pageLoadFailure = true;
             });

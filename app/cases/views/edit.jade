@@ -1,5 +1,5 @@
-.page-header(rha-header='', page='')
-div(ng-show='loading.kase')
+.page-header(rha-header='', page='caseView')
+div(ng-if='loading.kase')
   .spinner.spinner-lg
   p.center {{'Loading Case...'|translate}}
 div.edit(ng-if='showCasePage()')
@@ -9,7 +9,6 @@ div.edit(ng-if='showCasePage()')
     div.section.main(ng-class="{'col-sm-8': !$parent.COMMON_CONFIG.isGS4, 'col-sm-12': $parent.COMMON_CONFIG.isGS4}")
       .row.row-very-short
         .col-md-12
-          h1.page-title(translate) CASE {{$parent.CaseService.kase.case_number}}
             small.partner-label.text-green.block(ng-if='$parent.isShowPartnerManagedCaseLabel()') {{'Case is managed by a partner'|translate}}
       .row.row-very-short
         .col-md-12(ng-if='$parent.securityService.loginStatus.authedUser.is_internal')
@@ -51,15 +50,15 @@ div.edit(ng-if='showCasePage()')
         .col-md-12(ng-show='$parent.EDIT_CASE_CONFIG.showDetails')
           div(rha-casedetails='', compact='false', loading='$parent.loading.kase')
           rha-casedetails
-      
+
       section.case-discussion(ng-if="!$parent.COMMON_CONFIG.isGS4")
         .row
           .col-xs-12(rha-emailnotifyselect)
-        
+
       section.case-discussion(ng-if="!$parent.COMMON_CONFIG.isGS4 && $parent.securityService.loginStatus.authedUser.is_internal")
         .row
           .col-xs-12(rha-emailnotifyselect-internal)
-      
+
       section.case-discussion(ng-if='$parent.securityService.loginStatus.authedUser.is_internal && $parent.securityService.isCep')
         .row
           .col-xs-4.col-sm-3.col-md-4
@@ -73,7 +72,7 @@ div.edit(ng-if='showCasePage()')
                 name="cepCheckbox")
                 span &nbsp;
                 span.glyphicon.glyphicon-info-sign.text-info(uib-tooltip="{{cepMessage}}")
-        
+
       section.case-discussion(ng-show='$parent.CaseService.eligiblePartnersToShareCase.length > 0 || $parent.CaseService.savedPartners.length > 0')
           share-case-with-partner
 
