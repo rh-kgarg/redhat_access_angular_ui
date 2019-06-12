@@ -72,7 +72,7 @@ export default class EmailNotifySelect {
                                 is_internal: c.isInternal
                             }
                         })
-                        $scope.usersOnAccount = $scope.usersOnAccount.concat(strataInternalNotificationContacts);  
+                        $scope.usersOnAccount = $scope.usersOnAccount.concat(strataInternalNotificationContacts);
                     }
                     $scope.usersOnAccount = _.uniqBy($scope.usersOnAccount,'sso_username');
                 } else {
@@ -81,6 +81,7 @@ export default class EmailNotifySelect {
                 $scope.selectedUsers =  _.intersection(_.map($scope.usersOnAccount, 'sso_username'), CaseService.originalNotifiedUsers);
                 $scope.selectedUsers.unshift(CaseService.kase.contact_sso_username); // fake insert the Case Contact
             }
+            CaseService.getCustomNotificationEmails();
             CaseService.populateUsers();
             $scope.$watch('CaseService.users', () => setUsers());
             $scope.$watch('CaseService.originalNotifiedUsers', () => setUsers());

@@ -23,3 +23,23 @@
         div.edit-emailNotify-Container(ng-show="!CaseService.usersLoading && !securityService.loginStatus.authedUser.org_admin")
             span.label-contact(ng-repeat='user in mapUsers(selectedUsers)', ng-if='RHAUtils.isNotEmpty(selectedUsers)') {{user.first_name}} {{user.last_name}} <{{user.sso_username}}>
             span.disable-span-text(ng-if='RHAUtils.isEmpty(selectedUsers)', translate='') No users selected
+.row
+    .col-sm-8.pull-right
+        .spinner.spinner-inline.spinner-xs(ng-if="CaseService.loadingCustomNotificationEmails")
+        div.label-contact(
+        ng-if="!CaseService.loadingCustomNotificationEmails && CaseService.customNotificationEmails.length > 0",
+        ng-repeat='email in CaseService.customNotificationEmails')
+            span {{email.emailAddress}}
+            a(ng-click="CaseService.removeCustomNotificationEmail(email)", ng-disabled="CaseService.loadingCustomNotificationEmails")
+                i.fa.fa-close
+.row.bs-row-margin-top-small
+    .col-sm-4
+        button.btn.btn-info.btn-xs(ng-disabled="!CaseService.isValidCustomEmail || CaseService.loadingCustomNotificationEmails || CaseService.isLinkedEmail() || CaseService.newCustomEmail === ''", ng-click="CaseService.postCustomNotificationEmail()") {{"Add Custom Email" | translate}}
+    .col-sm-8
+        input.form-control(
+            ng-disabled="CaseService.loadingCustomNotificationEmails",
+            type="text",
+            placeholder="{{'Enter Custom Email Address' | translate}}",
+            ng-model="CaseService.newCustomEmail",
+            ng-change="CaseService.onChangeCustomEmail()")
+        span(ng-if="!CaseService.isValidCustomEmail && CaseService.newCustomEmail && CaseService.newCustomEmail.length > 0 || CaseService.isLinkedEmail()") {{CaseService.isLinkedEmail() ? 'Email already subscribed to notifications' : "Invalid Email Address" | translate}}

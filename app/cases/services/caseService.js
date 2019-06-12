@@ -170,6 +170,60 @@ export default class CaseService {
         this.isLoadingRHUsers = false;
         this.noResultsForRHUsersSearch = false;
 
+        // Add a custom email address to a case's notifications
+        this.customNotificationEmails = [];
+        this.newCustomEmail = '';
+        this.loadingCustomNotificationEmails = false;
+        this.isLinkedEmail = () => this.customNotificationEmails.find((email) => email.emailAddress === this.newCustomEmail);
+        this.onChangeCustomEmail = () => {
+            const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            this.isValidCustomEmail = this.newCustomEmail.match(mailformat);
+        };
+
+        this.getCustomNotificationEmails = async () => {
+            try {
+                this.loadingCustomNotificationEmails = true;
+                const response = await hydrajs.kase.getCustomEmailNotificationAddressesFromCase(this.kase.case_number);
+                this.customNotificationEmails = response.caseNotificationAddresses;
+                this.loadingCustomNotificationEmails = false;
+            } catch (error) {
+                this.loadingCustomNotificationEmails = false;
+                this.customNotificationEmails = [];
+                AlertService.addDangerMessage(gettextCatalog.getString('Could not fetch custom notification emails'));
+            }
+        };
+
+        this.postCustomNotificationEmail = async () => {
+            try {
+                this.loadingCustomNotificationEmails = true;
+                await hydrajs.kase.addCustomEmailNotificationAddressToCase(securityService.loginStatus.authedUser.account_number, this.kase.case_number, this.newCustomEmail);
+                this.customNotificationEmails.push({ emailAddress: this.newCustomEmail, caseNumber: this.kase.case_number });
+                this.newCustomEmail = '';
+                this.loadingCustomNotificationEmails = false;
+            } catch (error) {
+                console.log(error)
+                this.loadingCustomNotificationEmails = false;
+                AlertService.addDangerMessage(gettextCatalog.getString('Could not post custom email {{email}}', {
+                    email: this.newCustomEmail
+                }));
+                this.newCustomEmail = '';
+            }
+        };
+
+        this.removeCustomNotificationEmail = async (emailToDelete) => {
+            try {
+                this.loadingCustomNotificationEmails = true;
+                await hydrajs.kase.deleteCustomEmailNotificationAddressFromCase(this.kase.case_number, emailToDelete.emailAddress);
+                this.customNotificationEmails = this.customNotificationEmails.filter((email) => email !== emailToDelete);
+                this.loadingCustomNotificationEmails = false;
+            } catch (error) {
+                this.loadingCustomNotificationEmails = false;
+                AlertService.addDangerMessage(gettextCatalog.getString('Could not delete custom email {{email}}', {
+                    email: emailToDelete.emailAddress
+                }));
+            }
+        };
+
         this.setSeverities = function (severities) {
             this.severities = severities;
             angular.forEach(this.severities, function (severity) {
