@@ -48,9 +48,9 @@ div(ng-hide='showCaseList() || securityService.loginFailure || !securityService.
                             .case-id
                                 .subheading {{case.case_number}}
                                 .description {{case.status}}
-                    .col-sm-4.col-md-2.item-group.escalated
+                    .col-sm-1.col-md-1.item-group.escalated
                         i.fa(ng-class='{"fa-check": case.escalated, "fa-close": !case.escalated}', uib-tooltip="{{case.escalated ? 'Escalated' : 'Not Escalated'}}")
-                    .col-sm-8.col-md-4.item-group
+                    .col-sm-8.col-md-3.item-group
                         .subheading
                             | {{case.summary}}
                         .description
