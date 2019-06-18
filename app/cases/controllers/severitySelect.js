@@ -34,7 +34,7 @@ export default class SeveritySelect {
             $scope.severityChange();
         });
 
-        $scope.$watch('createdCase.product + createdCase.version', function () {
+        $scope.$watch('createdCase.version', function () {
             const validSeverity = CaseService.getValidSeverity($scope.createdCase.severity);
             const severity = $scope.severities.find((severity) => severity.name === validSeverity);
             $scope.severity = $scope.createdCase.severity = severity;
