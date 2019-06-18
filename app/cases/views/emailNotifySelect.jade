@@ -1,6 +1,6 @@
 .row
     .col-sm-4
-        label {{'Send Email Notifications to'|translate}}
+        .label {{'Send Email Notifications to'|translate}}
         div(uib-tooltip="{{isCurrentUserCaseContact() ? 'You are case contact and therefore you cannot be removed as watcher.' : '' | translate}}")
             button.btn.btn-info.btn-xs(
                 ng-click="toggleCurrentUser()",
