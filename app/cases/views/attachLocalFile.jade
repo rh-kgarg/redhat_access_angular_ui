@@ -1,15 +1,15 @@
 .row
   .col-xs-12
     button.btn.btn-primary.btn-app(
-    uib-tooltip="{{getAttachFileTT(AttachmentsService.s3EnabledForAccount)}}"
+    uib-tooltip="{{getAttachFileTT(AttachmentsService.s3EnabledForAccount)}}",
     ng-click='getFile()',
-    ng-disabled='disabled',
+    ng-disabled='CaseService.addingComment',
     translate='',
     ng-hide='AttachmentsService.updatedAttachments.length === 0 || AttachmentsService.uploadingAttachments') Attach Another File
     button.btn.btn-primary.btn-app(
     uib-tooltip="{{getAttachFileTT(AttachmentsService.s3EnabledForAccount)}}"
     ng-click='getFile()',
-    ng-disabled='disabled',
+    ng-disabled='CaseService.addingComment',
     translate='',
     ng-hide='AttachmentsService.updatedAttachments.length > 0') Attach File
     div#fileUploaderDiv(style='height: 0px; width:0px; overflow:hidden;')

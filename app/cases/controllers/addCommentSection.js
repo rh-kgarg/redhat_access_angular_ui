@@ -60,6 +60,7 @@ export default class AddCommentSection {
 
                 CaseService.populateComments(CaseService.kase.case_number).then(function () {
                     $scope.addingComment = false;
+                    CaseService.addingComment = false;
                     $scope.savingDraft = false;
                     CaseService.draftSaved = false;
                     CaseService.draftComment = undefined;
@@ -86,11 +87,13 @@ export default class AddCommentSection {
             var onError = function (error) {
                 AlertService.addStrataErrorMessage(error);
                 $scope.addingComment = false;
+                CaseService.addingComment = false;
                 $scope.progressCount = 0;
                 $scope.charactersLeft = 0;
             };
             if (!CaseService.disableAddComment && CaseService.commentText !== 'undefined') {
                 $scope.addingComment = true;
+                CaseService.addingComment = true;
                 if (CaseService.localStorageCache) {
                     if (CaseService.draftCommentOnServerExists) {
                         strataService.cases.comments.put(CaseService.kase.case_number, CaseService.commentText, false, CaseService.isCommentPublic, CaseService.draftComment.id).then(onSuccess, onError);
@@ -253,11 +256,13 @@ export default class AddCommentSection {
                                 AlertService.addStrataErrorMessage(error);
                             });
                         } else {
+                            CaseService.addingComment = false;
                             $scope.addingComment = false;
                             AlertService.addDangerMessage(gettextCatalog.getString('Error: Failed to upload attachment. Message: {{errorMessage}}', {errorMessage: content}));
                             $scope.$apply();
                         }
                     } else {
+                        CaseService.addingComment = false;
                         $scope.addingComment = false;
                         AlertService.addDangerMessage(gettextCatalog.getString('Error: Failed to upload attachment. Message: {{errorMessage}}', {errorMessage: content}));
                         $scope.$apply();
@@ -286,6 +291,7 @@ export default class AddCommentSection {
             } else if (iframeId.attachEvent) {
                 iframeId.attachEvent('onload', eventHandler);
             }
+            CaseService.addingComment = true;
             $scope.addingComment = true;
             form.submit();
         };
