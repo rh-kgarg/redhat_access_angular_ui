@@ -101,16 +101,7 @@ export default class DiscussionSection {
                 x: PaginationService.lastItemNumberShownOnThePage('discussionSection', DiscussionService.discussionElements.length),
                 y: DiscussionService.discussionElements.length
             });
-        };
-
-        $scope.showingAttachmentsResultsString = () => {
-            return gettextCatalog.getString("Showing {{firstNumOfResults}}-{{lastNumOfResults}} of {{totalNumOfResults}} results", {
-                firstNumOfResults: PaginationService.firstItemNumberShownOnThePage('attachmentsSection', DiscussionService.attachments.length),
-                lastNumOfResults: PaginationService.lastItemNumberShownOnThePage('attachmentsSection', DiscussionService.attachments.length),
-                totalNumOfResults: DiscussionService.attachments.length
-            });
         }
-
         $scope.getOrderedDiscussionElements = () => {
             var sorted = orderBy(DiscussionService.discussionElements, "sortModifiedDate");
             var ordered = $scope.commentSortOrder ? reverse(sorted) : sorted;
