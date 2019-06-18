@@ -1,10 +1,10 @@
 .filters {
 	@include rem('margin-bottom', $global-padding);
 
-	.col-sm-12 + .col-sm-12 {
+	.col-sm-12, .col-sm-12 + .col-sm-12 {
 		margin-top: $global-padding;
 
-		@include media-query (md) { margin-top: 0; }
+		@include media-query (md) { margin-top: 5px; }
 	}
 
 	.form-control {
@@ -17,10 +17,15 @@
 		margin-left: -7.5px;
 		margin-right: -7.5px;
 		margin-bottom: 0;
+        margin-top: 0;
 
 		[class^="col-"], [class*=" col-"] {
 			padding-right: 7.5px;
 			padding-left: 7.5px;
 		}
 	}
+}
+
+.filter-row {
+    margin-top: 0 !important;
 }

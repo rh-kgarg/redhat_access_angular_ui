@@ -1,10 +1,10 @@
 select#rha-product-select.form-control(
 	chosen,
-    data-placeholder="{{'Select an Option' | translate}}",
-    no_results_text="'No match found'|translate",
+    data-placeholder="{{placeholder || 'Select an Option' | translate}}",
+    no_results_text="'No products found'|translate",
 	width='"100%"',
 	ng-disabled='ProductsService.products.length === 0 || !securityService.loginStatus.isLoggedIn || CaseService.submittingCase || ProductsService.productsLoading',
-	ng-model='CaseService.kase.product',
+	ng-model='product',
 	ng-change='onProductSelect($event)',
 	ng-options='p.code as p.name disable when p.isDisabled for p in products')
-	option(value="")
+    option(value="")

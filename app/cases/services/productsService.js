@@ -132,11 +132,16 @@ export default class ProductsService {
                 AlertService.addStrataErrorMessage(error);
             });
         };
-        this.getVersions = function (product) {
+        this.getVersions = function (product, isFilter) {
             this.versionDisabled = true;
             this.versionLoading = true;
-            //Retrieve the product detail, basically finding the attachment artifact
-            this.fetchProductDetail(product);
+
+            // Retrieve the product detail, basically finding the attachment artifact
+            // not necessary when fetching versions for filtering
+            if (!isFilter) {
+                this.fetchProductDetail(product);
+            }
+
             return strataService.products.versions(product).then(angular.bind(this, function (response) {
                 this.versions = versionSort(response);
                 this.versionDisabled = false;
