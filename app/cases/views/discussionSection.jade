@@ -123,7 +123,7 @@ ul#tab_list.nav.nav-tabs(role="tablist")
         .row
             .col-md-4
                 rha-searchbox(placeholder='"Search Attachments"', class-name='"padding-searchbox"', ng-if="AttachmentsService.originalAttachments.length > 0")
-                span(ng-if="AttachmentsService.originalAttachments.length > 0") Showing {{PaginationService.firstItemNumberifnOnThePage('attachmentsSection', DiscussionService.attachments.length)}}-{{PaginationService.lastItemNumberifnOnThePage('attachmentsSection', DiscussionService.attachments.length)}} of {{DiscussionService.attachments.length}} results
+                span(ng-if="AttachmentsService.originalAttachments.length > 0") {{showingAttachmentsResultsString()}}
             .col-md-8
                 pagination(ng-if="attachments", current-page-number="PaginationService.attachmentsSection.currentPageNumber" datalength="DiscussionService.attachments.length", page-size="PaginationService.attachmentsSection.pageSize", set-current-page-number="setCurrentPageNumberForAS(pageNumber)", set-page-size="PaginationService.setPageSize('attachmentsSection', pageSize)")
         .row.row-very-short.case-discussion
