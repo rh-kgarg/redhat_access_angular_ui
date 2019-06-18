@@ -1,10 +1,14 @@
 'use strict';
 
-import remove from "lodash/remove";
 import cloneDeep from "lodash/cloneDeep";
 
 export default class FilterByCreatorSelect {
-    constructor($rootScope, $scope, CaseService, SearchCaseService, securityService, RHAUtils, CASE_EVENTS) {
+    constructor($rootScope, $scope, FilterService, CaseService, SearchCaseService, securityService) {
+        let isFilterInitialized = false;
+
+        $scope.FilterService = FilterService;
+        $scope.filterByMeAsCreator = FilterService.defaultFilterByMeOptionKeys.all;
+
         // The options and default setting for filtering by cases created by the current user.
         $scope.defaultFilterByMeAsCreatorOptions = {
             all: 'All created cases',
@@ -12,66 +16,22 @@ export default class FilterByCreatorSelect {
             notme: 'Not created by me'
         };
 
-        $scope.filterByMeAsCreatorQueries = {
+        $scope.filterByQueries = {
             meQuery: () => `case_createdByName:"${securityService.loginStatus.authedUser.loggedInUser}"`,
             notMeQuery: () => `NOT case_createdByName:"${securityService.loginStatus.authedUser.loggedInUser}"`,
             userQuery: () => `case_createdByName:"${$scope.filterByMeAsCreator}"`
         };
 
-        $scope.filterByMeAsCreator = 'all';
-        $scope.onFilterByMeAsCreatorChange = () => {
-            const meQuery = $scope.filterByMeAsCreatorQueries.meQuery();
-            const notMeQuery = $scope.filterByMeAsCreatorQueries.notMeQuery();
-            const userQuery = $scope.filterByMeAsCreatorQueries.userQuery();
-            SearchCaseService.searching = true;
-            SearchCaseService.currentPage = 1;
-
-            remove(SearchCaseService.searchParameters.queryParams, (v) => v.includes('case_createdByName:'));
-
-            if (RHAUtils.isEmpty(SearchCaseService.searchParameters.queryParams)) {
-                SearchCaseService.searchParameters.queryParams = [];
-            }
-
-            if ($scope.filterByMeAsCreator === $scope.defaultFilterByMeAsCreatorOptions.me) {
-                SearchCaseService.searchParameters.queryParams.push(meQuery);
-            } else if ($scope.filterByMeAsCreator === $scope.defaultFilterByMeAsCreatorOptions.notme) {
-                SearchCaseService.searchParameters.queryParams.push(notMeQuery);
-            } else if ($scope.filterByMeAsCreator !== $scope.defaultFilterByMeAsCreatorOptions.all) {
-                SearchCaseService.searchParameters.queryParams.push(userQuery);
-            }
-
-            $rootScope.$broadcast(CASE_EVENTS.searchSubmit);
-        };
-
-
-        $scope.$watch(() => CaseService.users, (nv, ov) => {
+        $scope.$watchCollection(() => FilterService.usersObject, (nv, ov) => {
             if (nv && nv !== ov) {
                 $scope.filterByMeAsCreatorOptions = cloneDeep($scope.defaultFilterByMeAsCreatorOptions);
-
-                CaseService.users.forEach((user) => {
-                    const firstLastName = `${user.first_name} ${user.last_name}`;
-                    const optionValue = `${firstLastName} <${user.sso_username}>`;
-                    $scope.filterByMeAsCreatorOptions[firstLastName] = optionValue;
-                });
+                Object.keys(FilterService.usersObject).forEach((key) => $scope.filterByMeAsCreatorOptions[key] = FilterService.usersObject[key]);
             }
         });
 
-        $scope.$watch('SearchCaseService.searchParameters.queryParams', (nv) => {
-            const meCreatorQuery = $scope.filterByMeAsCreatorQueries.meQuery();
-            const notMeCreatorQuery = $scope.filterByMeAsCreatorQueries.notMeQuery();
-
-            if (nv && nv.length > 0) {
-                const query = SearchCaseService.searchParameters.queryParams.find((v) => v.includes('case_createdByName:'));
-                const hasMeCreatorQuery = !!SearchCaseService.searchParameters.queryParams.find((v) => v === meCreatorQuery);
-                const hasNotMeCreatorQuery = !!SearchCaseService.searchParameters.queryParams.find((v) => v === notMeCreatorQuery);
-
-                if (hasMeCreatorQuery) {
-                    $scope.filterByMeAsCreator = $scope.defaultFilterByMeAsCreatorOptions.me;
-                } else if (hasNotMeCreatorQuery) {
-                    $scope.filterByMeAsCreator = $scope.defaultFilterByMeAsCreatorOptions.notme;
-                } else if (query) {
-                    $scope.filterByMeAsCreator = query.split(':')[1].replace('"', '');
-                }
+        $scope.$watchCollection(()=> SearchCaseService.searchParameters.queryParams, (nv, ov) => {
+            if (nv && nv !== ov && !isFilterInitialized) {
+                $scope.filterByMeAsCreator = FilterService.onFilterByMeQueryParamChange($scope.filterByQueries.meQuery(), $scope.filterByQueries.notMeQuery(), 'case_createdByName:');
             }
         });
     }

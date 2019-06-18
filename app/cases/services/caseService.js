@@ -507,7 +507,6 @@ export default class CaseService {
                 if (RHAUtils.isNotEmpty(accountNumber)) {
                     this.owner = undefined;
                     return strataService.accounts.users(accountNumber).then((users) => {
-                        console.log(users)
                         _.each(users, (user) => {
                             if (user.sso_username === securityService.loginStatus.authedUser.sso_username) {
                                 this.owner = user.sso_username;

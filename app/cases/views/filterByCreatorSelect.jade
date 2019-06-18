@@ -4,4 +4,4 @@ select(chosen,
     data-placeholder="{{'Loading Users...' | translate}}",
     ng-options='k as v | translate for (k, v) in filterByMeAsCreatorOptions',
     ng-disabled='!securityService.loginStatus.isLoggedIn || CaseService.usersLoading || CaseService.submittingCase',
-    ng-change="onFilterByMeAsCreatorChange()")
+    ng-change="FilterService.onFilterByMe(filterByMeAsCreator, filterByQueries.meQuery(), filterByQueries.notMeQuery(), filterByQueries.userQuery(), 'case_createdByName:')")

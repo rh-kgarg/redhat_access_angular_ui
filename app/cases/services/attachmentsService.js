@@ -150,8 +150,6 @@ export default class AttachmentsService {
 
         this.getAttachments = async function(caseId) {
             const response = await hydrajs.kase.attachments.getAttachmentsS3(caseId);
-            console.log('hello')
-            console.log(response)
             const attachments = _.map(response, (item) => {
                 const lastModifiedDate = RHAUtils.convertToTimezone(item.lastModifiedDate);
                 item.file_name = item.fileName || item.filename;
@@ -176,7 +174,6 @@ export default class AttachmentsService {
         this.updateAttachmentsStrata = function (caseId) {
             const hasServerAttachments = this.hasBackEndSelections();
             const hasLocalAttachments = this.updatedAttachments && this.updatedAttachments.length > 0;
-            console.log('hello1')
             if (hasLocalAttachments || hasServerAttachments) {
                 var promises = [];
                 var updatedAttachments = this.updatedAttachments;
@@ -207,7 +204,6 @@ export default class AttachmentsService {
 
                             var promise = strataService.cases.attachments.post(formdata, caseId, updateProgress);
                             promise.then(async (uri) => {
-                                console.log('hello2')
                                 attachment.progress = null;
                                 attachment.uri = uri;
                                 attachment.uuid = uri.slice(uri.lastIndexOf('/') + 1);

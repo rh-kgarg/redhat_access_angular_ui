@@ -24,7 +24,7 @@ export default class ListFilter {
 
         $scope.$watch('securityService.loginStatus.authedUser', (nv) => {
             if (nv && nv.loggedInUser) {
-                CaseService.populateUsers().then(() => console.log('users populated'));
+                CaseService.populateUsers();
             }
         });
 
