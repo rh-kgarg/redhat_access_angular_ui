@@ -128,7 +128,7 @@ ul#tab_list.nav.nav-tabs(role="tablist")
                 pagination(ng-if="attachments", current-page-number="PaginationService.attachmentsSection.currentPageNumber" datalength="DiscussionService.attachments.length", page-size="PaginationService.attachmentsSection.pageSize", set-current-page-number="setCurrentPageNumberForAS(pageNumber)", set-page-size="PaginationService.setPageSize('attachmentsSection', pageSize)")
         .row.row-very-short.case-discussion
             .col-xs-12
-                .discussion-element(id="{{::attachment.id}}", ng-repeat="attachment in DiscussionService.attachments track by attachment.id | orderBy:'sortModifiedDate':'reverse'", ng-mouseenter='mouseOver(attachment)', ng-mouseleave='mouseOut(attachment)')
+                .discussion-element(id="{{::attachment.id}}", ng-repeat="attachment in DiscussionService.attachments | orderBy:'sortModifiedDate':'reverse' | startFrom:(PaginationService.attachmentsSection.currentPageNumber-1)*PaginationService.attachmentsSection.pageSize | limitTo:PaginationService.attachmentsSection.pageSize track by attachment.uuid", ng-mouseenter='mouseOver(attachment)', ng-mouseleave='mouseOut(attachment)')
                     article.comment.article-attachment(ng-if="attachment.file_name")
                         i.fa.fa-paperclip
                         h4.meta {{::'Attachment'|translate}}
@@ -149,8 +149,7 @@ ul#tab_list.nav.nav-tabs(role="tablist")
                             div(ng-if='attachment.checksum') {{::'SHA-256:'|translate}}&nbsp;{{::attachment.checksum}}
                             .description.margin-top-short(ng-if="attachment.description") {{::attachment.description}}
                 #bottom-attachments-section
-                //- pagination(ng-if="attachments", current-page-number="PaginationService.attachmentsSection.currentPageNumber" datalength="DiscussionService.attachments.length", page-size="PaginationService.attachmentsSection.pageSize", set-current-page-number="setCurrentPageNumberForAS(pageNumber)", set-page-size="PaginationService.setPageSize('attachmentsSection', pageSize)")
-                //- pagination(ng-if="attachments", datalength="DiscussionService.attachments.length", setdata="getPaginationData(pageSize, currentPage)" current-page-prop="currentPage", )
+                    pagination(ng-if="attachments", current-page-number="PaginationService.attachmentsSection.currentPageNumber" datalength="DiscussionService.attachments.length", page-size="PaginationService.attachmentsSection.pageSize", set-current-page-number="setCurrentPageNumberForAS(pageNumber)", set-page-size="PaginationService.setPageSize('attachmentsSection', pageSize)")
     #pane3.tab-pane(ng-if="!securityService.loginStatus.authedUser.is_internal", ng-class='{"active": notes}')
         form(name='notesForm')
             div
