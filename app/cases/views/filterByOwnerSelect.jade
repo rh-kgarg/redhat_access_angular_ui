@@ -1,0 +1,9 @@
+select(chosen,
+    width='"100%"',
+    ng-model='filterByMeAsOwner',
+    data-placeholder="{{'Loading Users...' | translate}}",
+    no_results_text="'No versions found'|translate",
+    ng-options='k as v | translate for (k, v) in filterByMeAsOwnerOptions'
+    ng-disabled='!securityService.loginStatus.isLoggedIn || filterByMeOptionsLoading || CaseService.submittingCase',
+    ng-change="FilterService.onFilterByMe(filterByMeAsOwner, filterByQueries.meQuery(), filterByQueries.notMeQuery(), filterByQueries.userQuery(), 'case_contactName:')"
+    disable_search_threshold=3)

@@ -145,6 +145,7 @@ export default class SearchCaseService {
             this.totalCases = 0;
             this.total = 0;
             this.allCasesDownloaded = true;
+
             if (error.xhr.status === 404 && !this.searching404) {
                 this.searching404 = true;
                 this.doFilter(false).then(() => deferred.resolve());
@@ -162,7 +163,7 @@ export default class SearchCaseService {
             if (CaseService.sessionStorageCache) {
                 CaseService.sessionStorageCache.put('listFilter' + securityService.loginStatus.authedUser.sso_username, this.searchParameters);
             }
-            if (RHAUtils.isEmpty(this.searchParameters.searchString)) {
+            if (RHAUtils.isEmpty(this.searchParameters.searchString) && RHAUtils.isEmpty(this.searchParameters.queryParams)) {
                 return this.doCaseFilter(checkIsInternal);
             } else {
                 return this.doCaseSearch();

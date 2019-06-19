@@ -5,6 +5,10 @@ export default function () {
         template: require('../views/productSelect.jade'),
         restrict: 'A',
         controller: 'ProductSelect',
-        scope: {onchange: '&'}
+        scope: {
+            onchange: '&',
+            placeholder: '<?',
+            isFilter: '<?'
+        }
     };
 }

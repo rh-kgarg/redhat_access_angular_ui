@@ -11,11 +11,19 @@ export default class ProductSelect {
         $scope.ProductsService = ProductsService;
         $scope.RecommendationsService = RecommendationsService;
         $scope.products = [];
+        $scope.product = CaseService.kase.product || 'all';
+
         $scope.$watch(function () {
             return ProductsService.products;
         }, function () {
             if (RHAUtils.isNotEmpty(ProductsService.products)) {
                 $scope.products = ProductsService.products;
+
+                if ($scope.isFilter) {
+                    $scope.products.unshift({ code: 'all', name: 'All Products'});
+                    $scope.product = 'all';
+                }
+
                 if (RHAUtils.isNotEmpty(CaseService.kase.product)) {
                     let selectedProduct = {
                         code: CaseService.kase.product,
@@ -35,16 +43,26 @@ export default class ProductSelect {
         });
 
         $scope.onProductSelect = function ($event) {
-            // Check Products and update entitlements
-            const selectedProduct = _.find(ProductsService.products,{ 'name': CaseService.kase.product});
-            CaseService.updateAndValidateEntitlements(selectedProduct);
-            if(CaseService.kase.product !== CaseService.prestineKase.product) {
-                CaseService.kase.version="";
+            if ($scope.product !== 'all') {
+                CaseService.kase.product = $scope.product;
+                // Check Products and update entitlements
+                const selectedProduct = _.find(ProductsService.products,{ 'name': CaseService.kase.product});
+                CaseService.updateAndValidateEntitlements(selectedProduct);
+                if(CaseService.kase.product !== CaseService.prestineKase.product) {
+                    CaseService.kase.version="";
+                }
+                CaseService.validateNewCase();
+                ProductsService.getVersions(CaseService.kase.product, true);
+                CaseService.updateLocalStorageForNewCase();
+
+                if (!$scope.isFilter) {
+                    CaseService.sendCreationStartedEvent($event);
+                }
+            } else {
+                delete CaseService.kase.product;
+                delete CaseService.kase.version;
+                ProductsService.versions = [];
             }
-            CaseService.validateNewCase();
-            ProductsService.getVersions(CaseService.kase.product);
-            CaseService.updateLocalStorageForNewCase();
-            CaseService.sendCreationStartedEvent($event);
-        }
+        };
     }
 }

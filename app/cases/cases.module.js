@@ -103,6 +103,8 @@ import ManagedAccountSelect from './controllers/managedAccountSelect'
 import SecureSupportHeader from './controllers/secureSupportHeader'
 import ShareCaseWithPartner from './controllers/shareCaseWithPartner';
 import ConfirmedStatesideAccountModal from './controllers/confirmedStatesideAccountModal';
+import FilterByOwnerSelect from './controllers/filterByOwnerSelect';
+import FilterByCreatorSelect from './controllers/filterByCreatorSelect';
 
 app.controller('ManagedAccountSelect', ManagedAccountSelect);
 app.controller('SecureSupportHeader', SecureSupportHeader);
@@ -162,6 +164,9 @@ app.controller('AdvancedSearchCaseList', AdvancedSearchCaseList);
 app.controller('ColumnSelectModal', ColumnSelectModal);
 app.controller('ShareCaseWithPartner', ShareCaseWithPartner);
 app.controller('ConfirmedStatesideAccountModal', ConfirmedStatesideAccountModal);
+app.controller('FilterByOwnerSelect', FilterByOwnerSelect);
+app.controller('FilterByCreatorSelect', FilterByCreatorSelect);
+
 
 // Directives
 import rhaAttachlocalfile from './directives/attachLocalFile'
@@ -210,6 +215,8 @@ import rhaTypeselect from './directives/typeSelect'
 import rhaVersionselect from './directives/versionSelect'
 import pagination from './directives/pagination'
 import { convertToNumber } from './directives/convertToNumber'
+import rhaFilterByOwnerSelect from './directives/filterByOwnerSelect';
+import rhaFilterByCreatorSelect from './directives/filterByCreatorSelect';
 
 app.directive('rhaAccountSearch', rhaAccountSearch);
 app.directive('rhaAccountselect', rhaAccountselect);
@@ -257,6 +264,9 @@ app.directive('rhaVersionselect', rhaVersionselect);
 app.directive('pagination', pagination);
 app.directive('convertToNumber', convertToNumber);
 app.directive('shareCaseWithPartner', shareCaseWithPartner);
+app.directive('rhaFilterByOwnerSelect', rhaFilterByOwnerSelect);
+app.directive('rhaFilterByCreatorSelect', rhaFilterByCreatorSelect);
+
 
 //Components
 import rhaAdvancedSearchCaseList from './components/advancedSearchCaseList'
@@ -297,6 +307,7 @@ import SearchCaseService from './services/searchCaseService'
 import SOLRGrammarService from './services/solrGrammarService'
 import SearchBookmarkService from './services/searchBookmarkService'
 import PaginationService from './services/paginationService'
+import FilterService from './services/filterService';
 
 
 app.service('AccountBookmarkService', AccountBookmarkService);
@@ -317,5 +328,6 @@ app.service('SearchCaseService', SearchCaseService);
 app.service('SOLRGrammarService', SOLRGrammarService);
 app.service('SearchBookmarkService', SearchBookmarkService);
 app.service('PaginationService', PaginationService);
+app.service('FilterService', FilterService);
 
 export default app.name;
