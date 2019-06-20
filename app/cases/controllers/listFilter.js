@@ -55,14 +55,12 @@ export default class ListFilter {
         });
 
         $scope.$watchCollection(() => SearchCaseService.searchParameters.queryParams, (nv, ov) => {
-            console.log(SearchCaseService.searchParameters.queryParams);
             if (nv && nv !== ov && !isFilterInitialized) {
                 isFilterInitialized = true;
                 const productQuery = SearchCaseService.searchParameters.queryParams.find((v) => v.includes('case_product:'));
                 const versionQuery = SearchCaseService.searchParameters.queryParams.find((v) => v.includes('case_version:'));
 
                 if (productQuery) {
-                    console.log(productQuery.split(':')[1]);
                     const product = productQuery.split(':')[1].replace(/['"]+/g, '');
                     CaseService.kase.product = product;
                 }
