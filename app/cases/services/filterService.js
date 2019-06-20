@@ -56,7 +56,7 @@ export default class FilterService {
             } else if (hasNotMeQuery) {
                 return this.defaultFilterByMeOptionKeys.notme;
             } else if (query) {
-                return query.split(':')[1].replace('"', '');
+                return query.split(':')[1].replace(/['"]+/g, '');
             } else {
                 return this.defaultFilterByMeOptionKeys.all;
             }

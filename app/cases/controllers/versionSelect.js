@@ -43,6 +43,14 @@ export default class VersionSelect {
             }
         });
 
+        $scope.$watch('CaseService.kase.version', () => {
+            $scope.version = CaseService.kase.version;
+
+            if (!$scope.version) {
+                $scope.versions = [];
+            }
+        });
+
         $scope.onVersionSelect = function ($event) {
             if ($scope.version !== defaultVersion) {
                 CaseService.kase.version = $scope.version;
