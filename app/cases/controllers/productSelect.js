@@ -42,6 +42,8 @@ export default class ProductSelect {
             }
         });
 
+        $scope.$watch('CaseService.kase.product', () => $scope.product = CaseService.kase.product);
+
         $scope.onProductSelect = function ($event) {
             if ($scope.product !== 'all') {
                 CaseService.kase.product = $scope.product;
