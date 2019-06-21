@@ -32,9 +32,23 @@ export default class List {
             $scope.exporting = true;
 
             try {
-                const accountNumber = SearchCaseService.searchParameters.accountNumber || this.securityService.loginStatus.authedUser.account.number;
-                const query = `case_accountNumber:${accountNumber}`;
-                const response = await strataService.cases.advancedSearch(query, null, 0, 10000, 'csv', solrCaseFields);
+                const accountNumber = SearchCaseService.searchParameters.accountNumber;
+                const params = SearchCaseService.searchParameters;
+                const response = await strataService.cases.advancedSearch(
+                    params.queryParams,
+                    params.sortOrder,
+                    0,
+                    10000,
+                    'csv',
+                    solrCaseFields,
+                    params.caseStatus,
+                    params.caseOwner,
+                    params.caseGroup,
+                    accountNumber,
+                    params.searchString,
+                    params.sortField,
+                );
+
                 const csvBlob = new Blob([response], {
                     type: 'text/csv'
                 });
