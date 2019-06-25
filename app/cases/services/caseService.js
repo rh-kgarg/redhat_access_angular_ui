@@ -505,6 +505,7 @@ export default class CaseService {
                     accountNumber = securityService.loginStatus.authedUser.account.number;
                 }
                 if (RHAUtils.isNotEmpty(accountNumber)) {
+                    const previousOwner = this.owner;
                     this.owner = undefined;
                     return strataService.accounts.users(accountNumber).then((users) => {
                         _.each(users, (user) => {
@@ -512,6 +513,11 @@ export default class CaseService {
                                 this.owner = user.sso_username;
                             }
                         });
+
+                        if (this.owner && previousOwner && this.owner !== previousOwner) {
+                            this.onOwnerSelectChanged();
+                        }
+
                         //PCM-1520 Case insensitive sorting on sso_username
                         users.sort(function (a, b) {
                             var userA = a.sso_username.toUpperCase();

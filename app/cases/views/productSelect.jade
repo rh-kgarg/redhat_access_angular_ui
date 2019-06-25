@@ -8,3 +8,9 @@ select#rha-product-select.form-control(
 	ng-change='onProductSelect($event)',
 	ng-options='p.code as p.name disable when p.isDisabled for p in products')
     option(value="")
+.recently-selected-products(ng-if='!isFilter && isCreatingNewCase && ProductsService.productsRecentlyFiledAgainst.length > 0 && !ProductsService.productsLoading')
+    span {{'Recently selected products: ' | translate}}
+    a(ng-repeat='product in ProductsService.productsRecentlyFiledAgainst | limitTo:recentProductLimit' ng-click='selectRecentProduct(product)')
+        span(ng-if='(($first && !$last) || (!$first && !$last)) && $index !== ProductsService.productsRecentlyFiledAgainst.length - 2') {{product.name}}{{', '}}
+        span(ng-if='(((!$first && !$last) || ($first && !$last)) && $index === ProductsService.productsRecentlyFiledAgainst.length - 2) || ($first && $last)') {{product.name}}
+        span(ng-if='$last && !$first') {{' or ' | translate}} {{product.name}}

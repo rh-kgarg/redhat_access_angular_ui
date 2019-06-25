@@ -37,7 +37,7 @@ export default class AccountSelect {
                             ProductsService.clear();
                             CaseService.clearProdVersionFromLS();
                         }
-                        CaseService.onOwnerSelectChanged();
+
                         CaseService.validateNewCase();
                     }));
 

@@ -12,6 +12,8 @@ export default class ProductSelect {
         $scope.RecommendationsService = RecommendationsService;
         $scope.products = [];
         $scope.product = CaseService.kase.product;
+        $scope.recentProductLimit = 3;
+        $scope.isCreatingNewCase = $location.path().includes('/case/new');
 
         $scope.$watch(function () {
             return ProductsService.products;
@@ -36,6 +38,12 @@ export default class ProductSelect {
                 }
             }
         });
+
+        $scope.selectRecentProduct = (product) => {
+            $scope.product = product.name;
+            ProductsService.versions = [];
+            ProductsService.getVersions(product.name);
+        };
 
         $scope.$watch('CaseService.kase.product', () => $scope.product = CaseService.kase.product);
 
