@@ -2,7 +2,7 @@
 import _        from 'lodash';
 
 export default class ProductSelect {
-    constructor($scope, securityService, SearchCaseService, CaseService, ProductsService, strataService, AlertService, RHAUtils, RecommendationsService) {
+    constructor($scope, $location, securityService, SearchCaseService, CaseService, ProductsService, strataService, AlertService, RHAUtils, RecommendationsService) {
         'ngInject';
 
         $scope.securityService = securityService;
@@ -39,6 +39,20 @@ export default class ProductSelect {
                         $scope.products.push(selectedProduct);
                     }
                 }
+            }
+        });
+
+        $scope.$on('$locationChangeSuccess', (e, nurl, ourl) => {
+            const nurlpath = nurl.split('#')[1];
+            const ourlpath = ourl.split('#')[1];
+
+            if (nurlpath && ourlpath && nurlpath !== ourlpath) {
+                const kase = CaseService.localStorageCache.get(securityService.loginStatus.authedUser.sso_username).text;
+                delete kase.product;
+                delete kase.version;
+                CaseService.localStorageCache.put(securityService.loginStatus.authedUser.sso_username, {text: kase});
+                delete CaseService.kase.product;
+                delete CaseService.kase.version;
             }
         });
 
