@@ -134,6 +134,7 @@ export default class DiscussionSection {
 
         $scope.init = function () {
             $scope.PaginationService.setPageSize('discussionSection', 100);
+            $scope.PaginationService.setPageSize('attachmentsSection', 100);
             DiscussionService.getDiscussionElements($stateParams.id).then(angular.bind(this, function () {
                 $scope.scrollToComment($location.search().commentId);
             }, function (error) {
