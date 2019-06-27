@@ -48,7 +48,8 @@ ul#tab_list.nav.nav-tabs(role="tablist")
                             date {{::element.last_modified_time}}
                         .pre-wrap
                             span(ng-if="isIE()", style='word-wrap: normal; word-break: normal;') {{::element.text}}
-                            .content(ng-if="isNotIE()", ng-bind-html="parseCommentHtml(element)")
+                            .content(ng-if="isNotIE()")
+                                pre(ng-bind-html="parseCommentHtml(element)")
                             .reply.text-right
                                 span.pull-left.vote-buttons(ng-if='!securityService.loginStatus.authedUser.is_internal && !COMMON_CONFIG.isGS4')
                                     a.fa(ng-class="element.feedback === 1 ? 'fa-thumbs-up active' : 'fa-thumbs-o-up'" ng-click='applyCommentFeedback(element, 1)', uib-tooltip='{{::"Thumbs Up"|translate}}', tooltip-placement="top", tooltip-append-to-body="true")
@@ -65,7 +66,8 @@ ul#tab_list.nav.nav-tabs(role="tablist")
                             date {{::element.published_time}}
                         .pre-wrap
                             span(ng-if="isIE()", style='word-wrap: normal; word-break: normal;') {{::element.text}}
-                            .content(ng-if="isNotIE()", ng-bind-html="parseCommentHtml(element)")
+                            .content(ng-if="isNotIE()")
+                                pre(ng-bind-html="parseCommentHtml(element)")
                             .reply.text-right
                                 a.commentReply(ng-click='commentReply(element,(isIE()))', href='') {{::'Reply'|translate}}
                                 a.ml-5.glyphicon.glyphicon-link(ng-click='CaseService.scrollToComment(element.id)' ng-href='#/case/{{CaseService.kase.case_number}}?commentId={{::element.id}}')
@@ -90,7 +92,8 @@ ul#tab_list.nav.nav-tabs(role="tablist")
                                 span {{::element.file_name}} ({{::element.length ? element.length : element.size | bytes}})&nbsp;
                             span.fa.fa-close(type='button', style='cursor: pointer;', ng-click='deleteAttachment(element)')
                             div(ng-if="element.checksum") {{::'SHA-256:'|translate}}&nbsp;{{::element.checksum}}
-                            .description.margin-top-short(ng-if="element.description") {{::element.description}}
+                            .description.margin-top-short(ng-if="element.description")
+                                pre {{::element.description}}
 
                     article.comment.article-chat(ng-if="DiscussionService.isChat(element)")
                         i.fa.fa-file-text-o
@@ -149,7 +152,8 @@ ul#tab_list.nav.nav-tabs(role="tablist")
                                 span {{::attachment.file_name}} ({{::attachment.length ? attachment.length : attachment.size | bytes}})&nbsp;
                             span.fa.fa-close(type='button', style='cursor: pointer;', ng-click='deleteAttachment(attachment)')
                             div(ng-if='attachment.checksum') {{::'SHA-256:'|translate}}&nbsp;{{::attachment.checksum}}
-                            .description.margin-top-short(ng-if="attachment.description") {{::attachment.description}}
+                            .description.margin-top-short(ng-if="attachment.description")
+                                pre {{::attachment.description}}
                 #bottom-attachments-section
                     pagination(ng-if="attachments", current-page-number="PaginationService.attachmentsSection.currentPageNumber" datalength="DiscussionService.attachments.length", page-size="PaginationService.attachmentsSection.pageSize", set-current-page-number="setCurrentPageNumberForAS(pageNumber)", set-page-size="PaginationService.setPageSize('attachmentsSection', pageSize)")
     #pane3.tab-pane(ng-if="!securityService.loginStatus.authedUser.is_internal", ng-class='{"active": notes}')
