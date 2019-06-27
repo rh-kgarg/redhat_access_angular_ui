@@ -475,6 +475,15 @@ export default class New {
             }
         };
 
+        $scope.checkIfRedhatOpenshiftClusterManager = ($event) => {
+            if (CaseService.kase.product === 'Red Hat OpenShift Container Storage') {
+                $uibModal.open({
+                    template: require('../views/redhatOpenshiftClusterManagerModal.jade'),
+                    controller: 'RedhatOpenshiftClusterManagerModal'
+                }).result.then((submitCase) => submitCase ? $scope.doSubmit($event) : null);
+            }
+        };
+
         /**
          * Create the case with attachments
          */
