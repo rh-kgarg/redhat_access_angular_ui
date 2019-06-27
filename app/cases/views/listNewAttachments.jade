@@ -16,11 +16,9 @@ ul.attachment-list.block-list.block-list-gray(ng-hide='AttachmentsService.update
       ng-click='removeLocalAttachment($index, !!attachment.abort)')
     input#rha-case-attachement-fileDescription.form-control.description(
       maxlength='255',
-      ng-show='!attachment.progress',
+      ng-disabled='AttachmentsService.uploadingAttachments',
       placeholder="{{'Please Add File Description (max 255 characters)'|translate}}",
       ng-model='attachment.description')
-    span(ng-show='attachment.progress') {{attachment.description}}
-
 
     //li(
     //  ng-repeat='attachment in TreeViewSelectorUtils.getSelectedLeaves(AttachmentsService.backendAttachments)',
