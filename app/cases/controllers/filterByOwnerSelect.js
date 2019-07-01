@@ -8,7 +8,6 @@ export default class FilterByOwnerSelect {
 
         $scope.FilterService = FilterService;
         $scope.filterByMeAsOwner = FilterService.getPreviousFilter('case_contactName', FilterService.defaultFilterByMeOptionKeys.all);
-        console.log($scope.filterByMeAsOwner)
 
         // The options and default setting for filtering by cases owned by the current user.
         $scope.defaultFilterByMeAsOwnerOptions = {
