@@ -1,0 +1,9 @@
+select#rha-product-filter-select.form-control(chosen,
+    width='"100%"',
+    data-placeholder="{{'All Products' | translate}}",
+    no_results_text="'No products found'|translate",
+    ng-disabled='!securityService.loginStatus.isLoggedIn',
+    ng-model='product',
+    ng-change='onProductChange()',
+    ng-options='p.code as p.name disable when p.isDisabled for p in products',
+    disable_search_threshold=10)

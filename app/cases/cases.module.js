@@ -105,6 +105,9 @@ import ShareCaseWithPartner from './controllers/shareCaseWithPartner';
 import ConfirmedStatesideAccountModal from './controllers/confirmedStatesideAccountModal';
 import FilterByOwnerSelect from './controllers/filterByOwnerSelect';
 import FilterByCreatorSelect from './controllers/filterByCreatorSelect';
+import ProductFilterSelect from './controllers/productFilterSelect';
+import VersionFilterSelect from './controllers/versionFilterSelect';
+
 
 app.controller('ManagedAccountSelect', ManagedAccountSelect);
 app.controller('SecureSupportHeader', SecureSupportHeader);
@@ -166,6 +169,9 @@ app.controller('ShareCaseWithPartner', ShareCaseWithPartner);
 app.controller('ConfirmedStatesideAccountModal', ConfirmedStatesideAccountModal);
 app.controller('FilterByOwnerSelect', FilterByOwnerSelect);
 app.controller('FilterByCreatorSelect', FilterByCreatorSelect);
+app.controller('ProductFilterSelect', ProductFilterSelect);
+app.controller('VersionFilterSelect', VersionFilterSelect);
+
 
 
 // Directives
@@ -217,6 +223,9 @@ import pagination from './directives/pagination'
 import { convertToNumber } from './directives/convertToNumber'
 import rhaFilterByOwnerSelect from './directives/filterByOwnerSelect';
 import rhaFilterByCreatorSelect from './directives/filterByCreatorSelect';
+import rhaProductFilterSelect from './directives/productFilterSelect';
+import rhaVersionFilterSelect from './directives/versionFilterSelect';
+
 
 app.directive('rhaAccountSearch', rhaAccountSearch);
 app.directive('rhaAccountselect', rhaAccountselect);
@@ -266,6 +275,9 @@ app.directive('convertToNumber', convertToNumber);
 app.directive('shareCaseWithPartner', shareCaseWithPartner);
 app.directive('rhaFilterByOwnerSelect', rhaFilterByOwnerSelect);
 app.directive('rhaFilterByCreatorSelect', rhaFilterByCreatorSelect);
+app.directive('rhaProductFilterSelect', rhaProductFilterSelect);
+app.directive('rhaVersionFilterSelect', rhaVersionFilterSelect);
+
 
 
 //Components

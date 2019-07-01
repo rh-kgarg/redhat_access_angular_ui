@@ -129,13 +129,8 @@ export default class SearchCaseService {
                 this.allCasesDownloaded = true;
             } else {
                 this.totalCases = response.total_count;
-                if (response['case'] !== undefined && response['case'].length + this.total >= this.totalCases) {
-                    this.allCasesDownloaded = true;
-                }
-                if (response['case'] !== undefined && this.total < this.totalCases) {
-                    Array.prototype.push.apply(this.cases, response['case']);
-                    this.total = this.total + response['case'].length;
-                }
+                this.cases = response['case'];
+                this.total = response['case'].length;
             }
             this.searching404 = false;
             deferred.resolve();
