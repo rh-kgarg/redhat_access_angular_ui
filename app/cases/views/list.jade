@@ -33,7 +33,7 @@ div(ng-hide='showCaseList() || securityService.loginFailure || !securityService.
             .pull-right.filter-list(rha-filterselect='')
     .alert.alert-slim(ng-show='SearchCaseService.totalCases == 0 && !SearchCaseService.searching && securityService.loginStatus.isLoggedIn') {{'No cases found with given filters.'|translate}}
     #case-list.table-list.case-list.bulk-closure
-        .list-item(ng-repeat='case in SearchCaseService.cases | limitTo:SearchCaseService.pageSize:SearchCaseService.getCasesStart() -1 track by $index')
+        .list-item(ng-repeat='case in SearchCaseService.cases | limitTo:SearchCaseService.pageSize track by $index' ng-if="!SearchCaseService.searching")
             input.closure(ng-class='case.status === "Closed" ? "disabled" : "enabled"', type="checkbox", ng-model='case.selected', ng-disabled='case.status === "Closed"')
             a(href='#/case/{{case.case_number}}')
                 .row.case()

@@ -7,7 +7,7 @@ export default class FilterByCreatorSelect {
         let isFilterInitialized = false;
 
         $scope.FilterService = FilterService;
-        $scope.filterByMeAsCreator = FilterService.defaultFilterByMeOptionKeys.all;
+        $scope.filterByMeAsCreator = FilterService.getPreviousFilter('case_createdByName', FilterService.defaultFilterByMeOptionKeys.all);
 
         // The options and default setting for filtering by cases created by the current user.
         $scope.defaultFilterByMeAsCreatorOptions = {

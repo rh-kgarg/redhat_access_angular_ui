@@ -117,6 +117,8 @@ export default class List {
             }
         };
 
+        $scope.$watch('SearchCaseService.cases', () => console.log(SearchCaseService.cases))
+
         /**
          * Callback after user login. Load the cases and clear alerts
          */
