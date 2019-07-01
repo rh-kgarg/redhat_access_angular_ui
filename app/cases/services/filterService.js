@@ -46,11 +46,13 @@ export default class FilterService {
             }
         });
 
-        this.getPreviousFilter = (filterName) => {
+        this.getPreviousFilter = (filterName, defaultOption) => {
             if (SearchCaseService.searchParameters && SearchCaseService.searchParameters.queryParams) {
                 const query = SearchCaseService.searchParameters.queryParams.find((v) => v.includes(filterName));
-                return query.split(':')[1].replace(/['"]+/g, '');
+                return query ? query.split(':')[1].replace(/['"]+/g, '') : defaultOption;
             }
+
+            return defaultOption;
         };
 
         this.onFilterByMeQueryParamChange = (meQuery, notMeQuery, queryFlString) => {
