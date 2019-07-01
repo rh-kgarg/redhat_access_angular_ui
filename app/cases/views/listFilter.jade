@@ -41,9 +41,9 @@
         div.col-sm-12.col-md-3
             div(rha-filter-by-creator-select='')
         div.col-sm-12.col-md-3
-            div(rha-productselect='', is-filter='true' placeholder='"All Products"')
+            div(rha-product-filter-select='')
         div.col-sm-12.col-md-3
-            div(rha-versionselect='', is-filter='true', placeholder='"All Versions"')
+            div(rha-version-filter-select='')
 .row.bookmarked-accounts-row
     div.col-xs-12.col-sm-6.nopadding(ng-if='securityService.loginStatus.isLoggedIn && securityService.loginStatus.authedUser.is_internal')
         div.col-xs-10.col-sm-10

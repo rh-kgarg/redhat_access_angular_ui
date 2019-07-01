@@ -11,18 +11,13 @@ export default class ProductSelect {
         $scope.ProductsService = ProductsService;
         $scope.RecommendationsService = RecommendationsService;
         $scope.products = [];
-        $scope.product = CaseService.kase.product || 'all';
+        $scope.product = CaseService.kase.product;
 
         $scope.$watch(function () {
             return ProductsService.products;
         }, function () {
             if (RHAUtils.isNotEmpty(ProductsService.products)) {
                 $scope.products = ProductsService.products;
-
-                if ($scope.isFilter) {
-                    $scope.products.unshift({ code: 'all', name: 'All Products'});
-                    $scope.product = 'all';
-                }
 
                 if (RHAUtils.isNotEmpty(CaseService.kase.product)) {
                     let selectedProduct = {
@@ -42,43 +37,18 @@ export default class ProductSelect {
             }
         });
 
-        $scope.$on('$locationChangeSuccess', (e, nurl, ourl) => {
-            const nurlpath = nurl.split('#')[1];
-            const ourlpath = ourl.split('#')[1];
-
-            if (nurlpath && ourlpath && nurlpath !== ourlpath) {
-                const kase = CaseService.localStorageCache.get(securityService.loginStatus.authedUser.sso_username).text;
-                delete kase.product;
-                delete kase.version;
-                CaseService.localStorageCache.put(securityService.loginStatus.authedUser.sso_username, {text: kase});
-                delete CaseService.kase.product;
-                delete CaseService.kase.version;
-            }
-        });
-
-        $scope.$watch('CaseService.kase.product', () => $scope.product = CaseService.kase.product);
-
         $scope.onProductSelect = function ($event) {
-            if ($scope.product !== 'all') {
-                CaseService.kase.product = $scope.product;
-                // Check Products and update entitlements
-                const selectedProduct = _.find(ProductsService.products,{ 'name': CaseService.kase.product});
-                CaseService.updateAndValidateEntitlements(selectedProduct);
-                if(CaseService.kase.product !== CaseService.prestineKase.product) {
-                    CaseService.kase.version="";
-                }
-                CaseService.validateNewCase();
-                ProductsService.getVersions(CaseService.kase.product, true);
-                CaseService.updateLocalStorageForNewCase();
-
-                if (!$scope.isFilter) {
-                    CaseService.sendCreationStartedEvent($event);
-                }
-            } else {
-                delete CaseService.kase.product;
-                delete CaseService.kase.version;
-                ProductsService.versions = [];
+            CaseService.kase.product = $scope.product;
+            // Check Products and update entitlements
+            const selectedProduct = _.find(ProductsService.products,{ 'name': CaseService.kase.product});
+            CaseService.updateAndValidateEntitlements(selectedProduct);
+            if(CaseService.kase.product !== CaseService.prestineKase.product) {
+                CaseService.kase.version="";
             }
+            CaseService.validateNewCase();
+            ProductsService.getVersions(CaseService.kase.product, true);
+            CaseService.updateLocalStorageForNewCase();
+            CaseService.sendCreationStartedEvent($event);
         };
     }
 }

@@ -22,10 +22,24 @@ export default class FilterByCreatorSelect {
             userQuery: () => `case_createdByName:"${$scope.filterByMeAsCreator}"`
         };
 
+        function initializeOptions() {
+            $scope.filterByMeAsCreatorOptions = cloneDeep($scope.defaultFilterByMeAsCreatorOptions);
+            Object.keys(FilterService.usersObject).forEach((key) => $scope.filterByMeAsCreatorOptions[key] = FilterService.usersObject[key]);
+        }
+
+        if (CaseService.users.length > 0) {
+            initializeOptions();
+        }
+
+        $scope.$watchCollection(() => securityService.loginStatus.authedUser, (nv) => {
+            if (nv && nv.loggedInUser && CaseService.users.length === 0) {
+                CaseService.populateUsers();
+            }
+        });
+
         $scope.$watchCollection(() => FilterService.usersObject, (nv, ov) => {
             if (nv && nv !== ov) {
-                $scope.filterByMeAsCreatorOptions = cloneDeep($scope.defaultFilterByMeAsCreatorOptions);
-                Object.keys(FilterService.usersObject).forEach((key) => $scope.filterByMeAsCreatorOptions[key] = FilterService.usersObject[key]);
+                initializeOptions();
             }
         });
 

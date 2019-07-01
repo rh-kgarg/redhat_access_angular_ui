@@ -46,6 +46,13 @@ export default class FilterService {
             }
         });
 
+        this.getPreviousFilter = (filterName) => {
+            if (SearchCaseService.searchParameters && SearchCaseService.searchParameters.queryParams) {
+                const query = SearchCaseService.searchParameters.queryParams.find((v) => v.includes(filterName));
+                return query.split(':')[1].replace(/['"]+/g, '');
+            }
+        };
+
         this.onFilterByMeQueryParamChange = (meQuery, notMeQuery, queryFlString) => {
             const query = SearchCaseService.searchParameters.queryParams.find((v) => v.includes(queryFlString));
             const hasMeQuery = !!SearchCaseService.searchParameters.queryParams.find((v) => v === meQuery);
