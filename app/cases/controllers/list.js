@@ -32,21 +32,23 @@ export default class List {
             $scope.exporting = true;
 
             try {
-                const accountNumber = SearchCaseService.searchParameters.accountNumber;
-                const params = SearchCaseService.searchParameters;
+                const accountNumber = SearchCaseService.searchParameters.accountNumber || securityService.loginStatus.authedUser.account_number;
+
+                // TODO: Replace queries to allow to export csv based on "current" cases shown.
+                //const params = SearchCaseService.searchParameters;
                 const response = await strataService.cases.advancedSearch(
-                    params.queryParams,
-                    params.sortOrder,
+                    null,
+                    null,
                     0,
                     10000,
                     'csv',
                     solrCaseFields,
-                    params.caseStatus,
-                    params.caseOwner,
-                    params.caseGroup,
+                    null,
+                    null,
+                    null,
                     accountNumber,
-                    params.searchString,
-                    params.sortField,
+                    null,
+                    null,
                 );
 
                 const csvBlob = new Blob([response], {
