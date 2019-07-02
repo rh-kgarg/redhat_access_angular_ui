@@ -131,7 +131,9 @@ ul#tab_list.nav.nav-tabs(role="tablist")
                 .discussion-element(id="{{::attachment.id}}", ng-repeat="attachment in DiscussionService.attachments | orderBy:'sortModifiedDate':'reverse' | startFrom:(PaginationService.attachmentsSection.currentPageNumber-1)*PaginationService.attachmentsSection.pageSize | limitTo:PaginationService.attachmentsSection.pageSize track by attachment.uuid", ng-mouseenter='mouseOver(attachment)', ng-mouseleave='mouseOut(attachment)')
                     article.comment.article-attachment(ng-if="attachment.file_name")
                         i.fa.fa-paperclip
-                        h4.meta {{::'Attachment'|translate}}
+                        h4.meta
+                            {{::'Attachment'|translate}}
+                            a.pull-right(ng-if="showJumpToCommentId == attachment.id" ng-click="jumpToComment(attachment.id)", ng-href='#/case/{{CaseService.kase.case_number}}?commentId={{attachment.id}}') Jump to attachment
 
                         .byline
                             author {{::attachment.last_modified_by}} {{::'on'|translate}} &nbsp;
