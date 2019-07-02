@@ -34,16 +34,17 @@
                 ng-change='CaseService.onSelectChanged()',
                 ng-options='status.value as status.name for status in ConstantsService.statuses',
                 disable_search_threshold=10)
-.row.filter-row
-    .filters
-        div.col-sm-12.col-md-3
-            div(rha-filter-by-owner-select='')
-        div.col-sm-12.col-md-3
-            div(rha-filter-by-creator-select='')
-        div.col-sm-12.col-md-3
-            div(rha-product-filter-select='')
-        div.col-sm-12.col-md-3
-            div(rha-version-filter-select='')
+// Need UX to look at where/how to place new filters.
+//.row.filter-row
+//    .filters
+//        div.col-sm-12.col-md-3
+//            div(rha-filter-by-owner-select='')
+//        div.col-sm-12.col-md-3
+//            div(rha-filter-by-creator-select='')
+//        div.col-sm-12.col-md-3
+//            div(rha-product-filter-select='')
+//        div.col-sm-12.col-md-3
+//            div(rha-version-filter-select='')
 .row.bookmarked-accounts-row
     div.col-xs-12.col-sm-6.nopadding(ng-if='securityService.loginStatus.isLoggedIn && securityService.loginStatus.authedUser.is_internal')
         div.col-xs-10.col-sm-10
