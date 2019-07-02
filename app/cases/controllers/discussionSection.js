@@ -119,14 +119,14 @@ export default class DiscussionSection {
 
         $scope.scrollToComment = (commentId, delay) => {
             if (commentId) {
-                let pageSize = $scope.PaginationService.discussionSection.pageSize;
+                let pageSize = $scope.attachments ? $scope.PaginationService.attachmentsSection.pageSize : $scope.PaginationService.discussionSection.pageSize;
                 let commentIndex = findIndex($scope.getOrderedDiscussionElements(), { id: commentId });
                 let commentNumber = commentIndex + 1;
                 let mod = (commentNumber % pageSize);
                 let division = Math.floor(commentNumber / pageSize);
                 let currentPageNumber = mod == 0 ? (division || 1) : (division + 1)
                 if (commentIndex > -1 && currentPageNumber) {
-                    $scope.PaginationService.discussionSection.currentPageNumber = currentPageNumber;
+                    $scope.attachments ? $scope.PaginationService.attachmentsSection.currentPageNumber = currentPageNumber : $scope.PaginationService.discussionSection.currentPageNumber = currentPageNumber;
                     scroll(commentId, delay);
                 }
             }
