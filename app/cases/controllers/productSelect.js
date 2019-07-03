@@ -37,6 +37,8 @@ export default class ProductSelect {
             }
         });
 
+        $scope.$watch('CaseService.kase.product', () => $scope.product = CaseService.kase.product);
+
         $scope.onProductSelect = function ($event) {
             CaseService.kase.product = $scope.product;
             // Check Products and update entitlements
@@ -46,7 +48,7 @@ export default class ProductSelect {
                 CaseService.kase.version="";
             }
             CaseService.validateNewCase();
-            ProductsService.getVersions(CaseService.kase.product, true);
+            ProductsService.getVersions(CaseService.kase.product);
             CaseService.updateLocalStorageForNewCase();
             CaseService.sendCreationStartedEvent($event);
         };
