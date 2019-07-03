@@ -13,7 +13,7 @@ div(rha-header='', page='newCase')
                                 label {{'Owner'| translate}} &nbsp;
                                     .spinner.spinner-xs.spinner-inline(ng-show='CaseService.usersLoading')
                                 div(rha-ownerselect='')
-                            label {{'Product'| translate}} &nbsp;
+                            label#rha-product-select-label {{'Product'| translate}} &nbsp;
                                 .spinner.spinner-xs.spinner-inline(ng-show='$parent.ProductsService.productsLoading')
                             div(rha-productselect='')
                             label {{'Product Version'| translate}} &nbsp;
