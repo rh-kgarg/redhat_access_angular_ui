@@ -56,16 +56,8 @@ export default class DiscussionSection {
         });
 
         $scope.scrollToElementById = (id) => {
-            // In IE, this can get called before all the elements have been rendered
-            // in the ng-repeat list. Therefore timeout is needed because $timeout makes sure
-            // it's executed when the ng-repeated elements have REALLY finished rendering
-            // (because the $timeout will execute at the end of the current digest cycle --
-            // and it will also call $apply internally, unlike setTimeout)
-            // https://stackoverflow.com/questions/15207788/calling-a-function-when-ng-repeat-has-finished
-            $timeout(() => {
-                let element = document.getElementById(id);
-                element && element.scrollIntoView();
-            });
+            let element = document.getElementById(id);
+            element && element.scrollIntoView(true);
         };
 
         $scope.scrollForPagination = (prevPage, newPage) => {
