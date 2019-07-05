@@ -31577,7 +31577,6 @@ function getCaseFields(options) {
         'critSit',
         'currentCaseOwnerManagersEmail',
         'customerCaseNotes',
-        'customerEngagementScorecard',
         'customerEscalation',
         'customerSegment',
         'description',
