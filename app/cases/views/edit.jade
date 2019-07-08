@@ -18,7 +18,7 @@ div.edit(ng-if='showCasePage()')
           span.label.label-mar-right.label-info(ng-show='$parent.securityService.loginStatus.authedUser.is_internal && $parent.securityService.isCep && $parent.CaseService.kase.cep') {{'Consultant Engaged'|translate}}
       .row.row-very-short
         .col-md-12
-          b {{$parent.CaseService.kase.summary}}
+          pre.pre-text.summary {{$parent.CaseService.kase.summary}}
       .row.row-very-short
         .col-md-12
           span(id="rha-product-version") {{$parent.CaseService.kase.product}} {{$parent.CaseService.kase.version}}
