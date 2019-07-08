@@ -41,7 +41,6 @@ export default class New {
 
         let isManagedAccount = false;
 
-
         // opens modal that pops up when the user is a only in the US (e.g. US government).
         $scope.$watch('CaseService.loadingAccountNumber', function (newv, oldv) {
             if(oldv !== newv && !newv && CaseService.account && !RHAUtils.isEmpty(CaseService.account.number) &&
