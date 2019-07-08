@@ -1,13 +1,15 @@
 'use strict';
 import _        from 'lodash';
 import {versionSort} from '../../shared/utils';
+import hydrajs from '../../shared/hydrajs';
 const productSortListFile = require('../../../productSortList.txt');
 
 export default class ProductsService {
-    constructor(securityService, strataService, CaseService, AttachmentsService, RHAUtils, NEW_CASE_CONFIG, NEW_DEFAULTS, AlertService) {
+    constructor(securityService, strataService, CaseService, AttachmentsService, RHAUtils, NEW_CASE_CONFIG, NEW_DEFAULTS, AlertService, gettextCatalog) {
         'ngInject';
 
         this.products = [];
+        this.productsRecentlyFiledAgainst = [];
         this.productsDisabled = false;
         this.productsLoading = false;
         this.versions = [];
@@ -15,12 +17,18 @@ export default class ProductsService {
         this.versionLoading = false;
         this.clear = function () {
             this.products = [];
+            this.productsRecentlyFiledAgainst = [];
             this.versions = [];
         };
         const userHasManagedAccounts = () => (
             RHAUtils.isNotEmpty(securityService.loginStatus.authedUser.managedAccounts) &&
             RHAUtils.isNotEmpty(securityService.loginStatus.authedUser.managedAccounts.accounts)
         );
+
+        this.getProductsRecentlyFiledAgainstString = () => gettextCatalog.getString('Recently selected products: {{products}}', {
+            products: this.productsRecentlyFiledAgainst.map((product) => product.name).join(', ')
+        });
+
         this.getProducts = function (fetchForContact) {
             this.clear();
             var contact = securityService.loginStatus.authedUser.sso_username;
@@ -43,8 +51,13 @@ export default class ProductsService {
                 contact = CaseService.virtualOwner; // Used for fetching products list(of customers) for cases managed by Partners
             }
             this.productsLoading = true;
-            return strataService.products.list(contact).then(angular.bind(this, function (response) {
-                this.products = response;
+            return hydrajs.products.getProductsV2().then(angular.bind(this, function (response) {
+                this.products = response.map((product) => {
+                    product.code = product.name;
+                    return product;
+                });
+
+                this.productsRecentlyFiledAgainst = this.products.filter((product) => product.recentlyFiledAgainst);
                 this.buildProductOptions();
                 this.productsLoading = false;
                 if (RHAUtils.isNotEmpty(NEW_DEFAULTS.product)) {
@@ -55,6 +68,7 @@ export default class ProductsService {
                         }
                     }
                 }
+
                 if (RHAUtils.isNotEmpty(CaseService.kase.product)) {
                     //once we retrieve the product list, we should also retrieve versions
                     this.getVersions(CaseService.kase.product);
@@ -142,8 +156,9 @@ export default class ProductsService {
                 this.fetchProductDetail(product);
             }
 
-            return strataService.products.versions(product).then(angular.bind(this, function (response) {
-                this.versions = versionSort(response);
+            return hydrajs.products.getProductVersionsV2(product).then(angular.bind(this, function (response) {
+                const versions = response.map((productObj) => productObj.name);
+                this.versions = versionSort(versions);
                 this.versionDisabled = false;
                 this.versionLoading = false;
 
