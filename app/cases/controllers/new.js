@@ -41,6 +41,7 @@ export default class New {
 
         let isManagedAccount = false;
 
+        // opens modal that pops up when the user is a only in the US (e.g. US government).
         $scope.$watch('CaseService.loadingAccountNumber', function (newv, oldv) {
             if(oldv !== newv && !newv && CaseService.account && !RHAUtils.isEmpty(CaseService.account.number) &&
                 CaseService.account.has_confirmed_stateside_support) {
@@ -50,6 +51,31 @@ export default class New {
                 });
             }
         });
+
+        // opens modal that pops up if the user has selected "Red Hat Openshift Cluster Manager" because
+        // users have been mistakenly opening cases against it, when they should be opening it on
+        // “OpenShift Containers Platform”.
+        $scope.checkIfRedhatOpenshiftClusterManager = ($event) => {
+            if (CaseService.kase.product === 'Red Hat OpenShift Cluster Manager') {
+                $uibModal.open({
+                    template: require('../views/redhatOpenshiftClusterManagerModal.jade'),
+                    controller: 'RedhatOpenshiftClusterManagerModal'
+                }).result.then((submitCase) => {
+                    CaseService.kase.product = 'OpenShift Container Platform';
+                    delete CaseService.kase.version;
+                    ProductsService.getVersions(CaseService.kase.product);
+                    ProductsService.versions = [];
+                    document.getElementById('rha-product-select-label').scrollIntoView(true);
+                    CaseService.updateLocalStorageForNewCase();
+
+                    if (submitCase) {
+                        $scope.doSubmit($event);
+                    }
+                });
+            } else {
+                $scope.doSubmit($event);
+            }
+        };
 
         $scope.$watch('CaseService.account.name', function () {
             //checking whether the account is a managed account or not

@@ -107,7 +107,7 @@ import FilterByOwnerSelect from './controllers/filterByOwnerSelect';
 import FilterByCreatorSelect from './controllers/filterByCreatorSelect';
 import ProductFilterSelect from './controllers/productFilterSelect';
 import VersionFilterSelect from './controllers/versionFilterSelect';
-
+import RedhatOpenshiftClusterManagerModal from './controllers/redhatOpenshiftClusterManagerModal';
 
 app.controller('ManagedAccountSelect', ManagedAccountSelect);
 app.controller('SecureSupportHeader', SecureSupportHeader);
@@ -171,7 +171,7 @@ app.controller('FilterByOwnerSelect', FilterByOwnerSelect);
 app.controller('FilterByCreatorSelect', FilterByCreatorSelect);
 app.controller('ProductFilterSelect', ProductFilterSelect);
 app.controller('VersionFilterSelect', VersionFilterSelect);
-
+app.controller('RedhatOpenshiftClusterManagerModal', RedhatOpenshiftClusterManagerModal);
 
 
 // Directives

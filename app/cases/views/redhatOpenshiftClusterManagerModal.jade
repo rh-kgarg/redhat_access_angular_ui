@@ -1,0 +1,15 @@
+.modal-body.confirmation-modal
+    span(translate) We noticed you chose
+    span  {{' Red Hat OpenShift Cluster Manager '}}
+    span(translate) as your selected Product. Is your issue related to our SaaS offering at
+    a(href="https://cloud.redhat.com/openshift/", target="_blank")  https://cloud.redhat.com/openshift/
+    span ?
+.modal-footer
+    button.btn.btn-primary.btn-app(
+    ng-click='confirm()')
+        span {{'Yes, Submit'|translate}}
+    button.btn.btn-primary.btn-app(
+    style='margin-left: 10px;',
+    ng-click='closeModal()')
+        span {{'No, Go Back'|translate}}
+

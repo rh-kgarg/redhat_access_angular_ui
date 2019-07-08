@@ -13,7 +13,7 @@ div(rha-header='', page='newCase')
                                 label {{'Owner'| translate}} &nbsp;
                                     .spinner.spinner-xs.spinner-inline(ng-show='CaseService.usersLoading')
                                 div(rha-ownerselect='')
-                            label {{'Product'| translate}} &nbsp;
+                            label#rha-product-select-label {{'Product'| translate}} &nbsp;
                                 .spinner.spinner-xs.spinner-inline(ng-show='$parent.ProductsService.productsLoading')
                             div(rha-productselect='')
                             label {{'Product Version'| translate}} &nbsp;
@@ -158,11 +158,11 @@ div(rha-header='', page='newCase')
                                 input(
                                 type="checkbox",
                                 ng-model="$parent.CaseService.fts")
-                            
+
                             div(ng-show="$parent.CaseService.showFtsOnCreatePage()")
                                 label#rha-24X7_Contact(translate,translate-comment="Noun") 24x7 Contact
                                 input#rha-24X7_Contact_input(ng-model="$parent.CaseService.fts_contact")
-                            
+
                             div(ng-if="!$parent.COMMON_CONFIG.isGS4 && !$parent.disableEmailNotifySelect()")
                                 label(for='email-notifications', translate, translate-comment="Noun") {{'Send Additional Email Notifications to' | translate}}
                                     span.glyphicon.glyphicon-info-sign.link.margin-left-sm(uib-tooltip-html='"<div><span>{{"By opening this case you will automatically receive notifications." |translate }}</span></div>"',tabindex='0',tooltip-trigger="focus")
@@ -185,7 +185,7 @@ div(rha-header='', page='newCase')
                                 input.form-control(
                                 ng-disabled='true',
                                 placeholder="{{'Select a User'|translate}}")
-                            
+
                             // $parent.securityService.isCep added this check to make redhat-watchers-feature to use same isCep flag, we can remove this flag once it is not required.
                             div(ng-show="$parent.securityService.isCep && !$parent.COMMON_CONFIG.isGS4 && $parent.securityService.loginStatus.authedUser.is_internal")
                                 label(for='redhat-watchers', translate, translate-comment="Noun") {{'Red Hat Watchers' | translate}}
@@ -212,7 +212,7 @@ div(rha-header='', page='newCase')
                                 span &nbsp;
                                 span(ng-if="$parent.caseGroupRequired").glyphicon.glyphicon-info-sign.link(uib-tooltip-html='"<div><span>{{"Selecting a case group is mandatory for case creation, if there are no groups assigned to you. Please contact your Org admin" | translate }}</span></div>"',tabindex='0',tooltip-trigger="focus")
                             div(rha-groupselect='', ng-init="$parent.setSearchOptions(false)")
-                            
+
 
                         .row.submit
                             //- TODO make remove local storage once implemented
@@ -220,7 +220,7 @@ div(rha-header='', page='newCase')
                                 button.btn.btn-app(
                                 ng-disabled='$parent.CaseService.submittingCase || $parent.CaseService.newCaseIncomplete',
                                 ng-hide='$parent.CaseService.submittingCase',
-                                ng-click='$parent.doSubmit($event)',
+                                ng-click='$parent.checkIfRedhatOpenshiftClusterManager($event)',
                                 ng-class="{'btn-primary': !($parent.CaseService.submittingCase || $parent.CaseService.newCaseIncomplete) }",
                                 translate,translate-comment="Verb") Submit
                                 a.margin-left(href='#/case/list',ng-hide='$parent.CaseService.submittingCase',translate,translate-comment="Verb") Cancel
