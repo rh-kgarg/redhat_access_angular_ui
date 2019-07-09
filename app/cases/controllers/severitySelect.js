@@ -36,7 +36,7 @@ export default class SeveritySelect {
 
         $scope.$watch('createdCase.product + createdCase.version', function () {
             const validSeverity = CaseService.getValidSeverity($scope.createdCase.severity);
-            const severity = $scope.severities.find((severity) => severity.name === validSeverity);
+            const severity = $scope.severities.find((severity) => (severity.name === validSeverity || severity.name === (validSeverity && validSeverity.name)));
             $scope.severity = $scope.createdCase.severity = severity;
 
             if (!$scope.openedDetails[validSeverity]) {
