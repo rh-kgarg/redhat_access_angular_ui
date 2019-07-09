@@ -797,7 +797,7 @@ export default class CaseService {
 
         this.getValidSeverity = (severity) => {
             const allowedSeverities = this.allowedSeveritiesForProductAndVersion();
-            const isValid = Boolean(_.find(allowedSeverities, (v) => (v === severity)));
+            const isValid = Boolean(_.find(allowedSeverities, (v) => (v === severity || v === (severity && severity.name))));
             return isValid ? severity : allowedSeverities[0];
         };
 
