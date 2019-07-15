@@ -10023,7 +10023,7 @@ AWS.HttpClient.getInstance = function getInstance() {
 /***/ (function(module, exports, __webpack_require__) {
 
 var AWS = __webpack_require__(/*! ../core */ "./node_modules/aws-sdk/lib/core.js");
-var EventEmitter = __webpack_require__(/*! events */ "./node_modules/events/events.js").EventEmitter;
+var EventEmitter = __webpack_require__(/*! events */ "./node_modules/node-libs-browser/node_modules/events/events.js").EventEmitter;
 __webpack_require__(/*! ../http */ "./node_modules/aws-sdk/lib/http.js");
 
 /**
@@ -19073,7 +19073,7 @@ var util = {
    */
   uuid: {
     v4: function uuidV4() {
-      return __webpack_require__(/*! uuid */ "./node_modules/uuid/index.js").v4();
+      return __webpack_require__(/*! uuid */ "./node_modules/aws-sdk/node_modules/uuid/index.js").v4();
     }
   },
 
@@ -19587,6 +19587,255 @@ XmlText.prototype.toString = function () {
 module.exports = {
     XmlText: XmlText
 };
+
+/***/ }),
+
+/***/ "./node_modules/aws-sdk/node_modules/uuid/index.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/aws-sdk/node_modules/uuid/index.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var v1 = __webpack_require__(/*! ./v1 */ "./node_modules/aws-sdk/node_modules/uuid/v1.js");
+var v4 = __webpack_require__(/*! ./v4 */ "./node_modules/aws-sdk/node_modules/uuid/v4.js");
+
+var uuid = v4;
+uuid.v1 = v1;
+uuid.v4 = v4;
+
+module.exports = uuid;
+
+
+/***/ }),
+
+/***/ "./node_modules/aws-sdk/node_modules/uuid/lib/bytesToUuid.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/aws-sdk/node_modules/uuid/lib/bytesToUuid.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * Convert array of 16 byte values to UUID string format of the form:
+ * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+ */
+var byteToHex = [];
+for (var i = 0; i < 256; ++i) {
+  byteToHex[i] = (i + 0x100).toString(16).substr(1);
+}
+
+function bytesToUuid(buf, offset) {
+  var i = offset || 0;
+  var bth = byteToHex;
+  return bth[buf[i++]] + bth[buf[i++]] +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] +
+          bth[buf[i++]] + bth[buf[i++]] +
+          bth[buf[i++]] + bth[buf[i++]];
+}
+
+module.exports = bytesToUuid;
+
+
+/***/ }),
+
+/***/ "./node_modules/aws-sdk/node_modules/uuid/lib/rng-browser.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/aws-sdk/node_modules/uuid/lib/rng-browser.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {// Unique ID creation requires a high quality random # generator.  In the
+// browser this is a little complicated due to unknown quality of Math.random()
+// and inconsistent support for the `crypto` API.  We do the best we can via
+// feature-detection
+var rng;
+
+var crypto = global.crypto || global.msCrypto; // for IE 11
+if (crypto && crypto.getRandomValues) {
+  // WHATWG crypto RNG - http://wiki.whatwg.org/wiki/Crypto
+  var rnds8 = new Uint8Array(16); // eslint-disable-line no-undef
+  rng = function whatwgRNG() {
+    crypto.getRandomValues(rnds8);
+    return rnds8;
+  };
+}
+
+if (!rng) {
+  // Math.random()-based (RNG)
+  //
+  // If all else fails, use Math.random().  It's fast, but is of unspecified
+  // quality.
+  var rnds = new Array(16);
+  rng = function() {
+    for (var i = 0, r; i < 16; i++) {
+      if ((i & 0x03) === 0) r = Math.random() * 0x100000000;
+      rnds[i] = r >>> ((i & 0x03) << 3) & 0xff;
+    }
+
+    return rnds;
+  };
+}
+
+module.exports = rng;
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
+/***/ "./node_modules/aws-sdk/node_modules/uuid/v1.js":
+/*!******************************************************!*\
+  !*** ./node_modules/aws-sdk/node_modules/uuid/v1.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var rng = __webpack_require__(/*! ./lib/rng */ "./node_modules/aws-sdk/node_modules/uuid/lib/rng-browser.js");
+var bytesToUuid = __webpack_require__(/*! ./lib/bytesToUuid */ "./node_modules/aws-sdk/node_modules/uuid/lib/bytesToUuid.js");
+
+// **`v1()` - Generate time-based UUID**
+//
+// Inspired by https://github.com/LiosK/UUID.js
+// and http://docs.python.org/library/uuid.html
+
+// random #'s we need to init node and clockseq
+var _seedBytes = rng();
+
+// Per 4.5, create and 48-bit node id, (47 random bits + multicast bit = 1)
+var _nodeId = [
+  _seedBytes[0] | 0x01,
+  _seedBytes[1], _seedBytes[2], _seedBytes[3], _seedBytes[4], _seedBytes[5]
+];
+
+// Per 4.2.2, randomize (14 bit) clockseq
+var _clockseq = (_seedBytes[6] << 8 | _seedBytes[7]) & 0x3fff;
+
+// Previous uuid creation time
+var _lastMSecs = 0, _lastNSecs = 0;
+
+// See https://github.com/broofa/node-uuid for API details
+function v1(options, buf, offset) {
+  var i = buf && offset || 0;
+  var b = buf || [];
+
+  options = options || {};
+
+  var clockseq = options.clockseq !== undefined ? options.clockseq : _clockseq;
+
+  // UUID timestamps are 100 nano-second units since the Gregorian epoch,
+  // (1582-10-15 00:00).  JSNumbers aren't precise enough for this, so
+  // time is handled internally as 'msecs' (integer milliseconds) and 'nsecs'
+  // (100-nanoseconds offset from msecs) since unix epoch, 1970-01-01 00:00.
+  var msecs = options.msecs !== undefined ? options.msecs : new Date().getTime();
+
+  // Per 4.2.1.2, use count of uuid's generated during the current clock
+  // cycle to simulate higher resolution clock
+  var nsecs = options.nsecs !== undefined ? options.nsecs : _lastNSecs + 1;
+
+  // Time since last uuid creation (in msecs)
+  var dt = (msecs - _lastMSecs) + (nsecs - _lastNSecs)/10000;
+
+  // Per 4.2.1.2, Bump clockseq on clock regression
+  if (dt < 0 && options.clockseq === undefined) {
+    clockseq = clockseq + 1 & 0x3fff;
+  }
+
+  // Reset nsecs if clock regresses (new clockseq) or we've moved onto a new
+  // time interval
+  if ((dt < 0 || msecs > _lastMSecs) && options.nsecs === undefined) {
+    nsecs = 0;
+  }
+
+  // Per 4.2.1.2 Throw error if too many uuids are requested
+  if (nsecs >= 10000) {
+    throw new Error('uuid.v1(): Can\'t create more than 10M uuids/sec');
+  }
+
+  _lastMSecs = msecs;
+  _lastNSecs = nsecs;
+  _clockseq = clockseq;
+
+  // Per 4.1.4 - Convert from unix epoch to Gregorian epoch
+  msecs += 12219292800000;
+
+  // `time_low`
+  var tl = ((msecs & 0xfffffff) * 10000 + nsecs) % 0x100000000;
+  b[i++] = tl >>> 24 & 0xff;
+  b[i++] = tl >>> 16 & 0xff;
+  b[i++] = tl >>> 8 & 0xff;
+  b[i++] = tl & 0xff;
+
+  // `time_mid`
+  var tmh = (msecs / 0x100000000 * 10000) & 0xfffffff;
+  b[i++] = tmh >>> 8 & 0xff;
+  b[i++] = tmh & 0xff;
+
+  // `time_high_and_version`
+  b[i++] = tmh >>> 24 & 0xf | 0x10; // include version
+  b[i++] = tmh >>> 16 & 0xff;
+
+  // `clock_seq_hi_and_reserved` (Per 4.2.2 - include variant)
+  b[i++] = clockseq >>> 8 | 0x80;
+
+  // `clock_seq_low`
+  b[i++] = clockseq & 0xff;
+
+  // `node`
+  var node = options.node || _nodeId;
+  for (var n = 0; n < 6; ++n) {
+    b[i + n] = node[n];
+  }
+
+  return buf ? buf : bytesToUuid(b);
+}
+
+module.exports = v1;
+
+
+/***/ }),
+
+/***/ "./node_modules/aws-sdk/node_modules/uuid/v4.js":
+/*!******************************************************!*\
+  !*** ./node_modules/aws-sdk/node_modules/uuid/v4.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var rng = __webpack_require__(/*! ./lib/rng */ "./node_modules/aws-sdk/node_modules/uuid/lib/rng-browser.js");
+var bytesToUuid = __webpack_require__(/*! ./lib/bytesToUuid */ "./node_modules/aws-sdk/node_modules/uuid/lib/bytesToUuid.js");
+
+function v4(options, buf, offset) {
+  var i = buf && offset || 0;
+
+  if (typeof(options) == 'string') {
+    buf = options == 'binary' ? new Array(16) : null;
+    options = null;
+  }
+  options = options || {};
+
+  var rnds = options.random || (options.rng || rng)();
+
+  // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
+  rnds[6] = (rnds[6] & 0x0f) | 0x40;
+  rnds[8] = (rnds[8] & 0x3f) | 0x80;
+
+  // Copy bytes to buffer, if provided
+  if (buf) {
+    for (var ii = 0; ii < 16; ++ii) {
+      buf[i + ii] = rnds[ii];
+    }
+  }
+
+  return buf || bytesToUuid(rnds);
+}
+
+module.exports = v4;
+
 
 /***/ }),
 
@@ -21642,319 +21891,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/events/events.js":
-/*!***************************************!*\
-  !*** ./node_modules/events/events.js ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-function EventEmitter() {
-  this._events = this._events || {};
-  this._maxListeners = this._maxListeners || undefined;
-}
-module.exports = EventEmitter;
-
-// Backwards-compat with node 0.10.x
-EventEmitter.EventEmitter = EventEmitter;
-
-EventEmitter.prototype._events = undefined;
-EventEmitter.prototype._maxListeners = undefined;
-
-// By default EventEmitters will print a warning if more than 10 listeners are
-// added to it. This is a useful default which helps finding memory leaks.
-EventEmitter.defaultMaxListeners = 10;
-
-// Obviously not all Emitters should be limited to 10. This function allows
-// that to be increased. Set to zero for unlimited.
-EventEmitter.prototype.setMaxListeners = function(n) {
-  if (!isNumber(n) || n < 0 || isNaN(n))
-    throw TypeError('n must be a positive number');
-  this._maxListeners = n;
-  return this;
-};
-
-EventEmitter.prototype.emit = function(type) {
-  var er, handler, len, args, i, listeners;
-
-  if (!this._events)
-    this._events = {};
-
-  // If there is no 'error' event listener then throw.
-  if (type === 'error') {
-    if (!this._events.error ||
-        (isObject(this._events.error) && !this._events.error.length)) {
-      er = arguments[1];
-      if (er instanceof Error) {
-        throw er; // Unhandled 'error' event
-      } else {
-        // At least give some kind of context to the user
-        var err = new Error('Uncaught, unspecified "error" event. (' + er + ')');
-        err.context = er;
-        throw err;
-      }
-    }
-  }
-
-  handler = this._events[type];
-
-  if (isUndefined(handler))
-    return false;
-
-  if (isFunction(handler)) {
-    switch (arguments.length) {
-      // fast cases
-      case 1:
-        handler.call(this);
-        break;
-      case 2:
-        handler.call(this, arguments[1]);
-        break;
-      case 3:
-        handler.call(this, arguments[1], arguments[2]);
-        break;
-      // slower
-      default:
-        args = Array.prototype.slice.call(arguments, 1);
-        handler.apply(this, args);
-    }
-  } else if (isObject(handler)) {
-    args = Array.prototype.slice.call(arguments, 1);
-    listeners = handler.slice();
-    len = listeners.length;
-    for (i = 0; i < len; i++)
-      listeners[i].apply(this, args);
-  }
-
-  return true;
-};
-
-EventEmitter.prototype.addListener = function(type, listener) {
-  var m;
-
-  if (!isFunction(listener))
-    throw TypeError('listener must be a function');
-
-  if (!this._events)
-    this._events = {};
-
-  // To avoid recursion in the case that type === "newListener"! Before
-  // adding it to the listeners, first emit "newListener".
-  if (this._events.newListener)
-    this.emit('newListener', type,
-              isFunction(listener.listener) ?
-              listener.listener : listener);
-
-  if (!this._events[type])
-    // Optimize the case of one listener. Don't need the extra array object.
-    this._events[type] = listener;
-  else if (isObject(this._events[type]))
-    // If we've already got an array, just append.
-    this._events[type].push(listener);
-  else
-    // Adding the second element, need to change to array.
-    this._events[type] = [this._events[type], listener];
-
-  // Check for listener leak
-  if (isObject(this._events[type]) && !this._events[type].warned) {
-    if (!isUndefined(this._maxListeners)) {
-      m = this._maxListeners;
-    } else {
-      m = EventEmitter.defaultMaxListeners;
-    }
-
-    if (m && m > 0 && this._events[type].length > m) {
-      this._events[type].warned = true;
-      console.error('(node) warning: possible EventEmitter memory ' +
-                    'leak detected. %d listeners added. ' +
-                    'Use emitter.setMaxListeners() to increase limit.',
-                    this._events[type].length);
-      if (typeof console.trace === 'function') {
-        // not supported in IE 10
-        console.trace();
-      }
-    }
-  }
-
-  return this;
-};
-
-EventEmitter.prototype.on = EventEmitter.prototype.addListener;
-
-EventEmitter.prototype.once = function(type, listener) {
-  if (!isFunction(listener))
-    throw TypeError('listener must be a function');
-
-  var fired = false;
-
-  function g() {
-    this.removeListener(type, g);
-
-    if (!fired) {
-      fired = true;
-      listener.apply(this, arguments);
-    }
-  }
-
-  g.listener = listener;
-  this.on(type, g);
-
-  return this;
-};
-
-// emits a 'removeListener' event iff the listener was removed
-EventEmitter.prototype.removeListener = function(type, listener) {
-  var list, position, length, i;
-
-  if (!isFunction(listener))
-    throw TypeError('listener must be a function');
-
-  if (!this._events || !this._events[type])
-    return this;
-
-  list = this._events[type];
-  length = list.length;
-  position = -1;
-
-  if (list === listener ||
-      (isFunction(list.listener) && list.listener === listener)) {
-    delete this._events[type];
-    if (this._events.removeListener)
-      this.emit('removeListener', type, listener);
-
-  } else if (isObject(list)) {
-    for (i = length; i-- > 0;) {
-      if (list[i] === listener ||
-          (list[i].listener && list[i].listener === listener)) {
-        position = i;
-        break;
-      }
-    }
-
-    if (position < 0)
-      return this;
-
-    if (list.length === 1) {
-      list.length = 0;
-      delete this._events[type];
-    } else {
-      list.splice(position, 1);
-    }
-
-    if (this._events.removeListener)
-      this.emit('removeListener', type, listener);
-  }
-
-  return this;
-};
-
-EventEmitter.prototype.removeAllListeners = function(type) {
-  var key, listeners;
-
-  if (!this._events)
-    return this;
-
-  // not listening for removeListener, no need to emit
-  if (!this._events.removeListener) {
-    if (arguments.length === 0)
-      this._events = {};
-    else if (this._events[type])
-      delete this._events[type];
-    return this;
-  }
-
-  // emit removeListener for all listeners on all events
-  if (arguments.length === 0) {
-    for (key in this._events) {
-      if (key === 'removeListener') continue;
-      this.removeAllListeners(key);
-    }
-    this.removeAllListeners('removeListener');
-    this._events = {};
-    return this;
-  }
-
-  listeners = this._events[type];
-
-  if (isFunction(listeners)) {
-    this.removeListener(type, listeners);
-  } else if (listeners) {
-    // LIFO order
-    while (listeners.length)
-      this.removeListener(type, listeners[listeners.length - 1]);
-  }
-  delete this._events[type];
-
-  return this;
-};
-
-EventEmitter.prototype.listeners = function(type) {
-  var ret;
-  if (!this._events || !this._events[type])
-    ret = [];
-  else if (isFunction(this._events[type]))
-    ret = [this._events[type]];
-  else
-    ret = this._events[type].slice();
-  return ret;
-};
-
-EventEmitter.prototype.listenerCount = function(type) {
-  if (this._events) {
-    var evlistener = this._events[type];
-
-    if (isFunction(evlistener))
-      return 1;
-    else if (evlistener)
-      return evlistener.length;
-  }
-  return 0;
-};
-
-EventEmitter.listenerCount = function(emitter, type) {
-  return emitter.listenerCount(type);
-};
-
-function isFunction(arg) {
-  return typeof arg === 'function';
-}
-
-function isNumber(arg) {
-  return typeof arg === 'number';
-}
-
-function isObject(arg) {
-  return typeof arg === 'object' && arg !== null;
-}
-
-function isUndefined(arg) {
-  return arg === void 0;
-}
-
-
-/***/ }),
-
 /***/ "./node_modules/ieee754/index.js":
 /*!***************************************!*\
   !*** ./node_modules/ieee754/index.js ***!
@@ -22045,40 +21981,6 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   for (; eLen > 0; buffer[offset + i] = e & 0xff, i += d, e /= 256, eLen -= 8) {}
 
   buffer[offset + i - d] |= s * 128
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/inherits/inherits_browser.js":
-/*!***************************************************!*\
-  !*** ./node_modules/inherits/inherits_browser.js ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-if (typeof Object.create === 'function') {
-  // implementation from standard node.js 'util' module
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    ctor.prototype = Object.create(superCtor.prototype, {
-      constructor: {
-        value: ctor,
-        enumerable: false,
-        writable: true,
-        configurable: true
-      }
-    });
-  };
-} else {
-  // old school shim for old browsers
-  module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor
-    var TempCtor = function () {}
-    TempCtor.prototype = superCtor.prototype
-    ctor.prototype = new TempCtor()
-    ctor.prototype.constructor = ctor
-  }
 }
 
 
@@ -24246,6 +24148,466 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 /***/ }),
 
+/***/ "./node_modules/node-libs-browser/node_modules/events/events.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/node-libs-browser/node_modules/events/events.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+var R = typeof Reflect === 'object' ? Reflect : null
+var ReflectApply = R && typeof R.apply === 'function'
+  ? R.apply
+  : function ReflectApply(target, receiver, args) {
+    return Function.prototype.apply.call(target, receiver, args);
+  }
+
+var ReflectOwnKeys
+if (R && typeof R.ownKeys === 'function') {
+  ReflectOwnKeys = R.ownKeys
+} else if (Object.getOwnPropertySymbols) {
+  ReflectOwnKeys = function ReflectOwnKeys(target) {
+    return Object.getOwnPropertyNames(target)
+      .concat(Object.getOwnPropertySymbols(target));
+  };
+} else {
+  ReflectOwnKeys = function ReflectOwnKeys(target) {
+    return Object.getOwnPropertyNames(target);
+  };
+}
+
+function ProcessEmitWarning(warning) {
+  if (console && console.warn) console.warn(warning);
+}
+
+var NumberIsNaN = Number.isNaN || function NumberIsNaN(value) {
+  return value !== value;
+}
+
+function EventEmitter() {
+  EventEmitter.init.call(this);
+}
+module.exports = EventEmitter;
+
+// Backwards-compat with node 0.10.x
+EventEmitter.EventEmitter = EventEmitter;
+
+EventEmitter.prototype._events = undefined;
+EventEmitter.prototype._eventsCount = 0;
+EventEmitter.prototype._maxListeners = undefined;
+
+// By default EventEmitters will print a warning if more than 10 listeners are
+// added to it. This is a useful default which helps finding memory leaks.
+var defaultMaxListeners = 10;
+
+Object.defineProperty(EventEmitter, 'defaultMaxListeners', {
+  enumerable: true,
+  get: function() {
+    return defaultMaxListeners;
+  },
+  set: function(arg) {
+    if (typeof arg !== 'number' || arg < 0 || NumberIsNaN(arg)) {
+      throw new RangeError('The value of "defaultMaxListeners" is out of range. It must be a non-negative number. Received ' + arg + '.');
+    }
+    defaultMaxListeners = arg;
+  }
+});
+
+EventEmitter.init = function() {
+
+  if (this._events === undefined ||
+      this._events === Object.getPrototypeOf(this)._events) {
+    this._events = Object.create(null);
+    this._eventsCount = 0;
+  }
+
+  this._maxListeners = this._maxListeners || undefined;
+};
+
+// Obviously not all Emitters should be limited to 10. This function allows
+// that to be increased. Set to zero for unlimited.
+EventEmitter.prototype.setMaxListeners = function setMaxListeners(n) {
+  if (typeof n !== 'number' || n < 0 || NumberIsNaN(n)) {
+    throw new RangeError('The value of "n" is out of range. It must be a non-negative number. Received ' + n + '.');
+  }
+  this._maxListeners = n;
+  return this;
+};
+
+function $getMaxListeners(that) {
+  if (that._maxListeners === undefined)
+    return EventEmitter.defaultMaxListeners;
+  return that._maxListeners;
+}
+
+EventEmitter.prototype.getMaxListeners = function getMaxListeners() {
+  return $getMaxListeners(this);
+};
+
+EventEmitter.prototype.emit = function emit(type) {
+  var args = [];
+  for (var i = 1; i < arguments.length; i++) args.push(arguments[i]);
+  var doError = (type === 'error');
+
+  var events = this._events;
+  if (events !== undefined)
+    doError = (doError && events.error === undefined);
+  else if (!doError)
+    return false;
+
+  // If there is no 'error' event listener then throw.
+  if (doError) {
+    var er;
+    if (args.length > 0)
+      er = args[0];
+    if (er instanceof Error) {
+      // Note: The comments on the `throw` lines are intentional, they show
+      // up in Node's output if this results in an unhandled exception.
+      throw er; // Unhandled 'error' event
+    }
+    // At least give some kind of context to the user
+    var err = new Error('Unhandled error.' + (er ? ' (' + er.message + ')' : ''));
+    err.context = er;
+    throw err; // Unhandled 'error' event
+  }
+
+  var handler = events[type];
+
+  if (handler === undefined)
+    return false;
+
+  if (typeof handler === 'function') {
+    ReflectApply(handler, this, args);
+  } else {
+    var len = handler.length;
+    var listeners = arrayClone(handler, len);
+    for (var i = 0; i < len; ++i)
+      ReflectApply(listeners[i], this, args);
+  }
+
+  return true;
+};
+
+function _addListener(target, type, listener, prepend) {
+  var m;
+  var events;
+  var existing;
+
+  if (typeof listener !== 'function') {
+    throw new TypeError('The "listener" argument must be of type Function. Received type ' + typeof listener);
+  }
+
+  events = target._events;
+  if (events === undefined) {
+    events = target._events = Object.create(null);
+    target._eventsCount = 0;
+  } else {
+    // To avoid recursion in the case that type === "newListener"! Before
+    // adding it to the listeners, first emit "newListener".
+    if (events.newListener !== undefined) {
+      target.emit('newListener', type,
+                  listener.listener ? listener.listener : listener);
+
+      // Re-assign `events` because a newListener handler could have caused the
+      // this._events to be assigned to a new object
+      events = target._events;
+    }
+    existing = events[type];
+  }
+
+  if (existing === undefined) {
+    // Optimize the case of one listener. Don't need the extra array object.
+    existing = events[type] = listener;
+    ++target._eventsCount;
+  } else {
+    if (typeof existing === 'function') {
+      // Adding the second element, need to change to array.
+      existing = events[type] =
+        prepend ? [listener, existing] : [existing, listener];
+      // If we've already got an array, just append.
+    } else if (prepend) {
+      existing.unshift(listener);
+    } else {
+      existing.push(listener);
+    }
+
+    // Check for listener leak
+    m = $getMaxListeners(target);
+    if (m > 0 && existing.length > m && !existing.warned) {
+      existing.warned = true;
+      // No error code for this since it is a Warning
+      // eslint-disable-next-line no-restricted-syntax
+      var w = new Error('Possible EventEmitter memory leak detected. ' +
+                          existing.length + ' ' + String(type) + ' listeners ' +
+                          'added. Use emitter.setMaxListeners() to ' +
+                          'increase limit');
+      w.name = 'MaxListenersExceededWarning';
+      w.emitter = target;
+      w.type = type;
+      w.count = existing.length;
+      ProcessEmitWarning(w);
+    }
+  }
+
+  return target;
+}
+
+EventEmitter.prototype.addListener = function addListener(type, listener) {
+  return _addListener(this, type, listener, false);
+};
+
+EventEmitter.prototype.on = EventEmitter.prototype.addListener;
+
+EventEmitter.prototype.prependListener =
+    function prependListener(type, listener) {
+      return _addListener(this, type, listener, true);
+    };
+
+function onceWrapper() {
+  var args = [];
+  for (var i = 0; i < arguments.length; i++) args.push(arguments[i]);
+  if (!this.fired) {
+    this.target.removeListener(this.type, this.wrapFn);
+    this.fired = true;
+    ReflectApply(this.listener, this.target, args);
+  }
+}
+
+function _onceWrap(target, type, listener) {
+  var state = { fired: false, wrapFn: undefined, target: target, type: type, listener: listener };
+  var wrapped = onceWrapper.bind(state);
+  wrapped.listener = listener;
+  state.wrapFn = wrapped;
+  return wrapped;
+}
+
+EventEmitter.prototype.once = function once(type, listener) {
+  if (typeof listener !== 'function') {
+    throw new TypeError('The "listener" argument must be of type Function. Received type ' + typeof listener);
+  }
+  this.on(type, _onceWrap(this, type, listener));
+  return this;
+};
+
+EventEmitter.prototype.prependOnceListener =
+    function prependOnceListener(type, listener) {
+      if (typeof listener !== 'function') {
+        throw new TypeError('The "listener" argument must be of type Function. Received type ' + typeof listener);
+      }
+      this.prependListener(type, _onceWrap(this, type, listener));
+      return this;
+    };
+
+// Emits a 'removeListener' event if and only if the listener was removed.
+EventEmitter.prototype.removeListener =
+    function removeListener(type, listener) {
+      var list, events, position, i, originalListener;
+
+      if (typeof listener !== 'function') {
+        throw new TypeError('The "listener" argument must be of type Function. Received type ' + typeof listener);
+      }
+
+      events = this._events;
+      if (events === undefined)
+        return this;
+
+      list = events[type];
+      if (list === undefined)
+        return this;
+
+      if (list === listener || list.listener === listener) {
+        if (--this._eventsCount === 0)
+          this._events = Object.create(null);
+        else {
+          delete events[type];
+          if (events.removeListener)
+            this.emit('removeListener', type, list.listener || listener);
+        }
+      } else if (typeof list !== 'function') {
+        position = -1;
+
+        for (i = list.length - 1; i >= 0; i--) {
+          if (list[i] === listener || list[i].listener === listener) {
+            originalListener = list[i].listener;
+            position = i;
+            break;
+          }
+        }
+
+        if (position < 0)
+          return this;
+
+        if (position === 0)
+          list.shift();
+        else {
+          spliceOne(list, position);
+        }
+
+        if (list.length === 1)
+          events[type] = list[0];
+
+        if (events.removeListener !== undefined)
+          this.emit('removeListener', type, originalListener || listener);
+      }
+
+      return this;
+    };
+
+EventEmitter.prototype.off = EventEmitter.prototype.removeListener;
+
+EventEmitter.prototype.removeAllListeners =
+    function removeAllListeners(type) {
+      var listeners, events, i;
+
+      events = this._events;
+      if (events === undefined)
+        return this;
+
+      // not listening for removeListener, no need to emit
+      if (events.removeListener === undefined) {
+        if (arguments.length === 0) {
+          this._events = Object.create(null);
+          this._eventsCount = 0;
+        } else if (events[type] !== undefined) {
+          if (--this._eventsCount === 0)
+            this._events = Object.create(null);
+          else
+            delete events[type];
+        }
+        return this;
+      }
+
+      // emit removeListener for all listeners on all events
+      if (arguments.length === 0) {
+        var keys = Object.keys(events);
+        var key;
+        for (i = 0; i < keys.length; ++i) {
+          key = keys[i];
+          if (key === 'removeListener') continue;
+          this.removeAllListeners(key);
+        }
+        this.removeAllListeners('removeListener');
+        this._events = Object.create(null);
+        this._eventsCount = 0;
+        return this;
+      }
+
+      listeners = events[type];
+
+      if (typeof listeners === 'function') {
+        this.removeListener(type, listeners);
+      } else if (listeners !== undefined) {
+        // LIFO order
+        for (i = listeners.length - 1; i >= 0; i--) {
+          this.removeListener(type, listeners[i]);
+        }
+      }
+
+      return this;
+    };
+
+function _listeners(target, type, unwrap) {
+  var events = target._events;
+
+  if (events === undefined)
+    return [];
+
+  var evlistener = events[type];
+  if (evlistener === undefined)
+    return [];
+
+  if (typeof evlistener === 'function')
+    return unwrap ? [evlistener.listener || evlistener] : [evlistener];
+
+  return unwrap ?
+    unwrapListeners(evlistener) : arrayClone(evlistener, evlistener.length);
+}
+
+EventEmitter.prototype.listeners = function listeners(type) {
+  return _listeners(this, type, true);
+};
+
+EventEmitter.prototype.rawListeners = function rawListeners(type) {
+  return _listeners(this, type, false);
+};
+
+EventEmitter.listenerCount = function(emitter, type) {
+  if (typeof emitter.listenerCount === 'function') {
+    return emitter.listenerCount(type);
+  } else {
+    return listenerCount.call(emitter, type);
+  }
+};
+
+EventEmitter.prototype.listenerCount = listenerCount;
+function listenerCount(type) {
+  var events = this._events;
+
+  if (events !== undefined) {
+    var evlistener = events[type];
+
+    if (typeof evlistener === 'function') {
+      return 1;
+    } else if (evlistener !== undefined) {
+      return evlistener.length;
+    }
+  }
+
+  return 0;
+}
+
+EventEmitter.prototype.eventNames = function eventNames() {
+  return this._eventsCount > 0 ? ReflectOwnKeys(this._events) : [];
+};
+
+function arrayClone(arr, n) {
+  var copy = new Array(n);
+  for (var i = 0; i < n; ++i)
+    copy[i] = arr[i];
+  return copy;
+}
+
+function spliceOne(list, index) {
+  for (; index + 1 < list.length; index++)
+    list[index] = list[index + 1];
+  list.pop();
+}
+
+function unwrapListeners(arr) {
+  var ret = new Array(arr.length);
+  for (var i = 0; i < ret.length; ++i) {
+    ret[i] = arr[i].listener || arr[i];
+  }
+  return ret;
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/node-libs-browser/node_modules/url/url.js":
 /*!****************************************************************!*\
   !*** ./node_modules/node-libs-browser/node_modules/url/url.js ***!
@@ -26226,6 +26588,40 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/util/node_modules/inherits/inherits_browser.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/util/node_modules/inherits/inherits_browser.js ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+if (typeof Object.create === 'function') {
+  // implementation from standard node.js 'util' module
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    ctor.prototype = Object.create(superCtor.prototype, {
+      constructor: {
+        value: ctor,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+  };
+} else {
+  // old school shim for old browsers
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    var TempCtor = function () {}
+    TempCtor.prototype = superCtor.prototype
+    ctor.prototype = new TempCtor()
+    ctor.prototype.constructor = ctor
+  }
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/util/support/isBufferBrowser.js":
 /*!******************************************************!*\
   !*** ./node_modules/util/support/isBufferBrowser.js ***!
@@ -26249,7 +26645,7 @@ module.exports = function isBuffer(arg) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global, process) {// Copyright Joyent, Inc. and other Node contributors.
+/* WEBPACK VAR INJECTION */(function(process) {// Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
 // copy of this software and associated documentation files (the
@@ -26269,6 +26665,16 @@ module.exports = function isBuffer(arg) {
 // DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 // USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+var getOwnPropertyDescriptors = Object.getOwnPropertyDescriptors ||
+  function getOwnPropertyDescriptors(obj) {
+    var keys = Object.keys(obj);
+    var descriptors = {};
+    for (var i = 0; i < keys.length; i++) {
+      descriptors[keys[i]] = Object.getOwnPropertyDescriptor(obj, keys[i]);
+    }
+    return descriptors;
+  };
 
 var formatRegExp = /%[sdj%]/g;
 exports.format = function(f) {
@@ -26314,15 +26720,15 @@ exports.format = function(f) {
 // Returns a modified function which warns once by default.
 // If --no-deprecation is set, then it is a no-op.
 exports.deprecate = function(fn, msg) {
+  if (typeof process !== 'undefined' && process.noDeprecation === true) {
+    return fn;
+  }
+
   // Allow for deprecating things in the process of starting up.
-  if (isUndefined(global.process)) {
+  if (typeof process === 'undefined') {
     return function() {
       return exports.deprecate(fn, msg).apply(this, arguments);
     };
-  }
-
-  if (process.noDeprecation === true) {
-    return fn;
   }
 
   var warned = false;
@@ -26818,7 +27224,7 @@ exports.log = function() {
  *     prototype.
  * @param {function} superCtor Constructor function to inherit prototype from.
  */
-exports.inherits = __webpack_require__(/*! inherits */ "./node_modules/inherits/inherits_browser.js");
+exports.inherits = __webpack_require__(/*! inherits */ "./node_modules/util/node_modules/inherits/inherits_browser.js");
 
 exports._extend = function(origin, add) {
   // Don't do anything if add isn't an object
@@ -26836,256 +27242,114 @@ function hasOwnProperty(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js"), __webpack_require__(/*! ./../process/browser.js */ "./node_modules/process/browser.js")))
+var kCustomPromisifiedSymbol = typeof Symbol !== 'undefined' ? Symbol('util.promisify.custom') : undefined;
 
-/***/ }),
+exports.promisify = function promisify(original) {
+  if (typeof original !== 'function')
+    throw new TypeError('The "original" argument must be of type Function');
 
-/***/ "./node_modules/uuid/index.js":
-/*!************************************!*\
-  !*** ./node_modules/uuid/index.js ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+  if (kCustomPromisifiedSymbol && original[kCustomPromisifiedSymbol]) {
+    var fn = original[kCustomPromisifiedSymbol];
+    if (typeof fn !== 'function') {
+      throw new TypeError('The "util.promisify.custom" argument must be of type Function');
+    }
+    Object.defineProperty(fn, kCustomPromisifiedSymbol, {
+      value: fn, enumerable: false, writable: false, configurable: true
+    });
+    return fn;
+  }
 
-var v1 = __webpack_require__(/*! ./v1 */ "./node_modules/uuid/v1.js");
-var v4 = __webpack_require__(/*! ./v4 */ "./node_modules/uuid/v4.js");
+  function fn() {
+    var promiseResolve, promiseReject;
+    var promise = new Promise(function (resolve, reject) {
+      promiseResolve = resolve;
+      promiseReject = reject;
+    });
 
-var uuid = v4;
-uuid.v1 = v1;
-uuid.v4 = v4;
+    var args = [];
+    for (var i = 0; i < arguments.length; i++) {
+      args.push(arguments[i]);
+    }
+    args.push(function (err, value) {
+      if (err) {
+        promiseReject(err);
+      } else {
+        promiseResolve(value);
+      }
+    });
 
-module.exports = uuid;
-
-
-/***/ }),
-
-/***/ "./node_modules/uuid/lib/bytesToUuid.js":
-/*!**********************************************!*\
-  !*** ./node_modules/uuid/lib/bytesToUuid.js ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/**
- * Convert array of 16 byte values to UUID string format of the form:
- * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
- */
-var byteToHex = [];
-for (var i = 0; i < 256; ++i) {
-  byteToHex[i] = (i + 0x100).toString(16).substr(1);
-}
-
-function bytesToUuid(buf, offset) {
-  var i = offset || 0;
-  var bth = byteToHex;
-  return bth[buf[i++]] + bth[buf[i++]] +
-          bth[buf[i++]] + bth[buf[i++]] + '-' +
-          bth[buf[i++]] + bth[buf[i++]] + '-' +
-          bth[buf[i++]] + bth[buf[i++]] + '-' +
-          bth[buf[i++]] + bth[buf[i++]] + '-' +
-          bth[buf[i++]] + bth[buf[i++]] +
-          bth[buf[i++]] + bth[buf[i++]] +
-          bth[buf[i++]] + bth[buf[i++]];
-}
-
-module.exports = bytesToUuid;
-
-
-/***/ }),
-
-/***/ "./node_modules/uuid/lib/rng-browser.js":
-/*!**********************************************!*\
-  !*** ./node_modules/uuid/lib/rng-browser.js ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(global) {// Unique ID creation requires a high quality random # generator.  In the
-// browser this is a little complicated due to unknown quality of Math.random()
-// and inconsistent support for the `crypto` API.  We do the best we can via
-// feature-detection
-var rng;
-
-var crypto = global.crypto || global.msCrypto; // for IE 11
-if (crypto && crypto.getRandomValues) {
-  // WHATWG crypto RNG - http://wiki.whatwg.org/wiki/Crypto
-  var rnds8 = new Uint8Array(16); // eslint-disable-line no-undef
-  rng = function whatwgRNG() {
-    crypto.getRandomValues(rnds8);
-    return rnds8;
-  };
-}
-
-if (!rng) {
-  // Math.random()-based (RNG)
-  //
-  // If all else fails, use Math.random().  It's fast, but is of unspecified
-  // quality.
-  var rnds = new Array(16);
-  rng = function() {
-    for (var i = 0, r; i < 16; i++) {
-      if ((i & 0x03) === 0) r = Math.random() * 0x100000000;
-      rnds[i] = r >>> ((i & 0x03) << 3) & 0xff;
+    try {
+      original.apply(this, args);
+    } catch (err) {
+      promiseReject(err);
     }
 
-    return rnds;
-  };
+    return promise;
+  }
+
+  Object.setPrototypeOf(fn, Object.getPrototypeOf(original));
+
+  if (kCustomPromisifiedSymbol) Object.defineProperty(fn, kCustomPromisifiedSymbol, {
+    value: fn, enumerable: false, writable: false, configurable: true
+  });
+  return Object.defineProperties(
+    fn,
+    getOwnPropertyDescriptors(original)
+  );
 }
 
-module.exports = rng;
+exports.promisify.custom = kCustomPromisifiedSymbol
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
-
-/***/ }),
-
-/***/ "./node_modules/uuid/v1.js":
-/*!*********************************!*\
-  !*** ./node_modules/uuid/v1.js ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var rng = __webpack_require__(/*! ./lib/rng */ "./node_modules/uuid/lib/rng-browser.js");
-var bytesToUuid = __webpack_require__(/*! ./lib/bytesToUuid */ "./node_modules/uuid/lib/bytesToUuid.js");
-
-// **`v1()` - Generate time-based UUID**
-//
-// Inspired by https://github.com/LiosK/UUID.js
-// and http://docs.python.org/library/uuid.html
-
-// random #'s we need to init node and clockseq
-var _seedBytes = rng();
-
-// Per 4.5, create and 48-bit node id, (47 random bits + multicast bit = 1)
-var _nodeId = [
-  _seedBytes[0] | 0x01,
-  _seedBytes[1], _seedBytes[2], _seedBytes[3], _seedBytes[4], _seedBytes[5]
-];
-
-// Per 4.2.2, randomize (14 bit) clockseq
-var _clockseq = (_seedBytes[6] << 8 | _seedBytes[7]) & 0x3fff;
-
-// Previous uuid creation time
-var _lastMSecs = 0, _lastNSecs = 0;
-
-// See https://github.com/broofa/node-uuid for API details
-function v1(options, buf, offset) {
-  var i = buf && offset || 0;
-  var b = buf || [];
-
-  options = options || {};
-
-  var clockseq = options.clockseq !== undefined ? options.clockseq : _clockseq;
-
-  // UUID timestamps are 100 nano-second units since the Gregorian epoch,
-  // (1582-10-15 00:00).  JSNumbers aren't precise enough for this, so
-  // time is handled internally as 'msecs' (integer milliseconds) and 'nsecs'
-  // (100-nanoseconds offset from msecs) since unix epoch, 1970-01-01 00:00.
-  var msecs = options.msecs !== undefined ? options.msecs : new Date().getTime();
-
-  // Per 4.2.1.2, use count of uuid's generated during the current clock
-  // cycle to simulate higher resolution clock
-  var nsecs = options.nsecs !== undefined ? options.nsecs : _lastNSecs + 1;
-
-  // Time since last uuid creation (in msecs)
-  var dt = (msecs - _lastMSecs) + (nsecs - _lastNSecs)/10000;
-
-  // Per 4.2.1.2, Bump clockseq on clock regression
-  if (dt < 0 && options.clockseq === undefined) {
-    clockseq = clockseq + 1 & 0x3fff;
+function callbackifyOnRejected(reason, cb) {
+  // `!reason` guard inspired by bluebird (Ref: https://goo.gl/t5IS6M).
+  // Because `null` is a special error value in callbacks which means "no error
+  // occurred", we error-wrap so the callback consumer can distinguish between
+  // "the promise rejected with null" or "the promise fulfilled with undefined".
+  if (!reason) {
+    var newReason = new Error('Promise was rejected with a falsy value');
+    newReason.reason = reason;
+    reason = newReason;
   }
-
-  // Reset nsecs if clock regresses (new clockseq) or we've moved onto a new
-  // time interval
-  if ((dt < 0 || msecs > _lastMSecs) && options.nsecs === undefined) {
-    nsecs = 0;
-  }
-
-  // Per 4.2.1.2 Throw error if too many uuids are requested
-  if (nsecs >= 10000) {
-    throw new Error('uuid.v1(): Can\'t create more than 10M uuids/sec');
-  }
-
-  _lastMSecs = msecs;
-  _lastNSecs = nsecs;
-  _clockseq = clockseq;
-
-  // Per 4.1.4 - Convert from unix epoch to Gregorian epoch
-  msecs += 12219292800000;
-
-  // `time_low`
-  var tl = ((msecs & 0xfffffff) * 10000 + nsecs) % 0x100000000;
-  b[i++] = tl >>> 24 & 0xff;
-  b[i++] = tl >>> 16 & 0xff;
-  b[i++] = tl >>> 8 & 0xff;
-  b[i++] = tl & 0xff;
-
-  // `time_mid`
-  var tmh = (msecs / 0x100000000 * 10000) & 0xfffffff;
-  b[i++] = tmh >>> 8 & 0xff;
-  b[i++] = tmh & 0xff;
-
-  // `time_high_and_version`
-  b[i++] = tmh >>> 24 & 0xf | 0x10; // include version
-  b[i++] = tmh >>> 16 & 0xff;
-
-  // `clock_seq_hi_and_reserved` (Per 4.2.2 - include variant)
-  b[i++] = clockseq >>> 8 | 0x80;
-
-  // `clock_seq_low`
-  b[i++] = clockseq & 0xff;
-
-  // `node`
-  var node = options.node || _nodeId;
-  for (var n = 0; n < 6; ++n) {
-    b[i + n] = node[n];
-  }
-
-  return buf ? buf : bytesToUuid(b);
+  return cb(reason);
 }
 
-module.exports = v1;
-
-
-/***/ }),
-
-/***/ "./node_modules/uuid/v4.js":
-/*!*********************************!*\
-  !*** ./node_modules/uuid/v4.js ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var rng = __webpack_require__(/*! ./lib/rng */ "./node_modules/uuid/lib/rng-browser.js");
-var bytesToUuid = __webpack_require__(/*! ./lib/bytesToUuid */ "./node_modules/uuid/lib/bytesToUuid.js");
-
-function v4(options, buf, offset) {
-  var i = buf && offset || 0;
-
-  if (typeof(options) == 'string') {
-    buf = options == 'binary' ? new Array(16) : null;
-    options = null;
+function callbackify(original) {
+  if (typeof original !== 'function') {
+    throw new TypeError('The "original" argument must be of type Function');
   }
-  options = options || {};
 
-  var rnds = options.random || (options.rng || rng)();
-
-  // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
-  rnds[6] = (rnds[6] & 0x0f) | 0x40;
-  rnds[8] = (rnds[8] & 0x3f) | 0x80;
-
-  // Copy bytes to buffer, if provided
-  if (buf) {
-    for (var ii = 0; ii < 16; ++ii) {
-      buf[i + ii] = rnds[ii];
+  // We DO NOT return the promise as it gives the user a false sense that
+  // the promise is actually somehow related to the callback's execution
+  // and that the callback throwing will reject the promise.
+  function callbackified() {
+    var args = [];
+    for (var i = 0; i < arguments.length; i++) {
+      args.push(arguments[i]);
     }
+
+    var maybeCb = args.pop();
+    if (typeof maybeCb !== 'function') {
+      throw new TypeError('The last argument must be of type Function');
+    }
+    var self = this;
+    var cb = function() {
+      return maybeCb.apply(self, arguments);
+    };
+    // In true node style we process the callback on `nextTick` with all the
+    // implications (stack, `uncaughtException`, `async_hooks`)
+    original.apply(this, args)
+      .then(function(ret) { process.nextTick(cb, null, ret) },
+            function(rej) { process.nextTick(callbackifyOnRejected, rej, cb) });
   }
 
-  return buf || bytesToUuid(rnds);
+  Object.setPrototypeOf(callbackified, Object.getPrototypeOf(original));
+  Object.defineProperties(callbackified,
+                          getOwnPropertyDescriptors(original));
+  return callbackified;
 }
+exports.callbackify = callbackify;
 
-module.exports = v4;
-
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
 
@@ -27744,6 +28008,17 @@ function getContactDetailBySso(sso) {
     return fetch_1.getUri(uri);
 }
 exports.getContactDetailBySso = getContactDetailBySso;
+function getContactsDetailsBySFDC(contactIds, fields) {
+    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/contacts/all");
+    if (contactIds && contactIds.length > 0) {
+        uri.addQueryParam('ids', contactIds.join(','));
+    }
+    if (fields && fields.length > 0) {
+        uri.addQueryParam('fields', fields.join(','));
+    }
+    return fetch_1.getUri(uri);
+}
+exports.getContactsDetailsBySFDC = getContactsDetailsBySFDC;
 function bookmarkAccount(sso, accountNumber) {
     var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/accounts/bookmarks/" + sso + "/" + accountNumber);
     return fetch_1.postUri(uri, { accountNumber: accountNumber, contactSsoName: sso });
@@ -28089,6 +28364,7 @@ function downloadAttachmentS3(caseNumber, attachmentId, fileName, useRHEndpoint)
                     url = _a.sent();
                     element = document.createElement('a');
                     element.setAttribute('href', url);
+                    element.setAttribute('target', '_blank');
                     document.body.appendChild(element);
                     element.click();
                     document.body.removeChild(element);
@@ -28218,6 +28494,20 @@ function getS3DownloadUrl(caseNumber, attachmentId, fileName, useRHEndpoint) {
     });
 }
 exports.getS3DownloadUrl = getS3DownloadUrl;
+function getAttachmentsMetadata(attachmentIds, fields) {
+    return __awaiter(this, void 0, void 0, function () {
+        var uri;
+        return __generator(this, function (_a) {
+            uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/attachments/metadata");
+            uri.addQueryParam('ids', attachmentIds.join(','));
+            if (fields && fields.length > 0) {
+                uri.addQueryParam('fields', fields.join(','));
+            }
+            return [2 /*return*/, fetch_1.getUri(uri)];
+        });
+    });
+}
+exports.getAttachmentsMetadata = getAttachmentsMetadata;
 
 
 /***/ }),
@@ -28321,6 +28611,16 @@ function downloadSosReportFile(caseNumber, downloadReq) {
     });
 }
 exports.downloadSosReportFile = downloadSosReportFile;
+function getSosReportFileSharableToken(caseNumber, path) {
+    return getSosReportFileDownloadToken(caseNumber, { type: 'link', path: path });
+}
+exports.getSosReportFileSharableToken = getSosReportFileSharableToken;
+function getSosReportFilePathFromToken(caseNumber, token) {
+    var uri = env_1.default.cavHostName.clone().setPath(env_1.default.cavPathPrefix + "/attachments/" + caseNumber + "/attachment/link");
+    uri.addQueryParam('token', token);
+    return fetch_1.getUri(uri);
+}
+exports.getSosReportFilePathFromToken = getSosReportFilePathFromToken;
 
 
 /***/ }),
@@ -28424,6 +28724,41 @@ exports.getCallCenter = getCallCenter;
 
 "use strict";
 
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var env_1 = __webpack_require__(/*! ../utils/env */ "./src/utils/env.ts");
 var fetch_1 = __webpack_require__(/*! ../utils/fetch */ "./src/utils/fetch.ts");
@@ -28462,6 +28797,18 @@ function getCases(filters, fields, isSecureSupport) {
     return fetch_1.getUri(uri);
 }
 exports.getCases = getCases;
+function getCasesById(caseIds, fields, isSecureSupport) {
+    if (isSecureSupport === void 0) { isSecureSupport = false; }
+    var uri = env_1.default.hydraHostName.clone().setPath((isSecureSupport ? env_1.default.securePathPrefix : env_1.default.pathPrefix) + "/cases");
+    if (caseIds && caseIds.length > 0) {
+        uri.addQueryParam('cases', caseIds.join(','));
+    }
+    if (fields && fields.length > 0) {
+        uri.addQueryParam('fields', fields.join(','));
+    }
+    return fetch_1.getUri(uri);
+}
+exports.getCasesById = getCasesById;
 function updateCase(caseId, kase, isSecureSupport) {
     if (isSecureSupport === void 0) { isSecureSupport = false; }
     var uri = env_1.default.hydraHostName.clone().setPath((isSecureSupport ? env_1.default.secureExtPathPrefix : env_1.default.pathPrefix) + "/cases/" + caseId);
@@ -28488,25 +28835,23 @@ function linkJiraToCase(caseId, newLink) {
     return fetch_1.postUri(uri, newLink);
 }
 exports.linkJiraToCase = linkJiraToCase;
-function deleteJiraLinkFromCase(caseId, issueKey) {
-    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/" + caseId + "/jira/" + issueKey);
+function deleteJiraLinkFromCase(caseId, issueKey, systemInstance) {
+    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/" + caseId + "/jira/" + systemInstance + "/" + issueKey);
     return fetch_1.deleteUri(uri);
 }
 exports.deleteJiraLinkFromCase = deleteJiraLinkFromCase;
-function getLanguages() {
-    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/languages");
-    return fetch_1.getUri(uri);
-}
-exports.getLanguages = getLanguages;
 function getCaseSbrs() {
     var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/metadata/sbrs");
     return fetch_1.getUri(uri);
 }
 exports.getCaseSbrs = getCaseSbrs;
-function getCaseTags(limit) {
+function getCaseTags(options) {
     var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/metadata/tags");
-    if (limit !== undefined) {
-        uri.addQueryParam('limit', limit);
+    if (options && Object.keys(options).length > 0) {
+        for (var _i = 0, _a = Object.keys(options); _i < _a.length; _i++) {
+            var key = _a[_i];
+            options[key] || options[key] === 0 ? uri.addQueryParam(key, options[key]) : null;
+        }
     }
     return fetch_1.getUri(uri);
 }
@@ -28784,6 +29129,66 @@ function patchCaseAccess(caseNumber, patchBody) {
     return fetch_1.patchUri(uri, patchBody);
 }
 exports.patchCaseAccess = patchCaseAccess;
+function getCustomEmailsFromAccount(accountNumber) {
+    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/notificationaddress/account/" + accountNumber);
+    return fetch_1.getUri(uri);
+}
+exports.getCustomEmailsFromAccount = getCustomEmailsFromAccount;
+function addCustomEmailToAccount(accountNumber, emailAddress, minimumSeverity, emailOnUpdates, notifyOfNewCases) {
+    if (minimumSeverity === void 0) { minimumSeverity = '4'; }
+    if (emailOnUpdates === void 0) { emailOnUpdates = false; }
+    if (notifyOfNewCases === void 0) { notifyOfNewCases = false; }
+    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/notificationaddress/account/" + accountNumber);
+    var body = {
+        addressParameter: {
+            accountNumber: accountNumber,
+            emailAddress: emailAddress,
+            minimumSeverity: minimumSeverity,
+            emailOnUpdates: emailOnUpdates,
+            notifyOfNewCases: notifyOfNewCases
+        }
+    };
+    return fetch_1.postUri(uri, body);
+}
+exports.addCustomEmailToAccount = addCustomEmailToAccount;
+function getCustomEmailsFromCase(caseNumber) {
+    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/notificationaddress/cases/" + caseNumber);
+    return fetch_1.getUri(uri);
+}
+exports.getCustomEmailsFromCase = getCustomEmailsFromCase;
+function addCustomEmailToCase(accountNumber, caseNumber, emailAddress) {
+    return __awaiter(this, void 0, void 0, function () {
+        var uri, accountEmailRes, error_1;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/notificationaddress/cases/" + caseNumber + "/email/" + emailAddress);
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 5, , 6]);
+                    return [4 /*yield*/, getCustomEmailsFromAccount(accountNumber)];
+                case 2:
+                    accountEmailRes = _a.sent();
+                    if (!!accountEmailRes.notificationAddresses.find(function (email) { return email.emailAddress === emailAddress; })) return [3 /*break*/, 4];
+                    return [4 /*yield*/, addCustomEmailToAccount(accountNumber, emailAddress)];
+                case 3:
+                    _a.sent();
+                    _a.label = 4;
+                case 4: return [2 /*return*/, fetch_1.postUri(uri)];
+                case 5:
+                    error_1 = _a.sent();
+                    throw error_1;
+                case 6: return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.addCustomEmailToCase = addCustomEmailToCase;
+function deleteCustomEmailFromCase(caseNumber, emailAddress) {
+    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/notificationaddress/cases/" + caseNumber + "/email/" + emailAddress);
+    return fetch_1.deleteUri(uri);
+}
+exports.deleteCustomEmailFromCase = deleteCustomEmailFromCase;
 
 
 /***/ }),
@@ -28815,6 +29220,27 @@ function getHistory(options) {
     return fetch_1.getUri(uri);
 }
 exports.getHistory = getHistory;
+
+
+/***/ }),
+
+/***/ "./src/api/caseMetadata.ts":
+/*!*********************************!*\
+  !*** ./src/api/caseMetadata.ts ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var env_1 = __webpack_require__(/*! ../utils/env */ "./src/utils/env.ts");
+var fetch_1 = __webpack_require__(/*! ../utils/fetch */ "./src/utils/fetch.ts");
+function getLanguagesMetadata() {
+    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/metadata/languages");
+    return fetch_1.getUri(uri);
+}
+exports.getLanguagesMetadata = getLanguagesMetadata;
 
 
 /***/ }),
@@ -28991,6 +29417,17 @@ function getComments(caseNumber, options, isSecureSupport) {
     return fetch_1.getUri(uri);
 }
 exports.getComments = getComments;
+function getCommentsFromSFDC(commentIds, fields) {
+    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/comments");
+    if (commentIds && commentIds.length > 0) {
+        uri.addQueryParam('ids', commentIds.join(','));
+    }
+    if (fields && fields.length > 0) {
+        uri.addQueryParam('fields', fields.join(','));
+    }
+    return fetch_1.getUri(uri);
+}
+exports.getCommentsFromSFDC = getCommentsFromSFDC;
 function upsertComment(comment, doNotSendEmail, isSecureSupport) {
     if (isSecureSupport === void 0) { isSecureSupport = false; }
     var uri = env_1.default.hydraHostName.clone().setPath((isSecureSupport ? env_1.default.securePathPrefix : env_1.default.pathPrefix) + "/cases/comments");
@@ -29036,10 +29473,13 @@ exports.getChatterComments = getChatterComments;
 Object.defineProperty(exports, "__esModule", { value: true });
 var fetch_1 = __webpack_require__(/*! ../../utils/fetch */ "./src/utils/fetch.ts");
 var env_1 = __webpack_require__(/*! ../../utils/env */ "./src/utils/env.ts");
-function getSFDCContacts(params) {
+function getSFDCContacts(params, abortSignal) {
     var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/contacts/");
     fetch_1.addQueryParamsToUri(uri, params);
-    return fetch_1.getUri(uri);
+    var options = {
+        signal: abortSignal
+    };
+    return fetch_1.getUri(uri, options);
 }
 exports.getSFDCContacts = getSFDCContacts;
 
@@ -30192,6 +30632,230 @@ function getExternalTrackersUpdates(externalTrackerId, fields) {
     return fetch_1.getUri(uri);
 }
 exports.getExternalTrackersUpdates = getExternalTrackersUpdates;
+
+
+/***/ }),
+
+/***/ "./src/api/feedbacks.ts":
+/*!******************************!*\
+  !*** ./src/api/feedbacks.ts ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var env_1 = __webpack_require__(/*! ../utils/env */ "./src/utils/env.ts");
+var fetch_1 = __webpack_require__(/*! ../utils/fetch */ "./src/utils/fetch.ts");
+function getSurveysFromSFDC(surveyIds) {
+    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/cases/feedbacks");
+    uri.addQueryParam('ids', surveyIds.join(','));
+    return fetch_1.getUri(uri);
+}
+exports.getSurveysFromSFDC = getSurveysFromSFDC;
+
+
+/***/ }),
+
+/***/ "./src/api/gdpr/customerPlatform.ts":
+/*!******************************************!*\
+  !*** ./src/api/gdpr/customerPlatform.ts ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var env_1 = __webpack_require__(/*! ../../utils/env */ "./src/utils/env.ts");
+var fetch_1 = __webpack_require__(/*! ../../utils/fetch */ "./src/utils/fetch.ts");
+function searchDrupal(fields) {
+    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/gdpr/drupal");
+    if (fields && Object.keys(fields).length > 0) {
+        for (var _i = 0, _a = Object.keys(fields); _i < _a.length; _i++) {
+            var key = _a[_i];
+            fields[key] || fields[key] === 0 ? uri.addQueryParam(key, fields[key]) : null;
+        }
+    }
+    return fetch_1.getUri(uri);
+}
+exports.searchDrupal = searchDrupal;
+function deleteDrupalUser(fields) {
+    var uri = env_1.default.hydraHostName
+        .clone()
+        .setPath(env_1.default.pathPrefix + "/gdpr/drupal?email=" + fields['email'] + "&ticketId=" + fields['ticketId']);
+    return fetch_1.deleteUri(uri);
+}
+exports.deleteDrupalUser = deleteDrupalUser;
+
+
+/***/ }),
+
+/***/ "./src/api/gdpr/index.ts":
+/*!*******************************!*\
+  !*** ./src/api/gdpr/index.ts ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var sfdc_1 = __webpack_require__(/*! ./sfdc */ "./src/api/gdpr/sfdc.ts");
+exports.searchSFDC = sfdc_1.searchSFDC;
+var customerPlatform_1 = __webpack_require__(/*! ./customerPlatform */ "./src/api/gdpr/customerPlatform.ts");
+exports.searchDrupal = customerPlatform_1.searchDrupal;
+exports.deleteDrupalUser = customerPlatform_1.deleteDrupalUser;
+var solr_1 = __webpack_require__(/*! ./solr */ "./src/api/gdpr/solr.ts");
+exports.searchSolr = solr_1.searchSolr;
+var qualtrics_1 = __webpack_require__(/*! ./qualtrics */ "./src/api/gdpr/qualtrics.ts");
+exports.searchQualtrics = qualtrics_1.searchQualtrics;
+exports.getQualtricsOperationStatus = qualtrics_1.getQualtricsOperationStatus;
+exports.deleteQualtricsUser = qualtrics_1.deleteQualtricsUser;
+var zendesk_1 = __webpack_require__(/*! ./zendesk */ "./src/api/gdpr/zendesk.ts");
+exports.searchZendesk = zendesk_1.searchZendesk;
+exports.getZendeskTickets = zendesk_1.getZendeskTickets;
+exports.deleteZendeskTickets = zendesk_1.deleteZendeskTickets;
+exports.deleteZendeskUser = zendesk_1.deleteZendeskUser;
+
+
+/***/ }),
+
+/***/ "./src/api/gdpr/qualtrics.ts":
+/*!***********************************!*\
+  !*** ./src/api/gdpr/qualtrics.ts ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var env_1 = __webpack_require__(/*! ../../utils/env */ "./src/utils/env.ts");
+var fetch_1 = __webpack_require__(/*! ../../utils/fetch */ "./src/utils/fetch.ts");
+function searchQualtrics(fields) {
+    var uri = env_1.default.hydraHostName
+        .clone()
+        .setPath(env_1.default.pathPrefix + "/gdpr/qualtrics/searchOnly?ticketid=" + fields['ticketId']);
+    return fetch_1.postUri(uri, { emails: [fields['email']] });
+}
+exports.searchQualtrics = searchQualtrics;
+function getQualtricsOperationStatus(operationId, ticketId) {
+    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/gdpr/qualtrics/operation/" + operationId);
+    uri.addQueryParam('ticketId', ticketId);
+    return fetch_1.getUri(uri);
+}
+exports.getQualtricsOperationStatus = getQualtricsOperationStatus;
+function deleteQualtricsUser(fields) {
+    var uri = env_1.default.hydraHostName
+        .clone()
+        .setPath(env_1.default.pathPrefix + "/gdpr/qualtrics/delete?ticketid=" + fields['ticketId']);
+    return fetch_1.postUri(uri, { emails: [fields['email']] });
+}
+exports.deleteQualtricsUser = deleteQualtricsUser;
+
+
+/***/ }),
+
+/***/ "./src/api/gdpr/sfdc.ts":
+/*!******************************!*\
+  !*** ./src/api/gdpr/sfdc.ts ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var env_1 = __webpack_require__(/*! ../../utils/env */ "./src/utils/env.ts");
+var fetch_1 = __webpack_require__(/*! ../../utils/fetch */ "./src/utils/fetch.ts");
+function searchSFDC(fields) {
+    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/gdpr/sfdc/contacts");
+    if (fields && Object.keys(fields).length > 0) {
+        for (var _i = 0, _a = Object.keys(fields); _i < _a.length; _i++) {
+            var key = _a[_i];
+            fields[key] || fields[key] === 0 ? uri.addQueryParam(key, fields[key]) : null;
+        }
+    }
+    return fetch_1.getUri(uri);
+}
+exports.searchSFDC = searchSFDC;
+
+
+/***/ }),
+
+/***/ "./src/api/gdpr/solr.ts":
+/*!******************************!*\
+  !*** ./src/api/gdpr/solr.ts ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var env_1 = __webpack_require__(/*! ../../utils/env */ "./src/utils/env.ts");
+var fetch_1 = __webpack_require__(/*! ../../utils/fetch */ "./src/utils/fetch.ts");
+function searchSolr(fields) {
+    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/gdpr/solr/case");
+    if (fields && Object.keys(fields).length > 0) {
+        for (var _i = 0, _a = Object.keys(fields); _i < _a.length; _i++) {
+            var key = _a[_i];
+            fields[key] || fields[key] === 0 ? uri.addQueryParam(key, fields[key]) : null;
+        }
+    }
+    return fetch_1.getUri(uri);
+}
+exports.searchSolr = searchSolr;
+
+
+/***/ }),
+
+/***/ "./src/api/gdpr/zendesk.ts":
+/*!*********************************!*\
+  !*** ./src/api/gdpr/zendesk.ts ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var env_1 = __webpack_require__(/*! ../../utils/env */ "./src/utils/env.ts");
+var fetch_1 = __webpack_require__(/*! ../../utils/fetch */ "./src/utils/fetch.ts");
+function searchZendesk(fields) {
+    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/gdpr/zendesk/users");
+    if (fields && Object.keys(fields).length > 0) {
+        for (var _i = 0, _a = Object.keys(fields); _i < _a.length; _i++) {
+            var key = _a[_i];
+            fields[key] || fields[key] === 0 ? uri.addQueryParam(key, fields[key]) : null;
+        }
+    }
+    return fetch_1.getUri(uri);
+}
+exports.searchZendesk = searchZendesk;
+function getZendeskTickets(userId, ticketId) {
+    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/gdpr/zendesk/users/" + userId + "/tickets");
+    return fetch_1.getUri(uri);
+}
+exports.getZendeskTickets = getZendeskTickets;
+function deleteZendeskUser(userId, ticketId) {
+    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/gdpr/zendesk/users/" + userId + "?ticketId=" + ticketId);
+    return fetch_1.deleteUri(uri);
+}
+exports.deleteZendeskUser = deleteZendeskUser;
+function deleteZendeskTickets(ids, ticketId) {
+    var uri = env_1.default.hydraHostName.clone().setPath(env_1.default.pathPrefix + "/gdpr/zendesk/tickets");
+    if (ticketId) {
+        uri.addQueryParam('ticketId', ticketId);
+    }
+    if (ids && ids.length > 0) {
+        uri.addQueryParam('ids', ids.join(','));
+    }
+    return fetch_1.deleteUri(uri);
+}
+exports.deleteZendeskTickets = deleteZendeskTickets;
 
 
 /***/ }),
@@ -32614,8 +33278,11 @@ var rhcertVersion_1 = __webpack_require__(/*! ./api/cweAdmin/rhcertVersion */ ".
 var escalation_2 = __webpack_require__(/*! ./api/escalationHub/escalation */ "./src/api/escalationHub/escalation.ts");
 var attachment_2 = __webpack_require__(/*! ./api/attachmentViewer/attachment */ "./src/api/attachmentViewer/attachment.ts");
 var user_4 = __webpack_require__(/*! ./api/attachmentViewer/user */ "./src/api/attachmentViewer/user.ts");
+var gdpr_1 = __webpack_require__(/*! ./api/gdpr */ "./src/api/gdpr/index.ts");
 var fetch_1 = __webpack_require__(/*! ./utils/fetch */ "./src/utils/fetch.ts");
 var env_1 = __webpack_require__(/*! ./utils/env */ "./src/utils/env.ts");
+var caseMetadata_1 = __webpack_require__(/*! ./api/caseMetadata */ "./src/api/caseMetadata.ts");
+var feedbacks_1 = __webpack_require__(/*! ./api/feedbacks */ "./src/api/feedbacks.ts");
 exports.default = {
     general: {
         health: general_1.health,
@@ -32623,14 +33290,19 @@ exports.default = {
     },
     kase: {
         getComments: comment_1.getComments,
+        getCommentsFromSFDC: comment_1.getCommentsFromSFDC,
         upsertComment: comment_1.upsertComment,
         getCase: case_2.getCase,
         getCases: case_2.getCases,
+        getCasesById: case_2.getCasesById,
         updateCase: case_2.updateCase,
         updateCaseByInternal: case_2.updateCaseByInternal,
         getLinkedJiras: case_2.getLinkedJiras,
         linkJiraToCase: case_2.linkJiraToCase,
         deleteJiraLinkFromCase: case_2.deleteJiraLinkFromCase,
+        getCustomEmailsFromCase: case_2.getCustomEmailsFromCase,
+        addCustomEmailToCase: case_2.addCustomEmailToCase,
+        deleteCustomEmailFromCase: case_2.deleteCustomEmailFromCase,
         counts: {
             allCounts: counts_1.allCounts,
             articlesLinked: counts_1.articlesLinked,
@@ -32658,9 +33330,12 @@ exports.default = {
             getS3UploadAccounts: attachment_1.getS3UploadAccounts,
             uploadNonS3Attachment: attachment_1.uploadNonS3Attachment,
             deleteAttachment: attachment_1.deleteAttachment,
-            getS3DownloadUrl: attachment_1.getS3DownloadUrl
+            getS3DownloadUrl: attachment_1.getS3DownloadUrl,
+            getAttachmentsMetadata: attachment_1.getAttachmentsMetadata
         },
-        getLanguages: case_2.getLanguages,
+        metadata: {
+            getLanguagesMetadata: caseMetadata_1.getLanguagesMetadata
+        },
         getCaseSbrs: case_2.getCaseSbrs,
         getCaseTags: case_2.getCaseTags,
         updateCaseTags: case_2.updateCaseTags,
@@ -32828,7 +33503,8 @@ exports.default = {
         getAccountTeamMembers: account_2.getAccountTeamMembers,
         patchAccounts: account_2.patchAccounts,
         getContactDetailBySso: account_2.getContactDetailBySso,
-        bookmarkAccount: account_2.bookmarkAccount
+        bookmarkAccount: account_2.bookmarkAccount,
+        getContactsDetailsBySFDC: account_2.getContactsDetailsBySFDC
     },
     businessHours: {
         getBusinessHours: businessHours_1.getBusinessHours
@@ -33036,11 +33712,29 @@ exports.default = {
             getAttachmentFileContentForCaseNumber: attachment_2.getAttachmentFileContentForCaseNumber,
             getSosReportStructureForCaseNumber: attachment_2.getSosReportStructureForCaseNumber,
             getSosReportFileDownloadToken: attachment_2.getSosReportFileDownloadToken,
-            downloadSosReportFile: attachment_2.downloadSosReportFile
+            downloadSosReportFile: attachment_2.downloadSosReportFile,
+            getSosReportFileSharableToken: attachment_2.getSosReportFileSharableToken,
+            getSosReportFilePathFromToken: attachment_2.getSosReportFilePathFromToken
         },
         user: {
             getUserForSsoUserName: user_4.getUserForSsoUserName
         }
+    },
+    gdpr: {
+        searchSFDC: gdpr_1.searchSFDC,
+        searchDrupal: gdpr_1.searchDrupal,
+        deleteDrupalUser: gdpr_1.deleteDrupalUser,
+        searchSolr: gdpr_1.searchSolr,
+        searchQualtrics: gdpr_1.searchQualtrics,
+        getQualtricsOperationStatus: gdpr_1.getQualtricsOperationStatus,
+        deleteQualtricsUser: gdpr_1.deleteQualtricsUser,
+        searchZendesk: gdpr_1.searchZendesk,
+        getZendeskTickets: gdpr_1.getZendeskTickets,
+        deleteZendeskUser: gdpr_1.deleteZendeskUser,
+        deleteZendeskTickets: gdpr_1.deleteZendeskTickets
+    },
+    feedback: {
+        getSurveysFromSFDC: feedbacks_1.getSurveysFromSFDC
     },
     xhrRequest: {
         getUri: fetch_1.getUri,

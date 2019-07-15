@@ -201,7 +201,6 @@ export default class CaseService {
                 this.newCustomEmail = '';
                 this.loadingCustomNotificationEmails = false;
             } catch (error) {
-                console.log(error)
                 this.loadingCustomNotificationEmails = false;
                 AlertService.addDangerMessage(gettextCatalog.getString('Could not post custom email {{email}}', {
                     email: this.newCustomEmail
