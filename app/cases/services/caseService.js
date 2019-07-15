@@ -183,7 +183,7 @@ export default class CaseService {
         this.getCustomNotificationEmails = async () => {
             try {
                 this.loadingCustomNotificationEmails = true;
-                const response = await hydrajs.kase.getCustomEmailNotificationAddressesFromCase(this.kase.case_number);
+                const response = await hydrajs.kase.getCustomEmailsFromCase(this.kase.case_number);
                 this.customNotificationEmails = response.caseNotificationAddresses;
                 this.loadingCustomNotificationEmails = false;
             } catch (error) {
@@ -196,7 +196,7 @@ export default class CaseService {
         this.postCustomNotificationEmail = async () => {
             try {
                 this.loadingCustomNotificationEmails = true;
-                await hydrajs.kase.addCustomEmailNotificationAddressToCase(securityService.loginStatus.authedUser.account_number, this.kase.case_number, this.newCustomEmail);
+                await hydrajs.kase.addCustomEmailToCase(securityService.loginStatus.authedUser.account_number, this.kase.case_number, this.newCustomEmail);
                 this.customNotificationEmails.push({ emailAddress: this.newCustomEmail, caseNumber: this.kase.case_number });
                 this.newCustomEmail = '';
                 this.loadingCustomNotificationEmails = false;
@@ -213,7 +213,7 @@ export default class CaseService {
         this.removeCustomNotificationEmail = async (emailToDelete) => {
             try {
                 this.loadingCustomNotificationEmails = true;
-                await hydrajs.kase.deleteCustomEmailNotificationAddressFromCase(this.kase.case_number, emailToDelete.emailAddress);
+                await hydrajs.kase.deleteCustomEmailFromCase(this.kase.case_number, emailToDelete.emailAddress);
                 this.customNotificationEmails = this.customNotificationEmails.filter((email) => email !== emailToDelete);
                 this.loadingCustomNotificationEmails = false;
             } catch (error) {
