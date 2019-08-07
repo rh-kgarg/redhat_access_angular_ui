@@ -40,6 +40,7 @@
     "es6-promise": "~3.2.1",
     "exports-loader": "~0.6.3",
     "extract-text-webpack-plugin": "~1.0.1",
+    "fast-csv": "^3.4.0",
     "file-loader": "~0.9.0",
     "filesaver.js": "^0.2.0",
     "html-webpack-plugin": "^3.2.0",
@@ -109,7 +110,8 @@
     "generate-view-common-translates": "./node_modules/.bin/angular-gettext-cli --files 'node_modules/redhat_access_pcm_ascension_common/app/@(common|security)/views/*.html'  --dest \"./app/i18n/template-common-views.pot\"",
     "merge-translates": "msgcat app/i18n/template-dist.pot app/i18n/template-views.pot app/i18n/template-common.pot app/i18n/template-common-views.pot > app/i18n/template.pot",
     "clear-generated-files": "rimraf 'app/cases/views/!(compact).html' 'app/escalation/views/*.html' 'app/log_viewer/views/*.html' 'app/search/views/*.html' 'node_modules/redhat_access_pcm_ascension_common/app/security/views/*.html' 'node_modules/redhat_access_pcm_ascension_common/app/common/views/!(treenode|treeview-selector).html' 'app/i18n/@(template-common|template-common-views|template-dist|template-views).pot'",
-    "generate-translates": "npm run build && npm run generate-html && npm run generate-dist-translates && npm run generate-view-translates && npm run generate-dist-common-translates && npm run generate-view-common-translates && npm run merge-translates && npm run clear-generated-files"
+    "generate-translates": "npm run build && npm run generate-html && npm run generate-dist-translates && npm run generate-view-translates && npm run generate-dist-common-translates && npm run generate-view-common-translates && npm run merge-translates && npm run clear-generated-files",
+    "generate-new-translations": "node ./app/i18n/addNewTranslationsCSV.js"
   },
   "repository": {
     "type": "git",

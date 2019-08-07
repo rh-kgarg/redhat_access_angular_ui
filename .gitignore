@@ -22,3 +22,6 @@ app/assets/css/main.min.css.map
 
 /npm-debug.log
 .history
+
+app/i18n/template-*.temp.po
+app/i18n/template_*.temp.po

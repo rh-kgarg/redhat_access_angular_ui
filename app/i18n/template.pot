@@ -4,15 +4,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: dist/pcm.js:2023
+#: dist/pcm.js:2050
 msgid "(In reply to {{personName}})"
 msgstr ""
 
-#: dist/pcm.js:2023
+#: dist/pcm.js:2049
 msgid "A Case Contact must be selected to update case"
 msgstr ""
 
-#: dist/pcm.js:2035
+#: dist/pcm.js:3930
 msgid ""
 "A general usage question, reporting of a documentation error, or "
 "recommendation for a future product enhancement or modification. For "
@@ -22,7 +22,7 @@ msgid ""
 "continues to function, including by using a procedural workaround."
 msgstr ""
 
-#: dist/pcm.js:2035
+#: dist/pcm.js:3930
 msgid ""
 "A problem that involves partial, non-critical loss of use of the software in "
 "a production environment or development environment. For production "
@@ -32,7 +32,7 @@ msgid ""
 "no longer continue or migrate into production."
 msgstr ""
 
-#: dist/pcm.js:2035
+#: dist/pcm.js:3930
 msgid ""
 "A problem that severely impacts your use of the software in a production "
 "environment (such as loss of production data or in which your production "
@@ -40,672 +40,706 @@ msgid ""
 "and no procedural workaround exists."
 msgstr ""
 
-#: dist/pcm.js:2035
+#: dist/pcm.js:3930
 msgid ""
 "A problem where the software is functioning but your use in a production "
 "environment is severely reduced. The situation is causing a high impact to "
 "portions of your business operations and no procedural workaround exists."
 msgstr ""
 
-#: dist/pcm.js:185 app/cases/views/accountSearch.html:17
+#: dist/pcm.js:187 app/cases/views/accountSearch.html:17
 #: app/cases/views/existingBookmarkedAccounts.html:9
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14876
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22353
 msgid "Account Number"
 msgstr ""
 
-#: dist/pcm.js:2021
+#: dist/pcm.js:2047
 msgid "Account not found."
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14837
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22314
 msgid "All Cases"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14833
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22310
 msgid "All Closed Cases"
 msgstr ""
 
-#: dist/pcm.js:2036
+#: dist/pcm.js:3930
 msgid "All Groups"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14829
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22306
 msgid "All Open Cases"
 msgstr ""
 
-#: dist/pcm.js:2021
+#: dist/pcm.js:2047
 msgid "All unsaved changes will be overwritten."
 msgstr ""
 
-#: dist/pcm.js:2023
+#: dist/pcm.js:2049
 msgid "Are you sure you want to change this case severity to {{severityName}}?"
 msgstr ""
 
-#: dist/pcm.js:2023
+#: dist/pcm.js:2049
 msgid "Are you sure you want to change this case status to {{statusName}}?"
 msgstr ""
 
-#: dist/pcm.js:2022
+#: dist/pcm.js:2048
 msgid "Are you sure you want to close the selected cases?"
 msgstr ""
 
-#: dist/pcm.js:2021
+#: dist/pcm.js:2047
 msgid "Are you sure you want to delete this bookmark?"
 msgstr ""
 
-#: dist/pcm.js:2024 dist/pcm.js:2030
+#: dist/pcm.js:3917 dist/pcm.js:3923
 msgid ""
 "Are you sure you want to remove the Consultant Engagement in Progress flag?"
 msgstr ""
 
-#: dist/pcm.js:2021 app/cases/views/accountBookmarkHome.html:3
+#: dist/pcm.js:2047 app/cases/views/accountBookmarkHome.html:3
 msgid "Bookmark Accounts"
 msgstr ""
 
-#: dist/pcm.js:2022
+#: dist/pcm.js:2049
 msgid "Bookmark this account!"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:13885
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:21326
 msgid "CASE {{caseNumber}}"
 msgstr ""
 
-#: dist/pcm.js:2022
+#: dist/pcm.js:2048
 msgid "Can now accept large attachments (~250GB)"
 msgstr ""
 
-#: dist/pcm.js:2023
+#: dist/pcm.js:2049
 msgid "Case  {{caseNumber}} owner successfully changed."
 msgstr ""
 
-#: dist/pcm.js:2023
+#: dist/pcm.js:2049
 msgid "Case  {{caseNumber}} successfully closed."
 msgstr ""
 
-#: dist/pcm.js:2029 app/cases/views/manageGroupList.html:5
+#: dist/pcm.js:3922 app/cases/views/manageGroupList.html:5
 msgid "Case Groups"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14800
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22277
 msgid "Case Owner (A-Z)"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14805
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22282
 msgid "Case Owner (Z-A)"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14810
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22287
 msgid "Case Status (A-Z)"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14815
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22292
 msgid "Case Status (Z-A)"
 msgstr ""
 
-#: dist/pcm.js:2043
+#: dist/pcm.js:3937
 msgid "Case group successfully updated."
 msgstr ""
 
-#: dist/pcm.js:2023
+#: dist/pcm.js:2049
 msgid "Case severity was changed."
 msgstr ""
 
-#: dist/pcm.js:2023
+#: dist/pcm.js:2049
 msgid "Case status was changed."
 msgstr ""
 
-#: dist/pcm.js:2043
+#: dist/pcm.js:3937
 msgid "Case users successfully updated."
 msgstr ""
 
-#: dist/pcm.js:2031
+#: dist/pcm.js:3924
 msgid "Choose one of the displayed options."
 msgstr ""
 
-#: dist/pcm.js:2031
+#: dist/pcm.js:3924
 msgid "Closed"
 msgstr ""
 
-#: dist/pcm.js:2022
+#: dist/pcm.js:2048
 msgid "Closed Support Cases"
 msgstr ""
 
-#: dist/pcm.js:2022
+#: dist/pcm.js:2048
 msgid "Closing Cases."
 msgstr ""
 
-#: dist/pcm.js:2023
+#: dist/pcm.js:2049
 msgid "Closing cases."
 msgstr ""
 
-#: dist/pcm.js:2023 dist/pcm.js:2031
+#: dist/pcm.js:2049 dist/pcm.js:3924
 msgid "Consultant Engagement in Progress flag has been updated successfully"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14872
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22349
 msgid "Contact Name"
 msgstr ""
 
-#: dist/pcm.js:2024
+#: dist/pcm.js:3930
+msgid "Could not delete custom email {{email}}"
+msgstr ""
+
+#: dist/pcm.js:2050
 msgid "Could not download {{filename}}: {{error}}"
 msgstr ""
 
-#: dist/pcm.js:2035
+#: dist/pcm.js:3930
+msgid "Could not fetch custom notification emails"
+msgstr ""
+
+#: dist/pcm.js:3930
+msgid "Could not post custom email {{email}}"
+msgstr ""
+
+#: dist/pcm.js:3929
 msgid "Could not upload {{filename}}: {{error}}"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14863
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22340
 msgid "Created User and Date"
 msgstr ""
 
-#: dist/pcm.js:2051
+#: dist/pcm.js:3945
 msgid "Creating Ice Escalation request ....."
 msgstr ""
 
-#: dist/pcm.js:2051
+#: dist/pcm.js:3945
 msgid "Creating Partner Escalation request ....."
 msgstr ""
 
-#: dist/pcm.js:2036
+#: dist/pcm.js:3931
 msgid "Creating case..."
 msgstr ""
 
-#: dist/pcm.js:2043
+#: dist/pcm.js:3937
 msgid "Creating group"
 msgstr ""
 
-#: dist/pcm.js:2023
+#: dist/pcm.js:2049
 msgid "Creating group {{groupName}}..."
 msgstr ""
 
 #. #-#-#-#-#  template-views.pot  #-#-#-#-#
 #. Verb
-#: dist/pcm.js:2029 app/cases/views/listAttachments.html:12
+#: dist/pcm.js:3922 app/cases/views/listAttachments.html:12
 #: app/cases/views/listAttachments.html:25
 #: app/cases/views/listAttachments.html:26
 msgid "Delete"
 msgstr ""
 
-#: dist/pcm.js:2035
+#: dist/pcm.js:3929
 msgid "Deleting attachment: {{attachmentName}}"
 msgstr ""
 
-#: dist/pcm.js:2043
+#: dist/pcm.js:3937
 msgid "Deleting group"
 msgstr ""
 
-#: dist/pcm.js:2029
+#: dist/pcm.js:3922
 msgid "Duplicate"
 msgstr ""
 
-#: dist/pcm.js:2051
+#: dist/pcm.js:3945
 msgid "Email address is incorrect"
 msgstr ""
 
-#: dist/pcm.js:2031
+#: dist/pcm.js:3924
 msgid "Enter <b>and</b> or <b>or</b> to continue with the query."
 msgstr ""
 
-#: dist/pcm.js:2031
+#: dist/pcm.js:3924
 msgid "Enter <b>and</b> to continue with the query."
 msgstr ""
 
-#: dist/pcm.js:2031
+#: dist/pcm.js:3924
 msgid "Enter <b>or</b> to continue with the query."
 msgstr ""
 
-#: dist/pcm.js:2021 dist/pcm.js:2022
+#: dist/pcm.js:2047 dist/pcm.js:2049
 msgid "Error: Failed to upload attachment."
 msgstr ""
 
-#: dist/pcm.js:2021 dist/pcm.js:2030
+#: dist/pcm.js:2047 dist/pcm.js:3923
 msgid "Error: Failed to upload attachment. Message: {{errorMessage}}"
 msgstr ""
 
-#: dist/pcm.js:2022
+#: dist/pcm.js:2049
 msgid "Error: Failed to upload attachment. Message:{{errorMessage}}"
 msgstr ""
 
-#: dist/pcm.js:2036
+#: dist/pcm.js:3930
 msgid "Error: No contacts available for the selected account."
 msgstr ""
 
-#: dist/pcm.js:2023
+#: dist/pcm.js:2049
 msgid "Error: Selected Case Group does not belong to your account"
 msgstr ""
 
-#: dist/pcm.js:2029
+#: dist/pcm.js:3922
 msgid "Failed to update watchers, please retry."
 msgstr ""
 
-#: dist/pcm.js:2035
+#: dist/pcm.js:3929
 msgid ""
 "Failed to upload attachment {{attachmentName}} to case {{caseNumber}}: "
 "{{errorMessage}}"
 msgstr ""
 
-#: dist/pcm.js:2024
+#: dist/pcm.js:3917
 msgid "Friday = {{businessHours}}"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14780
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22257
 msgid "Highest Severity"
 msgstr ""
 
-#: dist/pcm.js:2024
+#: dist/pcm.js:3917
 msgid ""
 "If we have not recorded your business hours correctly, please update your "
 "timezone in  <a href='/wapps/ugc/protected/locale.html' target='_blank'>Your "
 "preferences</a>"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14868
+#: dist/pcm.js:3930
+msgid "In progress, sharing case with the partner ."
+msgstr ""
+
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22345
 msgid "Last Modified User and Date"
 msgstr ""
 
-#: dist/pcm.js:2022
+#: dist/pcm.js:2048
 msgid "List"
 msgstr ""
 
-#: dist/pcm.js:2030
+#: dist/pcm.js:3923
 msgid "Locating top solutions"
 msgstr ""
 
-#: dist/pcm.js:185 app/i18n/placeholder.html:4
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:13889
+#: dist/pcm.js:187 app/i18n/placeholder.html:4
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:21330
 msgid "Logs"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14785
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22262
 msgid "Lowest Severity"
 msgstr ""
 
-#: dist/pcm.js:185 dist/pcm.js:2036
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:13893
+#: dist/pcm.js:187 dist/pcm.js:3930
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:21334
 msgid "Manage Case Groups"
 msgstr ""
 
-#: dist/pcm.js:185 app/cases/views/group.html:16
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:13895
+#: dist/pcm.js:187 app/cases/views/group.html:16
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:21336
 msgid "Manage Default Case Groups"
 msgstr ""
 
-#: dist/pcm.js:2024
+#: dist/pcm.js:3917
 msgid "Monday = {{businessHours}}"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14881
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22358
 msgid "Name of the Red Hat Associate's who owns the case."
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14873
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22350
 msgid "Name of the customer contact."
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14864
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22341
 msgid "Name of the person who created the case and date it was created."
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14869
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22346
 msgid ""
 "Name of the person who modified the case last and the date the action was "
 "performed."
 msgstr ""
 
-#: dist/pcm.js:2030
+#: dist/pcm.js:3923
 msgid "New"
 msgstr ""
 
-#: dist/pcm.js:2030
+#: dist/pcm.js:3923
 msgid "New Case - Portal Case Management"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14790
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22267
 msgid "Newest Date Created"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14770
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22247
 msgid "Newest Date Modified"
 msgstr ""
 
-#: dist/pcm.js:2023
+#: dist/pcm.js:2050
 msgid "Newest to Oldest"
 msgstr ""
 
-#: dist/pcm.js:2029
+#: dist/pcm.js:3923
 msgid "No access"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14847
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22324
 msgid "Number & Status"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14848
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22325
 msgid "Number and Status of the case."
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14877
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22354
 msgid "Number of the account the case was created under."
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14795
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22272
 msgid "Oldest Date Created"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14775
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22252
 msgid "Oldest Date Modified"
 msgstr ""
 
-#: dist/pcm.js:2023
+#: dist/pcm.js:2050
 msgid "Oldest to Newest"
 msgstr ""
 
-#: dist/pcm.js:2031
+#: dist/pcm.js:3924
 msgid "Open"
 msgstr ""
 
-#: dist/pcm.js:2022
+#: dist/pcm.js:2048
 msgid "Open Support Cases"
 msgstr ""
 
-#: dist/pcm.js:185 app/cases/views/list.html:19
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:13887
+#: dist/pcm.js:187 app/cases/views/list.html:19
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:21328
 msgid "Open a Support Case"
 msgstr ""
 
-#: dist/pcm.js:2031
+#: dist/pcm.js:3924
 msgid "Open and Closed"
 msgstr ""
 
-#: dist/pcm.js:2022
+#: dist/pcm.js:2048
 msgid "Open and Closed Support Cases"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14880
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22357
 msgid "Owner Name"
 msgstr ""
 
-#: dist/pcm.js:2051
+#: dist/pcm.js:3945
 msgid "Please check the requestor email address"
 msgstr ""
 
-#: dist/pcm.js:2021 dist/pcm.js:2029
+#: dist/pcm.js:2047 dist/pcm.js:3922
 msgid "Portal Case Management"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14858
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22335
 msgid "Product Name and Version"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14859
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22336
 msgid "Product and Version assigned to the case."
 msgstr ""
 
-#: dist/pcm.js:2029
+#: dist/pcm.js:3922
 msgid "Read Only"
 msgstr ""
 
-#: dist/pcm.js:2029 app/cases/views/manageGroupUsers.html:28
+#: dist/pcm.js:3922 app/cases/views/manageGroupUsers.html:28
 msgid "Read and Write"
 msgstr ""
 
-#: dist/pcm.js:2030
+#: dist/pcm.js:3937
+msgid "Recently selected products: {{products}}"
+msgstr ""
+
+#: dist/pcm.js:3923
 msgid "Refining top solutions"
 msgstr ""
 
-#: dist/pcm.js:2022
+#: dist/pcm.js:2049
 msgid "Remove bookmark!"
 msgstr ""
 
-#: dist/pcm.js:2029
+#: dist/pcm.js:3922
 msgid "Rename"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:13883
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:21324
 msgid "SUPPORT CASES"
 msgstr ""
 
-#: dist/pcm.js:2024
+#: dist/pcm.js:3917
 msgid "Saturday = {{businessHours}}"
 msgstr ""
 
-#: dist/pcm.js:185 dist/pcm.js:2021 app/i18n/placeholder.html:3
+#: dist/pcm.js:187 dist/pcm.js:2047 app/i18n/placeholder.html:3
 #: app/search/views/search_form.html:7
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:13881
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:21322
 msgid "Search"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:13891
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:21332
 msgid "Search Support Case"
 msgstr ""
 
-#: dist/pcm.js:2036
+#: dist/pcm.js:3930
 msgid ""
 "Selected product {{productName}} is not entitled for Premium Plus support "
 "level."
 msgstr ""
 
-#: dist/pcm.js:185 app/cases/views/advancedSearchCaseList.html:5
+#: dist/pcm.js:187 app/cases/views/advancedSearchCaseList.html:5
 #: app/cases/views/new.html:103 app/cases/views/severitySelect.html:14
 #: app/escalation/views/iceEscalation.html:65
 #: app/escalation/views/partnerEscalation.html:64
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14842
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22319
 msgid "Severity"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14843
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22320
 msgid "Severity of the case."
 msgstr ""
 
-#: dist/pcm.js:2035
+#: dist/pcm.js:2050
+msgid ""
+"Showing {{firstNumOfResults}}-{{lastNumOfResults}} of {{totalNumOfResults}} "
+"results"
+msgstr ""
+
+#: dist/pcm.js:2050
+msgid "Showing {{showing}} - {{x}} of {{y}} results"
+msgstr ""
+
+#: dist/pcm.js:3929
 msgid "Successfully aborted {{filename}} upload"
 msgstr ""
 
-#: dist/pcm.js:2036
+#: dist/pcm.js:3931
 msgid "Successfully created case number {{caseNumber}}"
 msgstr ""
 
-#: dist/pcm.js:2043
+#: dist/pcm.js:3937
 msgid "Successfully created group"
 msgstr ""
 
-#: dist/pcm.js:2023
+#: dist/pcm.js:2049
 msgid "Successfully created group {{groupName}}"
 msgstr ""
 
-#: dist/pcm.js:2035
+#: dist/pcm.js:3929
 msgid "Successfully deleted attachment:{{attachmentName}}"
 msgstr ""
 
-#: dist/pcm.js:2043
+#: dist/pcm.js:3937
 msgid "Successfully deleted group"
 msgstr ""
 
-#: dist/pcm.js:2023
+#: dist/pcm.js:2049
 msgid "Successfully deleted group {{groupName}}"
 msgstr ""
 
-#: dist/pcm.js:2023
+#: dist/pcm.js:2049
 msgid "Successfully deleted groups."
 msgstr ""
 
-#: dist/pcm.js:2035
+#: dist/pcm.js:3930
+msgid "Successfully shared case with the partner ."
+msgstr ""
+
+#: dist/pcm.js:3929
 msgid ""
 "Successfully uploaded attachment {{attachmentFileName}} to case "
 "{{caseNumber}}"
 msgstr ""
 
-#: dist/pcm.js:2035
+#: dist/pcm.js:3929
 msgid ""
 "Successfully uploaded attachment {{attachmentName}} to case {{caseNumber}}"
 msgstr ""
 
-#: dist/pcm.js:2035
+#: dist/pcm.js:3929
 msgid "Successfully uploaded attachment {{filename}} to case {{id}}"
 msgstr ""
 
-#: dist/pcm.js:2022
+#: dist/pcm.js:2049
 msgid "Successfully uploaded attachment."
 msgstr ""
 
-#: dist/pcm.js:185 app/cases/views/advancedSearchCaseList.html:5
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14853
+#: dist/pcm.js:187 app/cases/views/advancedSearchCaseList.html:5
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22330
 msgid "Summary"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14854
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22331
 msgid "Summary of the case."
 msgstr ""
 
-#: dist/pcm.js:2024
+#: dist/pcm.js:3917
 msgid "Sunday = {{businessHours}}"
 msgstr ""
 
-#: dist/pcm.js:2021 dist/pcm.js:2022 dist/pcm.js:2024 dist/pcm.js:2029
-#: dist/pcm.js:2030 app/i18n/placeholder.html:5
+#: dist/pcm.js:2047 dist/pcm.js:2048 dist/pcm.js:3917 dist/pcm.js:3922
+#: dist/pcm.js:3923 app/i18n/placeholder.html:5
 msgid "Support"
 msgstr ""
 
-#: dist/pcm.js:2021 dist/pcm.js:2022 dist/pcm.js:2024 dist/pcm.js:2029
-#: dist/pcm.js:2030
+#: dist/pcm.js:2047 dist/pcm.js:2048 dist/pcm.js:3917 dist/pcm.js:3922
+#: dist/pcm.js:3923
 msgid "Support Cases"
 msgstr ""
 
-#: dist/pcm.js:2022
+#: dist/pcm.js:2048
 msgid "Support Cases - Portal Case Management"
 msgstr ""
 
-#: dist/pcm.js:2024
+#: dist/pcm.js:3917
 msgid ""
 "Thank you for contacting Red Hat support!  We'll be in contact soon.  Our "
 "records indicate your availability as follows:"
 msgstr ""
 
-#: dist/pcm.js:2023 dist/pcm.js:2030
+#: dist/pcm.js:2049 dist/pcm.js:3923
 msgid "There are no remaining enhanced SLA's available"
 msgstr ""
 
-#: dist/pcm.js:2024
+#: dist/pcm.js:3917
 msgid "Thursday = {{businessHours}}"
 msgstr ""
 
-#: dist/pcm.js:2024
+#: dist/pcm.js:3917
 msgid "Tuesday = {{businessHours}}"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:15046
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22571
 msgid "Unauthorized."
 msgstr ""
 
-#: dist/pcm.js:2036
+#: dist/pcm.js:3930
 msgid "Ungrouped Case"
 msgstr ""
 
-#: dist/pcm.js:2036
+#: dist/pcm.js:3930
 msgid "Ungrouped Cases"
 msgstr ""
 
-#: dist/pcm.js:2024 dist/pcm.js:2030
+#: dist/pcm.js:3917 dist/pcm.js:3923
 msgid "Update Consultant Engagement in Progress"
 msgstr ""
 
-#: dist/pcm.js:2043
+#: dist/pcm.js:3937
 msgid "Updating group"
 msgstr ""
 
-#: dist/pcm.js:2043
+#: dist/pcm.js:3937
 msgid "Updating users for group..."
 msgstr ""
 
-#: dist/pcm.js:2022 dist/pcm.js:2030
+#: dist/pcm.js:2049 dist/pcm.js:3923
 msgid "Uploading attachment..."
 msgstr ""
 
-#: dist/pcm.js:2035
+#: dist/pcm.js:3929
 msgid "Uploading attachments..."
 msgstr ""
 
-#: dist/pcm.js:2024 dist/pcm.js:2030
+#: dist/pcm.js:3917 dist/pcm.js:3923
 msgid ""
 "Used by consultants to indicate that a consulting engagement is in progress "
 "and the issue requires increased attention from support resources."
 msgstr ""
 
-#: dist/pcm.js:2029
+#: dist/pcm.js:3922
 msgid "User {{sso}} cannot be added as watcher because it is not internal."
 msgstr ""
 
-#: dist/pcm.js:2031
+#: dist/pcm.js:3924
 msgid "Values containing whitespaces have to be wrapped in double quotes."
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14821
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22298
 msgid "Waiting on Customer"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14825
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22302
 msgid "Waiting on Red Hat"
 msgstr ""
 
-#: dist/pcm.js:2024
+#: dist/pcm.js:3917
 msgid "Wednesday = {{businessHours}}"
 msgstr ""
 
-#: dist/pcm.js:2035
+#: dist/pcm.js:3930
 msgid ""
 "What information can you provide around timeframes and the business impact?"
 msgstr ""
 
-#: dist/pcm.js:2035
+#: dist/pcm.js:3930
 msgid ""
 "What problem/issue/behavior are you having trouble with?  What do you expect "
 "to see?"
 msgstr ""
 
-#: dist/pcm.js:2035
+#: dist/pcm.js:3930
 msgid ""
 "When does the behavior occur? Frequently?  Repeatedly?   At certain times?"
 msgstr ""
 
-#: dist/pcm.js:2035
+#: dist/pcm.js:3930
 msgid "Where are you experiencing the behavior?  What environment?"
 msgstr ""
 
-#: dist/pcm.js:2021
+#: dist/pcm.js:2047
 msgid ""
 "You are trying to export {{numberOfCases}} cases, but only the first 10000 "
 "cases will be exported. It is advised you refine the search to match less "
@@ -713,72 +747,72 @@ msgid ""
 " Would you like to proceed?"
 msgstr ""
 
-#: dist/pcm.js:185
-#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:14613
+#: dist/pcm.js:187
+#: node_modules/redhat_access_pcm_ascension_common/dist/redhat_access_pcm_ascension_common.js:22090
 msgid "You have successfully logged out of the Red Hat Customer Portal."
 msgstr ""
 
-#: dist/pcm.js:2031
+#: dist/pcm.js:3924
 msgid "Your Escalation request has been sent successfully"
 msgstr ""
 
-#: dist/pcm.js:2051
+#: dist/pcm.js:3945
 msgid "Your Ice Escalation request has been sent successfully"
 msgstr ""
 
-#: dist/pcm.js:2051
+#: dist/pcm.js:3945
 msgid "Your Partner Escalation request has been sent successfully"
 msgstr ""
 
-#: dist/pcm.js:2024
+#: dist/pcm.js:3917
 msgid "no business hours"
 msgstr ""
 
-#: dist/pcm.js:2024
+#: dist/pcm.js:3917
 msgid "{{caseNumber}} | {{caseSummary}}"
 msgstr ""
 
-#: dist/pcm.js:2035
+#: dist/pcm.js:3930
 msgid "{{days}} business day"
 msgstr ""
 
-#: dist/pcm.js:2035
+#: dist/pcm.js:3930
 msgid "{{days}} business days"
 msgstr ""
 
-#: dist/pcm.js:2022
+#: dist/pcm.js:2048
 msgid "{{errorFileName}} cannot be attached because it is a 0 byte file."
 msgstr ""
 
-#: dist/pcm.js:2022
+#: dist/pcm.js:2048
 msgid "{{errorFileName}} cannot be attached because it is larger than 1 TB."
 msgstr ""
 
-#: dist/pcm.js:2022
+#: dist/pcm.js:2048
 msgid ""
 "{{errorFileName}} cannot be attached because it is larger than "
 "{{errorFileSize}} GB. Please FTP large files to dropbox.redhat.com."
 msgstr ""
 
-#: dist/pcm.js:2022
+#: dist/pcm.js:2048
 msgid ""
 "{{errorFileName}} cannot be read by the browser. Check your privileges and "
 "make sure you are allowed to read the file."
 msgstr ""
 
-#: dist/pcm.js:2035
+#: dist/pcm.js:3930
 msgid "{{hours}} business hour"
 msgstr ""
 
-#: dist/pcm.js:2035
+#: dist/pcm.js:3930
 msgid "{{hours}} business hours"
 msgstr ""
 
-#: dist/pcm.js:2035
+#: dist/pcm.js:3930
 msgid "{{hours}} hour"
 msgstr ""
 
-#: dist/pcm.js:2035
+#: dist/pcm.js:3930
 msgid "{{hours}} hours"
 msgstr ""
 
@@ -847,17 +881,26 @@ msgstr ""
 msgid "* marked fields are mandatory fields."
 msgstr ""
 
-#: app/cases/views/discussionSection.html:86
+#: app/cases/views/productSelect.html:5
+msgid ""
+", '}}</span><span ng-if=\"(((!$first &amp;&amp; !$last) || ($first &amp;"
+"&amp; !$last)) &amp;&amp; $index === ProductsService."
+"productsRecentlyFiledAgainst.length - 2) || ($first &amp;&amp; "
+"$last)\">{{product.name}}</span><span ng-if=\"$last &amp;&amp; !$first\">{{' "
+"or"
+msgstr ""
+
+#: app/cases/views/discussionSection.html:94
 msgid "- Private"
 msgstr ""
 
 #. Noun
-#: app/cases/views/detailsSection.html:128 app/cases/views/new.html:114
+#: app/cases/views/detailsSection.html:130 app/cases/views/new.html:114
 msgid "24x7 Contact"
 msgstr ""
 
 #. Noun
-#: app/cases/views/detailsSection.html:120 app/cases/views/new.html:110
+#: app/cases/views/detailsSection.html:122 app/cases/views/new.html:110
 msgid "24x7 Support"
 msgstr ""
 
@@ -888,11 +931,11 @@ msgid "Account Name"
 msgstr ""
 
 #: app/cases/views/edit.html:37
-msgid "Account name : {{$parent.CaseService.account.name}}"
+msgid "Account name: {{$parent.CaseService.account.name}}"
 msgstr ""
 
 #: app/cases/views/edit.html:34
-msgid "Account number : {{$parent.CaseService.account.number}}"
+msgid "Account number: {{$parent.CaseService.account.number}}"
 msgstr ""
 
 #: app/cases/views/accountSearch.html:6
@@ -909,7 +952,7 @@ msgstr ""
 msgid "Action Plan"
 msgstr ""
 
-#: app/cases/views/discussionSection.html:163
+#: app/cases/views/discussionSection.html:178
 msgid "Action Plan:"
 msgstr ""
 
@@ -919,6 +962,10 @@ msgstr ""
 
 #: app/cases/views/attachProductLogs.html:18
 msgid "Add"
+msgstr ""
+
+#: app/cases/views/emailNotifySelect.html:25
+msgid "Add Custom Email"
 msgstr ""
 
 #: app/cases/views/emailNotifySelect.html:6
@@ -934,11 +981,15 @@ msgstr ""
 msgid "All Attachments"
 msgstr ""
 
+#: app/cases/views/productFilterSelect.html:2
+msgid "All Products"
+msgstr ""
+
 #: app/escalation/views/iceEscalation.html:82
 msgid "Already Escalated?"
 msgstr ""
 
-#: app/cases/views/detailsSection.html:52
+#: app/cases/views/detailsSection.html:54
 msgid "Alternate Case ID"
 msgstr ""
 
@@ -950,16 +1001,16 @@ msgstr ""
 msgid "Assigned to"
 msgstr ""
 
+#: app/cases/views/attachProductLogs.html:5
+msgid "Attach Foreman logs:"
+msgstr ""
+
 #: app/cases/views/attachLocalFile.html:4
-msgid "Attach Another File"
+msgid "Attach another file(s)"
 msgstr ""
 
 #: app/cases/views/attachLocalFile.html:5
-msgid "Attach File"
-msgstr ""
-
-#: app/cases/views/attachProductLogs.html:5
-msgid "Attach Foreman logs:"
+msgid "Attach file(s)"
 msgstr ""
 
 #. Noun Attached here means Attached on a particular date
@@ -988,8 +1039,8 @@ msgid ""
 "resolution."
 msgstr ""
 
-#: app/cases/views/discussionSection.html:116
-#: app/cases/views/discussionSection.html:62
+#: app/cases/views/discussionSection.html:128
+#: app/cases/views/discussionSection.html:68
 msgid "Attachment"
 msgstr ""
 
@@ -1032,21 +1083,14 @@ msgstr ""
 msgid "By opening this case you will automatically receive notifications."
 msgstr ""
 
-#: app/cases/views/edit.html:15
-msgid ""
-"CASE {{$parent.CaseService.kase.case_number}}<small ng-if=\"$parent."
-"isShowPartnerManagedCaseLabel()\" class=\"partner-label text-green block"
-"\">{{'Case is managed by a partner'|translate}}</small>"
-msgstr ""
-
 #. #-#-#-#-#  template-views.pot  #-#-#-#-#
 #. Verb
 #: app/cases/views/addCommentSection.html:39 app/cases/views/cepModal.html:34
 #: app/cases/views/changeOwnerModal.html:17
 #: app/cases/views/createGroupModal.html:18
 #: app/cases/views/detailsSection.html:10
-#: app/cases/views/detailsSection.html:136
-#: app/cases/views/detailsSection.html:26 app/cases/views/new.html:149
+#: app/cases/views/detailsSection.html:138
+#: app/cases/views/detailsSection.html:28 app/cases/views/new.html:149
 #: app/cases/views/requestManagementEscalationModal.html:36
 #: node_modules/redhat_access_pcm_ascension_common/app/security/views/login_form.html:27
 msgid "Cancel"
@@ -1056,7 +1100,7 @@ msgstr ""
 msgid "Case"
 msgstr ""
 
-#: app/cases/views/detailsSection.html:86
+#: app/cases/views/detailsSection.html:88
 msgid "Case Contact"
 msgstr ""
 
@@ -1068,7 +1112,7 @@ msgstr ""
 msgid "Case Discussion"
 msgstr ""
 
-#: app/cases/views/detailsSection.html:78
+#: app/cases/views/detailsSection.html:80
 msgid "Case Group"
 msgstr ""
 
@@ -1105,16 +1149,16 @@ msgstr ""
 msgid "Case Summary"
 msgstr ""
 
-#: app/cases/views/discussionSection.html:187
+#: app/cases/views/discussionSection.html:202
 msgid "Case Summary:"
 msgstr ""
 
 #. Noun
-#: app/cases/views/detailsSection.html:94 app/cases/views/new.html:27
+#: app/cases/views/detailsSection.html:96 app/cases/views/new.html:27
 msgid "Case Type"
 msgstr ""
 
-#: app/cases/views/edit.html:15
+#: app/cases/views/edit.html:14
 msgid "Case is managed by a partner"
 msgstr ""
 
@@ -1127,7 +1171,7 @@ msgstr ""
 msgid "Columns"
 msgstr ""
 
-#: app/cases/views/edit.html:19 app/cases/views/edit.html:64
+#: app/cases/views/edit.html:17 app/cases/views/edit.html:66
 msgid "Consultant Engaged"
 msgstr ""
 
@@ -1163,7 +1207,7 @@ msgstr ""
 msgid "Created"
 msgstr ""
 
-#: app/cases/views/list.html:62
+#: app/cases/views/list.html:64
 msgid "Created by {{case.created_by}} on {{case.created_date}}"
 msgstr ""
 
@@ -1225,9 +1269,9 @@ msgid ""
 "expect for your support case."
 msgstr ""
 
-#: app/cases/views/discussionSection.html:151
-#: app/cases/views/discussionSection.html:178
-#: app/cases/views/discussionSection.html:198
+#: app/cases/views/discussionSection.html:166
+#: app/cases/views/discussionSection.html:193
+#: app/cases/views/discussionSection.html:213
 msgid "Discard Changes"
 msgstr ""
 
@@ -1240,13 +1284,17 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: app/cases/views/detailsSection.html:17
+#: app/cases/views/detailsSection.html:19
 msgid "Edit Description"
 msgstr ""
 
 #. Noun
-#: app/cases/views/detailsSection.html:112 app/cases/views/new.html:106
+#: app/cases/views/detailsSection.html:114 app/cases/views/new.html:106
 msgid "Enhanced SLA"
+msgstr ""
+
+#: app/cases/views/emailNotifySelect.html:28
+msgid "Enter Custom Email Address"
 msgstr ""
 
 #: app/cases/views/manageGroupList.html:9
@@ -1371,6 +1419,10 @@ msgstr ""
 msgid "Get faster results."
 msgstr ""
 
+#: app/cases/views/confirmedStatesideAccountModal.html:11
+msgid "Go To Case List"
+msgstr ""
+
 #: app/cases/views/manageGroupList.html:1
 msgid "Groups Loading..."
 msgstr ""
@@ -1379,19 +1431,19 @@ msgstr ""
 msgid "Handpicked For You"
 msgstr ""
 
-#: app/cases/views/detailsSection.html:103 app/cases/views/new.html:30
+#: app/cases/views/detailsSection.html:105 app/cases/views/new.html:30
 msgid "Hostname"
 msgstr ""
 
-#: app/cases/views/detailsSection.html:103 app/cases/views/new.html:30
+#: app/cases/views/detailsSection.html:105 app/cases/views/new.html:30
 msgid "Hostname is not visible to Red Hat Support professionals"
 msgstr ""
 
-#: app/cases/views/edit.html:19
+#: app/cases/views/edit.html:17
 msgid "Hot Fix Delivered"
 msgstr ""
 
-#: app/cases/views/edit.html:19
+#: app/cases/views/edit.html:17
 msgid "Hot Fix Requested"
 msgstr ""
 
@@ -1439,7 +1491,7 @@ msgid ""
 "Internal Red Hat associates can open an Active Customer Escalation when:"
 msgstr ""
 
-#: app/cases/views/detailsSection.html:60
+#: app/cases/views/detailsSection.html:62
 msgid "Internal Status"
 msgstr ""
 
@@ -1468,7 +1520,12 @@ msgstr ""
 msgid "Loading Case..."
 msgstr ""
 
-#: app/cases/views/advancedSearch.html:31 app/cases/views/list.html:75
+#: app/cases/views/filterByCreatorSelect.html:2
+#: app/cases/views/filterByOwnerSelect.html:2
+msgid "Loading Users..."
+msgstr ""
+
+#: app/cases/views/advancedSearch.html:31 app/cases/views/list.html:77
 msgid "Loading cases..."
 msgstr ""
 
@@ -1492,11 +1549,11 @@ msgstr ""
 msgid "Make Default Group"
 msgstr ""
 
-#: app/cases/views/accountSelect.html:12 app/cases/views/listFilter.html:23
+#: app/cases/views/accountSelect.html:12 app/cases/views/listFilter.html:34
 msgid "Manage Bookmarked Accounts"
 msgstr ""
 
-#: app/cases/views/edit.html:77
+#: app/cases/views/edit.html:82
 msgid "Management Escalation"
 msgstr ""
 
@@ -1508,7 +1565,7 @@ msgstr ""
 msgid "Modified"
 msgstr ""
 
-#: app/cases/views/list.html:57
+#: app/cases/views/list.html:59
 msgid "Modified by {{case.last_modified_by}} on {{case.last_modified_date}}"
 msgstr ""
 
@@ -1527,7 +1584,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: app/cases/views/advancedSearch.html:38 app/cases/views/list.html:83
+#: app/cases/views/advancedSearch.html:38 app/cases/views/list.html:85
 msgid "Next"
 msgstr ""
 
@@ -1540,7 +1597,7 @@ msgstr ""
 msgid "No Files were attached to your case."
 msgstr ""
 
-#: app/cases/views/discussionSection.html:167
+#: app/cases/views/discussionSection.html:182
 msgid "No action plan to display."
 msgstr ""
 
@@ -1578,9 +1635,8 @@ msgstr ""
 
 #: app/cases/views/bookmarkedAccountSelect.html:3
 #: app/cases/views/managedAccountSelect.html:3 app/cases/views/new.html:100
-#: app/cases/views/ownerSelect.html:3 app/cases/views/productSelect.html:2
-#: app/cases/views/statusSelect.html:2 app/cases/views/typeSelect.html:2
-#: app/cases/views/versionSelect.html:2
+#: app/cases/views/ownerSelect.html:3 app/cases/views/statusSelect.html:2
+#: app/cases/views/typeSelect.html:2
 msgid "No match found"
 msgstr ""
 
@@ -1593,15 +1649,27 @@ msgstr ""
 msgid "No new contacts found."
 msgstr ""
 
+#: app/cases/views/productFilterSelect.html:2
+#: app/cases/views/productSelect.html:2
+msgid "No products found"
+msgstr ""
+
 #: app/cases/views/emailNotifySelect.html:14
 msgid "No users selected"
 msgstr ""
 
+#: app/cases/views/filterByOwnerSelect.html:2
+#: app/cases/views/versionFilterSelect.html:2
+#: app/cases/views/versionSelect.html:2
+msgid "No versions found"
+msgstr ""
+
 #: app/cases/views/proceedWithoutAttachModal.html:15
+#: app/cases/views/redhatOpenshiftClusterManagerModal.html:5
 msgid "No, Go Back"
 msgstr ""
 
-#: app/cases/views/cepModal.html:25 app/cases/views/discussionSection.html:138
+#: app/cases/views/cepModal.html:25 app/cases/views/discussionSection.html:153
 msgid "Notes:"
 msgstr ""
 
@@ -1636,7 +1704,7 @@ msgstr ""
 
 #: app/cases/views/severitySelect.html:30
 msgid ""
-"Only the above-listed severity levels are supported for selected product and "
+"Only the enabled severity levels are supported for selected product and "
 "version."
 msgstr ""
 
@@ -1649,7 +1717,7 @@ msgstr ""
 msgid "Open a New Support Case"
 msgstr ""
 
-#: app/cases/views/list.html:67
+#: app/cases/views/list.html:69
 msgid "Owned by {{case.contact_name}}"
 msgstr ""
 
@@ -1662,14 +1730,14 @@ msgid "Please"
 msgstr ""
 
 #: app/cases/views/listNewAttachments.html:13
-msgid "Please Add File Description"
+msgid "Please Add File Description (max 255 characters)"
 msgstr ""
 
 #: app/cases/views/new.html:92
 msgid "Please attach a"
 msgstr ""
 
-#: app/cases/views/discussionSection.html:140
+#: app/cases/views/discussionSection.html:155
 msgid ""
 "Please note, contents of this field are not visible to Red Hat Support "
 "professionals."
@@ -1748,7 +1816,7 @@ msgstr ""
 msgid "Premium"
 msgstr ""
 
-#: app/cases/views/advancedSearch.html:35 app/cases/views/list.html:80
+#: app/cases/views/advancedSearch.html:35 app/cases/views/list.html:82
 msgid "Previous"
 msgstr ""
 
@@ -1756,7 +1824,7 @@ msgstr ""
 msgid "Priority Customer Support Routing"
 msgstr ""
 
-#: app/cases/views/discussionSection.html:50
+#: app/cases/views/discussionSection.html:53
 msgid "Private Message"
 msgstr ""
 
@@ -1770,11 +1838,11 @@ msgid "Problem Statement"
 msgstr ""
 
 #: app/cases/views/advancedSearchCaseList.html:5
-#: app/cases/views/detailsSection.html:36 app/cases/views/new.html:19
+#: app/cases/views/detailsSection.html:38 app/cases/views/new.html:19
 msgid "Product"
 msgstr ""
 
-#: app/cases/views/detailsSection.html:44 app/cases/views/new.html:23
+#: app/cases/views/detailsSection.html:46 app/cases/views/new.html:23
 msgid "Product Version"
 msgstr ""
 
@@ -1804,6 +1872,10 @@ msgstr ""
 msgid ""
 "Reason for the escalation, the business context, the competitive situation, "
 "past support experience"
+msgstr ""
+
+#: app/cases/views/productSelect.html:5
+msgid "Recently selected products:"
 msgstr ""
 
 #: app/search/views/accordion_search_results.html:5
@@ -1848,8 +1920,8 @@ msgstr ""
 msgid "Remove this Bookmark"
 msgstr ""
 
-#: app/cases/views/discussionSection.html:46
-#: app/cases/views/discussionSection.html:58
+#: app/cases/views/discussionSection.html:49
+#: app/cases/views/discussionSection.html:64
 msgid "Reply"
 msgstr ""
 
@@ -1872,28 +1944,32 @@ msgstr ""
 msgid "Resolution"
 msgstr ""
 
-#: app/cases/views/detailsSection.html:68
+#: app/cases/views/detailsSection.html:70
 msgid "SBR Groups"
 msgstr ""
 
-#: app/cases/views/discussionSection.html:125
-#: app/cases/views/discussionSection.html:71
+#: app/cases/views/discussionSection.html:137
+#: app/cases/views/discussionSection.html:77
 msgid "SHA-256:"
 msgstr ""
 
 #: app/cases/views/changeOwnerModal.html:16
 #: app/cases/views/createGroupModal.html:17
 #: app/cases/views/detailsSection.html:10
-#: app/cases/views/detailsSection.html:26
+#: app/cases/views/detailsSection.html:28
 msgid "Save"
 msgstr ""
 
-#: app/cases/views/detailsSection.html:136
+#: app/cases/views/detailsSection.html:138
 msgid "Save Changes"
 msgstr ""
 
 #: app/search/views/search_form.html:6
 msgid "Search Articles and Solutions"
+msgstr ""
+
+#: app/cases/views/shareCaseWithPartner.html:13
+msgid "Search Partner"
 msgstr ""
 
 #: app/cases/views/emailNotifySelectInternal.html:12
@@ -1921,7 +1997,7 @@ msgstr ""
 msgid "Select Log"
 msgstr ""
 
-#: app/cases/views/detailsSection.html:73
+#: app/cases/views/detailsSection.html:75
 msgid "Select SBRs"
 msgstr ""
 
@@ -1931,8 +2007,7 @@ msgid "Select a User"
 msgstr ""
 
 #: app/cases/views/new.html:100 app/cases/views/ownerSelect.html:3
-#: app/cases/views/productSelect.html:2 app/cases/views/statusSelect.html:2
-#: app/cases/views/typeSelect.html:2 app/cases/views/versionSelect.html:2
+#: app/cases/views/statusSelect.html:2 app/cases/views/typeSelect.html:2
 msgid "Select an Option"
 msgstr ""
 
@@ -1980,6 +2055,14 @@ msgstr ""
 msgid "Severity Level"
 msgstr ""
 
+#: app/cases/views/shareCaseWithPartner.html:13
+msgid "Share"
+msgstr ""
+
+#: app/cases/views/shareCaseWithPartner.html:4
+msgid "Share with Partner"
+msgstr ""
+
 #: app/cases/views/advancedSearch.html:27
 msgid ""
 "Showing {{AdvancedCaseSearchService.getCasesStart()}} to "
@@ -2014,7 +2097,7 @@ msgstr ""
 msgid "Sort by"
 msgstr ""
 
-#: app/cases/views/edit.html:19
+#: app/cases/views/edit.html:17
 msgid "Special Handling"
 msgstr ""
 
@@ -2087,7 +2170,7 @@ msgid ""
 "outside of the standard support process. Please visit the"
 msgstr ""
 
-#: app/cases/views/discussionSection.html:193
+#: app/cases/views/discussionSection.html:208
 msgid "This is for internal use only"
 msgstr ""
 
@@ -2107,11 +2190,11 @@ msgid ""
 "Portal or Partner Center login"
 msgstr ""
 
-#: app/cases/views/discussionSection.html:46
+#: app/cases/views/discussionSection.html:49
 msgid "Thumbs Down"
 msgstr ""
 
-#: app/cases/views/discussionSection.html:46
+#: app/cases/views/discussionSection.html:49
 msgid "Thumbs Up"
 msgstr ""
 
@@ -2131,17 +2214,17 @@ msgstr ""
 msgid "Top Solutions"
 msgstr ""
 
-#: app/cases/views/discussionSection.html:76
+#: app/cases/views/discussionSection.html:84
 msgid "Transcript of chat"
 msgstr ""
 
-#: app/cases/views/discussionSection.html:150
-#: app/cases/views/discussionSection.html:177
-#: app/cases/views/discussionSection.html:197
+#: app/cases/views/discussionSection.html:165
+#: app/cases/views/discussionSection.html:192
+#: app/cases/views/discussionSection.html:212
 msgid "Update"
 msgstr ""
 
-#: app/cases/views/discussionSection.html:173
+#: app/cases/views/discussionSection.html:188
 msgid "Updates to Action Plan are customer facing."
 msgstr ""
 
@@ -2162,16 +2245,20 @@ msgstr ""
 msgid "Users not available."
 msgstr ""
 
-#: app/cases/views/detailsSection.html:16
+#: app/cases/views/detailsSection.html:18
 msgid "View Less"
 msgstr ""
 
-#: app/cases/views/detailsSection.html:15
+#: app/cases/views/detailsSection.html:16
 msgid "View More"
 msgstr ""
 
 #: app/cases/views/descriptionSection.html:9
 msgid "View Production Support Service Level Agreement"
+msgstr ""
+
+#: app/cases/views/redhatOpenshiftClusterManagerModal.html:2
+msgid "We noticed you chose"
 msgstr ""
 
 #: app/cases/views/commonConfirmationModal.html:14
@@ -2180,6 +2267,7 @@ msgid "Yes"
 msgstr ""
 
 #: app/cases/views/proceedWithoutAttachModal.html:14
+#: app/cases/views/redhatOpenshiftClusterManagerModal.html:4
 msgid "Yes, Submit"
 msgstr ""
 
@@ -2228,7 +2316,7 @@ msgstr ""
 msgid "Your issue needs a more senior resource."
 msgstr ""
 
-#: app/cases/views/discussionSection.html:78
+#: app/cases/views/discussionSection.html:86
 msgid "and"
 msgstr ""
 
@@ -2236,20 +2324,24 @@ msgstr ""
 msgid "archive (optional)"
 msgstr ""
 
-#: app/cases/views/discussionSection.html:119
+#: app/cases/views/redhatOpenshiftClusterManagerModal.html:2
+msgid "as your selected Product. Is your issue related to our SaaS offering at"
+msgstr ""
+
+#: app/cases/views/discussionSection.html:131
 #: app/cases/views/discussionSection.html:41
-#: app/cases/views/discussionSection.html:53
-#: app/cases/views/discussionSection.html:65
-#: app/cases/views/discussionSection.html:80
-#: app/cases/views/discussionSection.html:89
+#: app/cases/views/discussionSection.html:56
+#: app/cases/views/discussionSection.html:71
+#: app/cases/views/discussionSection.html:88
+#: app/cases/views/discussionSection.html:97
 msgid "at"
 msgstr ""
 
-#: app/cases/views/discussionSection.html:77
+#: app/cases/views/discussionSection.html:85
 msgid "between"
 msgstr ""
 
-#: app/cases/views/discussionSection.html:147
+#: app/cases/views/discussionSection.html:162
 msgid "characters left."
 msgstr ""
 
@@ -2265,11 +2357,11 @@ msgstr ""
 msgid "for more information."
 msgstr ""
 
-#: app/cases/views/discussionSection.html:118
+#: app/cases/views/discussionSection.html:130
 #: app/cases/views/discussionSection.html:40
-#: app/cases/views/discussionSection.html:52
-#: app/cases/views/discussionSection.html:64
-#: app/cases/views/discussionSection.html:88
+#: app/cases/views/discussionSection.html:55
+#: app/cases/views/discussionSection.html:70
+#: app/cases/views/discussionSection.html:96
 msgid "on"
 msgstr ""
 
@@ -2361,6 +2453,10 @@ msgid ""
 "      or there might be an issue with your subscription. Either way, "
 "Customer Service should be able to help\n"
 "      you resolve the problem."
+msgstr ""
+
+#: node_modules/redhat_access_pcm_ascension_common/app/common/views/languageSelect.html:2
+msgid "Language Selector"
 msgstr ""
 
 #: node_modules/redhat_access_pcm_ascension_common/app/security/views/login_status.html:4

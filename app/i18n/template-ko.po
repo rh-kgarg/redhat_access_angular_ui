@@ -2277,3 +2277,295 @@ msgstr "토론 검색"
 
 msgid "Showing {{showing}} - {{x}} of {{y}} results"
 msgstr "{{showing}} - {{x}} / {{y}} 결과 표시"
+
+# 2019-08-07T21:03:53.365Z
+msgid "Waiting on Customer"
+msgstr "고객 회신 대기 중"
+
+msgid "Waiting on Red Hat"
+msgstr "Red Hat 회신 대기 중"
+
+msgid "All Open Cases"
+msgstr "오픈된 케이스"
+
+msgid "All Closed Cases"
+msgstr "종료된 케이스"
+
+msgid "All Cases"
+msgstr "모든 케이스"
+
+msgid "Find answers faster with Solution Engine"
+msgstr "Solution Engine을 사용하여 신속한 문제 해결 방법 검색"
+
+msgid "Newest Date Modified"
+msgstr "변경 날짜 (최근 날짜 순)"
+
+msgid "Oldest Date Modified"
+msgstr "변경 날짜 (오래된 날짜 순)"
+
+msgid "Highest Severity"
+msgstr "심각도 (높은 순)"
+
+msgid "Lowest Severity"
+msgstr "심각도 (낮은 순)"
+
+msgid "Newest Date Created"
+msgstr "작성일 (최근 날짜 순)"
+
+msgid "Oldest Date Created"
+msgstr "작성일 (오래된 날짜 순)"
+
+msgid "Case Owner (A-Z)"
+msgstr "케이스 소유자 (A-Z)"
+
+msgid "Case Owner (Z-A)"
+msgstr "케이스 소유자 (Z-A)"
+
+msgid "Case Status (A-Z)"
+msgstr "케이스 상태 (A-Z)"
+
+msgid "Case Status (Z-A)"
+msgstr "케이스 상태 (Z-A)"
+
+msgid "Account / Customer Service Request"
+msgstr "계정 / 고객 서비스 요청"
+
+msgid "Certification"
+msgstr "인증"
+
+msgid "Configuration issue"
+msgstr "설정 문제"
+
+msgid "Defect / Bug"
+msgstr "문제 / 버그"
+
+msgid "Feature / Enhancement Request"
+msgstr "기능 / 개선 요청"
+
+msgid "Other"
+msgstr "기타"
+
+msgid "RCA Only"
+msgstr "RCA"
+
+msgid "Usage / Documentation Help"
+msgstr "사용법 / 문서 도움말"
+
+msgid "Please attach an sosreport (optional)"
+msgstr "sosreport를 첨부하십시오 (선택 사항)."
+
+msgid "PREMIUM"
+msgstr "PREMIUM"
+
+msgid "STANDARD"
+msgstr "STANDARD"
+
+msgid "PREMIUMPLUS"
+msgstr "PREMIUMPLUS"
+
+msgid "PROFESSIONAL"
+msgstr "PROFESSIONAL"
+
+msgid "BASIC"
+msgstr "BASIC"
+
+msgid "Only the enabled severity levels are supported for selected product and version."
+msgstr "선택한 제품 및 버전은 활성화된 심각도 수준만 지원합니다."
+
+msgid "Send Additional Email Notifications to"
+msgstr "추가 이메일 알림 전송"
+
+msgid "By opening this case you will automatically receive notifications"
+msgstr "이 케이스를 열면 알림이 자동으로 수신됩니다."
+
+msgid "Consultant Engaged"
+msgstr "컨설턴트 참여"
+
+msgid "Consultant Engagement in Progress"
+msgstr "컨설턴트 참여 진행 중"
+
+msgid "Please provide the contact information of Consulting personnel troubleshooting the customer issue. If requested, Support Delivery will use this information to initiate direct contact (i.e. phone, chat) with listed contact(s) in order to provide faster assistance. Primary method of communication will continue to be this Customer Case ticket"
+msgstr "고객 문제를 해결하기 위해 컨설턴트의 연락처 정보를 알려주십시오.  필요한 경우 지원 팀은 이 정보를 사용하여 기재된 연락처 (전화 또는 채팅)에 직접 연락하여 보다 신속한 지원을 제공합니다.  이 고객 티켓은 주요 커뮤니케이션 수단으로 사용됩니다."
+
+msgid "Contact Name"
+msgstr "담당자 이름"
+
+msgid "Availability/Working Hours"
+msgstr "연락 가능 시간 / 근무 시간"
+
+msgid "Contact Information"
+msgstr "연락처"
+
+msgid "Provide main contact(s) troubleshooting the issue"
+msgstr "문제 해결을 위해 담당자의 연락처를 입력하십시오."
+
+msgid "Indicate working hours, time zone; specify if not available on certain dates(i.e weekends, holidays)"
+msgstr "근무 시간, 시간대를 표시하십시오. 특정 날짜 (예 : 주말, 공휴일)에 연락 가능 여부를 지정하십시오."
+
+msgid "Please provide phone number, chat ID or email"
+msgstr "전화 번호, 채팅 ID 또는 이메일 주소를 입력하십시오."
+
+msgid "Provide any pertinent information that Support delivery should be aware of that's not alreadt captured in the case summary or comments"
+msgstr "지원 팀의 문제 해결에 도움이 될 수 있는 케이스 요약 또는 코멘트란에 기재되어 있지 않은 관련 정보를 모두 알려주십시오."
+
+msgid "Used by consultants to indicate that a consulting engagement is in progress and the issue requires an increased attention from support resources"
+msgstr "컨설턴트가 컨설팅 업무를 진행하고 있으며 지원 팀에서 이 문제에 대해 더 많은 주의가 필요함을 나타내기 위해 사용합니다."
+
+msgid "If we have not recorded your business hours correctly, please update your timezone in Your preferences"
+msgstr "정상 업무 시간이 정확하게 표시되지 않은 경우 환경 설정에서 시간대를 업데이트하십시오."
+
+msgid "Account number"
+msgstr "계정 번호"
+
+msgid "Account name"
+msgstr "사용자 이름"
+
+msgid "Low"
+msgstr "낮음"
+
+msgid "Normal"
+msgstr "보통"
+
+msgid "High"
+msgstr "높음"
+
+msgid "Urgent"
+msgstr "긴급"
+
+msgid "Add Custom Email"
+msgstr "사용자 지정 이메일 추가"
+
+msgid "Enter Custom Email Address"
+msgstr "사용자 지정 이메일 주소 입력"
+
+msgid "Active Customer Escalation"
+msgstr "사용자 문제 에스컬레이션"
+
+msgid "Internal Red Hat associates can open an Active Customer Escalation when:"
+msgstr "다음의 경우 Red Hat 담당자는 사용자 문제 에스컬레이션을 시작할 수 있습니다:"
+
+msgid "The customer wants an update."
+msgstr "고객이 업데이트하고자 하는 경우"
+
+msgid "The customer thinks the case is not moving appropriately."
+msgstr "고객이 케이스가 적절하게 처리되지 않는다고 생각하는 경우"
+
+msgid "The customer wants a new resource."
+msgstr "고객이 새로운 리소스를 원하는 경우"
+
+msgid "The issue is more severe than originally thought."
+msgstr "예상했던 것보다 문제가 심각한 경우"
+
+msgid "ACE Escalation"
+msgstr "ACE 에스컬레이션"
+
+msgid "Showing 1 - 48 of 48 results"
+msgstr "48개 중 1 - 48 표시"
+
+msgid "Show per page"
+msgstr "페이지별로 표시"
+
+msgid "Associate"
+msgstr "Red Hat 담당자"
+
+msgid "Customer"
+msgstr "고객"
+
+msgid "Closed"
+msgstr "종료"
+
+msgid "Name"
+msgstr "이름"
+
+msgid "Title"
+msgstr "직위"
+
+msgid "Email"
+msgstr "이메일"
+
+msgid "Phone"
+msgstr "전화"
+
+msgid "IRC"
+msgstr "IRC"
+
+msgid "Timezone"
+msgstr "시간대"
+
+msgid "Office location"
+msgstr "사무실 위치"
+
+msgid "Troubleshooting an issue? Try Solution Engine—our new support tool."
+msgstr "문제 해결을 원하십니까? 최신 지원 툴인 Solution Engine을 사용해 보십시오."
+
+msgid "Enter Search Term"
+msgstr "검색어 입력"
+
+msgid "Search"
+msgstr "검색"
+
+msgid "Account Team"
+msgstr "계정팀"
+
+msgid "Can now accept large attachments (~250 GB)"
+msgstr "대용량 첨부 파일 (~250 GB) 사용 가능"
+
+msgid "Containers"
+msgstr "컨테이너"
+
+msgid "Management Escalation"
+msgstr "관리 에스컬레이션"
+
+msgid "Request Closure"
+msgstr "종료 요청"
+
+msgid "Request Update"
+msgstr "업데이트 요청"
+
+msgid "Subject"
+msgstr "제목"
+
+msgid "Description"
+msgstr "설명"
+
+msgid "Expectations"
+msgstr "기대치"
+
+msgid "GEO client"
+msgstr "GEO 고객"
+
+msgid "Status"
+msgstr "상태"
+
+msgid "Escalation Owner"
+msgstr "에스컬이션 담당자"
+
+msgid "Please Add File Description (max 255 characters)"
+msgstr "파일 설명을 추가하십시오 (최대 255 자)"
+
+msgid "Successfully uploaded attachment"
+msgstr "첨부 파일을 업로드했습니다."
+
+msgid "Could not upload"
+msgstr "업로드할 수 없습니다."
+
+msgid "{{file name}} cannot be attached because it is a 0 byte file."
+msgstr "{{file name}} 파일은 0 바이트이므로 첨부할 수 없습니다."
+
+msgid "{{file name}} cannot be attached because it is larger than {{file size}} GB. Please FTP large files to dropbox.redhat.com."
+msgstr "{{file name}}은/는 {{file size}} GB를 초과하기 때문에 첨부할 수 없습니다. 대용량 파일을 dropbox.redhat.com으로 전송하려면 FTP를 사용하십시오."
+
+msgid "{{file name}} cannot be attached because it is larger than 1 TB."
+msgstr "{{file name}}은/는 1 TB를 초과하기 때문에 첨부할 수 없습니다."
+
+msgid "{{file name}} cannot be read by the browser. Check your privileges and make sure you are allowed to read the file."
+msgstr "{{file name}}은/는 브라우저에서 읽을 수 없습니다. 권한을 확인하고 파일을 읽을 수 있는지 확인하십시오."
+
+msgid "Could not fetch custom notification emails"
+msgstr "사용자 정의 알림 이메일을 받을 수 없습니다."
+
+msgid "Could not post custom email"
+msgstr "사용자 정의 이메일을 게시할 수 없습니다."
+
+msgid "Could not delete custom email"
+msgstr "사용자 정의 이메일을 삭제할 수 없습니다."
