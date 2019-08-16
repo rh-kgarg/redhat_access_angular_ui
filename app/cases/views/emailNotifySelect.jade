@@ -16,7 +16,7 @@
                 a(ng-click="removeUser(user.sso_username)", ng-disabled="saving")
                     i.fa.fa-close
             input.form-control.email-typeahead(type="text", placeholder="{{'Search here to add a User' | translate}}", ng-disabled="saving", 
-            typeahead-loading="CaseService.isLoadingRHUsers" 
+            typeahead-loading="CaseService.usersLoading" 
             typeahead-no-results="noResults" 
             ng-model='userToAdd'
             typeahead-min-length="0" 
