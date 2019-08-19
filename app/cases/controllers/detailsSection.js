@@ -1,7 +1,7 @@
 'use strict';
 
 export default class DetailsSection {
-    constructor($scope, $filter, strataService, CaseService, securityService, ProductsService, CASE_EVENTS, AlertService, RHAUtils, LinkifyService, gettextCatalog, SearchCaseService, COMMON_CONFIG) {
+    constructor($scope, $filter, $location, strataService, CaseService, securityService, ProductsService, CASE_EVENTS, AlertService, RHAUtils, LinkifyService, gettextCatalog, SearchCaseService, COMMON_CONFIG) {
         'ngInject';
 
         $scope.showExtraInfo = false;
@@ -33,6 +33,18 @@ export default class DetailsSection {
         };
 
         $scope.init = function () {
+            const remoteSessionFlag = $location.search().remoteSessionTermsAcked;
+            // in a queryparam everything is a string
+            if (remoteSessionFlag === "true") {
+                AlertService.addSuccessMessage(gettextCatalog.getString('The remote session terms have been acknowledged'));
+                $location.search('remoteSessionTermsAcked', null);
+                $location.search('remoteSessionTermsAckedDate', null);
+            }
+            else if (remoteSessionFlag === "false") {
+                AlertService.addDangerMessage(gettextCatalog.getString('Could not acknowledge'));
+                $location.search('remoteSessionTermsAcked', null);
+                $location.search('remoteSessionTermsAckedDate', null);
+            }
             if (!$scope.compact) {
                 strataService.values.cases.types().then(function (response) {
                     $scope.caseTypes = response;
