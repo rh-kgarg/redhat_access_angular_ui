@@ -181,6 +181,11 @@ export default class CaseService {
         };
 
         this.getCustomNotificationEmails = async () => {
+            // currently sfdcd doesnot allow a partner to do CRUD operations on Custom Emails on behalf of Customer
+            // in future sfdc should allow atleast the GET of emails
+            if (this.isManagedAccount(this.kase.account_number)) {
+                return;
+            }
             try {
                 this.loadingCustomNotificationEmails = true;
                 const response = await hydrajs.kase.getCustomEmailsFromCase(this.kase.case_number);
