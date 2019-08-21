@@ -23,7 +23,7 @@
         div.edit-emailNotify-Container(ng-show="!CaseService.usersLoading && !securityService.loginStatus.authedUser.org_admin")
             span.label-contact(ng-repeat='user in mapUsers(selectedUsers)', ng-if='RHAUtils.isNotEmpty(selectedUsers)') {{user.first_name}} {{user.last_name}} <{{user.sso_username}}>
             span.disable-span-text(ng-if='RHAUtils.isEmpty(selectedUsers)', translate='') No users selected
-.row
+.row(ng-if="!CaseService.isManagedAccount(CaseService.kase.account_number)")
     .col-sm-8.pull-right
         .spinner.spinner-inline.spinner-xs(ng-if="CaseService.loadingCustomNotificationEmails")
         div.label-contact(
@@ -32,7 +32,7 @@
             span {{email.emailAddress}}
             a(ng-click="CaseService.removeCustomNotificationEmail(email)", ng-disabled="CaseService.loadingCustomNotificationEmails")
                 i.fa.fa-close
-.row.bs-row-margin-top-small
+.row.bs-row-margin-top-small(ng-if="!CaseService.isManagedAccount(CaseService.kase.account_number)")
     .col-sm-4
         button.btn.btn-info.btn-xs(ng-disabled="!CaseService.isValidCustomEmail || CaseService.loadingCustomNotificationEmails || CaseService.isLinkedEmail() || CaseService.newCustomEmail === ''", ng-click="CaseService.postCustomNotificationEmail()") {{"Add Custom Email" | translate}}
     .col-sm-8

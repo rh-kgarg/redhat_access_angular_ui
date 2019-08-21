@@ -181,6 +181,9 @@ export default class CaseService {
         };
 
         this.getCustomNotificationEmails = async () => {
+            if (this.isManagedAccount(this.kase.account_number)) {
+                return;
+            }
             try {
                 this.loadingCustomNotificationEmails = true;
                 const response = await hydrajs.kase.getCustomEmailsFromCase(this.kase.case_number);
