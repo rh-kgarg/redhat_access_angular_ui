@@ -41,7 +41,7 @@ export default class DetailsSection {
                 $location.search('remoteSessionTermsAckedDate', null);
             }
             else if (remoteSessionFlag === "false") {
-                AlertService.addDangerMessage(gettextCatalog.getString('Could not acknowledge'));
+                AlertService.addDangerMessage(gettextCatalog.getString('The remote session terms have not been acknowledged'));
                 $location.search('remoteSessionTermsAcked', null);
                 $location.search('remoteSessionTermsAckedDate', null);
             }
