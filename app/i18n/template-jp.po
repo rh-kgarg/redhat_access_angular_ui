@@ -2276,3 +2276,295 @@ msgstr "ディスカッションを検索"
 
 msgid "Showing {{showing}} - {{x}} of {{y}} results"
 msgstr "{{showing}} を表示  {{y}} 件中 {{x}} 件の結果"
+
+# 2019-08-07T21:03:53.364Z
+msgid "Waiting on Customer"
+msgstr "お客様の返信待ち"
+
+msgid "Waiting on Red Hat"
+msgstr "Red Hat の返信待ち"
+
+msgid "All Open Cases"
+msgstr "すべてのオープンケース"
+
+msgid "All Closed Cases"
+msgstr "すべてのクローズケース"
+
+msgid "All Cases"
+msgstr "すべてのケース"
+
+msgid "Find answers faster with Solution Engine"
+msgstr "Solution Engine でより迅速に問題を解決します"
+
+msgid "Newest Date Modified"
+msgstr "変更日 (新しい日付順)"
+
+msgid "Oldest Date Modified"
+msgstr "変更日 (古い日付順)"
+
+msgid "Highest Severity"
+msgstr "重大度 (高い順)"
+
+msgid "Lowest Severity"
+msgstr "重大度 (低い順)"
+
+msgid "Newest Date Created"
+msgstr "作成日 (新しい日付順)"
+
+msgid "Oldest Date Created"
+msgstr "作成日 (古い日付順)"
+
+msgid "Case Owner (A-Z)"
+msgstr "ケースオーナー (A-Z 順)"
+
+msgid "Case Owner (Z-A)"
+msgstr "ケースオーナー (Z-A 順)"
+
+msgid "Case Status (A-Z)"
+msgstr "ケースステータス (A-Z 順)"
+
+msgid "Case Status (Z-A)"
+msgstr "ケースステータス (Z-A 順)"
+
+msgid "Account / Customer Service Request"
+msgstr "アカウント / カスタマーサービスリクエスト"
+
+msgid "Certification"
+msgstr "認定"
+
+msgid "Configuration issue"
+msgstr "設定の問題"
+
+msgid "Defect / Bug"
+msgstr "不具合 / バグ"
+
+msgid "Feature / Enhancement Request"
+msgstr "機能 / 機能強化のリクエスト"
+
+msgid "Other"
+msgstr "その他"
+
+msgid "RCA Only"
+msgstr "根本原因分析 (RCA) のみ"
+
+msgid "Usage / Documentation Help"
+msgstr "使用方法 / ドキュメントヘルプ"
+
+msgid "Please attach an sosreport (optional)"
+msgstr "sosreport を添付してください (オプション)"
+
+msgid "PREMIUM"
+msgstr "PREMIUM"
+
+msgid "STANDARD"
+msgstr "STANDARD"
+
+msgid "PREMIUMPLUS"
+msgstr "PREMIUMPLUS"
+
+msgid "PROFESSIONAL"
+msgstr "PROFESSIONAL"
+
+msgid "BASIC"
+msgstr "BASIC"
+
+msgid "Only the enabled severity levels are supported for selected product and version."
+msgstr "選択された製品とバージョンでは、有効な重大度レベルのみがサポートされます。"
+
+msgid "Send Additional Email Notifications to"
+msgstr "メール通知を以下のユーザーに送信"
+
+msgid "By opening this case you will automatically receive notifications"
+msgstr "このケースを作成すると、作成者には自動的に通知が送信されます"
+
+msgid "Consultant Engaged"
+msgstr "コンサルタントが対応中"
+
+msgid "Consultant Engagement in Progress"
+msgstr "コンサルタントが対応しています"
+
+msgid "Please provide the contact information of Consulting personnel troubleshooting the customer issue. If requested, Support Delivery will use this information to initiate direct contact (i.e. phone, chat) with listed contact(s) in order to provide faster assistance. Primary method of communication will continue to be this Customer Case ticket"
+msgstr "お客様の問題のトラブルシューティングを担当するコンサルタントの連絡先をお知らせください。リクエストがあれば、サポートデリバリーがこの情報を使用して、記載された連絡先に (電話やチャットなどで) 直接連絡し、より迅速に対応します。主要な連絡手段は、引き続きこのカスタマーケースチケットになります"
+
+msgid "Contact Name"
+msgstr "氏名"
+
+msgid "Availability/Working Hours"
+msgstr "連絡可能な時間帯/勤務時間"
+
+msgid "Contact Information"
+msgstr "連絡先"
+
+msgid "Provide main contact(s) troubleshooting the issue"
+msgstr "問題のトラブルシューティングを行う主なご担当者の連絡先をお知らせください"
+
+msgid "Indicate working hours, time zone; specify if not available on certain dates(i.e weekends, holidays)"
+msgstr "勤務時間とタイムゾーンを指定してください。(週末や休暇など) 連絡の取れない日があれば、お知らせください"
+
+msgid "Please provide phone number, chat ID or email"
+msgstr "電話番号、チャット ID またはメールアドレスをお知らせください"
+
+msgid "Provide any pertinent information that Support delivery should be aware of that's not alreadt captured in the case summary or comments"
+msgstr "ケースサマリーまたはコメント欄に記載されていないが、サポートデリバリーが認識すべき関連情報があれば、すべてお知らせください"
+
+msgid "Used by consultants to indicate that a consulting engagement is in progress and the issue requires an increased attention from support resources"
+msgstr "コンサルティング業務が行われており、サポートリソースがこの問題に対してさらなる注意は払う必要があることを示す場合に、コンサルタントが使用します"
+
+msgid "If we have not recorded your business hours correctly, please update your timezone in Your preferences"
+msgstr "営業時間が正しく表示されていない場合は、環境設定でタイムゾーンを更新してください"
+
+msgid "Account number"
+msgstr "アカウント番号"
+
+msgid "Account name"
+msgstr "アカウント名"
+
+msgid "Low"
+msgstr "低"
+
+msgid "Normal"
+msgstr "中"
+
+msgid "High"
+msgstr "高"
+
+msgid "Urgent"
+msgstr "緊急"
+
+msgid "Add Custom Email"
+msgstr "カスタムメールの追加"
+
+msgid "Enter Custom Email Address"
+msgstr "カスタムメールアドレスの入力"
+
+msgid "Active Customer Escalation"
+msgstr "アクティブカスタマーエスカレーション"
+
+msgid "Internal Red Hat associates can open an Active Customer Escalation when:"
+msgstr "以下の場合、Red Hat のアソシエイトは、アクティブカスタマーエスカレーションを行うことができます。"
+
+msgid "The customer wants an update."
+msgstr "お客様が更新を希望される場合。"
+
+msgid "The customer thinks the case is not moving appropriately."
+msgstr "ケースが適切に処理されていないとお客様が判断された場合。"
+
+msgid "The customer wants a new resource."
+msgstr "お客様が新規リソースを希望される場合。"
+
+msgid "The issue is more severe than originally thought."
+msgstr "当初の判断より問題が深刻な場合。"
+
+msgid "ACE Escalation"
+msgstr "ACE エスカレーション"
+
+msgid "Showing 1 - 48 of 48 results"
+msgstr "48 件中 1 - 48 を表示"
+
+msgid "Show per page"
+msgstr "ページごとに表示"
+
+msgid "Associate"
+msgstr "アソシエイト"
+
+msgid "Customer"
+msgstr "お客様"
+
+msgid "Closed"
+msgstr "クローズ"
+
+msgid "Name"
+msgstr "名前"
+
+msgid "Title"
+msgstr "肩書き"
+
+msgid "Email"
+msgstr "電子メール"
+
+msgid "Phone"
+msgstr "電話"
+
+msgid "IRC"
+msgstr "IRC"
+
+msgid "Timezone"
+msgstr "タイムゾーン"
+
+msgid "Office location"
+msgstr "オフィスの所在地"
+
+msgid "Troubleshooting an issue? Try Solution Engine—our new support tool."
+msgstr "問題のトラブルシューティングですか?Solution Engine (新しいサポートツール) をお試しください。"
+
+msgid "Enter Search Term"
+msgstr "検索する用語を入力"
+
+msgid "Search"
+msgstr "検索"
+
+msgid "Account Team"
+msgstr "アカウントチーム"
+
+msgid "Can now accept large attachments (~250 GB)"
+msgstr "大容量の添付ファイルを受信できるようになりました (~250 GB)"
+
+msgid "Containers"
+msgstr "コンテナー"
+
+msgid "Management Escalation"
+msgstr "マネージメントエスカレーション"
+
+msgid "Request Closure"
+msgstr "クローズをリクエスト"
+
+msgid "Request Update"
+msgstr "更新をリクエスト"
+
+msgid "Subject"
+msgstr "件名"
+
+msgid "Description"
+msgstr "説明"
+
+msgid "Expectations"
+msgstr "要望"
+
+msgid "GEO client"
+msgstr "GEO クライアント"
+
+msgid "Status"
+msgstr "ステータス"
+
+msgid "Escalation Owner"
+msgstr "エスカレーションの担当者"
+
+msgid "Please Add File Description (max 255 characters)"
+msgstr "ファイルの説明を追加してください (最大 255 文字)"
+
+msgid "Successfully uploaded attachment"
+msgstr "添付ファイルが正常にアップロードされました"
+
+msgid "Could not upload"
+msgstr "アップロードできませんでした"
+
+msgid "{{file name}} cannot be attached because it is a 0 byte file."
+msgstr "{{file name}} のファイルは 0 バイトのため、添付できません。"
+
+msgid "{{file name}} cannot be attached because it is larger than {{file size}} GB. Please FTP large files to dropbox.redhat.com."
+msgstr "{{file name}} は {{file size}} GB を超えるため、添付できません。大容量のファイルは、FTP で dropbox.redhat.com に転送してください。"
+
+msgid "{{file name}} cannot be attached because it is larger than 1 TB."
+msgstr "{{file name}} は 1 TB を超えるため、添付できません。"
+
+msgid "{{file name}} cannot be read by the browser. Check your privileges and make sure you are allowed to read the file."
+msgstr "{{file name}} は、ブラウザーで読み込むことができません。権限をチェックし、ファイルの読み込みができるか確認してください。"
+
+msgid "Could not fetch custom notification emails"
+msgstr "カスタム通知メールを取得できませんでした"
+
+msgid "Could not post custom email"
+msgstr "カスタムメールを送信できませんでした"
+
+msgid "Could not delete custom email"
+msgstr "カスタムメールを削除できませんでした"

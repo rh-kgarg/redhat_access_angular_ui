@@ -2363,3 +2363,295 @@ msgstr ""
 "La pagina che si sta cercando non è disponibile. È possibile che sia stata "
 "spostata, rimossa, rinominata o che ne sia stato modificato l'indirizzo. "
 "Oppure potrebbe essere temporaneamente non disponibile per motivi tecnici."
+
+# 2019-08-07T21:03:53.364Z
+msgid "Waiting on Customer"
+msgstr "In attesa del cliente"
+
+msgid "Waiting on Red Hat"
+msgstr "In attesa di Red Hat"
+
+msgid "All Open Cases"
+msgstr "Tutti i casi aperti"
+
+msgid "All Closed Cases"
+msgstr "Tutti i casi chiusi"
+
+msgid "All Cases"
+msgstr "Tutti i casi"
+
+msgid "Find answers faster with Solution Engine"
+msgstr "Trova le risposte più rapidamente con Solution Engine"
+
+msgid "Newest Date Modified"
+msgstr "Data modifica più recente"
+
+msgid "Oldest Date Modified"
+msgstr "Data modifica meno recente"
+
+msgid "Highest Severity"
+msgstr "Gravità massima"
+
+msgid "Lowest Severity"
+msgstr "Gravità minima"
+
+msgid "Newest Date Created"
+msgstr "Data creazione più recente"
+
+msgid "Oldest Date Created"
+msgstr "Data creazione meno recente"
+
+msgid "Case Owner (A-Z)"
+msgstr "Proprietario caso (A-Z)"
+
+msgid "Case Owner (Z-A)"
+msgstr "Proprietario caso (Z-A)"
+
+msgid "Case Status (A-Z)"
+msgstr "Stato caso (A-Z)"
+
+msgid "Case Status (Z-A)"
+msgstr "Stato caso (Z-A)"
+
+msgid "Account / Customer Service Request"
+msgstr "Richiesta account/servizio clienti"
+
+msgid "Certification"
+msgstr "Certificazione"
+
+msgid "Configuration issue"
+msgstr "Problema di configurazione"
+
+msgid "Defect / Bug"
+msgstr "Difetto/Bug"
+
+msgid "Feature / Enhancement Request"
+msgstr "Richiesta funzionalità/miglioramento"
+
+msgid "Other"
+msgstr "Altro"
+
+msgid "RCA Only"
+msgstr "Solo RCA"
+
+msgid "Usage / Documentation Help"
+msgstr "Guida all'uso/documentazione"
+
+msgid "Please attach an sosreport (optional)"
+msgstr "Allegare un sosreport (facoltativo)"
+
+msgid "PREMIUM"
+msgstr "PREMIUM"
+
+msgid "STANDARD"
+msgstr "STANDARD"
+
+msgid "PREMIUMPLUS"
+msgstr "PREMIUMPLUS"
+
+msgid "PROFESSIONAL"
+msgstr "PROFESSIONAL"
+
+msgid "BASIC"
+msgstr "BASIC"
+
+msgid "Only the enabled severity levels are supported for selected product and version."
+msgstr "I livelli di gravità abilitati sono supportati solo per il prodotto e la versione selezionati."
+
+msgid "Send Additional Email Notifications to"
+msgstr "Invia notifiche e-mail aggiuntive a"
+
+msgid "By opening this case you will automatically receive notifications"
+msgstr "Aprendo questo caso riceverai automaticamente le notifiche"
+
+msgid "Consultant Engaged"
+msgstr "Consulente incaricato"
+
+msgid "Consultant Engagement in Progress"
+msgstr "Servizio di consulenza in corso"
+
+msgid "Please provide the contact information of Consulting personnel troubleshooting the customer issue. If requested, Support Delivery will use this information to initiate direct contact (i.e. phone, chat) with listed contact(s) in order to provide faster assistance. Primary method of communication will continue to be this Customer Case ticket"
+msgstr "Fornisci le informazioni di contatto del personale che si sta occupando della risoluzione del problema del cliente. Se richiesto, il servizio di supporto utilizzerà queste informazioni per avviare una comunicazione diretta (ad esempio tramite telefono o chat) con i contatti elencati per fornire assistenza più rapidamente. Il metodo di comunicazione principale continuerà a essere questa richiesta di supporto per caso cliente"
+
+msgid "Contact Name"
+msgstr "Nome contatto"
+
+msgid "Availability/Working Hours"
+msgstr "Disponibilità/Orario di lavoro"
+
+msgid "Contact Information"
+msgstr "Informazioni di contatto"
+
+msgid "Provide main contact(s) troubleshooting the issue"
+msgstr "Fornisci i contatti principali di chi si sta occupando della risoluzione del problema"
+
+msgid "Indicate working hours, time zone; specify if not available on certain dates(i.e weekends, holidays)"
+msgstr "Indica l'orario di lavoro e il fuso orario; specifica l’eventuale mancata disponibilità in determinate date (ad esempio fine settimana, festivi)"
+
+msgid "Please provide phone number, chat ID or email"
+msgstr "Fornisci il numero di telefono, l’ID chat o l’indirizzo e-mail"
+
+msgid "Provide any pertinent information that Support delivery should be aware of that's not alreadt captured in the case summary or comments"
+msgstr "Fornisci tutte le informazioni pertinenti che il supporto dovrebbe conoscere o che non sono ancora state acquisite nel riepilogo o nei commenti del caso"
+
+msgid "Used by consultants to indicate that a consulting engagement is in progress and the issue requires an increased attention from support resources"
+msgstr "Utilizzato dai consulenti per indicare che è in corso un servizio di consulenza e il problema richiede una maggiore attenzione da parte delle risorse dedicate al supporto"
+
+msgid "If we have not recorded your business hours correctly, please update your timezone in Your preferences"
+msgstr "Se il tuo orario lavorativo non è stato registrato in modo corretto, ti chiediamo di aggiornare il fuso orario nelle preferenze"
+
+msgid "Account number"
+msgstr "Numero account"
+
+msgid "Account name"
+msgstr "Nome account"
+
+msgid "Low"
+msgstr "Basso"
+
+msgid "Normal"
+msgstr "Normale"
+
+msgid "High"
+msgstr "Alto"
+
+msgid "Urgent"
+msgstr "Urgente"
+
+msgid "Add Custom Email"
+msgstr "Aggiungi e-mail personalizzata"
+
+msgid "Enter Custom Email Address"
+msgstr "Inserisci l'indirizzo e-mail personalizzato"
+
+msgid "Active Customer Escalation"
+msgstr "Escalation cliente attivo"
+
+msgid "Internal Red Hat associates can open an Active Customer Escalation when:"
+msgstr "I collaboratori interni di Red Hat possono aprire un'escalation del cliente attivo quando:"
+
+msgid "The customer wants an update."
+msgstr "Il cliente desidera un aggiornamento."
+
+msgid "The customer thinks the case is not moving appropriately."
+msgstr "Il cliente pensa che il caso non si stia risolvendo in modo appropriato."
+
+msgid "The customer wants a new resource."
+msgstr "Il cliente desidera una nuova risorsa."
+
+msgid "The issue is more severe than originally thought."
+msgstr "Il problema è più grave di quanto si pensasse inizialmente."
+
+msgid "ACE Escalation"
+msgstr "Escalation ACE"
+
+msgid "Showing 1 - 48 of 48 results"
+msgstr "Mostra 1-48 di 48 risultati"
+
+msgid "Show per page"
+msgstr "Risultati per pagina"
+
+msgid "Associate"
+msgstr "Socio"
+
+msgid "Customer"
+msgstr "Cliente"
+
+msgid "Closed"
+msgstr "Chiuso"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Title"
+msgstr "Titolo"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Phone"
+msgstr "Telefono"
+
+msgid "IRC"
+msgstr "IRC"
+
+msgid "Timezone"
+msgstr "Fuso orario"
+
+msgid "Office location"
+msgstr "Indirizzo dell'ufficio"
+
+msgid "Troubleshooting an issue? Try Solution Engine—our new support tool."
+msgstr "Devi risolvere un problema? Prova Solution Engine, il nostro nuovo strumento per il supporto."
+
+msgid "Enter Search Term"
+msgstr "Inserisci un termine per la ricerca"
+
+msgid "Search"
+msgstr "Cerca"
+
+msgid "Account Team"
+msgstr "Team account"
+
+msgid "Can now accept large attachments (~250 GB)"
+msgstr "Ora accetta allegati di grandi dimensioni (~ 250 GB)"
+
+msgid "Containers"
+msgstr "Container"
+
+msgid "Management Escalation"
+msgstr "Escalation gestionale"
+
+msgid "Request Closure"
+msgstr "Richiedi chiusura"
+
+msgid "Request Update"
+msgstr "Richiedi aggiornamento"
+
+msgid "Subject"
+msgstr "Oggetto"
+
+msgid "Description"
+msgstr "Descrizione"
+
+msgid "Expectations"
+msgstr "Aspettative"
+
+msgid "GEO client"
+msgstr "Client GEO"
+
+msgid "Status"
+msgstr "Stato"
+
+msgid "Escalation Owner"
+msgstr "Proprietario dell'escalation"
+
+msgid "Please Add File Description (max 255 characters)"
+msgstr "Aggiungere descrizione del file (massimo 255 caratteri)"
+
+msgid "Successfully uploaded attachment"
+msgstr "Allegato caricato"
+
+msgid "Could not upload"
+msgstr "Impossibile caricare"
+
+msgid "{{file name}} cannot be attached because it is a 0 byte file."
+msgstr "Impossibile allegare {{file name}}: dimensioni pari a 0 byte."
+
+msgid "{{file name}} cannot be attached because it is larger than {{file size}} GB. Please FTP large files to dropbox.redhat.com."
+msgstr "Impossibile allegare {{file name}}: dimensioni superiori a {{file size}} GB. Invia file di grandi dimensioni tramite FTP su dropbox.redhat.com."
+
+msgid "{{file name}} cannot be attached because it is larger than 1 TB."
+msgstr "Impossibile allegare {{file name}}: dimensioni superiori a 1 TB."
+
+msgid "{{file name}} cannot be read by the browser. Check your privileges and make sure you are allowed to read the file."
+msgstr "{{file name}} non può essere letto dal browser. Controlla i tuoi privilegi e assicurati di poter leggere il file."
+
+msgid "Could not fetch custom notification emails"
+msgstr "Impossibile recuperare le e-mail di notifica personalizzate"
+
+msgid "Could not post custom email"
+msgstr "Impossibile pubblicare e-mail personalizzate"
+
+msgid "Could not delete custom email"
+msgstr "Impossibile eliminare e-mail personalizzate"
