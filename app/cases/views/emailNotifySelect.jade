@@ -11,15 +11,16 @@
     .col-sm-8
         .spinner.spinner-inline(ng-show="CaseService.usersLoading")
         div(ng-show="!CaseService.usersLoading && securityService.loginStatus.authedUser.org_admin")
-            select(
-            chosen,
-            multiple,
-            data-placeholder="{{'Select a User'|translate}}",
-            ng-disabled='saving',
-            ng-model='selectedUsers',
-            ng-change='selectedUsersChanged()',
-            width='"100%"',
-            ng-options="user.sso_username as (user.first_name+' '+user.last_name+' <'+user.sso_username+'>') for user in usersOnAccount | orderBy:['first_name','last_name']")
+            div.label-contact(ng-repeat="user in mapAllUsers(selectedUsers)", ng-class="{'label-disabled':saving}")
+                span {{user.first_name}} {{user.last_name}} <{{user.sso_username}}>
+                a(ng-click="removeUser(user.sso_username)", ng-disabled="saving")
+                    i.fa.fa-close
+            input.form-control.email-typeahead(type="text", placeholder="{{'Search here to add a User' | translate}}", ng-disabled="saving", 
+            typeahead-loading="CaseService.usersLoading" 
+            typeahead-no-results="noResults" 
+            ng-model='userToAdd'
+            typeahead-min-length="0" 
+            uib-typeahead="user as (user.first_name+' '+user.last_name+' &lt;'+user.sso_username+'&gt;') for user in typeAheadOptions | filter:filterUsers($viewValue) | orderBy:['first_name','last_name'] | limitTo:150")
         div.edit-emailNotify-Container(ng-show="!CaseService.usersLoading && !securityService.loginStatus.authedUser.org_admin")
             span.label-contact(ng-repeat='user in mapUsers(selectedUsers)', ng-if='RHAUtils.isNotEmpty(selectedUsers)') {{user.first_name}} {{user.last_name}} <{{user.sso_username}}>
             span.disable-span-text(ng-if='RHAUtils.isEmpty(selectedUsers)', translate='') No users selected

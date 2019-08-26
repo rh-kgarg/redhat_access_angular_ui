@@ -32,21 +32,21 @@ export default class EmailNotifySelect {
                     $scope.saving = false;
 
                     // add warning message for users we cannot add
-                    _.each(removed, (sso)=> AlertService.addWarningMessage(gettextCatalog.getString('User {{sso}} cannot be added as watcher because it is not internal.', {sso})));
+                    _.each(removed, (sso) => AlertService.addWarningMessage(gettextCatalog.getString('User {{sso}} cannot be added as watcher because it is not internal.', { sso })));
                 });
             }
             return submitWatchers(toBeAdded, toBeRemoved, []);
         };
 
 
-        $scope.mapUsers = (users) => _.compact(_.map(users, (userSSO) => _.find(CaseService.users, {'sso_username': userSSO})));
+        $scope.mapUsers = (users) => _.compact(_.map(users, (userSSO) => _.find(CaseService.users, { 'sso_username': userSSO })));
 
         $scope.isCurrentUserWatcher = () => $scope.selectedUsers.indexOf(securityService.loginStatus.authedUser.sso_username) > -1;
         $scope.isCurrentUserCaseContact = () => CaseService.kase.contact_sso_username == securityService.loginStatus.authedUser.sso_username;
         $scope.isCurrentUserNotifiedUser = () => _.includes(CaseService.originalNotifiedUsers, securityService.loginStatus.authedUser.sso_username);
 
         $scope.toggleCurrentUser = () => {
-            if($scope.isCurrentUserWatcher()) {
+            if ($scope.isCurrentUserWatcher()) {
                 _.pull($scope.selectedUsers, securityService.loginStatus.authedUser.sso_username);
                 $scope.selectedUsersChanged();
             } else {
@@ -57,13 +57,13 @@ export default class EmailNotifySelect {
 
         const init = () => {
             function setUsers() {
-                if(securityService.loginStatus.authedUser.org_admin || securityService.loginStatus.authedUser.is_internal) {
+                if (securityService.loginStatus.authedUser.org_admin || securityService.loginStatus.authedUser.is_internal) {
                     $scope.usersOnAccount = _.cloneDeep(CaseService.users);
-                    if(securityService.loginStatus.authedUser.accountContacts && securityService.loginStatus.authedUser.accountContacts.length > 0) {
+                    if (securityService.loginStatus.authedUser.accountContacts && securityService.loginStatus.authedUser.accountContacts.length > 0) {
                         $scope.usersOnAccount = $scope.usersOnAccount.concat(securityService.loginStatus.authedUser.accountContacts);
                     }
-                    if(CaseService.internalNotificationContacts.length>0) {
-                        const strataInternalNotificationContacts = _.map(CaseService.internalNotificationContacts,(c)=> {
+                    if (CaseService.internalNotificationContacts.length > 0) {
+                        const strataInternalNotificationContacts = _.map(CaseService.internalNotificationContacts, (c) => {
                             return {
                                 first_name: c.firstName,
                                 last_name: c.lastName,
@@ -74,12 +74,13 @@ export default class EmailNotifySelect {
                         })
                         $scope.usersOnAccount = $scope.usersOnAccount.concat(strataInternalNotificationContacts);
                     }
-                    $scope.usersOnAccount = _.uniqBy($scope.usersOnAccount,'sso_username');
+                    $scope.usersOnAccount = _.uniqBy($scope.usersOnAccount, 'sso_username');
                 } else {
                     $scope.usersOnAccount = _.cloneDeep(CaseService.users);
                 }
-                $scope.selectedUsers =  _.intersection(_.map($scope.usersOnAccount, 'sso_username'), CaseService.originalNotifiedUsers);
+                $scope.selectedUsers = _.intersection(_.map($scope.usersOnAccount, 'sso_username'), CaseService.originalNotifiedUsers);
                 $scope.selectedUsers.unshift(CaseService.kase.contact_sso_username); // fake insert the Case Contact
+                $scope.typeAheadOptions = _.differenceBy($scope.usersOnAccount, $scope.mapAllUsers($scope.selectedUsers), 'sso_username');
             }
             CaseService.getCustomNotificationEmails();
             CaseService.populateUsers();
@@ -96,5 +97,43 @@ export default class EmailNotifySelect {
         $scope.$on(CASE_EVENTS.received, () => {
             init();
         });
+
+        $scope.$watch('userToAdd', (user) => {
+            if (_.isObject(user)) { // user is object if it was selected from the options, otherwise it's string
+                $scope.selectedUsers.push(user.sso_username);
+                $scope.selectedUsersChanged();
+                $scope.userToAdd = '';
+            }
+        });
+
+        $scope.removeUser = (userSSO) => {
+            if ($scope.saving) return;
+
+            _.pull($scope.selectedUsers, userSSO);
+            $scope.selectedUsersChanged();
+        };
+
+        $scope.mapAllUsers = (users) => _.compact(_.map(users, (userSSO) => _.find($scope.usersOnAccount, { 'sso_username': userSSO })));
+
+        $scope.match = function (item, value) {
+            const regex = new RegExp(value, 'i');
+            return item.first_name.search(regex) == 0 ||
+                item.last_name.search(regex) == 0 ||
+                item.sso_username.search(regex) == 0;
+        }
+
+        $scope.filterUsers = (typeaheadVal) => {
+            return function (user) {
+                if (!typeaheadVal) return true;
+                let matched = true;
+                typeaheadVal.split(' ').forEach(function (token) {
+                    matched = matched && $scope.match(user, token);
+                });
+                return matched;;
+            }
+        }
+
+
+
     }
 }

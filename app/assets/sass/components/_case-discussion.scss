@@ -223,3 +223,8 @@
     color: red;
     font-style: italic;
 }
+
+.email-typeahead+ul {
+	max-height: 250px;
+    overflow-y: auto;
+}
