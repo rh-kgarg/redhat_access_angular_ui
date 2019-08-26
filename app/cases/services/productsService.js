@@ -51,8 +51,11 @@ export default class ProductsService {
                 contact = CaseService.virtualOwner; // Used for fetching products list(of customers) for cases managed by Partners
             }
             this.productsLoading = true;
-            return strataService.products.list(contact).then(angular.bind(this, function (response) {
-                this.products = response;
+            return hydrajs.products.getProducts(contact).then(angular.bind(this, function (response) {
+                this.products = response.map((product) => {
+                    product.code = product.name;
+                    return product;
+                });
 
                 this.productsRecentlyFiledAgainst = this.products.filter((product) => product.recentlyFiledAgainst);
                 this.buildProductOptions();
@@ -153,8 +156,8 @@ export default class ProductsService {
                 this.fetchProductDetail(product);
             }
 
-            return strataService.products.versions(product).then(angular.bind(this, function (response) {
-                const versions = response;
+            return hydrajs.products.getProductVersions(product).then(angular.bind(this, function (response) {
+                const versions = response.items;
                 this.versions = versionSort(versions);
                 this.versionDisabled = false;
                 this.versionLoading = false;
