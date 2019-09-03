@@ -33,7 +33,8 @@ export default class AttachmentsService {
                     s3UploadFunctionality: 'enable_all',
                     result: [],
                     partSize: 5 * 1024 * 1024,
-                    queueSize: 5
+                    queueSize: 5,
+                    s3UploadTooltip:''
                 };
             }
         };

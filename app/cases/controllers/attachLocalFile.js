@@ -13,8 +13,11 @@ export default class AttachLocalFile {
             await AttachmentsService.reEvaluateS3EnabledForAccount();
         }, true);
 
-        $scope.getAttachFileTT = function(s3Enabled) {
-            return s3Enabled ? gettextCatalog.getString('Can now accept large attachments (~250GB)') : '';
+        $scope.getAttachFileTT = function (s3Enabled) {
+            return s3Enabled ?
+                gettextCatalog.getString('Can now accept large attachments (~250GB)') :
+                _.get(AttachmentsService.s3AccountConfigurations, 's3UploadFunctionality') === 'disable_all' ?
+                    _.get(AttachmentsService.s3AccountConfigurations, 's3UploadTooltip') : '';
         }
 
         $scope.init = function () {
@@ -71,9 +74,9 @@ export default class AttachLocalFile {
                             $scope.$apply();
                         }
                     };
-                    reader.readAsArrayBuffer(file.slice(0,10)); // try reading first 10 bytes
+                    reader.readAsArrayBuffer(file.slice(0, 10)); // try reading first 10 bytes
                 } else if (file && file.size === minSize) {
-                    var message = gettextCatalog.getString("{{errorFileName}} cannot be attached because it is a 0 byte file.", {errorFileName: file.name});
+                    var message = gettextCatalog.getString("{{errorFileName}} cannot be attached because it is a 0 byte file.", { errorFileName: file.name });
                     AlertService.addDangerMessage(message);
                 } else if (file && !AttachmentsService.s3EnabledForAccount) {
                     var message = gettextCatalog.getString("{{errorFileName}} cannot be attached because it is larger than {{errorFileSize}} GB. Please FTP large files to dropbox.redhat.com.", {
