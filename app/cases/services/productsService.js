@@ -29,6 +29,9 @@ export default class ProductsService {
             products: this.productsRecentlyFiledAgainst.map((product) => product.name).join(', ')
         });
 
+        /**
+         * Returns a list of products from hydrajs (switched from strata).
+         */
         this.getProducts = function (fetchForContact) {
             this.clear();
             var contact = securityService.loginStatus.authedUser.sso_username;
@@ -106,8 +109,8 @@ export default class ProductsService {
 
                 // Service level change
                 this.products = _.forEach(this.products, (p) => {
-                    p.preferredServiceLevel = RHAUtils.isNotEmpty(p.preferred_service_level) ? p.preferred_service_level : RHAUtils.isNotEmpty(CaseService.originalEntitlements) && CaseService.originalEntitlements[0];
-                    p.serviceLevels = RHAUtils.isNotEmpty(p.service_levels) ? _.split(p.service_levels , ';'): CaseService.originalEntitlements;
+                    p.preferredServiceLevel = RHAUtils.isNotEmpty(p.preferredServiceLevel) ? p.preferredServiceLevel : RHAUtils.isNotEmpty(CaseService.originalEntitlements) && CaseService.originalEntitlements[0];
+                    p.serviceLevels = RHAUtils.isNotEmpty(p.serviceLevels) ? _.split(p.serviceLevels , ';'): CaseService.originalEntitlements;
                 });
 
                 if (supportedProduct.length > 0) {
@@ -146,6 +149,10 @@ export default class ProductsService {
                 AlertService.addStrataErrorMessage(error);
             });
         };
+
+        /**
+         * Returns a list of versions based on the given product from hydrajs (switched from strata).
+         */
         this.getVersions = function (product, isFilter) {
             this.versionDisabled = true;
             this.versionLoading = true;
