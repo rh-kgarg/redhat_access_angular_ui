@@ -83,7 +83,11 @@ export default class EmailNotifySelectInternal {
         });
 
         $scope.$watch('userToAdd', (user) => {
-            if(_.isObject(user)) { // user is object if it was selected from the options, otherwise it's string
+            const isObject = _.isObject(user);
+            if (isObject && CaseService.kase.contact_name.toLowerCase() === user.name.toLowerCase()) {
+                AlertService.addWarningMessage(gettextCatalog.getString(`Could not add ${user.name} because the user is already the case contact`));
+                $scope.userToAdd = '';
+            } else if (isObject) { // user is object if it was selected from the options, otherwise it's string
                 $scope.contactToAdd = user;
                 $scope.selectedUsers.push(user.ssoUsername);
                 $scope.selectedUsersChanged();

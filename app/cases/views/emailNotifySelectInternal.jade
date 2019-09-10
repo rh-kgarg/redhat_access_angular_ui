@@ -18,6 +18,7 @@
         ng-model-options="{'debounce': 600}"
         typeahead-loading="CaseService.isLoadingRHUsers" 
         typeahead-no-results="noResults" 
-        typeahead-min-length="0" 
+        typeahead-min-length="0"
+        typeahead-focus-on-select="false"
         uib-typeahead="user as (user.name + ' &lt;'+user.ssoUsername+'&gt;') for user in CaseService.searchRHUsers($viewValue)")
         div(ng-show="CaseService.noResultsForRHUsersSearch && !CaseService.isLoadingRHUsers" translate) No new contacts found.
