@@ -989,6 +989,7 @@ angular.module('RedhatAccess.mock', [])
             this.commentText = '';
             this.status = '';
             this.severity = '';
+            this.prestineKase = {};
             this.type = '';
             this.group = '';
             this.owner = '';
@@ -1089,6 +1090,10 @@ angular.module('RedhatAccess.mock', [])
                 this.kase.group = MockStrataDataService.mockGroups[1];
                 return this.kase.group;
             }
+
+            this.updateAndValidateEntitlements = function () {}
+            this.updateLocalStorageForNewCase = function () {}
+            this.sendCreationStartedEvent = function () {}
         }
     ])
     .service('MockRecommendationsService', [

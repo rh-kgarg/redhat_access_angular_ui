@@ -1612,6 +1612,25 @@ describe('Case Controllers', function () {
             expect(mockScope.ProductsService).toEqual(mockProductsService);
             expect(mockScope.RecommendationsService).toEqual(mockRecommendationsService);
         }));
+
+        it('should have a controller select recently filed against product', inject(function ($controller) {
+            $controller('ProductSelect', {
+                $scope: mockScope,
+                SearchCaseService: mockSearchCaseService,
+                CaseService: mockCaseService,
+                ProductsService:mockProductsService ,
+                RecommendationsService:mockRecommendationsService
+            });
+
+            var product = mockStrataDataService.mockProducts[0];
+            mockScope.selectRecentProduct(product);
+            
+            expect(mockScope.product).toEqual(product.name)
+            expect(mockScope.SearchCaseService).toEqual(mockSearchCaseService);
+            expect(mockScope.CaseService).toEqual(mockCaseService);
+            expect(mockScope.ProductsService).toEqual(mockProductsService);
+            expect(mockScope.RecommendationsService).toEqual(mockRecommendationsService);
+        }));
     });
 
     //Suite for OwnerSelect

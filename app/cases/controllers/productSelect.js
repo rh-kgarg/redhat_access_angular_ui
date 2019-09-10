@@ -20,6 +20,7 @@ export default class ProductSelect {
         }, function () {
             if (RHAUtils.isNotEmpty(ProductsService.products)) {
                 $scope.products = ProductsService.products;
+                $scope.product = CaseService.kase.product;
 
                 if (RHAUtils.isNotEmpty(CaseService.kase.product)) {
                     let selectedProduct = {
