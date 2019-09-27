@@ -176,8 +176,12 @@ export default class CaseService {
         this.loadingCustomNotificationEmails = false;
         this.isLinkedEmail = () => this.customNotificationEmails.find((email) => email.emailAddress === this.newCustomEmail);
         this.onChangeCustomEmail = () => {
-            const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-            this.isValidCustomEmail = this.newCustomEmail.match(mailformat);
+            if (this.originalNotifiedUsers.find((email) => email === this.newCustomEmail)) {
+                this.isValidCustomEmail = false;
+            } else {
+                const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                this.isValidCustomEmail = this.newCustomEmail.match(mailformat);
+            }
         };
 
         this.getCustomNotificationEmails = async () => {
