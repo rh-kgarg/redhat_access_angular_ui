@@ -751,7 +751,7 @@ export default class CaseService {
                 var uniqueEntitlements = function (entitlements) {
                     var uEntitlements = [];
                     entitlements.forEach(function (e) {
-                        if (uEntitlements.indexOf(e.sla) < 0) {
+                        if (uEntitlements.indexOf(e.sla) < 0 && !_.isEmpty(e.sla)) {
                             uEntitlements.push(e.sla);
                         }
                     });
@@ -781,7 +781,7 @@ export default class CaseService {
             // case_number is empty means its new case create page
             if (_.isEmpty(this.kase.case_number)) {
                 if (!_.isEmpty(this.kase.product) && !_.isEmpty(product)) {
-                    this.entitlements = product.serviceLevels;
+                    this.entitlements = !_.isEmpty(product.serviceLevels) ? product.serviceLevels : this.originalEntitlements;
                     this.entitlement = product.preferredServiceLevel;
                 }
             } else {
