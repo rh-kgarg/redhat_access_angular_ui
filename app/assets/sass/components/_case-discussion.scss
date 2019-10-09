@@ -14,7 +14,8 @@
 		margin-top: 10px;
 	}
 	textarea.comment {
-	    margin-bottom: 15px;
+		margin-bottom: 15px;
+		font-family: monospace;
 	}
 	.comment {
 		textarea { min-height: 250px; }
@@ -23,6 +24,9 @@
 		.comment { @include rem('padding-left', 28px); }
 		.private { color: red; }
 		blockquote { margin-bottom: 0; }
+		.pre-text {
+			font-family: monospace;
+		}
 	}
 
 	.tab-pane { padding: 0; }
@@ -138,7 +142,7 @@
 	}
 
 	.byline {
-		font-family: 'Overpass';
+		font-family: "Red Hat Text","Overpass",Helvetica,sans-serif !important;
 		font-weight: 700;
 		@include font-size(13px);
 		font-size: 13px;
