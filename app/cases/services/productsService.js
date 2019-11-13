@@ -191,7 +191,7 @@ export default class ProductsService {
             return false;
         };
 
-        this.showClusterIdFieldForProduct = function () {
+        this.showClusterIdFieldForSelectedProduct = function () {
             let show = false;
             const clusterIdEnabledProducts = ConfigService.getField('clusterIdEnabledForProduct') || [];
             if (RHAUtils.isNotEmpty(CaseService.kase.product)) {

@@ -19,7 +19,7 @@ div(rha-header='', page='newCase')
                             label {{'Product Version'| translate}} &nbsp;
                                 .spinner.spinner-xs.spinner-inline(ng-show='$parent.ProductsService.versionLoading')
                             div(rha-versionselect='')
-                            div(ng-if='$parent.ProductsService.showClusterIdFieldForProduct()')
+                            div(ng-if='$parent.ProductsService.showClusterIdFieldForSelectedProduct()')
                                 label(translate,translate-comment="Noun") Openshift Cluster ID
                                     span &nbsp;
                                     span.glyphicon.glyphicon-info-sign.text-info(uib-popover-html="$parent.CaseService.clusterIdTooltip",

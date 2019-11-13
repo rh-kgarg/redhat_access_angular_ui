@@ -375,7 +375,7 @@ export default class New {
             //if we directly call $scope.getProductVersions function without product list in strata service it return error
             strataService.products.list(CaseService.owner).then(function (products) {
                 CaseService.kase.product = product;
-                if (RHAUtils.isNotEmpty(clusterId) && ProductsService.showClusterIdFieldForProduct()) {
+                if (RHAUtils.isNotEmpty(clusterId) && ProductsService.showClusterIdFieldForSelectedProduct()) {
                     CaseService.kase.openshiftClusterID = clusterId;
                 }
                 ProductsService.getVersions(CaseService.kase.product).then(function (versions) {

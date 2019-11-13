@@ -54,7 +54,7 @@ section.case-description
                         .label {{::'Product Version'|translate}}
                     .col-xs-4.col-sm-5.col-md-6
                         div(rha-versionselect='')
-                .row.row-short(ng-if='ProductsService.showClusterIdFieldForProduct()')
+                .row.row-short(ng-if='ProductsService.showClusterIdFieldForSelectedProduct()')
                     .col-xs-4.col-sm-3.col-md-4
                         .label {{::'Openshift Cluster ID'|translate}}
                             span &nbsp;

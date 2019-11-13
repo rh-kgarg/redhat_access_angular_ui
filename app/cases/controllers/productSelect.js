@@ -67,7 +67,7 @@ export default class ProductSelect {
             if (CaseService.kase.product !== CaseService.prestineKase.product) {
                 CaseService.kase.version = "";
             }
-            if (!ProductsService.showClusterIdFieldForProduct()) {
+            if (!ProductsService.showClusterIdFieldForSelectedProduct()) {
                 CaseService.kase.openshiftClusterID = "";
                 CaseService.kase.openshift_cluster_id = "";
             }
