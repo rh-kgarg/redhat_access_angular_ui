@@ -54,6 +54,19 @@ section.case-description
                         .label {{::'Product Version'|translate}}
                     .col-xs-4.col-sm-5.col-md-6
                         div(rha-versionselect='')
+                .row.row-short(ng-if='ProductsService.showClusterIdFieldForSelectedProduct()')
+                    .col-xs-4.col-sm-3.col-md-4
+                        .label {{::'Openshift Cluster ID'|translate}}
+                            span &nbsp;
+                            span.glyphicon.glyphicon-info-sign.text-info(uib-popover-html="CaseService.clusterIdTooltip",
+                             popover-placement="bottom",
+                             popover-class="clusterid-popover"
+                            popover-trigger="outsideClick")
+                    .col-xs-4.col-sm-5.col-md-6
+                        input#rha-cluster-id.form-control(
+                        type="text"
+                        ng-model='CaseService.kase.openshift_cluster_id',
+                        name='cluster_id')
                 .row.row-short
                     .col-xs-4.col-sm-3.col-md-4
                         .label {{::'Alternate Case ID'|translate}}

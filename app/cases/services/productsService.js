@@ -1,11 +1,11 @@
 'use strict';
-import _        from 'lodash';
-import {versionSort} from '../../shared/utils';
+import _ from 'lodash';
+import { versionSort } from '../../shared/utils';
 import hydrajs from '../../shared/hydrajs';
 const productSortListFile = require('../../../productSortList.txt');
 
 export default class ProductsService {
-    constructor(securityService, strataService, CaseService, AttachmentsService, RHAUtils, NEW_CASE_CONFIG, NEW_DEFAULTS, AlertService, gettextCatalog) {
+    constructor(securityService, strataService, CaseService, AttachmentsService, RHAUtils, NEW_CASE_CONFIG, NEW_DEFAULTS, AlertService, gettextCatalog, ConfigService) {
         'ngInject';
 
         this.products = [];
@@ -49,8 +49,8 @@ export default class ProductsService {
                 }
             }
 
-            if((RHAUtils.isNotEmpty(CaseService.virtualOwner) && RHAUtils.isNotEmpty(CaseService.account.number) && CaseService.isManagedAccount(CaseService.account.number)) ||
-            (RHAUtils.isNotEmpty(CaseService.virtualOwner) && CaseService.kase.contact_is_partner)) {
+            if ((RHAUtils.isNotEmpty(CaseService.virtualOwner) && RHAUtils.isNotEmpty(CaseService.account.number) && CaseService.isManagedAccount(CaseService.account.number)) ||
+                (RHAUtils.isNotEmpty(CaseService.virtualOwner) && CaseService.kase.contact_is_partner)) {
                 contact = CaseService.virtualOwner; // Used for fetching products list(of customers) for cases managed by Partners
             }
             this.productsLoading = true;
@@ -96,8 +96,8 @@ export default class ProductsService {
                                 code: sortProduct,
                                 name: sortProduct,
                                 supported: true,
-                                preferredServiceLevel : RHAUtils.isNotEmpty(productInResponse) && RHAUtils.isNotEmpty(productInResponse.preferred_service_level) ? productInResponse.preferred_service_level :RHAUtils.isNotEmpty(CaseService.originalEntitlements) && CaseService.originalEntitlements[0],
-                                serviceLevels : RHAUtils.isNotEmpty(productInResponse) && RHAUtils.isNotEmpty(productInResponse.service_levels) ? _.split(productInResponse.service_levels , ';'): CaseService.originalEntitlements
+                                preferredServiceLevel: RHAUtils.isNotEmpty(productInResponse) && RHAUtils.isNotEmpty(productInResponse.preferred_service_level) ? productInResponse.preferred_service_level : RHAUtils.isNotEmpty(CaseService.originalEntitlements) && CaseService.originalEntitlements[0],
+                                serviceLevels: RHAUtils.isNotEmpty(productInResponse) && RHAUtils.isNotEmpty(productInResponse.service_levels) ? _.split(productInResponse.service_levels, ';') : CaseService.originalEntitlements
                             });
                             break;
                         }
@@ -110,12 +110,12 @@ export default class ProductsService {
                 // Service level change
                 this.products = _.forEach(this.products, (p) => {
                     p.preferredServiceLevel = RHAUtils.isNotEmpty(p.preferredServiceLevel) ? p.preferredServiceLevel : RHAUtils.isNotEmpty(CaseService.originalEntitlements) && CaseService.originalEntitlements[0];
-                    p.serviceLevels = RHAUtils.isNotEmpty(p.serviceLevels) ? _.split(p.serviceLevels , ';'): CaseService.originalEntitlements;
+                    p.serviceLevels = RHAUtils.isNotEmpty(p.serviceLevels) ? _.split(p.serviceLevels, ';') : CaseService.originalEntitlements;
                 });
 
                 if (supportedProduct.length > 0) {
                     supportedProduct = _.sortBy(supportedProduct, (p) => p.code);
-                    angular.forEach(supportedProduct, (product) => productOptions.push({code: product.code, name: product.name, supported: product.supported_for_customer, preferredServiceLevel: product.preferredServiceLevel, serviceLevels: product.serviceLevels}));
+                    angular.forEach(supportedProduct, (product) => productOptions.push({ code: product.code, name: product.name, supported: product.supported_for_customer, preferredServiceLevel: product.preferredServiceLevel, serviceLevels: product.serviceLevels }));
                 }
 
                 if (unsupportedProduct.length > 0) {
@@ -124,12 +124,12 @@ export default class ProductsService {
                     unsupportedProduct = _.sortBy(unsupportedProduct, (p) => p.code);
                     // Do not add preferred service level for unsupported product, CCM would do it automatically
                     // or user can select it if needed
-                    angular.forEach(unsupportedProduct, (product) => productOptions.push({code: product.code, name: product.name, supported: product.supported_for_customer, serviceLevels: product.serviceLevels}));
+                    angular.forEach(unsupportedProduct, (product) => productOptions.push({ code: product.code, name: product.name, supported: product.supported_for_customer, serviceLevels: product.serviceLevels }));
                 }
 
                 this.products = _.uniqBy(productOptions, (p) => p.name);
             } else {
-                angular.forEach(this.products, (product) => productOptions.push({code: product.code, name: product.name, supported: product.supported_for_customer, preferredServiceLevel: product.preferredServiceLevel, serviceLevels: product.serviceLevels}) );
+                angular.forEach(this.products, (product) => productOptions.push({ code: product.code, name: product.name, supported: product.supported_for_customer, preferredServiceLevel: product.preferredServiceLevel, serviceLevels: product.serviceLevels }));
                 this.products = productOptions;
             }
         };
@@ -190,5 +190,15 @@ export default class ProductsService {
             }
             return false;
         };
+
+        this.showClusterIdFieldForSelectedProduct = function () {
+            let show = false;
+            const clusterIdEnabledProducts = ConfigService.getField('clusterIdEnabledForProduct') || [];
+            if (RHAUtils.isNotEmpty(CaseService.kase.product)) {
+                const productIndex = _.findIndex(clusterIdEnabledProducts, (product) => product.toLowerCase() === CaseService.kase.product.toLowerCase());
+                show = productIndex > -1 ? true : false;
+            }
+            return show;
+        }
     }
 }

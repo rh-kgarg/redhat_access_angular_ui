@@ -5,7 +5,7 @@ import hydrajs from '../../shared/hydrajs.js';
 import { getTnCUrl } from '../../shared/TnC';
 
 export default class CaseService {
-    constructor(strataService, AlertService, RHAUtils, securityService, $q, gettextCatalog, CacheFactory, $rootScope, CASE_EVENTS, ConstantsService, HeaderService, $location, ConfigService) {
+    constructor(strataService, AlertService, RHAUtils, securityService, $q, gettextCatalog, CacheFactory, $rootScope, CASE_EVENTS, ConstantsService, HeaderService, $location, ConfigService, $sce) {
         'ngInject';
 
         this.localStorageCache = CacheFactory.get('localStorageCache');
@@ -903,9 +903,9 @@ export default class CaseService {
                     value: '',
                     label: gettextCatalog.getString('All Groups')
                 }, {
-                        value: 'ungrouped',
-                        label: gettextCatalog.getString('Ungrouped Cases')
-                    });
+                    value: 'ungrouped',
+                    label: gettextCatalog.getString('Ungrouped Cases')
+                });
             } else {
                 this.groupOptions.push({
                     value: '',
@@ -935,9 +935,9 @@ export default class CaseService {
                     isDisabled: true,
                     label: sep
                 }, {
-                        value: 'manage',
-                        label: gettextCatalog.getString('Manage Case Groups')
-                    });
+                    value: 'manage',
+                    label: gettextCatalog.getString('Manage Case Groups')
+                });
             }
         };
 
@@ -964,6 +964,9 @@ export default class CaseService {
             }
             if (RHAUtils.isNotEmpty(this.kase.hostname)) {
                 caseJSON.hostname = this.kase.hostname;
+            }
+            if (RHAUtils.isNotEmpty(this.kase.openshiftClusterID)) {
+                caseJSON.openshiftClusterID = this.kase.openshiftClusterID;
             }
             if (this.showKTFields) {
                 if (RHAUtils.isNotEmpty(this.kase.problem)) {
@@ -1115,6 +1118,9 @@ export default class CaseService {
                 caseJSON.product = this.kase.product;
                 caseJSON.version = this.kase.version;
             }
+            if (this.kase.openshift_cluster_id !== undefined && !angular.equals(this.prestineKase.openshift_cluster_id, this.kase.openshift_cluster_id)) {
+                caseJSON.openshiftClusterID = this.kase.openshift_cluster_id;
+            }
             if (this.kase.hostname !== null && !angular.equals(this.prestineKase.hostname, this.kase.hostname)) {
                 caseJSON.hostname = this.kase.hostname;
             }
@@ -1236,6 +1242,9 @@ export default class CaseService {
                 if (RHAUtils.isNotEmpty(this.kase.type)) {
                     draftNewCase.type = this.kase.type;
                 }
+                if (RHAUtils.isNotEmpty(this.kase.openshiftClusterID)) {
+                    draftNewCase.openshiftClusterID = this.kase.openshiftClusterID;
+                }
                 var newCaseDescLocalStorage = { 'text': draftNewCase };
                 this.localStorageCache.put(securityService.loginStatus.authedUser.sso_username, newCaseDescLocalStorage);
             }
@@ -1345,5 +1354,10 @@ export default class CaseService {
         this.mapUsers = (users) => {
             return _.compact(_.map(users, (userSSO) => _.find(this.internalNotificationContacts, { 'ssoUsername': userSSO })))
         };
+
+        this.clusterIdTooltip = $sce.trustAsHtml((gettextCatalog.getString(`To help Red Hat use our connected customer tools/services, to debug your cluster in conjunction with your support case, we are requesting that you provide your <a href=\'{{link}}\' target=\'_blank\'>OpenShift Cluster ID</a>.<br> If you are installing or planning your install and don't yet have a cluster ID please leave this field blank.`, {
+            link: `https://access.redhat.com/solutions/4505861`
+        })
+        ));
     }
 }

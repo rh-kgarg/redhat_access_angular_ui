@@ -7,6 +7,7 @@ export default class DetailsSection {
         $scope.showExtraInfo = false;
         $scope.COMMON_CONFIG = COMMON_CONFIG;
         $scope.CaseService = CaseService;
+        $scope.ProductsService = ProductsService;
         $scope.securityService = securityService;
         $scope.maxNotesLength = '255';
         $scope.progressCount = 0;
@@ -103,9 +104,9 @@ export default class DetailsSection {
                     value: securityService.loginStatus.authedUser.sso_username,
                     label: fullName
                 }, {
-                        value: CaseService.kase.owner,
-                        label: CaseService.kase.owner
-                    });
+                    value: CaseService.kase.owner,
+                    label: CaseService.kase.owner
+                });
             }
             $scope.owners = ownerOptions;
             $scope.fetchPossibleContacts();
