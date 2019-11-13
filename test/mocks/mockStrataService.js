@@ -1180,6 +1180,10 @@ angular.module('RedhatAccess.mock', [])
                 deferred.resolve(MockStrataDataService.mockVersions);
                 return deferred.promise;
             };
+
+            this.showClusterIdFieldForSelectedProduct = function () {
+                return false;
+            }
         }
     ])
     .service('MockDiscussionService', [
