@@ -69,7 +69,6 @@ export default class ProductSelect {
             }
             if (!ProductsService.showClusterIdFieldForSelectedProduct()) {
                 CaseService.kase.openshiftClusterID = "";
-                CaseService.kase.openshift_cluster_id = "";
             }
             CaseService.validateNewCase();
             ProductsService.getVersions(CaseService.kase.product);
