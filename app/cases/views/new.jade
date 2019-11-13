@@ -19,6 +19,20 @@ div(rha-header='', page='newCase')
                             label {{'Product Version'| translate}} &nbsp;
                                 .spinner.spinner-xs.spinner-inline(ng-show='$parent.ProductsService.versionLoading')
                             div(rha-versionselect='')
+                            div(ng-if='$parent.ProductsService.showClusterIdFieldForProduct()')
+                                label(translate,translate-comment="Noun") Openshift Cluster ID
+                                    span &nbsp;
+                                    span.glyphicon.glyphicon-info-sign.text-info(uib-popover-html="$parent.CaseService.clusterIdTooltip",
+                                    popover-placement="bottom",
+                                    popover-class="clusterid-popover"
+                                    popover-trigger="outsideClick")
+                                input#rha-cluster-id.form-control(
+                                maxlength='255',
+                                type="text"
+                                ng-disabled='!$parent.securityService.loginStatus.isLoggedIn || $parent.CaseService.submittingCase',
+                                ng-change='$parent.onClusterIdChange($event)',
+                                ng-model='$parent.CaseService.kase.openshiftClusterID',
+                                ng-model-options='{ debounce: 500 }')
                             label(translate,translate-comment="Noun") Case Type
                             div(rha-typeselect='', on-change = 'onCaseTypeChanged()' )
                             div(ng-if='!$parent.securityService.loginStatus.authedUser.is_internal')

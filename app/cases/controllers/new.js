@@ -42,13 +42,13 @@ export default class New {
 
         // opens modal that pops up when the user is a only in the US (e.g. US government).
         $scope.$watch('CaseService.loadingAccountNumber', function (newv, oldv) {
-            if(oldv !== newv && !newv && CaseService.account && !RHAUtils.isEmpty(CaseService.account.number) &&
+            if (oldv !== newv && !newv && CaseService.account && !RHAUtils.isEmpty(CaseService.account.number) &&
                 CaseService.account.has_confirmed_stateside_support) {
                 $uibModal.open({
                     template: require('../views/confirmedStatesideAccountModal.jade'),
                     controller: 'ConfirmedStatesideAccountModal',
-                    backdrop  : 'static',
-                    keyboard  : false
+                    backdrop: 'static',
+                    keyboard: false
                 });
             }
         });
@@ -263,7 +263,7 @@ export default class New {
         };
 
         $scope.removeUser = (userSSO) => {
-            _.pullAllBy($scope.kase.redhatWatchers, [{ssoUsername: userSSO}], 'ssoUsername');
+            _.pullAllBy($scope.kase.redhatWatchers, [{ ssoUsername: userSSO }], 'ssoUsername');
         };
 
         /**
@@ -346,7 +346,7 @@ export default class New {
                 CaseService.kase.type = draftNewCase.type;
                 if (RHAUtils.isEmpty(urlParameter.product)) {
                     if (RHAUtils.isNotEmpty(draftNewCase.product)) {
-                        $scope.setProductAndVersion(draftNewCase.product, draftNewCase.version);
+                        $scope.setProductAndVersion(draftNewCase.product, draftNewCase.version, draftNewCase.openshiftClusterID);
                     }
                 }
             }
@@ -371,10 +371,13 @@ export default class New {
             }
         };
 
-        $scope.setProductAndVersion = function (product, version) {
+        $scope.setProductAndVersion = function (product, version, clusterId) {
             //if we directly call $scope.getProductVersions function without product list in strata service it return error
             strataService.products.list(CaseService.owner).then(function (products) {
                 CaseService.kase.product = product;
+                if (RHAUtils.isNotEmpty(clusterId) && ProductsService.showClusterIdFieldForProduct()) {
+                    CaseService.kase.openshiftClusterID = clusterId;
+                }
                 ProductsService.getVersions(CaseService.kase.product).then(function (versions) {
                     if (RHAUtils.isNotEmpty(version)) {
                         version = version.trim();
@@ -456,7 +459,7 @@ export default class New {
             CaseService.setCreationStartedEventSent(false);
             var urlParameter = $location.search();
             if (RHAUtils.isNotEmpty(urlParameter.product)) {
-                $scope.setProductAndVersion(urlParameter.product, urlParameter.version);
+                $scope.setProductAndVersion(urlParameter.product, urlParameter.version, urlParameter.clusterId);
             }
             if (RHAUtils.isNotEmpty(urlParameter.caseCreateKey)) {
                 CaseService.externalCaseCreateKey = urlParameter.caseCreateKey;
@@ -731,6 +734,10 @@ export default class New {
         };
 
         $scope.onDescriptionChange = function ($event) {
+            $scope.genericOnChangeTasks($event);
+        };
+
+        $scope.onClusterIdChange = function ($event) {
             $scope.genericOnChangeTasks($event);
         };
 

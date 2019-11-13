@@ -1,5 +1,5 @@
 'use strict';
-import _        from 'lodash';
+import _ from 'lodash';
 
 export default class ProductSelect {
     constructor($scope, $location, securityService, SearchCaseService, CaseService, ProductsService, strataService, AlertService, RHAUtils, RecommendationsService) {
@@ -62,10 +62,14 @@ export default class ProductSelect {
         $scope.onProductSelect = function ($event) {
             CaseService.kase.product = $scope.product;
             // Check Products and update entitlements
-            const selectedProduct = _.find(ProductsService.products,{ 'name': CaseService.kase.product});
+            const selectedProduct = _.find(ProductsService.products, { 'name': CaseService.kase.product });
             CaseService.updateAndValidateEntitlements(selectedProduct);
-            if(CaseService.kase.product !== CaseService.prestineKase.product) {
-                CaseService.kase.version="";
+            if (CaseService.kase.product !== CaseService.prestineKase.product) {
+                CaseService.kase.version = "";
+            }
+            if (!ProductsService.showClusterIdFieldForProduct()) {
+                CaseService.kase.openshiftClusterID = "";
+                CaseService.kase.openshift_cluster_id = "";
             }
             CaseService.validateNewCase();
             ProductsService.getVersions(CaseService.kase.product);
