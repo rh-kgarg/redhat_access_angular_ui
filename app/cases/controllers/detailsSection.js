@@ -342,10 +342,15 @@ export default class DetailsSection {
         $scope.getDescription = function (maxLength) {
             var text = CaseService.kase.description;
             if (maxLength !== undefined) text = $filter('substring')(text, maxLength);
+            text = $scope.htmlEntitiesEncode(text);
             return LinkifyService.linkifyBZIDs(LinkifyService.linkifyWithCaseIDs(text));
         };
         $scope.onCaseTypeChanged = function () {
             CaseService.onSelectChanged();
+        };
+
+        $scope.htmlEntitiesEncode = function (text) {
+            return text && String(text).replace(/</g, '&lt;').replace(/>/g, '&gt;');
         };
     }
 }
