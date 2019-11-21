@@ -17,10 +17,10 @@ section.case-description
                 ng-hide='updatingDetails',
                 ng-click='editCaseSummary(false)') {{::'Cancel'|translate}}
     div(ng-if="!caseDescriptionEditable")
-        pre.pre-text.description.toggled-content.pre-wrap(ng-hide='showExtraInfo') {{getDescription(maxLength)}}
+        pre.pre-text.description.toggled-content.pre-wrap(ng-hide='showExtraInfo', ng-bind-html='getDescription(maxLength)')
         div(ng-hide='showExtraInfo || CaseService.kase.description.length < maxLength')
             a(ng-click='toggleExtraInfo()', translate='') View More
-        pre.pre-text.description.pre-wrap(ng-show='showExtraInfo') {{getDescription()}}
+        pre.pre-text.description.pre-wrap(ng-show='showExtraInfo', ng-bind-html='getDescription()')
         div(ng-show='showExtraInfo')
             a(ng-click='toggleExtraInfo()', translate='') View Less
         div(ng-if='securityService.loginStatus.authedUser.is_internal && COMMON_CONFIG.isGS4')
