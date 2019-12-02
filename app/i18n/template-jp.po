@@ -2567,3 +2567,9 @@ msgstr "カスタムメールを削除できませんでした"
 
 msgid "Successfully uploaded attachment"
 msgstr "添付ファイルが正常にアップロードされました"
+
+msgid "The remote session terms have been acknowledged"
+msgstr "リモートセッションの条件が承認されました"
+
+msgid "The remote session terms have not been acknowledged"
+msgstr "リモートセッションの条件が承認されませんでした"

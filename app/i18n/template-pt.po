@@ -2657,3 +2657,9 @@ msgstr "Não foi possível excluir o e-mail personalizado"
 
 msgid "Successfully uploaded attachment"
 msgstr "Anexo enviado com sucesso"
+
+msgid "The remote session terms have been acknowledged"
+msgstr "Os termos da sessão remota foram aceitos"
+
+msgid "The remote session terms have not been acknowledged"
+msgstr "Os termos da sessão remota não foram aceitos"

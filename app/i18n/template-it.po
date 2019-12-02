@@ -2653,3 +2653,9 @@ msgstr "Impossibile eliminare e-mail personalizzate"
 
 msgid "Successfully uploaded attachment"
 msgstr "Allegato caricato"
+
+msgid "The remote session terms have been acknowledged"
+msgstr "I termini relativi alla sessione remota sono stati accettati"
+
+msgid "The remote session terms have not been acknowledged"
+msgstr "I termini relativi alla sessione remota non sono stati accettati"
