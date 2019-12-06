@@ -2697,8 +2697,79 @@ msgstr "Impossible de supprimer le courrier électronique personnalisé"
 msgid "Successfully uploaded attachment"
 msgstr "Pièce jointe téléchargée avec succès"
 
+
 msgid "The remote session terms have been acknowledged"
 msgstr "Les termes de la session à distance ont été acceptés"
 
 msgid "The remote session terms have not been acknowledged"
 msgstr "Les termes de la session à distance n’ont pas été acceptés"
+
+# 2019-12-06T18:08:47.367Z
+msgid "We noticed you selected Product as "Red Hat OpenShift Cluster Manager”. Is your issue related to our SaaS offering at cloud.redhat.com/openshift/ ?"
+msgstr "Nous avons remarqué que vous avez sélectionné le produit "Red Hat OpenShift Cluster Manager". Votre problème concerne-t-il notre offre SaaS sur cloud.redhat.com/openshift/ ?"
+
+msgid "Yes, Submit (Button)"
+msgstr "Oui, Soumettre (Bouton)"
+
+msgid "No, Go back (Button)"
+msgstr "Non, Revenir en arrière (Bouton)"
+
+msgid "Successfully aborted <filename> upload"
+msgstr "Abandon du téléchargement de <nom de fichier>"
+
+msgid "Search Discussion"
+msgstr "Recherche Discussion"
+
+msgid "Search attachments"
+msgstr "Recherche de pièces jointes"
+
+msgid "Attach file(s)"
+msgstr "Joindre fichier(s)"
+
+msgid "Invalid Email Address"
+msgstr "Adresse électronique non valide"
+
+msgid "Email already subscribed to notifications"
+msgstr "Email déjà abonné aux notifications"
+
+msgid "No new contacts found."
+msgstr "Aucun nouveau contact trouvé."
+
+msgid "You are a case contact and therefore you cannot be removed as watcher"
+msgstr "Vous êtes un contact pour ce cas et ne pouvez donc pas être retiré en tant qu'observateur"
+
+msgid "Could not post custom email {{email}}"
+msgstr "Impossible de poster un email personnalisé {{email}}"
+
+msgid "Could not delete custom email {{email}}"
+msgstr "Impossible de supprimer le courrier électronique personnalisé {{email}}"
+
+msgid "Could not upload {{filename}}: {{error}}"
+msgstr "Impossible de télécharger {{filename}}: {{error}}"
+
+msgid "Your Escalation request has been sent successfully"
+msgstr "Votre demande d'escalade a été envoyée avec succès"
+
+msgid "Search here to add a user"
+msgstr "Cherchez ici pour ajouter un utilisateur"
+
+msgid "Supportlevel"
+msgstr "Niveau de support"
+
+msgid "Escalated"
+msgstr "Réaffecté à un niveau supérieur"
+
+msgid "No new contacts found"
+msgstr "Aucun nouveau contact trouvé."
+
+msgid "Verifying Upload"
+msgstr "Vérification du téléchargement"
+
+msgid "Selected product <productName> is not entitled for <SubscriptionName> support level."
+msgstr "Le produit sélectionné <nom_du_produit> n'est pas autorisé d’accès pour le niveau de support <nom_de_l'abonnement>."
+
+msgid "Openshift Cluster ID"
+msgstr "Openshift Cluster ID"
+
+msgid "To help Red Hat use our connected customer tools/services, to debug your cluster in conjunction with your support case, we are requesting that you provide your OpenShift Cluster ID If you are installing or planning your install and don't yet have a cluster ID please leave this field blank."
+msgstr "Pour aider Red Hat à utiliser nos outils/services de clients connectés, pour déboguer votre cluster dans le cadre du support de cas, nous vous demandons de fournir votre identifiant OpenShift Client Cluster. Si vous installez ou planifiez votre installation et n'avez pas encore d'identifiant de cluster, veuillez laisser ce champ vide."

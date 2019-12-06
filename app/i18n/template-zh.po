@@ -2535,8 +2535,79 @@ msgstr "无法删除自定义电子邮件"
 msgid "Successfully uploaded attachment"
 msgstr "上传附件成功"
 
+
 msgid "The remote session terms have been acknowledged"
 msgstr "远程会话条款已确认"
 
 msgid "The remote session terms have not been acknowledged"
 msgstr "远程会话条款尚未确认"
+
+# 2019-12-06T18:08:47.367Z
+msgid "We noticed you selected Product as "Red Hat OpenShift Cluster Manager”. Is your issue related to our SaaS offering at cloud.redhat.com/openshift/ ?"
+msgstr "我们留意到您选择的“产品”为“红帽 OpenShift Cluster Manager”。您的问题是否与我们在 cloud.redhat.com/openshift/ 提供的 SaaS 产品有关？"
+
+msgid "Yes, Submit (Button)"
+msgstr "是，提交（按钮）"
+
+msgid "No, Go back (Button)"
+msgstr "否，返回（按钮）"
+
+msgid "Successfully aborted <filename> upload"
+msgstr "已成功中止 <filename> 上传"
+
+msgid "Search Discussion"
+msgstr "搜索讨论"
+
+msgid "Search attachments"
+msgstr "搜索附件"
+
+msgid "Attach file(s)"
+msgstr "附加文件"
+
+msgid "Invalid Email Address"
+msgstr "电子邮件地址无效"
+
+msgid "Email already subscribed to notifications"
+msgstr "电子邮件已订阅通知"
+
+msgid "No new contacts found."
+msgstr "未找到新的联系方式。"
+
+msgid "You are a case contact and therefore you cannot be removed as watcher"
+msgstr "您是问题单联系人，因此无法作为旁观者被删除"
+
+msgid "Could not post custom email {{email}}"
+msgstr "无法投递自定义电子邮件 {{email}}"
+
+msgid "Could not delete custom email {{email}}"
+msgstr "无法删除自定义电子邮件 {{email}}"
+
+msgid "Could not upload {{filename}}: {{error}}"
+msgstr "无法上传{{filename}}：{{error}}"
+
+msgid "Your Escalation request has been sent successfully"
+msgstr "您的呈报请求已成功发送"
+
+msgid "Search here to add a user"
+msgstr "在此处搜索以添加用户"
+
+msgid "Supportlevel"
+msgstr "支持级别"
+
+msgid "Escalated"
+msgstr "已呈报"
+
+msgid "No new contacts found"
+msgstr "未找到新的联系方式"
+
+msgid "Verifying Upload"
+msgstr "正在验证上传"
+
+msgid "Selected product <productName> is not entitled for <SubscriptionName> support level."
+msgstr "所选择的产品 <productName> 不享受 <SubscriptionName> 支持级别。"
+
+msgid "Openshift Cluster ID"
+msgstr "Openshift 集群 ID"
+
+msgid "To help Red Hat use our connected customer tools/services, to debug your cluster in conjunction with your support case, we are requesting that you provide your OpenShift Cluster ID If you are installing or planning your install and don't yet have a cluster ID please leave this field blank."
+msgstr "为便于红帽使用联网客户工具/服务就您的问题单进行集群调试，烦请提供您的 Openshift 集群 ID。如果您正在安装或计划安装，因而还没有集群 ID，请将此字段留空。"

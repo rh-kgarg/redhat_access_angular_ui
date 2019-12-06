@@ -11,8 +11,8 @@ const csvHeaders = ['en', 'de', 'es', 'fr', 'it', 'jp', 'ko', 'pt', 'zh', 'ru'];
 const writeStreams = {};
 csvHeaders.forEach((header) => {
     if (header !== 'en') {
-        const stream = fs.createWriteStream(path.resolve(__dirname, `./template-${header}.temp.po`));
-        stream.write(`# ${(new Date()).toISOString()}\n`);
+        const stream = fs.createWriteStream(path.resolve(__dirname, `./template-${header}.po`), {flags: 'a'});
+        stream.write(`\n# ${(new Date()).toISOString()}\n`);
         writeStreams[header] = stream;
     }
 });

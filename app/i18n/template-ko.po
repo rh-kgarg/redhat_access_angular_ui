@@ -2569,8 +2569,79 @@ msgstr "사용자 정의 이메일을 삭제할 수 없습니다."
 msgid "Successfully uploaded attachment"
 msgstr "첨부 파일을 업로드했습니다."
 
+
 msgid "The remote session terms have been acknowledged"
 msgstr "원격 세션 조건이 승인되었습니다."
 
 msgid "The remote session terms have not been acknowledged"
 msgstr "원격 세션 조건이 승인되지 않았습니다."
+
+# 2019-12-06T18:08:47.367Z
+msgid "We noticed you selected Product as "Red Hat OpenShift Cluster Manager”. Is your issue related to our SaaS offering at cloud.redhat.com/openshift/ ?"
+msgstr "선택하신 제품은 "Red Hat OpenShift Cluster Manager”입니다.  귀하의 문제가 cloud.redhat.com/openshift/에서 제공하는 SaaS 서비스와 관련이 있습니까?"
+
+msgid "Yes, Submit (Button)"
+msgstr "예, 제출하기 (버튼)"
+
+msgid "No, Go back (Button)"
+msgstr "아니요, 돌아가기 (버튼)"
+
+msgid "Successfully aborted <filename> upload"
+msgstr "<filename> 업로드가 중지되었습니다."
+
+msgid "Search Discussion"
+msgstr "토론 검색"
+
+msgid "Search attachments"
+msgstr "첨부 파일 검색"
+
+msgid "Attach file(s)"
+msgstr "파일 첨부"
+
+msgid "Invalid Email Address"
+msgstr "잘못된 이메일 주소"
+
+msgid "Email already subscribed to notifications"
+msgstr "이메일 주소가 이미 알림 등록되어 있습니다."
+
+msgid "No new contacts found."
+msgstr "새로운 연락처를 찾을 수 없습니다."
+
+msgid "You are a case contact and therefore you cannot be removed as watcher"
+msgstr "귀하는 케이스 담당자이므로 감시자에서 제거할 수 없습니다."
+
+msgid "Could not post custom email {{email}}"
+msgstr "사용자 지정 이메일을 보낼 수 없습니다. {{email}}"
+
+msgid "Could not delete custom email {{email}}"
+msgstr "사용자 정의 이메일을 삭제할 수 없습니다. {{email}}"
+
+msgid "Could not upload {{filename}}: {{error}}"
+msgstr "업로드할 수 없습니다. {{filename}}: {{error}}"
+
+msgid "Your Escalation request has been sent successfully"
+msgstr "에스컬레이션 요청이 성공적으로 전송되었습니다."
+
+msgid "Search here to add a user"
+msgstr "여기를 검색하여 사용자를 추가하십시오."
+
+msgid "Supportlevel"
+msgstr "지원 수준"
+
+msgid "Escalated"
+msgstr "에스컬레이션됨"
+
+msgid "No new contacts found"
+msgstr "새로운 연락처를 찾을 수 없습니다."
+
+msgid "Verifying Upload"
+msgstr "업로드 확인 중"
+
+msgid "Selected product <productName> is not entitled for <SubscriptionName> support level."
+msgstr "선택한 제품 <productName>에 <SubscriptionName> 지원 수준이 제공되지 않습니다."
+
+msgid "Openshift Cluster ID"
+msgstr "Openshift Cluster ID"
+
+msgid "To help Red Hat use our connected customer tools/services, to debug your cluster in conjunction with your support case, we are requesting that you provide your OpenShift Cluster ID If you are installing or planning your install and don't yet have a cluster ID please leave this field blank."
+msgstr "Red Hat이 연결된 고객 툴/서비스를 사용하여 지원 케이스와 함께 클러스터를 디버깅할 수 있도록 Openshift Cluster ID를 입력하도록 요청하고 있습니다. 설치 중이거나 설치 계획 중이며 아직 Openshift Cluster ID가 없는 경우 이 필드를 비워 두십시오."

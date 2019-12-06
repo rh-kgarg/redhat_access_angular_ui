@@ -94,7 +94,7 @@ if (ENVIRONMENT !== 'test') {
     require('./i18n/template-ko.po');
     require('./i18n/template-pt.po');
     require('./i18n/template-zh.po');
-    require('./i18n/template_ru.po');
+    require('./i18n/template-ru.po');
 }
 
 // Routing
