@@ -2696,3 +2696,9 @@ msgstr "Impossible de supprimer le courrier électronique personnalisé"
 
 msgid "Successfully uploaded attachment"
 msgstr "Pièce jointe téléchargée avec succès"
+
+msgid "The remote session terms have been acknowledged"
+msgstr "Les termes de la session à distance ont été acceptés"
+
+msgid "The remote session terms have not been acknowledged"
+msgstr "Les termes de la session à distance n’ont pas été acceptés"

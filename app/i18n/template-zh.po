@@ -2534,3 +2534,9 @@ msgstr "无法删除自定义电子邮件"
 
 msgid "Successfully uploaded attachment"
 msgstr "上传附件成功"
+
+msgid "The remote session terms have been acknowledged"
+msgstr "远程会话条款已确认"
+
+msgid "The remote session terms have not been acknowledged"
+msgstr "远程会话条款尚未确认"

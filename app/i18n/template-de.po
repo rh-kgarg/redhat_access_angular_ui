@@ -2663,3 +2663,9 @@ msgstr "Benutzerdefinierte E-Mails konnten nicht gelöscht werden"
 
 msgid "Successfully uploaded attachment"
 msgstr "Erfolgreich hochgeladener Anhang"
+
+msgid "The remote session terms have been acknowledged"
+msgstr "Die Remote-Sitzungsbedingungen wurden akzeptiert."
+
+msgid "The remote session terms have not been acknowledged"
+msgstr "Die Remote-Sitzungsbedingungen wurden nicht akzeptiert."

@@ -2655,3 +2655,9 @@ msgstr "No se pudo eliminar el correo electrónico personalizado."
 
 msgid "Successfully uploaded attachment"
 msgstr "Archivos adjuntos cargados correctamente"
+
+msgid "The remote session terms have been acknowledged"
+msgstr "Los términos de la sesión remota se han reconocido."
+
+msgid "The remote session terms have not been acknowledged"
+msgstr "Los términos de la sesión remota no se han reconocido."

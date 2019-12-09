@@ -2623,3 +2623,9 @@ msgstr "Не удалось удалить пользовательскую эл
 
 msgid "Successfully uploaded attachment"
 msgstr "Вложение успешно передано"
+
+msgid "The remote session terms have been acknowledged"
+msgstr "Условия удаленного доступа приняты"
+
+msgid "The remote session terms have not been acknowledged"
+msgstr "Условия удаленного доступа не приняты"
