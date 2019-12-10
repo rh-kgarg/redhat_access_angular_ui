@@ -32,10 +32,6 @@ export default class AddCommentSection {
             }
         });
 
-        $scope.onCommentTextareaOptionChange = function (event) {
-            console.log(DiscussionService.selectedTextareaOption);
-        };
-
         $scope.clearComment = function () {
             CaseService.commentText = '';
             DiscussionService.commentTextBoxEnlargen = false;

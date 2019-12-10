@@ -5,8 +5,6 @@
                 width='"auto"',
                 ng-init="DiscussionService.selectedTextareaOption = DiscussionService.commentTextareaOptions[0]"
                 ng-model='DiscussionService.selectedTextareaOption',
-                no_results_text="'No match found'|translate",
-                ng-change='onCommentTextareaOptionChange()',
                 ng-options='co as co.label for co in DiscussionService.commentTextareaOptions')
         span(ng-if='securityService.loginStatus.authedUser.is_internal').ml-5 &nbsp{{'Is Public:'|translate}}&nbsp;
         input(ng-if='securityService.loginStatus.authedUser.is_internal')#rha-case-comment-isPublic(type='checkbox', ng-model='CaseService.isCommentPublic',ng-change= 'onCommentPublicChange()')
