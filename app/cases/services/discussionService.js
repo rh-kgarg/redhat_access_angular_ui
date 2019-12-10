@@ -23,6 +23,10 @@ export default class DiscussionService {
         this.externalUpdates = CaseService.externalUpdates;
         this.loadingComments = false;
         this.commentTextBoxEnlargen = false;
+        this.commentTextareaOptions = [{ label: 'Markdown', value: 'markdown'}, {
+            label: 'Plain Text', value: 'plaintext'
+        }];
+        this.selectedTextareaOption = { label: 'Markdown', value: 'markdown' };
 
         this.getDiscussionElements = async function (caseId) {
             var attachPromise = null;

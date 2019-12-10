@@ -1,5 +1,12 @@
 import hydrajs from './hydrajs';
 import { REDHAT_DOT_COM } from './constants';
+import marked from 'marked';
+import dompurify from 'dompurify';
+import isString from 'lodash/isString';
+import assign from 'lodash/assign';
+import isEmpty from 'lodash/isEmpty';
+
+const defaultMarkdownOptions = { gfm: true, breaks: true, jsMarkdownExtra: false };
 
 const versionSorter = (_a, _b) => { //Added because of wrong order of versions
   let a = _a.match(/(\d+|\w+)/gm);
@@ -38,9 +45,28 @@ const getRedhatDotComHost = () => {
       return REDHAT_DOT_COM.PROD;
   }
 }
+const markdownToHTML = (markdownText, options, callback) => {
+    if (!isString(markdownText)) return '';
+    if (isEmpty(markdownText)) {
+        return markdownText;
+    } else if (marked) {
+        return marked(markdownText, assign({}, defaultMarkdownOptions, options), callback);
+    }
+}
+
+const santitizeHTML = (markdownText, config) => {
+    if (!isString(markdownText)) return '';
+    if (isEmpty(markdownText)) {
+        return markdownText;
+    } else if (dompurify) {
+        return dompurify.sanitize(markdownText, config);
+    }
+}
 
 module.exports = {
   versionSort,
   versionSorter,
-  getRedhatDotComHost
+  getRedhatDotComHost,
+  markdownToHTML,
+  santitizeHTML
 }

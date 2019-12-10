@@ -50,7 +50,7 @@ ul#tab_list.nav.nav-tabs(role="tablist")
                         .pre-wrap
                             pre.pre-text(ng-if="isIE()", style='word-wrap: normal; word-break: normal;') {{::element.text}}
                             .content(ng-if="isNotIE()")
-                                pre.pre-text(ng-bind-html="parseCommentHtml(element)")
+                                pre.pre-text(ng-bind-html="markdownHTML(parseCommentHtml(element), element.content_type)")
                             .reply.text-right
                                 span.pull-left.vote-buttons(ng-if='!securityService.loginStatus.authedUser.is_internal && !COMMON_CONFIG.isGS4')
                                     a.fa(ng-class="element.feedback === 1 ? 'fa-thumbs-up active' : 'fa-thumbs-o-up'" ng-click='applyCommentFeedback(element, 1)', uib-tooltip='{{::"Thumbs Up"|translate}}', tooltip-placement="top", tooltip-append-to-body="true")
@@ -68,7 +68,7 @@ ul#tab_list.nav.nav-tabs(role="tablist")
                         .pre-wrap
                             pre.pre-text(ng-if="isIE()", style='word-wrap: normal; word-break: normal;') {{::element.text}}
                             .content(ng-if="isNotIE()")
-                                pre.pre-text(ng-bind-html="parseCommentHtml(element)")
+                                pre.pre-text(ng-bind-html="markdownHTML(parseCommentHtml(element), element.content_type)")
                             .reply.text-right
                                 a.commentReply(ng-click='commentReply(element,(isIE()))', href='') {{::'Reply'|translate}}
                                 a.ml-5.glyphicon.glyphicon-link(ng-click='CaseService.scrollToComment(element.id)' ng-href='#/case/{{CaseService.kase.case_number}}?commentId={{::element.id}}')
@@ -107,7 +107,7 @@ ul#tab_list.nav.nav-tabs(role="tablist")
                             date {{::element.last_modified_date}}&nbsp;
                             span {{::'at'|translate}}&nbsp;
                             time {{::element.last_modified_time}}
-                        pre.pre-text(ng-if="element.comment_type === 'chat'", ng-bind-html="parseCommentHtml(element)")
+                        pre.pre-text(ng-if="element.comment_type === 'chat'", ng-bind-html="markdownHTML(parseCommentHtml(element), element.content_type)")
                     article.comment.article-external-updates(ng-if="DiscussionService.hasOriginatingSystem(element)")
                         i.fa.fa-comments-o
                         h4.meta {{::element.originating_system}}
@@ -120,7 +120,7 @@ ul#tab_list.nav.nav-tabs(role="tablist")
                         .pre-wrap
                             pre.pre-text(ng-if="isIE()", style='word-wrap: normal; word-break: normal;') {{::element.body}}
                             .content(ng-if="isNotIE()")
-                                pre.pre-text(ng-bind-html="parseCommentHtml(element)")
+                                pre.pre-text(ng-bind-html="markdownHTML(parseCommentHtml(element), element.content_type)")
                 #bottom-discussion-section
                     pagination(ng-if="discussion", current-page-number="PaginationService.discussionSection.currentPageNumber" datalength="DiscussionService.discussionElements.length", page-size="PaginationService.discussionSection.pageSize", set-current-page-number="setCurrentPageNumberForDS(pageNumber)", set-page-size="PaginationService.setPageSize('discussionSection', pageSize)")
     #pane2.tab-pane(ng-class='{"active": attachments}')

@@ -167,7 +167,91 @@
 		pointer-events: none;
 		cursor: default;
 		color: #8d8d8d;
-	}
+    }
+    
+    .markdown-editor-container {
+        background: #FFF;
+        border: 1px solid #CCCCCC;
+        display: block;
+        overflow: hidden;
+        max-height: 450px;
+        margin-bottom: 15px;
+
+        .border-botton {
+            border-bottom: 1px solid #CCCCCC;
+        }
+
+        .btn-toolbar {
+            min-height: 40px;
+            padding: 8px;
+            .btn {
+                border-left-width: 0 !important;
+                border-right-width: 0 !important;
+            }
+            .button-bold {
+                font-weight: bold
+            }
+            .button-italic {
+                font-style: italic
+            }
+            .button-underline {
+                text-decoration: underline
+            }
+            .button-strike {
+                text-decoration: line-through
+            }
+        }
+        .markdown-content {
+            .markdown-preview {
+                max-height: 200px;
+                min-height: 50px;
+                overflow: auto;
+                font-size: 13px;
+                padding: 8px;
+        
+                li {
+                    list-style-type: disc;
+                }
+            }
+        
+            .markdown-text-area {
+                border-radius: 0;
+                box-shadow: none !important;
+                outline: none;
+                border: none;
+                font-size: 13px;
+                padding: 8px;
+                min-width: 100%;
+                resize: none;
+            }
+        }
+    }
+}
+
+.color-black {
+    color: #000000;
+}
+.separator {
+    background: rgba(40,45,51,.3);
+    height: 16px;
+    margin-left: 10px;
+    margin-right: 5px;
+    width: 1px;
+}
+
+.margin-left-auto {
+    margin-left: auto !important;
+}
+
+.color-blue {
+   color: #06c !important;
+}
+
+.d-flex {
+	display: flex;
+}
+.align-items-center {
+	align-items: center;
 }
 
 .attachment-list {

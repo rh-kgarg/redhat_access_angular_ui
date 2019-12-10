@@ -1,14 +1,28 @@
 .row
   .col-sm-12
-    .pull-right(ng-if='securityService.loginStatus.authedUser.is_internal')
-      span &nbsp{{'Is Public:'|translate}}&nbsp;
-      input#rha-case-comment-isPublic(type='checkbox', ng-model='CaseService.isCommentPublic',ng-change= 'onCommentPublicChange()')
+    .pull-right.mb-5
+        select#commentTextareaOptions(chosen,
+                width='"auto"',
+                ng-init="DiscussionService.selectedTextareaOption = DiscussionService.commentTextareaOptions[0]"
+                ng-model='DiscussionService.selectedTextareaOption',
+                no_results_text="'No match found'|translate",
+                ng-change='onCommentTextareaOptionChange()',
+                ng-options='co as co.label for co in DiscussionService.commentTextareaOptions')
+        span(ng-if='securityService.loginStatus.authedUser.is_internal').ml-5 &nbsp{{'Is Public:'|translate}}&nbsp;
+        input(ng-if='securityService.loginStatus.authedUser.is_internal')#rha-case-comment-isPublic(type='checkbox', ng-model='CaseService.isCommentPublic',ng-change= 'onCommentPublicChange()')
+div(ng-if="DiscussionService.selectedTextareaOption.label === 'Markdown'",
+    rha-markdown-editor='',
+    adding-comment='addingComment',
+    on-new-comment-keypress='onNewCommentKeypress()',
+    should-textbox-minimize='shouldTextboxMinimize()')
 textarea.comment.expand#case-comment-box.form-control(
+  ng-if="DiscussionService.selectedTextareaOption.label === 'Plain Text'",
   ng-disabled='addingComment',
   maxlength='32000',
   rows='5',
   ng-model='CaseService.commentText',
   ng-change='onNewCommentKeypress()',
+  ng-trim="false",
   ng-click='DiscussionService.commentTextBoxEnlargen=true',
   ng-class='{"expanded": DiscussionService.commentTextBoxEnlargen}',
   ng-blur='shouldTextboxMinimize()')

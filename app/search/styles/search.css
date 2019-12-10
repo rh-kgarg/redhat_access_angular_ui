@@ -15,6 +15,13 @@
     margin-left: 5px;
 }
 
+.mr-5 {
+    margin-right: 5px;
+}
+.mb-5 {
+    margin-bottom: 5px;
+}
+
 .padding-searchbox {
     padding-top: 15px;
     padding-bottom: 5px;

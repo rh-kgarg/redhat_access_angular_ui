@@ -5,6 +5,7 @@ import findIndex from 'lodash/findIndex'
 import orderBy from 'lodash/orderBy';
 import reverse from 'lodash/reverse';
 import filter from 'lodash/filter';
+import { markdownToHTML, santitizeHTML } from '../../shared/utils';
 
 export default class DiscussionSection {
     constructor($scope, $timeout, AttachmentsService, CaseService, DiscussionService, securityService, $stateParams, AlertService, $uibModal,
@@ -54,6 +55,14 @@ export default class DiscussionSection {
                 $scope.doSearch();
             }
         });
+
+        $scope.markdownHTML = (element, contentType) => {
+            if (contentType === 'markdown') {
+                return santitizeHTML(markdownToHTML(element));
+            } else {
+                return element;
+            }
+        }
 
         $scope.scrollToElementById = (id) => {
             // In IE, this can get called before all the elements have been rendered
@@ -354,10 +363,14 @@ export default class DiscussionSection {
             } else if (comment.text !== undefined) {
                 if (RHAUtils.isNotEmpty(comment.text)) {
                     let linkifiedText;
-                    try {
-                        linkifiedText = $filter('linky')(comment.text);
-                    } catch (e) {
+                    if (comment.content_type === 'markdown') {
                         linkifiedText = comment.text;
+                    } else {
+                        try {
+                            linkifiedText = $filter('linky')(comment.text);
+                        } catch (e) {
+                            linkifiedText = comment.text;
+                        }
                     }
                     let linkifiedCaseIds = LinkifyService.linkifyWithCaseIDs(linkifiedText);
                     let linkifiedBZIds = LinkifyService.linkifyBZIDs(linkifiedCaseIds);
