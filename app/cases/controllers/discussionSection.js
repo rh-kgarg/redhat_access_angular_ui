@@ -363,7 +363,7 @@ export default class DiscussionSection {
             } else if (comment.text !== undefined) {
                 if (RHAUtils.isNotEmpty(comment.text)) {
                     let linkifiedText;
-                    if (comment.content_type === 'markdown') {
+                    if (comment.content_type === 'markdown' && DiscussionService.getIsCommentMarkdownEnabled()) {
                         linkifiedText = comment.text;
                     } else {
                         try {
