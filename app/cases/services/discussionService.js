@@ -3,6 +3,7 @@
 import filter from 'lodash/filter';
 import Mark from 'mark.js';
 import some from 'lodash/some';
+import isEmpty from 'lodash/isEmpty';
 
 function isBlankStr(str) {
     return !str ? true : str.trim().length == 0;
@@ -13,7 +14,7 @@ function escapeRegExp(string) {
 }
 
 export default class DiscussionService {
-    constructor($sce, $location, $q, AlertService, RHAUtils, AttachmentsService, CaseService, strataService, HeaderService, securityService, COMMON_CONFIG, SearchBoxService, translate, $filter) {
+    constructor($sce, $location, $q, AlertService, RHAUtils, AttachmentsService, CaseService, strataService, HeaderService, securityService, COMMON_CONFIG, SearchBoxService, translate, $filter, ConfigService) {
         'ngInject';
 
         this.discussionElements = [];
@@ -23,6 +24,10 @@ export default class DiscussionService {
         this.externalUpdates = CaseService.externalUpdates;
         this.loadingComments = false;
         this.commentTextBoxEnlargen = false;
+        this.commentTextareaOptions = [{ label: 'Markdown', value: 'markdown'}, {
+            label: 'Plain Text', value: 'plaintext'
+        }];
+        this.selectedTextareaOption = { label: 'Markdown', value: 'markdown' };
 
         this.getDiscussionElements = async function (caseId) {
             var attachPromise = null;
@@ -167,6 +172,14 @@ export default class DiscussionService {
                     })
                 });
             }, 1000);
+        }
+
+        this.getIsCommentMarkdownEnabled = function () {
+            if (ConfigService && !isEmpty(ConfigService.config)) {
+                return some(ConfigService.config, {"fieldName": "isCommentMarkdownEnabled", "fieldValue": "1"});
+            } else {
+                return false;
+            }
         }
 
         this.allDiscussionElements = () => {

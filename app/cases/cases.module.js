@@ -49,6 +49,7 @@ import AccountBookmarkHome from './controllers/accountBookmarkHome'
 import AccountSearch from './controllers/accountSearch'
 import AccountSelect from './controllers/accountSelect'
 import AddCommentSection from './controllers/addCommentSection'
+import MarkdownEditor from './controllers/markdownEditor'
 import AdvancedSearchController from './controllers/advancedSearchController'
 import AttachLocalFile from './controllers/attachLocalFile'
 import List from './controllers/list'
@@ -115,6 +116,7 @@ app.controller('AccountBookmarkHome', AccountBookmarkHome);
 app.controller('AccountSearch', AccountSearch);
 app.controller('AccountSelect', AccountSelect);
 app.controller('AddCommentSection', AddCommentSection);
+app.controller('MarkdownEditor', MarkdownEditor);
 app.controller('AdvancedSearchController', AdvancedSearchController);
 app.controller('AttachLocalFile', AttachLocalFile);
 app.controller('AttachmentsSection', AttachmentsSection);
@@ -181,6 +183,7 @@ import rhaCaseattachments from './directives/attachmentsSection'
 import rhaAccountselect from './directives/accountSelect'
 import rhaAttachproductlogs from './directives/attachProductLogs'
 import rhaAddcommentsection from './directives/addCommentSection'
+import rhaMarkdownEditor from './directives/markdownEditor'
 import rhaBookmarkAccount from './directives/bookmarkAccount'
 import rhaBookmarkedAccountsSelect from './directives/bookmarkedAccountSelect'
 import chosen from './directives/chosenPlaceholder'
@@ -230,6 +233,7 @@ import rhaVersionFilterSelect from './directives/versionFilterSelect';
 app.directive('rhaAccountSearch', rhaAccountSearch);
 app.directive('rhaAccountselect', rhaAccountselect);
 app.directive('rhaAddcommentsection', rhaAddcommentsection);
+app.directive('rhaMarkdownEditor', rhaMarkdownEditor);
 app.directive('rhaAttachlocalfile', rhaAttachlocalfile);
 app.directive('rhaCaseattachments', rhaCaseattachments);
 app.directive('rhaAttachproductlogs', rhaAttachproductlogs);

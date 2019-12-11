@@ -1,0 +1,40 @@
+div#markdownCommentSection.markdown-editor-container
+    div.btn-toolbar.d-flex.align-items-center.border-botton
+        .btn-group
+            button.btn.btn-link.color-black.btn-app.btn-sm(ng-click='bold()', ng-disabled='isPreview') B
+            button.btn.btn-link.color-black.button-italic.btn-app.btn-sm(ng-click='italic()', ng-disabled='isPreview') I
+        div.separator
+        .btn-group
+            button.btn.btn-link.color-black.btn-app.btn-sm(ng-click='h1()', ng-disabled='isPreview') H1
+            button.btn.btn-link.color-black.btn-app.btn-sm(ng-click='h2()', ng-disabled='isPreview') H2
+            button.btn.btn-link.color-black.btn-app.btn-sm(ng-click='h3()', ng-disabled='isPreview') H3
+        div.separator
+        .btn-group
+            button.btn.btn-link.color-black.button-list.btn-app.btn-sm(ng-click='list()', ng-disabled='isPreview')
+                i.fa.fa-list-ul
+        div.separator
+        .btn-group
+            button.btn.btn-link.color-black.button-link.btn-app.btn-sm(ng-click='link()', ng-disabled='isPreview')
+                i.fa.fa-link
+            button.btn.btn-link.color-black.button-quote.btn-app.btn-sm(ng-click='quote()', ng-disabled='isPreview')
+                i.fa.fa-quote-right
+            button.btn.btn-link.color-black.button-code.btn-app.btn-sm(ng-click='code()', ng-disabled='isPreview')
+                i.fa.fa-code
+        .btn-group.margin-left-auto
+            button.color-blue.btn.btn-link.button-list.btn-app.btn-sm(ng-click='togglePreview()')
+                i.fa.fa-eye
+                span.ml-5 Show Preview
+    div.markdown-content
+        textarea.comment.expand#markdownCaseCommentBox.markdown-text-area.form-control(
+            ng-if='!isPreview',
+            ng-disabled='addingComment',
+            maxlength='32000',
+            rows='5',
+            ng-trim="false",
+            ng-model='CaseService.commentText',
+            ng-change='onNewCommentKeypress()',
+            ng-click='DiscussionService.commentTextBoxEnlargen=true',
+            ng-class='{"expanded": DiscussionService.commentTextBoxEnlargen}',
+            ng-blur='shouldTextboxMinimize()')
+        div#markdownCommentPreview.markdown-preview.well.well-sm(ng-if='isPreview') 
+            div(ng-bind-html='markdownToHTML(CaseService.commentText)')

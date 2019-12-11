@@ -94,19 +94,20 @@ export default class AddCommentSection {
             if (!CaseService.disableAddComment && CaseService.commentText !== 'undefined') {
                 $scope.addingComment = true;
                 CaseService.addingComment = true;
+                const selectedTextareaOption = DiscussionService.getIsCommentMarkdownEnabled() ? DiscussionService.selectedTextareaOption.value : 'plaintext';
                 if (CaseService.localStorageCache) {
                     if (CaseService.draftCommentOnServerExists) {
-                        strataService.cases.comments.put(CaseService.kase.case_number, CaseService.commentText, false, CaseService.isCommentPublic, CaseService.draftComment.id).then(onSuccess, onError);
+                        strataService.cases.comments.put(CaseService.kase.case_number, CaseService.commentText, false, CaseService.isCommentPublic, CaseService.draftComment.id, selectedTextareaOption).then(onSuccess, onError);
                     }
                     else {
-                        strataService.cases.comments.post(CaseService.kase.case_number, CaseService.commentText, CaseService.isCommentPublic, false).then(onSuccess, onError);
+                        strataService.cases.comments.post(CaseService.kase.case_number, CaseService.commentText, CaseService.isCommentPublic, false, selectedTextareaOption).then(onSuccess, onError);
                     }
                 }
                 else {
                     if (RHAUtils.isNotEmpty(CaseService.draftComment)) {
-                        strataService.cases.comments.put(CaseService.kase.case_number, CaseService.commentText, false, CaseService.isCommentPublic, CaseService.draftComment.id).then(onSuccess, onError);
+                        strataService.cases.comments.put(CaseService.kase.case_number, CaseService.commentText, false, CaseService.isCommentPublic, CaseService.draftComment.id, selectedTextareaOption).then(onSuccess, onError);
                     } else {
-                        strataService.cases.comments.post(CaseService.kase.case_number, CaseService.commentText, CaseService.isCommentPublic, false).then(onSuccess, onError);
+                        strataService.cases.comments.post(CaseService.kase.case_number, CaseService.commentText, CaseService.isCommentPublic, false, selectedTextareaOption).then(onSuccess, onError);
                     }
                 }
             }
