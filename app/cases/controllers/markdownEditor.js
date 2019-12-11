@@ -149,7 +149,7 @@ export default class MarkdownEditor {
             }
             $scope.onNewCommentKeypress();
         }
-        $scope.preview = function () {
+        $scope.togglePreview = function () {
             $scope.isPreview = !$scope.isPreview;
         }
     }
