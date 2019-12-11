@@ -2669,3 +2669,73 @@ msgstr "Die Remote-Sitzungsbedingungen wurden akzeptiert."
 
 msgid "The remote session terms have not been acknowledged"
 msgstr "Die Remote-Sitzungsbedingungen wurden nicht akzeptiert."
+
+# 2019-12-06T18:08:47.366Z
+msgid "We noticed you selected Product as "Red Hat OpenShift Cluster Manager”. Is your issue related to our SaaS offering at cloud.redhat.com/openshift/ ?"
+msgstr "Wir haben festgestellt, dass Sie „Red Hat OpenShift Cluster Manager“ als Produkt ausgewählt haben. Bezieht sich Ihr Problem auf unser SaaS-Angebot unter cloud.redhat.com/openshift/?"
+
+msgid "Yes, Submit (Button)"
+msgstr "Ja, Senden (Schaltfläche)"
+
+msgid "No, Go back (Button)"
+msgstr "Nein, Zurück (Schaltfläche)"
+
+msgid "Successfully aborted <filename> upload"
+msgstr "Upload von <filename> erfolgreich abgebrochen."
+
+msgid "Search Discussion"
+msgstr "Diskussion durchsuchen"
+
+msgid "Search attachments"
+msgstr "Anhänge durchsuchen"
+
+msgid "Attach file(s)"
+msgstr "Datei(en) anhängen"
+
+msgid "Invalid Email Address"
+msgstr "Ungültige E-Mail-Adresse"
+
+msgid "Email already subscribed to notifications"
+msgstr "Für diese E-Mail-Adresse sind Benachrichtigungen bereits abonniert."
+
+msgid "No new contacts found."
+msgstr "Keine neuen Kontakte gefunden."
+
+msgid "You are a case contact and therefore you cannot be removed as watcher"
+msgstr "Sie sind ein Fallkontakt und können daher nicht als Beobachter entfernt werden."
+
+msgid "Could not post custom email {{email}}"
+msgstr "Benutzerdefinierte E-Mail {{email}} konnte nicht veröffentlicht werden."
+
+msgid "Could not delete custom email {{email}}"
+msgstr "Benutzerdefinierte E-Mail {{email}} konnte nicht gelöscht werden."
+
+msgid "Could not upload {{filename}}: {{error}}"
+msgstr "{{filename}} konnte nicht hochgeladen werden: {{error}}."
+
+msgid "Your Escalation request has been sent successfully"
+msgstr "Ihre Eskalationsanfrage wurde erfolgreich gesendet."
+
+msgid "Search here to add a user"
+msgstr "Hier suchen, um einen Benutzer hinzuzufügen."
+
+msgid "Supportlevel"
+msgstr "Support-Level"
+
+msgid "Escalated"
+msgstr "Eskaliert"
+
+msgid "No new contacts found"
+msgstr "Keine neuen Kontakte gefunden."
+
+msgid "Verifying Upload"
+msgstr "Upload wird überprüft"
+
+msgid "Selected product <productName> is not entitled for <SubscriptionName> support level."
+msgstr "Das ausgewählte Produkt <productName> ist nicht für Support-Level <SubscriptionName> nicht berechtigt."
+
+msgid "Openshift Cluster ID"
+msgstr "OpenShift Cluster-ID"
+
+msgid "To help Red Hat use our connected customer tools/services, to debug your cluster in conjunction with your support case, we are requesting that you provide your OpenShift Cluster ID If you are installing or planning your install and don't yet have a cluster ID please leave this field blank."
+msgstr "Geben Sie Ihre OpenShift Cluster-ID an, um Red Hat bei der Nutzung verbundener Kundentools/-dienste zum Debuggen Ihres Clusters in Verbindung mit Ihrem Supportfall zu unterstützen. Wenn Sie eine Installation durchführen oder diese planen und noch keine Cluster-ID haben, lassen Sie dieses Feld leer."

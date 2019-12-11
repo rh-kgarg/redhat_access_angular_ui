@@ -2658,8 +2658,79 @@ msgstr "Não foi possível excluir o e-mail personalizado"
 msgid "Successfully uploaded attachment"
 msgstr "Anexo enviado com sucesso"
 
+
 msgid "The remote session terms have been acknowledged"
 msgstr "Os termos da sessão remota foram aceitos"
 
 msgid "The remote session terms have not been acknowledged"
 msgstr "Os termos da sessão remota não foram aceitos"
+
+# 2019-12-06T18:08:47.367Z
+msgid "We noticed you selected Product as "Red Hat OpenShift Cluster Manager”. Is your issue related to our SaaS offering at cloud.redhat.com/openshift/ ?"
+msgstr "Você selecionou o produto como "Red Hat OpenShift Cluster Manager". Seu problema está relacionado à nossa oferta de SaaS em cloud.redhat.com/openshift/?"
+
+msgid "Yes, Submit (Button)"
+msgstr "Sim, enviar (botão)"
+
+msgid "No, Go back (Button)"
+msgstr "Não, voltar (botão)"
+
+msgid "Successfully aborted <filename> upload"
+msgstr "Upload de <filename> interrompido com sucesso"
+
+msgid "Search Discussion"
+msgstr "Pesquisar discussão"
+
+msgid "Search attachments"
+msgstr "Pesquisar anexos"
+
+msgid "Attach file(s)"
+msgstr "Anexar arquivo(s)"
+
+msgid "Invalid Email Address"
+msgstr "Endereço de e-mail inválido"
+
+msgid "Email already subscribed to notifications"
+msgstr "E-mail já inscrito nas notificações"
+
+msgid "No new contacts found."
+msgstr "Nenhum contato novo encontrado."
+
+msgid "You are a case contact and therefore you cannot be removed as watcher"
+msgstr "Você é um contato de caso e, portanto, não pode ser removido como observador"
+
+msgid "Could not post custom email {{email}}"
+msgstr "Não foi possível publicar o e-mail personalizado {{email}}"
+
+msgid "Could not delete custom email {{email}}"
+msgstr "Não foi possível excluir o e-mail personalizado {{email}}"
+
+msgid "Could not upload {{filename}}: {{error}}"
+msgstr "Não foi possível fazer upload de {{filename}}: {{error}}"
+
+msgid "Your Escalation request has been sent successfully"
+msgstr "Sua solicitação de encaminhamento foi enviada com sucesso"
+
+msgid "Search here to add a user"
+msgstr "Pesquise aqui para adicionar um usuário"
+
+msgid "Supportlevel"
+msgstr "Nível de suporte"
+
+msgid "Escalated"
+msgstr "Encaminhado"
+
+msgid "No new contacts found"
+msgstr "Nenhum contato novo encontrado"
+
+msgid "Verifying Upload"
+msgstr "Verificando upload"
+
+msgid "Selected product <productName> is not entitled for <SubscriptionName> support level."
+msgstr "O produto selecionado <productName> não está qualificado para o nível de suporte <SubscriptionName>."
+
+msgid "Openshift Cluster ID"
+msgstr "ID de cluster do OpenShift"
+
+msgid "To help Red Hat use our connected customer tools/services, to debug your cluster in conjunction with your support case, we are requesting that you provide your OpenShift Cluster ID If you are installing or planning your install and don't yet have a cluster ID please leave this field blank."
+msgstr "Para ajudar a Red Hat a usar nossas ferramentas e serviços conectados para clientes e para depurar seu cluster em conjunto com seu caso de suporte, solicitamos que você forneça sua ID de cluster do OpenShift. Se você estiver instalando ou planejando a instalação e ainda não tiver uma ID de cluster, deixe esse campo em branco."

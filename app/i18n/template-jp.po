@@ -2573,3 +2573,73 @@ msgstr "リモートセッションの条件が承認されました"
 
 msgid "The remote session terms have not been acknowledged"
 msgstr "リモートセッションの条件が承認されませんでした"
+
+# 2019-12-06T18:08:47.367Z
+msgid "We noticed you selected Product as "Red Hat OpenShift Cluster Manager”. Is your issue related to our SaaS offering at cloud.redhat.com/openshift/ ?"
+msgstr "お客様は製品欄で「Red Hat OpenShift Cluster Manager」を選択されました。お客様の問題は cloud.redhat.com/openshift/ の SaaS オファリングに関連していますか?"
+
+msgid "Yes, Submit (Button)"
+msgstr "はい、送信"
+
+msgid "No, Go back (Button)"
+msgstr "いいえ、戻る"
+
+msgid "Successfully aborted <filename> upload"
+msgstr "<filename> のアップロードが正常に中止されました"
+
+msgid "Search Discussion"
+msgstr "ディスカッションを検索"
+
+msgid "Search attachments"
+msgstr "添付ファイルを検索"
+
+msgid "Attach file(s)"
+msgstr "ファイルを添付"
+
+msgid "Invalid Email Address"
+msgstr "無効なメールアドレス"
+
+msgid "Email already subscribed to notifications"
+msgstr "通知サービスに登録済みのメールアドレス"
+
+msgid "No new contacts found."
+msgstr "新しい連絡先は見つかりませんでした。"
+
+msgid "You are a case contact and therefore you cannot be removed as watcher"
+msgstr "お客様はこのケースの連絡先であるため、ウォッチャーから削除することはできません"
+
+msgid "Could not post custom email {{email}}"
+msgstr "カスタムメールを送信できませんでした {{email}}"
+
+msgid "Could not delete custom email {{email}}"
+msgstr "カスタムメールを削除できませんでした {{email}}"
+
+msgid "Could not upload {{filename}}: {{error}}"
+msgstr "{{filename}} をアップロードできませんでした: {{error}}"
+
+msgid "Your Escalation request has been sent successfully"
+msgstr "エスカレーションリクエストが正常に送信されました"
+
+msgid "Search here to add a user"
+msgstr "ここを検索してユーザーを追加します"
+
+msgid "Supportlevel"
+msgstr "サポートレベル"
+
+msgid "Escalated"
+msgstr "エスカレーション済み"
+
+msgid "No new contacts found"
+msgstr "新しい連絡先は見つかりませんでした。"
+
+msgid "Verifying Upload"
+msgstr "アップロードを確認中"
+
+msgid "Selected product <productName> is not entitled for <SubscriptionName> support level."
+msgstr "選択した製品 <productName> には、<SubscriptionName> サポートレベルでのサポートの提供はありません。"
+
+msgid "Openshift Cluster ID"
+msgstr "Openshift Cluster ID"
+
+msgid "To help Red Hat use our connected customer tools/services, to debug your cluster in conjunction with your support case, we are requesting that you provide your OpenShift Cluster ID If you are installing or planning your install and don't yet have a cluster ID please leave this field blank."
+msgstr "Red Hat が接続されたカスタマーツール/サービスを使用し、サポートケースとあわせてクラスターをデバッグできるようにするため、お客様には OpenShift Cluster ID を入力するようお願いしております。インストール中、またはインストールを計画中で、OpenShift Cluster ID をまだお持ちでない場合は、このフィールドは空白のままにしてください。"
