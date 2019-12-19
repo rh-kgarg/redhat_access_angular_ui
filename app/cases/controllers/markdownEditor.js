@@ -77,7 +77,7 @@ export default class MarkdownEditor {
                 '\n',
                 currentText.substring(posEnd)
             );
-            const selectedTextWithLine = selectedText.substring(0, 0).concat(
+            const selectedTextWithLine = ''.concat(
                 splitText.map((v) => `- ${v}`).join('\n')
             );
             CaseService.commentText = newText;
