@@ -13,7 +13,7 @@ export default class MarkdownEditor {
         $scope.getSelectedText = function () {
             const currentText = CaseService.commentText || '';
             const textArea = $scope.getMarkdownTextEditor();
-            return currentText && currentText.substring(textArea.selectionStart, textArea.selectionEnd) || '';
+            return (currentText && currentText.substring(textArea.selectionStart, textArea.selectionEnd)) || '';
         };
         // execCommand is used to manipulate the current editable regions such as
         // form inputs or contentEditable elements.
