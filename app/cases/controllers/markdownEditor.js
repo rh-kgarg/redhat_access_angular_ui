@@ -11,13 +11,18 @@ export default class MarkdownEditor {
         $scope.markdownToHTML = markdownToHTML;
 
         $scope.getSelectedText = function () {
-            let text = null;
-            if (window.getSelection) {
-              text = window.getSelection();
-            } else if (document.getSelection) {
-              text = document.getSelection();
+            const currentText = CaseService.commentText || '';
+            const textArea = $scope.getMarkdownTextEditor();
+            return (currentText && currentText.substring(textArea.selectionStart, textArea.selectionEnd)) || '';
+        };
+        // execCommand is used to manipulate the current editable regions such as
+        // form inputs or contentEditable elements.
+        // i am using this because undo redo does not work properly for input element after
+        // contents changed programmatically for markdown
+        $scope.execCommandOnTextarea = function (markdownText) {
+            if (document.execCommand) {
+                document.execCommand('insertText', false, markdownText);
             }
-            return text.toString();
         };
 
         $scope.getMarkdownTextEditor = function () {
@@ -34,6 +39,7 @@ export default class MarkdownEditor {
             const newText = currentText.substring(0, pos) + template + currentText.substring(pos);
             CaseService.commentText = newText;
             textArea.focus();
+            $scope.execCommandOnTextarea(template);
         }
 
         $scope.wrapSelection = function (templateStart, templateEnd) {
@@ -44,10 +50,12 @@ export default class MarkdownEditor {
             const textArea = $scope.getMarkdownTextEditor();
             const posStart = textArea.selectionStart;
             const posEnd = textArea.selectionEnd;
+            const selectedText = templateStart + currentText.substring(posStart, posEnd) + templateEnd;
             const newText = currentText.substring(0, posStart) + templateStart +
                 currentText.substring(posStart, posEnd) + templateEnd + currentText.substring(posEnd);
             CaseService.commentText = newText;
             textArea.focus();
+            $scope.execCommandOnTextarea(selectedText);
         }
 
         $scope.wrapBasedOnNewLines = function () {
@@ -65,7 +73,12 @@ export default class MarkdownEditor {
                 '\n',
                 currentText.substring(posEnd)
             );
+            const selectedTextWithLine = ''.concat(
+                splitText.map((v) => `- ${v}`).join('\n')
+            );
             CaseService.commentText = newText;
+            textArea.focus();
+            $scope.execCommandOnTextarea(selectedTextWithLine);
         }
 
         $scope.bold = function () {
