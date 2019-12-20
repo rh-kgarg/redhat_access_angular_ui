@@ -11,13 +11,9 @@ export default class MarkdownEditor {
         $scope.markdownToHTML = markdownToHTML;
 
         $scope.getSelectedText = function () {
-            let text = null;
-            if (window.getSelection) {
-              text = window.getSelection();
-            } else if (document.getSelection) {
-              text = document.getSelection();
-            }
-            return text.toString();
+            const currentText = CaseService.commentText || '';
+            const textArea = $scope.getMarkdownTextEditor();
+            return currentText && currentText.substring(textArea.selectionStart, textArea.selectionEnd) || '';
         };
         // execCommand is used to manipulate the current editable regions such as
         // form inputs or contentEditable elements.

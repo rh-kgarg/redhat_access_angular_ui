@@ -23,7 +23,8 @@ div#markdownCommentSection.markdown-editor-container
         .btn-group.margin-left-auto
             button.color-blue.btn.btn-link.button-list.btn-app.btn-sm(ng-click='togglePreview()')
                 i.fa.fa-eye
-                span.ml-5 Show Preview
+                span.ml-5(ng-if='!isPreview') Show Preview
+                span.ml-5(ng-if='isPreview') Hide Preview
     div.markdown-content
         textarea.comment.expand#markdownCaseCommentBox.markdown-text-area.form-control(
             ng-if='!isPreview',
