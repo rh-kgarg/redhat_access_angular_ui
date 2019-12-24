@@ -397,7 +397,9 @@ export default class DiscussionSection {
 
         $scope.isCertification = () => CaseService.kase.type.name === 'Certification';
 
-        $scope.downloadRestrictedTooltip = (element) => (element && element.downloadRestricted) ? 'Current user does not have appropriate permissions to download the attachment' : ''
+        $scope.isDownloadRestricted = (element) => ((element && element.downloadRestricted) || !securityService.loginStatus.authedUser.is_internal);
+
+        $scope.downloadRestrictedTooltip = (element) => $scope.isDownloadRestricted(element) ? 'Current user does not have appropriate permissions to download the attachment' : ''
 
         $scope.$watch('CaseService.account.number', async () => {
             await AttachmentsService.reEvaluateS3EnabledForAccount();
