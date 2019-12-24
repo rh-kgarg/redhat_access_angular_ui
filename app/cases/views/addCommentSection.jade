@@ -1,5 +1,14 @@
 .row
   .col-sm-12
+    .pull-left
+        label {{::'Sort by'|translate}}&nbsp;&nbsp;
+            select#rha-comment-sort(chosen,
+            width='"auto"',
+            ng-init="DiscussionService.commentSortOrder = commentSortOrderList[0]"
+            ng-model='DiscussionService.commentSortOrder',
+            no_results_text="'No match found'|translate",
+            ng-change='onSortOrderChange()',
+            ng-options='commentOrder as commentOrder.name | translate for commentOrder in commentSortOrderList')
     .pull-right.mb-5
         select#commentTextareaOptions(ng-if="DiscussionService.getIsCommentMarkdownEnabled()",
                 chosen,
@@ -7,8 +16,8 @@
                 ng-init="DiscussionService.selectedTextareaOption = DiscussionService.commentTextareaOptions[0]"
                 ng-model='DiscussionService.selectedTextareaOption',
                 ng-options='co as co.label for co in DiscussionService.commentTextareaOptions')
-        span(ng-if='securityService.loginStatus.authedUser.is_internal').ml-5 &nbsp{{'Is Public:'|translate}}&nbsp;
-        input(ng-if='securityService.loginStatus.authedUser.is_internal')#rha-case-comment-isPublic(type='checkbox', ng-model='CaseService.isCommentPublic',ng-change= 'onCommentPublicChange()')
+        span(ng-if='securityService.loginStatus.authedUser.is_internal').ml-5.d-flex-inline.align-items-center {{'Is Public:'|translate}}
+            input(ng-if='securityService.loginStatus.authedUser.is_internal').ml-5-important#rha-case-comment-isPublic(type='checkbox', ng-model='CaseService.isCommentPublic',ng-change= 'onCommentPublicChange()')
 div(ng-if="DiscussionService.selectedTextareaOption.label === 'Markdown' && DiscussionService.getIsCommentMarkdownEnabled()",
     rha-markdown-editor='',
     adding-comment='addingComment',

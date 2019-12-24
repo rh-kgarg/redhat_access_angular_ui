@@ -3,7 +3,7 @@ import isEmpty from 'lodash/isEmpty';
 import { markdownToHTML } from '../../shared/utils';
 
 export default class MarkdownEditor {
-    constructor($scope, CaseService, DiscussionService) {
+    constructor($scope, CaseService, DiscussionService, CASE_EVENTS) {
         'ngInject';
         $scope.CaseService = CaseService;
         $scope.DiscussionService = DiscussionService;
@@ -165,5 +165,9 @@ export default class MarkdownEditor {
         $scope.togglePreview = function () {
             $scope.isPreview = !$scope.isPreview;
         }
+
+        $scope.$on(CASE_EVENTS.postCommentOnCase, function () {
+            $scope.isPreview = false;
+        });
     }
 }

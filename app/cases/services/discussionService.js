@@ -24,6 +24,7 @@ export default class DiscussionService {
         this.externalUpdates = CaseService.externalUpdates;
         this.loadingComments = false;
         this.commentTextBoxEnlargen = false;
+        this.isCommentSort = true;
         this.commentTextareaOptions = [{ label: 'Markdown', value: 'markdown'}, {
             label: 'Plain Text', value: 'plaintext'
         }];
