@@ -78,10 +78,10 @@ ul#tab_list.nav.nav-tabs(role="tablist")
                             time {{::element.published_time}}
                         .pre-wrap
                             div.inline(uib-tooltip="{{downloadRestrictedTooltip(element)}}")
-                                a(ng-if="!isCertification() && AttachmentsService.isAwsAttachment(element, AttachmentsService.s3EnabledForAccount)" class=!(element && element.downloadRestricted) && 'disabled' ng-click="downloadS3Attachment(element)")
+                                a(ng-if="!isCertification() && AttachmentsService.isAwsAttachment(element, AttachmentsService.s3EnabledForAccount)" class=(element && element.downloadRestricted) && 'disabled' ng-click="downloadS3Attachment(element)")
                                     .fa.fa-file-image-o.file-upload
                                     span {{::element.file_name}} ({{::element.length ? element.length : element.size | bytes}})&nbsp;
-                                a(ng-if="isCertification() || !AttachmentsService.isAwsAttachment(element, AttachmentsService.s3EnabledForAccount)" class=!(element && element.downloadRestricted) && 'disabled' href="{{::element.link}}" download="download")
+                                a(ng-if="isCertification() || !AttachmentsService.isAwsAttachment(element, AttachmentsService.s3EnabledForAccount)" class=(element && element.downloadRestricted) && 'disabled' href="{{::element.link}}" download="download")
                                     .fa.fa-file-image-o.file-upload
                                     span {{::element.file_name}} ({{::element.length ? element.length : element.size | bytes}})&nbsp;
                             span.fa.fa-close(type='button', style='cursor: pointer;', ng-click='deleteAttachment(element)')
@@ -141,12 +141,13 @@ ul#tab_list.nav.nav-tabs(role="tablist")
                             span {{::'at'|translate}} &nbsp;
                             time {{::attachment.published_time}}
                         .pre-wrap
-                            a(ng-if="!isCertification() && AttachmentsService.isAwsAttachment(attachment, AttachmentsService.s3EnabledForAccount)" ng-click="downloadS3Attachment(attachment)")
-                                .fa.fa-file-image-o.file-upload
-                                span {{::attachment.file_name}} ({{::attachment.length ? attachment.length : attachment.size | bytes}})&nbsp;
-                            a(ng-if="isCertification() || !AttachmentsService.isAwsAttachment(attachment, AttachmentsService.s3EnabledForAccount)" href="{{::attachment.link}}" download="download")
-                                .fa.fa-file-image-o.file-upload
-                                span {{::attachment.file_name}} ({{::attachment.length ? attachment.length : attachment.size | bytes}})&nbsp;
+                            div.inline(uib-tooltip="{{downloadRestrictedTooltip(element)}}")
+                                a(ng-if="!isCertification() && AttachmentsService.isAwsAttachment(attachment, AttachmentsService.s3EnabledForAccount)" class=(element && element.downloadRestricted) && 'disabled' ng-click="downloadS3Attachment(attachment)")
+                                    .fa.fa-file-image-o.file-upload
+                                    span {{::attachment.file_name}} ({{::attachment.length ? attachment.length : attachment.size | bytes}})&nbsp;
+                                a(ng-if="isCertification() || !AttachmentsService.isAwsAttachment(attachment, AttachmentsService.s3EnabledForAccount)" class=(element && element.downloadRestricted) && 'disabled' href="{{::attachment.link}}" download="download")
+                                    .fa.fa-file-image-o.file-upload
+                                    span {{::attachment.file_name}} ({{::attachment.length ? attachment.length : attachment.size | bytes}})&nbsp;
                             span.fa.fa-close(type='button', style='cursor: pointer;', ng-click='deleteAttachment(attachment)')
                             div(ng-if='attachment.checksum') {{::'SHA-256:'|translate}}&nbsp;{{::attachment.checksum}}
                             .description.margin-top-short(ng-if="attachment.description")
