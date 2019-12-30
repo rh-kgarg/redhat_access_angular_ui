@@ -24,18 +24,7 @@ export default class DiscussionSection {
         $scope.caseSummary = false;
         $scope.bugzillas = false;
         $scope.hasScrolled = false;
-        $scope.commentSortOrder = true;
         $scope.DiscussionService = DiscussionService;
-        $scope.commentSortOrderList = [
-            {
-                name: gettextCatalog.getString('Newest to Oldest'),
-                sortOrder: 'DESC'
-            },
-            {
-                name: gettextCatalog.getString('Oldest to Newest'),
-                sortOrder: 'ASC'
-            }
-        ];
 
         // set pagination defaults
         $scope.PaginationService = PaginationService;
@@ -130,7 +119,7 @@ export default class DiscussionSection {
 
         $scope.getOrderedDiscussionElements = (useAttachmentsOnly) => {
             var sorted = orderBy(useAttachmentsOnly ? AttachmentsService.originalAttachments : DiscussionService.discussionElements, "sortModifiedDate");
-            var ordered = $scope.commentSortOrder ? reverse(sorted) : sorted;
+            var ordered = DiscussionService.isCommentSort ? reverse(sorted) : sorted;
             return filter(ordered, (e) => (!e.draft))
         }
 
@@ -391,17 +380,6 @@ export default class DiscussionSection {
             return text;
         }
 
-        $scope.onSortOrderChange = function () {
-            if (RHAUtils.isNotEmpty(DiscussionService.commentSortOrder)) {
-                if (DiscussionService.commentSortOrder.sortOrder === 'ASC') {
-                    $scope.commentSortOrder = false;
-                } else if (DiscussionService.commentSortOrder.sortOrder === 'DESC') {
-                    $scope.commentSortOrder = true;
-                }
-                $scope.onListChange();
-            }
-        };
-
         // This fetches a signed url from a s3 instance to download the specified file.
         $scope.downloadS3Attachment = (element) => {
             const hydraAttachments = hydrajs.kase.attachments;
@@ -418,6 +396,10 @@ export default class DiscussionSection {
         };
 
         $scope.isCertification = () => CaseService.kase.type.name === 'Certification';
+
+        $scope.isDownloadRestricted = (element) => ((element && element.downloadRestricted) || !securityService.loginStatus.authedUser.is_internal);
+
+        $scope.downloadRestrictedTooltip = (element) => $scope.isDownloadRestricted(element) ? 'Current user does not have appropriate permissions to download the attachment' : ''
 
         $scope.$watch('CaseService.account.number', async () => {
             await AttachmentsService.reEvaluateS3EnabledForAccount();

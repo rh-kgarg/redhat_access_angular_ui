@@ -1,7 +1,7 @@
 'use strict';
 
 export default class AddCommentSection {
-    constructor($scope, strataService, CaseService, AlertService, AttachmentsService, DiscussionService, securityService, $timeout, RHAUtils, EDIT_CASE_CONFIG, gettextCatalog, SearchCaseService) {
+    constructor($scope, strataService, CaseService, AlertService, AttachmentsService, DiscussionService, securityService, $timeout, RHAUtils, EDIT_CASE_CONFIG, gettextCatalog, SearchCaseService, SearchBoxService, CASE_EVENTS) {
         'ngInject';
 
         $scope.CaseService = CaseService;
@@ -13,6 +13,16 @@ export default class AddCommentSection {
         $scope.charactersLeft = 0;
         $scope.maxCommentLength = '32000';
         $scope.ieFileDescription = '';
+        $scope.commentSortOrderList = [
+            {
+                name: gettextCatalog.getString('Newest to Oldest'),
+                sortOrder: 'DESC'
+            },
+            {
+                name: gettextCatalog.getString('Oldest to Newest'),
+                sortOrder: 'ASC'
+            }
+        ];
 
         DiscussionService.commentTextBoxEnlargen = false;
 
@@ -32,12 +42,28 @@ export default class AddCommentSection {
             }
         });
 
+        $scope.onSortOrderChange = function () {
+            if (RHAUtils.isNotEmpty(DiscussionService.commentSortOrder)) {
+                if (DiscussionService.commentSortOrder.sortOrder === 'ASC') {
+                    DiscussionService.isCommentSort = false;
+                } else if (DiscussionService.commentSortOrder.sortOrder === 'DESC') {
+                    DiscussionService.isCommentSort = true;
+                }
+                $scope.onListChange();
+            }
+        };
+
+        $scope.onListChange = () => {
+            DiscussionService.highlightSearchResults(SearchBoxService.searchTerm);
+        };
+
         $scope.clearComment = function () {
             CaseService.commentText = '';
             DiscussionService.commentTextBoxEnlargen = false;
             CaseService.localStorageCache.remove(CaseService.kase.case_number + securityService.loginStatus.authedUser.sso_username);
             AttachmentsService.updatedAttachments = [];
             CaseService.disableAddComment = true;
+            $scope.$broadcast(CASE_EVENTS.postCommentOnCase);
         };
 
         $scope.addComment = function () {
@@ -48,6 +74,7 @@ export default class AddCommentSection {
                 SearchCaseService.clear();
                 CaseService.isCommentPublic = true;
                 CaseService.draftCommentOnServerExists = false;
+                $scope.$broadcast(CASE_EVENTS.postCommentOnCase);
                 if (CaseService.localStorageCache) {
                     CaseService.localStorageCache.remove(CaseService.kase.case_number + securityService.loginStatus.authedUser.sso_username);
                 }

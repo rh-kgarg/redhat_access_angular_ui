@@ -13,16 +13,6 @@ ul#tab_list.nav.nav-tabs(role="tablist")
         a(ng-click='toggleCaseSummary()', data-toggle="tab") {{::'Case Summary'|translate}}
 .tab-content
     #pane1.tab-pane(ng-class='{"active": discussion}')
-        .row.row-very-short(ng-if="DiscussionService.discussionElements.length!==0")
-            .col-sm-7
-                label {{::'Sort by'|translate}}&nbsp;&nbsp;
-                select#rha-comment-sort(chosen,
-                width='"auto"',
-                ng-init="DiscussionService.commentSortOrder = commentSortOrderList[0]"
-                ng-model='DiscussionService.commentSortOrder',
-                no_results_text="'No match found'|translate",
-                ng-change='onSortOrderChange()',
-                ng-options='commentOrder as commentOrder.name | translate for commentOrder in commentSortOrderList')
         .row.row-very-short.case-discussion
             .col-xs-12
                 // Add Comment Section
@@ -37,7 +27,7 @@ ul#tab_list.nav.nav-tabs(role="tablist")
                         span(ng-if="DiscussionService.allDiscussionElements().length > 0") {{showingResultsString()}}
                     .col-sm-8
                         pagination(ng-if="discussion", current-page-number="PaginationService.discussionSection.currentPageNumber" datalength="DiscussionService.discussionElements.length", page-size="PaginationService.discussionSection.pageSize", set-current-page-number="setCurrentPageNumberForDS(pageNumber)", set-page-size="PaginationService.setPageSize('discussionSection', pageSize)")
-                .discussion-element(id="{{::element.id}}", ng-repeat="element in DiscussionService.discussionElements | orderBy:'sortModifiedDate':commentSortOrder | startFrom:(PaginationService.discussionSection.currentPageNumber-1)*PaginationService.discussionSection.pageSize | limitTo:PaginationService.discussionSection.pageSize", ng-if='!element.draft', ng-mouseenter='mouseOver(element)', ng-mouseleave='mouseOut(element)')
+                .discussion-element(id="{{::element.id}}", ng-repeat="element in DiscussionService.discussionElements | orderBy:'sortModifiedDate':DiscussionService.isCommentSort | startFrom:(PaginationService.discussionSection.currentPageNumber-1)*PaginationService.discussionSection.pageSize | limitTo:PaginationService.discussionSection.pageSize", ng-if='!element.draft', ng-mouseenter='mouseOver(element)', ng-mouseleave='mouseOut(element)')
                     article.comment.article-comment(ng-if="DiscussionService.isPublicComment(element)")
                         i.fa.fa-comments-o
                         h4.meta
@@ -87,12 +77,13 @@ ul#tab_list.nav.nav-tabs(role="tablist")
                             span {{::'at'|translate}}&nbsp;
                             time {{::element.published_time}}
                         .pre-wrap
-                            a(ng-if="!isCertification() && AttachmentsService.isAwsAttachment(element, AttachmentsService.s3EnabledForAccount)" ng-click="downloadS3Attachment(element)")
-                                .fa.fa-file-image-o.file-upload
-                                span {{::element.file_name}} ({{::element.length ? element.length : element.size | bytes}})&nbsp;
-                            a(ng-if="isCertification() || !AttachmentsService.isAwsAttachment(element, AttachmentsService.s3EnabledForAccount)" href="{{::element.link}}" download="download")
-                                .fa.fa-file-image-o.file-upload
-                                span {{::element.file_name}} ({{::element.length ? element.length : element.size | bytes}})&nbsp;
+                            div.inline(uib-tooltip="{{downloadRestrictedTooltip(element)}}")
+                                a(ng-if="!isCertification() && AttachmentsService.isAwsAttachment(element, AttachmentsService.s3EnabledForAccount)" ng-class='{"disabled": isDownloadRestricted(element)}' ng-click="downloadS3Attachment(element)")
+                                    .fa.fa-file-image-o.file-upload
+                                    span {{::element.file_name}} ({{::element.length ? element.length : element.size | bytes}})&nbsp;
+                                a(ng-if="isCertification() || !AttachmentsService.isAwsAttachment(element, AttachmentsService.s3EnabledForAccount)" ng-class='{"disabled": isDownloadRestricted(element)}' href="{{::element.link}}" download="download")
+                                    .fa.fa-file-image-o.file-upload
+                                    span {{::element.file_name}} ({{::element.length ? element.length : element.size | bytes}})&nbsp;
                             span.fa.fa-close(type='button', style='cursor: pointer;', ng-click='deleteAttachment(element)')
                             div(ng-if="element.checksum") {{::'SHA-256:'|translate}}&nbsp;{{::element.checksum}}
                             .description.margin-top-short(ng-if="element.description")
@@ -150,12 +141,13 @@ ul#tab_list.nav.nav-tabs(role="tablist")
                             span {{::'at'|translate}} &nbsp;
                             time {{::attachment.published_time}}
                         .pre-wrap
-                            a(ng-if="!isCertification() && AttachmentsService.isAwsAttachment(attachment, AttachmentsService.s3EnabledForAccount)" ng-click="downloadS3Attachment(attachment)")
-                                .fa.fa-file-image-o.file-upload
-                                span {{::attachment.file_name}} ({{::attachment.length ? attachment.length : attachment.size | bytes}})&nbsp;
-                            a(ng-if="isCertification() || !AttachmentsService.isAwsAttachment(attachment, AttachmentsService.s3EnabledForAccount)" href="{{::attachment.link}}" download="download")
-                                .fa.fa-file-image-o.file-upload
-                                span {{::attachment.file_name}} ({{::attachment.length ? attachment.length : attachment.size | bytes}})&nbsp;
+                            div.inline(uib-tooltip="{{downloadRestrictedTooltip(element)}}")
+                                a(ng-if="!isCertification() && AttachmentsService.isAwsAttachment(attachment, AttachmentsService.s3EnabledForAccount)" ng-class='{"disabled": isDownloadRestricted(element)}' ng-click="downloadS3Attachment(attachment)")
+                                    .fa.fa-file-image-o.file-upload
+                                    span {{::attachment.file_name}} ({{::attachment.length ? attachment.length : attachment.size | bytes}})&nbsp;
+                                a(ng-if="isCertification() || !AttachmentsService.isAwsAttachment(attachment, AttachmentsService.s3EnabledForAccount)" ng-class='{"disabled": isDownloadRestricted(element)}' href="{{::attachment.link}}" download="download")
+                                    .fa.fa-file-image-o.file-upload
+                                    span {{::attachment.file_name}} ({{::attachment.length ? attachment.length : attachment.size | bytes}})&nbsp;
                             span.fa.fa-close(type='button', style='cursor: pointer;', ng-click='deleteAttachment(attachment)')
                             div(ng-if='attachment.checksum') {{::'SHA-256:'|translate}}&nbsp;{{::attachment.checksum}}
                             .description.margin-top-short(ng-if="attachment.description")

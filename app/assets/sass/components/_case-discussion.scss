@@ -11,7 +11,11 @@
 	}
 
 	.discussion-element{
-		margin-top: 10px;
+        margin-top: 10px;
+     blockquote {
+        border-left: 5px solid #C0C0C0 !important;
+        display: flex;
+      }
 	}
 	textarea.comment {
 		margin-bottom: 15px;
@@ -224,6 +228,10 @@
                 min-width: 100%;
                 resize: none;
             }
+            blockquote {
+                border-left: 5px solid #C0C0C0 !important;
+                padding: 15px;
+            }
         }
     }
 }
@@ -250,8 +258,14 @@
 .d-flex {
 	display: flex;
 }
+.d-flex-inline {
+	display: inline-flex;
+}
 .align-items-center {
 	align-items: center;
+}
+.ml-5-important {
+    margin-left: 5px !important;
 }
 
 .attachment-list {

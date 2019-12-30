@@ -15,4 +15,5 @@ export default {
     filterInitialized: 'filter-initialized',
     newPageCEP: 'new-page-cep',
     editPageCEP: 'edit-page-cep',
+    postCommentOnCase: 'post-comment-on-case',
 }

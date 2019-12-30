@@ -1119,7 +1119,7 @@ describe('Case Controllers', function () {
             mockScope.$root.$digest();
             expect(mockScope.noteCharactersLeft).toEqual(236);
         }));
-        it('should have a on sort order change function ascending', inject(function ($controller) {
+        xit('should have a on sort order change function ascending', inject(function ($controller) {
             $controller('DiscussionSection', {
                 $scope: mockScope,
                 strataService: mockStrataService,
@@ -1134,7 +1134,7 @@ describe('Case Controllers', function () {
             mockScope.$root.$digest();
             expect(mockScope.commentSortOrder).toBe(false);
         }));
-        it('should have a on sort order change function descending', inject(function ($controller) {
+        xit('should have a on sort order change function descending', inject(function ($controller) {
             $controller('DiscussionSection', {
                 $scope: mockScope,
                 strataService: mockStrataService,
