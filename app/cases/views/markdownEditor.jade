@@ -1,24 +1,24 @@
 div#markdownCommentSection.markdown-editor-container
     div.btn-toolbar.d-flex.align-items-center.border-botton
         .btn-group
-            button.btn.btn-link.color-black.btn-app.btn-sm(ng-click='bold()', ng-disabled='isPreview') B
-            button.btn.btn-link.color-black.button-italic.btn-app.btn-sm(ng-click='italic()', ng-disabled='isPreview') I
+            button.btn.btn-link.color-black.btn-app.btn-sm(ng-click='bold()', uib-tooltip='{{"Bold"|translate}}', tooltip-placement="bottom" ng-disabled='isPreview') B
+            button.btn.btn-link.color-black.button-italic.btn-app.btn-sm(ng-click='italic()', uib-tooltip='{{"Italic"|translate}}', tooltip-placement="bottom", ng-disabled='isPreview') I
         div.separator
         .btn-group
-            button.btn.btn-link.color-black.btn-app.btn-sm(ng-click='h1()', ng-disabled='isPreview') H1
-            button.btn.btn-link.color-black.btn-app.btn-sm(ng-click='h2()', ng-disabled='isPreview') H2
-            button.btn.btn-link.color-black.btn-app.btn-sm(ng-click='h3()', ng-disabled='isPreview') H3
+            button.btn.btn-link.color-black.btn-app.btn-sm(ng-click='h1()', uib-tooltip='{{"Heading 1"|translate}}', tooltip-placement="bottom", ng-disabled='isPreview') H1
+            button.btn.btn-link.color-black.btn-app.btn-sm(ng-click='h2()', uib-tooltip='{{"Heading 2"|translate}}', tooltip-placement="bottom",  ng-disabled='isPreview') H2
+            button.btn.btn-link.color-black.btn-app.btn-sm(ng-click='h3()', uib-tooltip='{{"Heading 3"|translate}}', tooltip-placement="bottom", ng-disabled='isPreview') H3
         div.separator
         .btn-group
-            button.btn.btn-link.color-black.button-list.btn-app.btn-sm(ng-click='list()', ng-disabled='isPreview')
+            button.btn.btn-link.color-black.button-list.btn-app.btn-sm(ng-click='list()', uib-tooltip='{{"Bullet list"|translate}}', tooltip-placement="bottom", ng-disabled='isPreview')
                 i.fa.fa-list-ul
         div.separator
         .btn-group
-            button.btn.btn-link.color-black.button-link.btn-app.btn-sm(ng-click='link()', ng-disabled='isPreview')
+            button.btn.btn-link.color-black.button-link.btn-app.btn-sm(ng-click='link()', uib-tooltip='{{"Link"|translate}}', tooltip-placement="bottom", ng-disabled='isPreview')
                 i.fa.fa-link
-            button.btn.btn-link.color-black.button-quote.btn-app.btn-sm(ng-click='quote()', ng-disabled='isPreview')
+            button.btn.btn-link.color-black.button-quote.btn-app.btn-sm(ng-click='quote()', uib-tooltip='{{"Quote"|translate}}', tooltip-placement="bottom", ng-disabled='isPreview')
                 i.fa.fa-quote-right
-            button.btn.btn-link.color-black.button-code.btn-app.btn-sm(ng-click='code()', ng-disabled='isPreview')
+            button.btn.btn-link.color-black.button-code.btn-app.btn-sm(ng-click='code()', uib-tooltip='{{"Code"|translate}}', tooltip-placement="bottom", ng-disabled='isPreview')
                 i.fa.fa-code
         .btn-group.margin-left-auto
             button.color-blue.btn.btn-link.button-list.btn-app.btn-sm(ng-click='togglePreview()')
@@ -33,7 +33,9 @@ div#markdownCommentSection.markdown-editor-container
             rows='5',
             ng-trim="false",
             ng-model='CaseService.commentText',
+            ng-model-options="{'debounce': 300}"
             ng-change='onNewCommentKeypress()',
+            ng-keydown="keydown($event)"
             ng-click='DiscussionService.commentTextBoxEnlargen=true',
             ng-class='{"expanded": DiscussionService.commentTextBoxEnlargen}',
             ng-blur='shouldTextboxMinimize()')

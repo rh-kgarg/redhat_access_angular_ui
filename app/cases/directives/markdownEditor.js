@@ -9,7 +9,8 @@ export default function () {
             addingComment: '=',
             onNewCommentKeypress: '&',
             commentTextBoxEnlargen: '=',
-            shouldTextboxMinimize: '&'
+            shouldTextboxMinimize: '&',
+            isMarkdownEditor: '='
         }
     };
 }

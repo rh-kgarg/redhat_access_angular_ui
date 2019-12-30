@@ -1,6 +1,7 @@
 'use strict';
 import isEmpty from 'lodash/isEmpty';
 import { markdownToHTML } from '../../shared/utils';
+import { UndoRedoLogger } from './undoRedoLogger';
 
 export default class MarkdownEditor {
     constructor($scope, CaseService, DiscussionService, CASE_EVENTS) {
@@ -10,19 +11,86 @@ export default class MarkdownEditor {
         $scope.isPreview = false;
         $scope.markdownToHTML = markdownToHTML;
 
+        $scope.undoRedoLogger = new UndoRedoLogger('markdownUndoRedoLogger');
+        
+        $scope.clearUndoRedoLogger = () => {
+            $scope.undoRedoLogger.cleanRedoList();
+            $scope.undoRedoLogger.cleanUndoList();
+        };
+        
+        $scope.updateUndoRedoLogger = (value) => {
+            if ($scope.undoRedoLogger.getLastRecord() !== value) {
+                $scope.undoRedoLogger.updateRecord(value);
+            }
+        };
+
+        $scope.$watch('CaseService.commentText', function () {
+            $scope.isMarkdownEditor && $scope.updateUndoRedoLogger(CaseService.commentText);
+        });
+
+        $scope.keydown = (event) => {
+            if (event.ctrlKey) {
+              switch (event.key) {
+                case 'b':
+                  $scope.bold();
+                  $scope.haltEvent(event);
+                  break;
+                case 'i':
+                  $scope.italic();
+                  $scope.haltEvent(event);
+                  break;
+                case '1':
+                  $scope.h1();
+                  $scope.haltEvent(event);
+                  break;
+                case '2':
+                  $scope.h2();
+                  $scope.haltEvent(event);
+                  break;
+                case '3':
+                  $scope.h3();
+                  $scope.haltEvent(event);
+                  break;
+                case 'z':
+                    $scope.handleUndo();
+                    $scope.haltEvent(event);
+                    break;
+                case 'y':
+                    $scope.handleRedo();
+                    $scope.haltEvent(event);
+                    break;
+              }
+            }
+        };
+
+        $scope.haltEvent = (event) => {
+            if (event) {
+                event.stopPropagation();
+                event.preventDefault();
+            }
+        }
+
+        $scope.handleUndo = () => {
+            $scope.undoRedoLogger.undo((lastValue) => {
+                $scope.setMdText(lastValue || '');
+            });
+        }
+        
+        $scope.handleRedo = () => {
+            $scope.undoRedoLogger.redo((value) => {
+                $scope.setMdText(value || '');
+            });
+        }
+
+        $scope.setMdText = (value = '') => {
+            CaseService.commentText = value;
+            $scope.onNewCommentKeypress();
+        }
+
         $scope.getSelectedText = function () {
             const currentText = CaseService.commentText || '';
             const textArea = $scope.getMarkdownTextEditor();
             return (currentText && currentText.substring(textArea.selectionStart, textArea.selectionEnd)) || '';
-        };
-        // execCommand is used to manipulate the current editable regions such as
-        // form inputs or contentEditable elements.
-        // i am using this because undo redo does not work properly for input element after
-        // contents changed programmatically for markdown
-        $scope.execCommandOnTextarea = function (markdownText) {
-            if (document.execCommand) {
-                document.execCommand('insertText', false, markdownText);
-            }
         };
 
         $scope.getMarkdownTextEditor = function () {
@@ -39,7 +107,6 @@ export default class MarkdownEditor {
             const newText = currentText.substring(0, pos) + template + currentText.substring(pos);
             CaseService.commentText = newText;
             textArea.focus();
-            $scope.execCommandOnTextarea(template);
         }
 
         $scope.wrapSelection = function (templateStart, templateEnd) {
@@ -50,12 +117,10 @@ export default class MarkdownEditor {
             const textArea = $scope.getMarkdownTextEditor();
             const posStart = textArea.selectionStart;
             const posEnd = textArea.selectionEnd;
-            const selectedText = templateStart + currentText.substring(posStart, posEnd) + templateEnd;
             const newText = currentText.substring(0, posStart) + templateStart +
                 currentText.substring(posStart, posEnd) + templateEnd + currentText.substring(posEnd);
             CaseService.commentText = newText;
             textArea.focus();
-            $scope.execCommandOnTextarea(selectedText);
         }
 
         $scope.wrapBasedOnNewLines = function () {
@@ -73,12 +138,8 @@ export default class MarkdownEditor {
                 '\n',
                 currentText.substring(posEnd)
             );
-            const selectedTextWithLine = ''.concat(
-                splitText.map((v) => `- ${v}`).join('\n')
-            );
             CaseService.commentText = newText;
             textArea.focus();
-            $scope.execCommandOnTextarea(selectedTextWithLine);
         }
 
         $scope.bold = function () {
@@ -168,6 +229,7 @@ export default class MarkdownEditor {
 
         $scope.$on(CASE_EVENTS.postCommentOnCase, function () {
             $scope.isPreview = false;
+            $scope.clearUndoRedoLogger();
         });
     }
 }

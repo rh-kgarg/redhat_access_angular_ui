@@ -22,6 +22,7 @@ div(ng-if="DiscussionService.selectedTextareaOption.label === 'Markdown' && Disc
     rha-markdown-editor='',
     adding-comment='addingComment',
     on-new-comment-keypress='onNewCommentKeypress()',
+    is-markdown-editor="DiscussionService.selectedTextareaOption.label === 'Markdown'"
     should-textbox-minimize='shouldTextboxMinimize()')
 textarea.comment.expand#case-comment-box.form-control(
   ng-if="DiscussionService.selectedTextareaOption.label === 'Plain Text' || !DiscussionService.getIsCommentMarkdownEnabled()",
