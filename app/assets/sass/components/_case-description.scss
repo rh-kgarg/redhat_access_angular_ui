@@ -50,7 +50,10 @@ $case-description-padding: $global-padding;
 			@include opacity(1);
 			display: block;
 		}
-	}
+    }
+    .description {
+        font-family: monospace !important;
+    }
 }
 
 .attachment-filename {
