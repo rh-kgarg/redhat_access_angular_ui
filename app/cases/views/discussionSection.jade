@@ -141,11 +141,11 @@ ul#tab_list.nav.nav-tabs(role="tablist")
                             span {{::'at'|translate}} &nbsp;
                             time {{::attachment.published_time}}
                         .pre-wrap
-                            div.inline(uib-tooltip="{{downloadRestrictedTooltip(element)}}")
-                                a(ng-if="!isCertification() && AttachmentsService.isAwsAttachment(attachment, AttachmentsService.s3EnabledForAccount)" ng-class='{"disabled": isDownloadRestricted(element)}' ng-click="downloadS3Attachment(attachment)")
+                            div.inline(uib-tooltip="{{downloadRestrictedTooltip(attachment)}}")
+                                a(ng-if="!isCertification() && AttachmentsService.isAwsAttachment(attachment, AttachmentsService.s3EnabledForAccount)" ng-class='{"disabled": isDownloadRestricted(attachment)}' ng-click="downloadS3Attachment(attachment)")
                                     .fa.fa-file-image-o.file-upload
                                     span {{::attachment.file_name}} ({{::attachment.length ? attachment.length : attachment.size | bytes}})&nbsp;
-                                a(ng-if="isCertification() || !AttachmentsService.isAwsAttachment(attachment, AttachmentsService.s3EnabledForAccount)" ng-class='{"disabled": isDownloadRestricted(element)}' href="{{::attachment.link}}" download="download")
+                                a(ng-if="isCertification() || !AttachmentsService.isAwsAttachment(attachment, AttachmentsService.s3EnabledForAccount)" ng-class='{"disabled": isDownloadRestricted(attachment)}' href="{{::attachment.link}}" download="download")
                                     .fa.fa-file-image-o.file-upload
                                     span {{::attachment.file_name}} ({{::attachment.length ? attachment.length : attachment.size | bytes}})&nbsp;
                             span.fa.fa-close(type='button', style='cursor: pointer;', ng-click='deleteAttachment(attachment)')

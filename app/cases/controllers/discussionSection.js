@@ -397,7 +397,7 @@ export default class DiscussionSection {
 
         $scope.isCertification = () => CaseService.kase.type.name === 'Certification';
 
-        $scope.isDownloadRestricted = (element) => ((element && element.downloadRestricted) || !securityService.loginStatus.authedUser.is_internal);
+        $scope.isDownloadRestricted = (element) => (element ? (element.downloadRestricted && !securityService.loginStatus.authedUser.is_internal) : false);
 
         $scope.downloadRestrictedTooltip = (element) => $scope.isDownloadRestricted(element) ? 'Current user does not have appropriate permissions to download the attachment' : ''
 
