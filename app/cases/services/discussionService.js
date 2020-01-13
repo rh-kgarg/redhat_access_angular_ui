@@ -25,10 +25,10 @@ export default class DiscussionService {
         this.loadingComments = false;
         this.commentTextBoxEnlargen = false;
         this.isCommentSort = true;
-        this.commentTextareaOptions = [{ label: 'Markdown', value: 'markdown'}, {
-            label: 'Plain Text', value: 'plaintext'
-        }];
-        this.selectedTextareaOption = { label: 'Markdown', value: 'markdown' };
+        this.commentTextareaOptions = [{ label: 'Plain Text', value: 'plaintext'},
+            { label: 'Markdown', value: 'markdown'}, 
+        ];
+        this.selectedTextareaOption = { label: 'Plain Text', value: 'plaintext'};
 
         this.getDiscussionElements = async function (caseId) {
             var attachPromise = null;

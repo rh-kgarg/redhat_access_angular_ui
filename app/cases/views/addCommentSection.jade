@@ -57,6 +57,7 @@ div(ng-show='EDIT_CASE_CONFIG.showAttachments && securityService.loginStatus.aut
   .col-xs-5
     .pull-right
       .spinner.spinner-inline(ng-show='addingComment || addingattachment || AttachmentsService.uploadingAttachments')
+      a.mr-5(href='https://access.redhat.com/articles/4729621', target='_blank', uib-tooltip='{{"Basic text formatting (bold, italics, unordered lists/bullets, H1 and H2, code block) when composing a comment."|translate}}', tooltip-placement="top") Markdown Guidance
       button#rha-case-addcommentbutton.btn.btn-app(
         ng-hide='addingComment || addingattachment || AttachmentsService.uploadingAttachments',
         ng-disabled='CaseService.disableAddComment && AttachmentsService.updatedAttachments.length === 0 && !AttachmentsService.hasBackEndSelections()',
