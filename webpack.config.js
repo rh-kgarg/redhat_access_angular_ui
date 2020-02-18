@@ -14,7 +14,7 @@ var path = require('path');
 // the build
 require('es6-promise').polyfill();
 
-var resolveBowerPath = function(componentPath) {
+var resolveBowerPath = function (componentPath) {
     return path.join(__dirname, 'bower_components', componentPath);
 };
 
@@ -39,7 +39,7 @@ module.exports = function (options) {
     var config = {};
 
     // When we're running the test build we need to mock some node environment configs
-    config.node = ENV == 'TEST' ? {fs: 'empty'} : {};
+    config.node = ENV == 'TEST' ? { fs: 'empty' } : {};
 
     config.context = __dirname + '/app';
 
@@ -70,8 +70,6 @@ module.exports = function (options) {
         // publicPath: isProd ? '/' : 'http://0.0.0.0:9000/',
         // Since FF doesn't handle scripts loaded from different domains, let the access proxy handle any hits to
         // resources, the above using 0.0.0.0:9000 is the standard way to do this without something like accessproxy
-        publicPath: isProd ? '/support/cases/' : '/',
-
         // Filename for entry points
         // Only adds hash in build mode
         // filename: isProd ? '[name].[hash].js' : 'pcm.js',
