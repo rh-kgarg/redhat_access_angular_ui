@@ -10,6 +10,10 @@ const history = require('connect-history-api-fallback');
 const app = new Express();
 
 const publicDir = 'public';
+const isBetaEnv = process.env.BETA_ENV;
+
+const basePath = isBetaEnv ? '/support-beta' : '/support/cases';
+const rewriteBasePathRegex = isBetaEnv ? /^\/support-beta\/(.*)/i : /^\/support\/cases\/(.*)/i;
 
 const port = 8443;
 
@@ -21,18 +25,18 @@ function setCustomCacheControl(res, path) {
 app
     .use(morgan('combined')) // logger
     .use(compression()) // gzip
-    .use('/live', function(req, res) {
+    .use('/live', function (req, res) {
         // OpenShift livenessProbe
         res.send('<h1>Application is alive :)</h1>');
     })
-    .get('/*', function(req, res, next) {
+    .get('/*', function (req, res, next) {
         /**
          * Rewrite url and redirect
          * example: /support/cases/new to /support/cases/#/case/new
          */
-        const tmpPath = req.path.replace('/support/cases', '');
+        const tmpPath = req.path.replace(basePath, '');
         if (tmpPath !== '/' && tmpPath.search(/.(js|css|png|gif)$/) < 0) {
-            res.redirect(302, '/support/cases/#/case' + tmpPath);
+            res.redirect(302, basePath + '/#/case' + tmpPath);
         }
         next();
     })
@@ -40,8 +44,8 @@ app
         history({
             rewrites: [
                 {
-                    from: /^\/support\/cases\/(.*)/i,
-                    to: function(context) {
+                    from: rewriteBasePathRegex,
+                    to: function (context) {
                         return '/' + context.match[1];
                     }
                 }
@@ -64,12 +68,12 @@ try {
         key: key
     };
 
-    https.createServer(options, app).listen(port, function() {
-        console.log('Application start with https');
+    https.createServer(options, app).listen(port, function () {
+        console.log('Application start with https ' + isBetaEnv ? 'on beta env' : 'on stable env');
     });
 } catch (err) {
     console.error(err);
-    app.listen(port, function() {
+    app.listen(port, function () {
         console.log('Application start with http');
     });
 }
